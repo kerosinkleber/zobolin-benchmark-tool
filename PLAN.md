@@ -8,7 +8,8 @@ Status: the owner accepted the recommended decisions in section 8
 `findings/01-engine-check.md` and change the plan in five places (listed
 there). Corrections from the first fact-check pass are
 marked ✱. **Step 2 is done** (2026-11-08): `game/benchmark/bench_stats.gd`.
-Next: step 3.
+**Step 3 is done** (2026-11-08): `game/benchmark/bench_recorder.gd`, see
+`findings/03-recorder.md`. Next: step 4.
 
 ---
 
@@ -218,7 +219,7 @@ Every step also passes the three standard checks from the game's CLAUDE.md
 | 0 | Owner's decisions (section 8); entry in the game's `PLAN.md`; this folder set up | Owner says yes |
 | 1 ✅ 2026-11-08 | **Engine check**: a run prints which 4.7.2 numbers really work (Jolt physics counts, shader compiles cumulative or per frame, which monitors refresh every frame, `--gpu-profile` format, thread model) | Done: see `findings/01-engine-check.md`. Per-pass GPU time per frame is readable in `-GpuProfile` runs, so part of step 10 moves forward |
 | 2 ✅ 2026-11-08 | `bench_stats.gd` + tests | Done: 11 tests pass; average fps, slowest 1 % and slowest frame match `_summarise` exactly on four made-up runs (50–3000 frames) |
-| 3 | Recorder on one terrain view → `frames.csv` + `run.json` | Frame ms within 5 % of a real-clock reference; CPU columns not 0 |
+| 3 ✅ 2026-11-08 | Recorder on terrain views → `frames.csv` + `run.json` (`benchmark.ps1 -Record`) | Done: frame ms within 0.5 % of the real clock and of the benchmark on 3 views; CPU columns not 0. With `-GpuProfile` it also records per-pass GPU time every frame (sum within 3 % of GPU ms) |
 | 4 | `benchmark.ps1` options + `zbench.ps1` with repeats, PC stamp, shared vsync/fps-cap detector (fails the run if capped) | 3 repeats agree within the PC's noise band (band recorded, not a fail) |
 | 5a | Switches mapped to existing flags | Each verified by its declared method |
 | 5b | New GPU switches (water, post, shadow casters, lamps…) | Same |

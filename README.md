@@ -7,7 +7,7 @@ Licence: GPL-3.0-or-later (see `LICENSE`).
 
 ## Status
 
-Steps 1 (engine check, see `findings/01-engine-check.md`) and 2 (statistics) are done. There is
+Steps 1 to 3 are done (engine check, statistics, recorder; see `findings/`). There is
 no one-command run yet.
 
 ## Engine check (step 1)

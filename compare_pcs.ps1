@@ -16,8 +16,11 @@ param(
 
 $TargetMs = 1000.0 / 60.0
 $folder = Join-Path $PSScriptRoot "baselines"
-$files = @(Get-ChildItem $folder -Recurse -Filter "$($Scenario)_*.json" -ErrorAction SilentlyContinue |
-	Where-Object { $_.BaseName -notmatch "_ablate_" -or $Scenario -match "_ablate$" })
+# Exactly this scenario: <scenario>_<preset>_<renderer>_<graphics card>[_gpuprofile]
+# ("vista" must not pick up "vista_quick").
+$pattern = '^' + [regex]::Escape($Scenario) + '_(high|low)_(forward_plus|mobile)_[^_]+$'
+$files = @(Get-ChildItem $folder -Recurse -Filter "*.json" -ErrorAction SilentlyContinue |
+	Where-Object { $_.BaseName -match $pattern })
 if ($files.Count -eq 0) {
 	Write-Host "No baselines for '$Scenario' yet. Make one on each PC with: zbench.ps1 -Scenario $Scenario -SaveBaseline" -ForegroundColor Yellow
 	exit 1

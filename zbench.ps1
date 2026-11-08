@@ -51,6 +51,9 @@ param(
 	[string] $Baseline = ""
 )
 
+# Several game options may come as one string ("--npcs=8 --grass=off"),
+# as `powershell -File` passes them: split them at spaces.
+$GameOptions = @($GameOptions | ForEach-Object { $_ -split '\s+' } | Where-Object { $_ })
 # Not "Stop": Godot writes warnings to its error output, which must not end the run.
 # Note: PowerShell doesn't tell upper and lower case apart in names, so no
 # variable here may share a name with an option above ($gpu would be $Gpu).
@@ -93,6 +96,8 @@ function Join-Repeats($RunList) {
 			slowest_1_percent_fps = Get-MedianOf $per { $_.frame_ms.slowest_1_percent_fps }
 			gpu_ms = $gpuBand.median
 			gpu_spread_share = $gpuBand.spread_share
+			gpu_noise_band_share = $gpuBand.band_share
+			p99_noise_band_share = (Get-NoiseBand ([double[]]@($per | ForEach-Object { $_.frame_ms.p99_ms }))).band_share
 			gpu_bound_share = Get-MedianOf $per { $_.gpu_bound_share }
 			process_ms = Get-MedianOf $per { $_.p50.process_ms }
 			process_mean_ms = Get-MedianOf $per { $_.mean.process_ms }
@@ -180,6 +185,8 @@ if ($Reanalyse) {
 	$Ablate = [bool]$sessionInfo.ablate
 	$Preset = $sessionInfo.preset
 	$Renderer = $sessionInfo.renderer
+	if ($sessionInfo.gpu) { $Gpu = $sessionInfo.gpu }
+	$GpuProfile = [bool]$sessionInfo.gpu_profile
 	$machine = $sessionInfo.machine
 	$warnings = @($sessionInfo.warnings)
 	$plan = $sessionInfo.scenario_plan
@@ -357,7 +364,8 @@ foreach ($variant in $variants) {
 	$byVariant[$variant.name] = Join-Repeats $runList
 }
 # The main numbers: everything on, or in a sweep the first (smallest) variant.
-$segments = if ($byVariant.Contains("all_on")) { $byVariant["all_on"] } else { $byVariant[$variants[0].name] }
+# (@() keeps a single view a list: PowerShell would unroll it.)
+$segments = @(if ($byVariant.Contains("all_on")) { $byVariant["all_on"] } else { $byVariant[$variants[0].name] })
 
 # --- A sweep: how the cost grows with the count (a straight line through it) ---
 function Get-LineFit([double[]] $X, [double[]] $Y) {
@@ -446,6 +454,11 @@ if ($Ablate) {
 		for ($r = 1; $r -le $Repeats; $r++) {
 			$offRun = Get-Content -Raw (Join-Path $session "$($variant.name)\r$r\run.json") | ConvertFrom-Json
 			foreach ($property in @($offRun.off.PSObject.Properties)) {
+				# Sessions from step 5a kept only the text: checked by counts.
+				if ($property.Value -is [string]) {
+					if ($r -eq 1) { $removes += $property.Value }
+					continue
+				}
 				if ($r -eq 1) { $removes += $property.Value.removes }
 				if ($property.Value.check -eq "setting" -and $variant.off.Count -eq 1) { $method = "setting" }
 				if ($property.Value.check -eq "counter" -and $variant.off.Count -eq 1) {
@@ -542,22 +555,34 @@ if ($scaling.Count -gt 0) {
 
 # --- Compare with the baseline ---
 $kindLabel = if ($Ablate) { "$($Scenario)_ablate" } else { $Scenario }
-$baselineFile = Join-Path $PSScriptRoot "baselines\$($machine.pc)\$($kindLabel)_$($Preset)_$($Renderer).json"
+$profileLabel = if ($GpuProfile) { "_gpuprofile" } else { "" }
+$baselineFile = Join-Path $PSScriptRoot "baselines\$($machine.pc)\$($kindLabel)_$($Preset)_$($Renderer)_$($Gpu)$profileLabel.json"
 $compareWith = if ($Baseline) { $Baseline } else { $baselineFile }
 $comparison = $null
+$base = $null
+$rowsOut = @()
 if ((Test-Path $compareWith) -and -not ($SaveBaseline -and -not $Baseline)) {
 	$base = Get-Content -Raw $compareWith | ConvertFrom-Json
-	$rowsOut = @()
+	if ($base.graphics_card_used -and $base.graphics_card_used -ne $firstRun.meta.graphics_card) {
+		Write-Host "Not compared: the baseline was measured on $($base.graphics_card_used), this session on $($firstRun.meta.graphics_card)." -ForegroundColor Yellow
+		$base = $null
+	}
+}
+if ($base) {
 	foreach ($now in $segments) {
 		$then = $base.segments | Where-Object { $_.name -eq $now.name } | Select-Object -First 1
 		if ($null -eq $then) { continue }
-		$band = [math]::Max([math]::Max([double]$now.noise_band_share, [double]$then.noise_band_share), $MinNoiseShare)
-		$limit = [math]::Max(0.05, $band)
 		$entry = [ordered]@{ view = $now.name }
+		# Each number has its own noise (p99 varies far more than the mean):
+		# the larger of the two sessions' bands, never under the floor.
+		$bandOf = @{ mean_frame_ms = "noise_band_share"; p99_frame_ms = "p99_noise_band_share"; gpu_ms = "gpu_noise_band_share"; cpu_ms = "cpu_noise_band_share" }
 		foreach ($metric in @("mean_frame_ms", "p99_frame_ms", "gpu_ms", "cpu_ms")) {
 			$old = [double]$then.$metric
 			$new = [double]$now.$metric
 			if ($old -le 0) { continue }
+			$bandName = $bandOf[$metric]
+			$band = [math]::Max([math]::Max([double]$now.$bandName, [double]$then.$bandName), $MinNoiseShare)
+			$limit = [math]::Max(0.05, $band)
 			$change = ($new - $old) / $old
 			$verdict = if ([math]::Abs($change) -le $limit) { "no change" } elseif ($change -gt 0) { "slower" } else { "faster" }
 			$entry[$metric] = [ordered]@{ before = $old; now = $new; change_share = $change; verdict = $verdict }
@@ -594,7 +619,7 @@ foreach ($s in $segments) {
 $worst = 0.0
 foreach ($s in $segments) { $worst = [math]::Max($worst, $s.frame_spread_share) }
 $band = [math]::Max($MinNoiseShare, $worst)
-Write-Host ("Repeats differ by up to {0:N1}%: on this PC, changes smaller than {1:N1}% count as 'no change'." -f ($worst * 100), ($band * 100))
+Write-Host ("Repeats differ by up to {0:N1}%: on this PC a part's saving counts if it is over {1:N1}% (the noise); a change against a baseline must be over 5% and outside the noise." -f ($worst * 100), ($band * 100))
 foreach ($s in $segments) {
 	if (-not $s.zones) { continue }
 	Write-Host ""

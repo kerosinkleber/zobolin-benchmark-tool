@@ -20,7 +20,8 @@ function Get-PowerPlan {
 function Get-GameCommit([string] $GameRepo) {
 	try {
 		$commit = (git -C $GameRepo rev-parse HEAD 2>$null)
-		$dirty = [bool](git -C $GameRepo status --porcelain 2>$null)
+		# Changed tracked files only: an untracked folder doesn't change the game.
+		$dirty = [bool](git -C $GameRepo status --porcelain --untracked-files=no 2>$null)
 		if ($commit) { return [ordered]@{ commit = $commit.Trim(); uncommitted_changes = $dirty } }
 	} catch {}
 	return [ordered]@{ commit = "unknown"; uncommitted_changes = $true }

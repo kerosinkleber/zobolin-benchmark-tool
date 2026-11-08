@@ -44,6 +44,7 @@ param(
 Import-Module (Join-Path $PSScriptRoot "lib\Machine.psm1") -Force
 Import-Module (Join-Path $PSScriptRoot "lib\Stats.psm1") -Force
 Import-Module (Join-Path $PSScriptRoot "lib\Pictures.psm1") -Force
+Import-Module (Join-Path $PSScriptRoot "lib\Report.psm1") -Force
 # A processor switch must leave the picture as it is: screenshots may
 # differ by at most this much (0 to 1) from everything on. Repeats and
 # working switches differ by 0.0000; re-centring off (grass gone far from
@@ -102,6 +103,24 @@ function Join-Repeats($RunList) {
 			}
 		}
 		if ($passes.Count -gt 0) { $segment.gpu_passes_ms = $passes }
+		# Stopwatch zones (step 8): average ms per frame and the slowest frame,
+		# middle value over the repeats; plus what they leave unexplained.
+		$zoneNames = @()
+		foreach ($run in $per) {
+			if ($run.zones) { foreach ($p in $run.zones.PSObject.Properties) { if ($zoneNames -notcontains $p.Name) { $zoneNames += $p.Name } } }
+		}
+		if ($zoneNames.Count -gt 0) {
+			$zoneTable = [ordered]@{}
+			foreach ($zoneName in ($zoneNames | Sort-Object)) {
+				$zoneTable[$zoneName] = [ordered]@{
+					mean_ms = Get-MedianOf $per { if ($_.zones.$zoneName) { $_.zones.$zoneName.mean_ms } else { 0 } }
+					max_ms = Get-MedianOf $per { if ($_.zones.$zoneName) { $_.zones.$zoneName.max_ms } else { 0 } }
+				}
+			}
+			$segment.zones = $zoneTable
+			$segment.unattributed_process_ms = Get-MedianOf $per { $_.unattributed_process_ms }
+			$segment.unattributed_physics_ms = Get-MedianOf $per { $_.unattributed_physics_ms }
+		}
 		# Stutters by main cause, over the repeats: the middle count, the
 		# slowest stutter, and where (world x) in the first repeat.
 		$causeNames = @()
@@ -470,6 +489,19 @@ foreach ($s in $segments) { $worst = [math]::Max($worst, $s.frame_spread_share) 
 $band = [math]::Max($MinNoiseShare, $worst)
 Write-Host ("Repeats differ by up to {0:N1}%: on this PC, changes smaller than {1:N1}% count as 'no change'." -f ($worst * 100), ($band * 100))
 foreach ($s in $segments) {
+	if (-not $s.zones) { continue }
+	Write-Host ""
+	Write-Host "Where the processor time goes in $($s.name) (stopwatches; ms per frame on average, and the slowest frame):" -ForegroundColor Cyan
+	Write-Host ("  {0,-22} {1,9:N3}   (all scripts {2:N3}, physics {3:N3})" -f "scripts and physics", ($s.process_mean_ms + $s.physics_mean_ms), $s.process_mean_ms, $s.physics_mean_ms)
+	$ordered = @($s.zones.Keys | Sort-Object { $s.zones[$_].mean_ms } -Descending)
+	foreach ($zoneName in $ordered) {
+		$label = if ($zoneName.Contains(".")) { "  - $zoneName" } else { $zoneName }
+		Write-Host ("  {0,-22} {1,9:N3}   slowest frame {2,7:N2}" -f $label, $s.zones[$zoneName].mean_ms, $s.zones[$zoneName].max_ms)
+	}
+	Write-Host ("  {0,-22} {1,9:N3}   (scripts without a stopwatch)" -f "unattributed scripts", $s.unattributed_process_ms)
+	Write-Host ("  {0,-22} {1,9:N3}   (mostly Jolt's own step)" -f "unattributed physics", $s.unattributed_physics_ms)
+}
+foreach ($s in $segments) {
 	if (-not $s.hitch_causes) { continue }
 	Write-Host ""
 	Write-Host "Stutters in $($s.name) by main cause (middle count of the runs, slowest, where in the first run):" -ForegroundColor Cyan
@@ -535,3 +567,10 @@ if ($Ablate) {
 	}
 }
 Write-Host "Results: $session" -ForegroundColor Green
+# The report page (report.html): opens in any web browser, also offline.
+try {
+	$page = New-BenchReport -Session $session
+	Write-Host "Report page: $page" -ForegroundColor Green
+} catch {
+	Write-Host "Could not make the report page: $($_.Exception.Message)" -ForegroundColor Yellow
+}

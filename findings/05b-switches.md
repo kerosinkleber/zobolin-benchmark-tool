@@ -29,7 +29,9 @@ Raw summary: `05b-switches-gtx970-high-summary.json`.
 
 ## What each part costs (GTX 970, high preset, 3 rounds of 13 runs)
 
-Frame time saved when the part is off, ms. \* = inside the noise.
+Frame time saved when the part is off, ms. \* = inside the noise, with the
+noise floor at 1.5 % (lowered from 3 % after this run; the table is the
+same runs analysed again with `zbench.ps1 -Reanalyse`).
 
 | Part | centre_north | valley_floor | village_close | Average |
 |---|---|---|---|---|
@@ -37,13 +39,13 @@ Frame time saved when the part is off, ms. \* = inside the noise.
 | Trees | 1.51 | 3.51 | 4.22 | **3.08** |
 | Shadows (all) | 2.16 | 2.62 | 2.30 | **2.36** |
 | Grass | 1.44 | 2.19 | 3.13 | **2.25** |
-| Sky | 1.11 | 0.32\* | 0.85 | **0.76** |
-| Fog | 0.39\* | 0.36\* | 0.26\* | 0.34 (inside the noise) |
-| Houses and rocks | 0.33\* | 0.32\* | −0.92 | −0.09 |
+| Sky | 1.11 | 0.32 | 0.85 | **0.76** |
+| Fog | 0.39 | 0.36 | 0.26\* | **0.34** |
+| Houses and rocks | 0.33 | 0.32 | −0.92 | −0.09 |
 | *Pieces:* | | | | |
 | – far tree pictures (of trees) | 0.96 | 0.57 | 2.43 | 1.32 |
-| – near trees' shadows | 0.38\* | 1.09 | 0.62 | 0.70 |
-| – ground's shadows | 0.48 | 0.54 | 0.40\* | 0.47 |
+| – near trees' shadows | 0.38 | 1.09 | 0.62 | 0.70 |
+| – ground's shadows | 0.48 | 0.54 | 0.40 | 0.47 |
 | – houses' and rocks' shadows | 0.21\* | 0.04\* | 0.11\* | 0.12 |
 | **Everything off** | 13.74 | 16.05 | 17.29 | 15.70 |
 
@@ -59,18 +61,25 @@ is left.
   pass itself (four splits on a 4096 atlas) plus what else casts: the
   grass may. Fewer splits or a smaller atlas are worth trying.
 - **The sky costs about 0.8 ms**, most when a lot of sky is seen.
-- **Fog costs almost nothing.** It is worked out while each surface is drawn, not as a pass of its own.
+- **Fog costs about 0.3 ms.** It is worked out while each surface is
+  drawn, not as a pass of its own, so only switching it off shows it.
+- **Houses and rocks cost about 0.3 ms** in the open views, and save
+  0.9 ms close to the village, where they hide what is behind them.
 - **The parts don't add up.** Without the double counting they come to
   12.2–13.8 ms, but everything off saves 13.7–17.3 ms. The ground hides
   much of the rest, and switching everything off also drops passes that
   every part needs, such as the depth pass. So each part's cost is
   "with everything else on".
-- **The noise floor is 3 %** (about 0.5 ms here). This PC's repeats
-  agree within 0.7 %, so a smaller floor would let fog and the houses'
-  shadows show. That is decision 5 in the plan, and worth revisiting now.
+- **The noise floor is now 1.5 %** (about 0.25 ms here; it was 3 %, about
+  0.5 ms). This PC's repeats agree within 0.7 %. With the lower floor,
+  fog and the houses and rocks show as real costs; the houses' and rocks'
+  shadows (about 0.1 ms) are still too small to tell from noise.
+  Three repeats give only a rough idea of the spread, so a part close to
+  the floor is worth a second session before acting on it.
 
 ## Check
 
 Every switch worked: ten drew less (fewer draw calls or triangles), and
-the sky held its setting and made the frame faster. Fog held its setting
-too, but its saving is inside the noise, and the tool says so.
+the sky held its setting and made the frame faster. With the 3 % floor,
+fog held its setting but its saving was inside the noise (the tool said
+so); with 1.5 % it counts as faster too.

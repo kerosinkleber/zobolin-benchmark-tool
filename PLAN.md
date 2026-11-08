@@ -15,7 +15,9 @@ see `findings/04-runner.md` and the README. **Step 5a is done**
 cost ranking: ground 4.4 ms, trees 3.1, shadows 2.2, grass 2.2 on the
 GTX 970). **Step 5b is done** (2026-11-08): sky, fog and shadows by
 caster, see `findings/05b-switches.md`. Water and house lamps wait for
-their scenarios (boat, house). Next: step 5c.
+their scenarios (boat, house). The noise floor is now 1.5 % (decision 5,
+2026-11-08), and `zbench.ps1 -Reanalyse <folder>` works out a finished
+session again. Next: step 5c.
 
 ---
 
@@ -253,7 +255,7 @@ Steps 1–7 already answer the main question for terrain, flight and forest.
 | 2 | Recorder as a global autoload, or a node added only in benchmark runs? | **Benchmark-only node** – normal play unchanged |
 | 3 | Is this folder its own git repo (GPL-3.0), with baselines and reports committed here? | **Yes** |
 | 4 | PowerShell only, or also Python? | **PowerShell only** – nothing to install on the i9 or laptop |
-| 5 | Thresholds: hitch > 33.3 ms or > 2× typical; noise band 3 % (wider per PC if needed); alarm at > 5 % and outside noise | **Accept, revisit after step 4** |
+| 5 | Thresholds: hitch > 33.3 ms or > 2× typical; noise band ~~3 %~~ **1.5 %** (wider per PC if needed); alarm at > 5 % and outside noise | **Accepted. Noise floor lowered to 1.5 % on 2026-11-08** (owner's choice): repeats on the GTX 970 agree within 0.7 % |
 | 6 | Default run length | **`-Quick` everyday, full run before milestones** |
 | 7 | Custom Godot build with Tracy? | **Not now** |
 | 8 | Make this a side item in the game's `PLAN.md` now? | **Yes** – steps 1–7 directly help the current 60 fps checks |

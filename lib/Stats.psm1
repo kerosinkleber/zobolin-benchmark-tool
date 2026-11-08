@@ -2,8 +2,10 @@
 # Statistics across repeats of a run. Per-frame statistics are worked out
 # inside the game (BenchStats); these only combine the per-run results.
 
-# The smallest noise band (3 %), as in BenchStats.MIN_NOISE_SHARE.
-$MinNoiseShare = 0.03
+# The smallest noise band (1.5 %), as in BenchStats.MIN_NOISE_SHARE. Repeats
+# on the development PC agree within 0.7 %, so 1.5 % is still twice that
+# (owner's decision, 2026-11-08; it was 3 %).
+$MinNoiseShare = 0.015
 
 function Get-Median([double[]] $Values) {
 	if ($Values.Count -eq 0) { return 0.0 }
@@ -14,7 +16,7 @@ function Get-Median([double[]] $Values) {
 }
 
 # How far repeats spread, as a share of their median, and the noise band a
-# change must leave to count (never below 3 %).
+# change must leave to count (never below $MinNoiseShare).
 function Get-NoiseBand([double[]] $Values) {
 	$median = Get-Median $Values
 	$spread = 0.0

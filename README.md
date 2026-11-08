@@ -41,6 +41,16 @@ Results go to `results\<date>_<pc>_<commit>_<scenario>\`: one folder per
 run (`r1`, `r2`, ...) and `summary.json` with the combined numbers. The
 `results` folder isn't committed.
 
+A change counts only if it is bigger than the noise band: how much the
+repeats differed, but never less than 1.5 %.
+
+To work out a finished session again without running the game (for
+example after a change to the statistics):
+
+    powershell -ExecutionPolicy Bypass -File zbench.ps1 -Reanalyse results\<session folder>
+
+The earlier `summary.json` is kept as `summary.previous.json`.
+
 If it stops with "The frame rate is capped", vsync or a frame limit is on
 in the graphics driver: switch it to "use the application setting" and run
 again.

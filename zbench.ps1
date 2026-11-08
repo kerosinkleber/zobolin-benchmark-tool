@@ -13,6 +13,10 @@
 #       [-Ablate] [-Repeats 3] [-Preset high|low] [-Renderer forward_plus|mobile]
 #       [-Gpu auto|intel|nvidia|<number>] [-GpuProfile] [-CoolDown 20]
 #       [-GameOptions <options for the game>] [-Game <game repo folder>]
+#   powershell -ExecutionPolicy Bypass -File zbench.ps1 -Reanalyse <results folder>
+#
+# -Reanalyse works out summary.json again from a finished session's runs,
+# without running the game (for example after a change to the statistics).
 #
 # Results: results\<date>_<pc>_<commit>_<scenario>\ with one folder per
 # run (r1, r2, ...; with -Ablate <variant>\r1, ...: frames.csv, run.json,
@@ -29,7 +33,8 @@ param(
 	[switch] $GpuProfile,
 	[ValidateRange(0, 600)] [int] $CoolDown = 20,
 	[string[]] $GameOptions = @(),
-	[string] $Game = "C:\Claude\Open World Game - Zobolin"
+	[string] $Game = "C:\Claude\Open World Game - Zobolin",
+	[string] $Reanalyse = ""
 )
 
 # Not "Stop": Godot writes warnings to its error output, which must not end the run.
@@ -86,6 +91,32 @@ function Join-Repeats($RunList) {
 	}
 	return , $combined
 }
+
+if ($Reanalyse) {
+	# --- A finished session: take everything from its session.json ---
+	$session = (Resolve-Path $Reanalyse).Path
+	$sessionFile = Join-Path $session "session.json"
+	if (-not (Test-Path $sessionFile)) {
+		Write-Host "No session.json in $session" -ForegroundColor Red
+		exit 1
+	}
+	$sessionInfo = Get-Content -Raw $sessionFile | ConvertFrom-Json
+	$variants = @($sessionInfo.variants)
+	$expected = $variants.Count * [int]$sessionInfo.repeats
+	$okRuns = @($sessionInfo.runs | Where-Object { $_.ok }).Count
+	if ($okRuns -lt $expected) {
+		Write-Host "That session has $okRuns good runs of $expected; it can't be analysed." -ForegroundColor Red
+		exit 1
+	}
+	$Scenario = $sessionInfo.scenario
+	$Repeats = [int]$sessionInfo.repeats
+	$Ablate = [bool]$sessionInfo.ablate
+	$Preset = $sessionInfo.preset
+	$Renderer = $sessionInfo.renderer
+	$machine = $sessionInfo.machine
+	$warnings = @($sessionInfo.warnings)
+	Write-Host "Analysing again: $session" -ForegroundColor Cyan
+} else {
 
 # --- What to run ---
 $scenarioFile = Join-Path $PSScriptRoot "scenarios\$Scenario.json"
@@ -221,6 +252,7 @@ if ($failed) {
 	Write-Host "Results so far: $session"
 	exit 1
 }
+}  # end of: not -Reanalyse
 
 # --- Combine the repeats of each variant ---
 $byVariant = [ordered]@{}
@@ -339,7 +371,14 @@ if ($Ablate) {
 	$summary.costs = $costs
 	$summary.interaction = $interaction
 }
-Save-Json $summary (Join-Path $session "summary.json")
+$summaryFile = Join-Path $session "summary.json"
+if ($Reanalyse -and (Test-Path $summaryFile)) {
+	# Keep the earlier analysis next to the new one.
+	Copy-Item $summaryFile (Join-Path $session "summary.previous.json") -Force
+}
+$summary.analysed = (Get-Date -Format "s")
+$summary.min_noise_share = $MinNoiseShare
+Save-Json $summary $summaryFile
 
 # --- Print ---
 Write-Host ""

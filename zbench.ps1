@@ -107,8 +107,14 @@ if ($Ablate) {
 		Write-Host "Scenario '$Scenario' lists no parts to switch off ('switches')." -ForegroundColor Red
 		exit 1
 	}
-	foreach ($part in $parts) { $variants += [ordered]@{ name = "$($part)_off"; off = @($part) } }
-	$variants += [ordered]@{ name = "all_off"; off = $parts }
+	# "switches" are separate parts; "detail_switches" are pieces of them
+	# (the trees' shadows are part of the trees), measured one by one but
+	# left out of "all off" and of adding the parts up.
+	foreach ($part in $parts) { $variants += [ordered]@{ name = "$($part)_off"; off = @($part); detail = $false } }
+	foreach ($part in @($plan.detail_switches)) {
+		if ($part) { $variants += [ordered]@{ name = "$($part)_off"; off = @($part); detail = $true } }
+	}
+	$variants += [ordered]@{ name = "all_off"; off = $parts; detail = $false }
 }
 
 # --- The PC ---
@@ -259,14 +265,37 @@ if ($Ablate) {
 		}
 		$meanFrame = ($views | ForEach-Object { $_.frame_saving_ms } | Measure-Object -Average).Average
 		$meanGpu = ($views | ForEach-Object { $_.gpu_saving_ms } | Measure-Object -Average).Average
-		$removes = ""
-		$offRun = Get-Content -Raw (Join-Path $session "$($variant.name)\r1\run.json") | ConvertFrom-Json
-		if ($offRun.off) { $removes = ($offRun.off.PSObject.Properties | ForEach-Object { $_.Value }) -join "; " }
+		# What the game says about each switch, in every round: what it takes
+		# away, how to check it, and whether it was still off at the end.
+		$removes = @()
+		$method = "counts"
+		$held = $true
+		for ($r = 1; $r -le $Repeats; $r++) {
+			$offRun = Get-Content -Raw (Join-Path $session "$($variant.name)\r$r\run.json") | ConvertFrom-Json
+			foreach ($property in @($offRun.off.PSObject.Properties)) {
+				if ($r -eq 1) { $removes += $property.Value.removes }
+				if ($property.Value.check -eq "setting" -and $variant.off.Count -eq 1) { $method = "setting" }
+				if (-not $property.Value.still_off) { $held = $false }
+			}
+		}
+		$faster = @($views | Where-Object { $_.outside_noise -and $_.frame_saving_ms -gt 0 }).Count -gt 0
+		if (-not $held) {
+			$verified = $false
+			$check = "NO: something switched it back on during the run"
+		} elseif ($method -eq "setting") {
+			$verified = $faster
+			$check = if ($faster) { "yes (setting held, frame faster)" } else { "setting held, but no measurable saving" }
+		} else {
+			$check = if ($verified) { "yes (fewer draw calls or triangles)" } else { "NO: nothing less was drawn" }
+		}
 		$costs += [ordered]@{
 			variant = $variant.name
 			off = $variant.off
-			removes = $removes
+			detail = [bool]$variant.detail
+			removes = $removes -join "; "
+			check_method = $method
 			verified = $verified
+			check = $check
 			mean_frame_saving_ms = $meanFrame
 			mean_gpu_saving_ms = $meanGpu
 			views = $views
@@ -279,7 +308,7 @@ $interaction = @()
 if ($Ablate) {
 	foreach ($on in $segments) {
 		$sum = 0.0
-		foreach ($c in ($costs | Where-Object { $_.variant -ne "all_off" })) {
+		foreach ($c in ($costs | Where-Object { $_.variant -ne "all_off" -and -not $_.detail })) {
 			$sum += ($c.views | Where-Object { $_.view -eq $on.name } | Select-Object -First 1).frame_saving_ms
 		}
 		$all = ($costs | Where-Object { $_.variant -eq "all_off" } | Select-Object -First 1).views |
@@ -330,19 +359,21 @@ Write-Host ("Repeats differ by up to {0:N1}%: on this PC, changes smaller than {
 if ($Ablate) {
 	Write-Host ""
 	Write-Host "What each part costs (frame time saved when it is off, ms; * = inside the noise):" -ForegroundColor Cyan
-	$header = "{0,-16}" -f "part"
+	Write-Host "(Lines starting with '-' are pieces of a part above, such as the trees' shadows.)"
+	$header = "{0,-22}" -f "part"
 	foreach ($s in $segments) { $header += " {0,14}" -f ($s.name.Substring(0, [math]::Min(14, $s.name.Length))) }
 	$header += " {0,8} {1,8}  {2}" -f "average", "gpu avg", "switch worked?"
 	Write-Host $header
-	$ranked = @($costs | Where-Object { $_.variant -ne "all_off" } | Sort-Object { $_.mean_frame_saving_ms } -Descending)
+	$ranked = @($costs | Where-Object { $_.variant -ne "all_off" -and -not $_.detail } | Sort-Object { $_.mean_frame_saving_ms } -Descending)
+	$ranked += @($costs | Where-Object { $_.detail } | Sort-Object { $_.mean_frame_saving_ms } -Descending)
 	$ranked += @($costs | Where-Object { $_.variant -eq "all_off" })
 	foreach ($c in $ranked) {
-		$line = "{0,-16}" -f $c.variant
+		$line = "{0,-22}" -f $(if ($c.detail) { "- $($c.variant)" } else { $c.variant })
 		foreach ($v in $c.views) {
 			$mark = if ($v.outside_noise) { " " } else { "*" }
 			$line += " {0,13:N2}{1}" -f $v.frame_saving_ms, $mark
 		}
-		$check = if ($c.verified) { "yes (fewer draw calls or triangles)" } else { "NO: nothing less was drawn" }
+		$check = $c.check
 		$line += " {0,8:N2} {1,8:N2}  {2}" -f $c.mean_frame_saving_ms, $c.mean_gpu_saving_ms, $check
 		Write-Host $line
 	}

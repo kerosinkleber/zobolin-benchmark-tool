@@ -7,7 +7,7 @@ Licence: GPL-3.0-or-later (see `LICENSE`).
 
 ## Status
 
-Steps 1 to 5a are done (engine check, statistics, recorder, the one
+Steps 1 to 5b are done (engine check, statistics, recorder, the one
 command, switching parts off; see `findings/`). It does not yet write a
 report page.
 
@@ -29,7 +29,7 @@ Options (add them after `zbench.ps1`):
 
 | Option | What it does |
 |---|---|
-| `-Ablate` | Also once with each part off (shadows, grass, houses and rocks, trees, far tree pictures, ground) and once with all of them off, then a table of what each part costs. Three rounds of 8 runs: about 13 minutes |
+| `-Ablate` | Also once with each part off (shadows, grass, houses and rocks, trees, ground, sky, fog, and the pieces: far tree pictures, the ground's, near trees' and houses' shadows) and once with the parts all off, then a table of what each part costs. Three rounds of 13 runs: about 21 minutes |
 | `-Scenario vista` | All 11 terrain views instead of the quick 3 (`vista_quick`) |
 | `-Repeats 5` | Five runs instead of three |
 | `-Preset low` | The low graphics preset |

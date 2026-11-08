@@ -13,7 +13,9 @@ marked ✱. **Step 2 is done** (2026-11-08): `game/benchmark/bench_stats.gd`.
 see `findings/04-runner.md` and the README. **Step 5a is done**
 (2026-11-08): `zbench.ps1 -Ablate`, see `findings/05a-switches.md` (first
 cost ranking: ground 4.4 ms, trees 3.1, shadows 2.2, grass 2.2 on the
-GTX 970). Next: step 5b.
+GTX 970). **Step 5b is done** (2026-11-08): sky, fog and shadows by
+caster, see `findings/05b-switches.md`. Water and house lamps wait for
+their scenarios (boat, house). Next: step 5c.
 
 ---
 
@@ -226,7 +228,7 @@ Every step also passes the three standard checks from the game's CLAUDE.md
 | 3 ✅ 2026-11-08 | Recorder on terrain views → `frames.csv` + `run.json` (`benchmark.ps1 -Record`) | Done: frame ms within 0.5 % of the real clock and of the benchmark on 3 views; CPU columns not 0. With `-GpuProfile` it also records per-pass GPU time every frame (sum within 3 % of GPU ms) |
 | 4 ✅ 2026-11-08 | `benchmark.ps1` options (`-OutDir`, `-Extra`; scenarios live in the tool's `scenarios\*.json`, so no `-Scenario` there) + `zbench.ps1` with repeats, PC stamp, shared vsync/fps-cap detector (fails the run if capped) | Done: 3 repeats agree within 1.4 % on the GTX 970; a run held at 60 fps was refused |
 | 5a ✅ 2026-11-08 | Switches mapped to existing flags (`--off=shadows,grass,objects,trees,pictures,terrain`) + `zbench.ps1 -Ablate` (all on, each off, all off, in turns) | Done: every switch took away draw calls or triangles on every view (verified by counts, not screenshots) |
-| 5b | New GPU switches (water, post, shadow casters, lamps…) | Same |
+| 5b ✅ 2026-11-08 | New GPU switches: sky, fog, shadows by caster (ground, near trees, nearest houses and rocks); parts vs pieces (`detail_switches`) so nothing is counted twice. Water and lamps moved to the boat and house scenarios (not in the outdoor views); the high preset has no glow or SSAO | Done: 10 switches drew less, the sky held its setting and saved time; fog held but saves less than the noise |
 | 5c | CPU/physics switches | Verified by counters |
 | 6 | Switch-off matrix on `vista` + first `report.html` | Grass ≈ 3.5 ms ± 25 % on the GTX 970 at 5K high; UHD 770 says "GPU-bound" |
 | 7 | Event counters + hitch blame + flight chart | Flight report puts ~7 hitches under "re-centre" at the 1024 m lines |

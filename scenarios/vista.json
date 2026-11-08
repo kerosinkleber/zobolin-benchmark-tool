@@ -8,7 +8,14 @@
     "grass",
     "objects",
     "trees",
+    "terrain",
+    "sky",
+    "fog"
+  ],
+  "detail_switches": [
     "pictures",
-    "terrain"
+    "terrain_shadows",
+    "tree_shadows",
+    "object_shadows"
   ]
 }

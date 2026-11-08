@@ -7,7 +7,7 @@ game doesn't have yet. Built by an agent and checked by a second one.
     powershell -ExecutionPolicy Bypass -File tools\benchmark.ps1 -Test micro -Extra "--quick"
 
 (from the game folder; without `--quick` it also loads 100 000 records).
-Results in `micro.json`. Each case runs once to warm up, then 3 to 5 times;
+Results in `micro.json` (the `--quick` run below: `09c-micro-ryzen1800x.json`). Each case runs once to warm up, then 3 to 5 times;
 the numbers are the middle value. Debug build, Ryzen 7 1800X.
 
 | Case | Size | Time |

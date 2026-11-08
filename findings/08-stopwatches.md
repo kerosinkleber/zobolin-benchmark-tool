@@ -37,27 +37,32 @@ the start of every run and saved in `run.json` (`zone_overhead_us`).
 
 ## Where the processor time goes on the flight (GTX 970 PC, 3 runs)
 
-Per frame on average (and the slowest single frame):
+After the review's fixes (scripts now include the benchmark's own stepping,
+physics now includes Jolt's sync of the bodies; `10-review.md`). Raw
+summary: `07-flight-gtx970-summary.json`. Per frame on average (and the
+slowest single frame):
 
 | Zone | Average | Slowest frame |
 |---|---|---|
-| Scripts and physics together | 1.64 ms | |
-| Far-object levels (`objects`) | 0.27 ms | 4.0 ms |
-| Near trees (`forest`) | 0.16 ms | 22.0 ms |
-| – trunk collision (`forest.collision`) | 0.10 ms | **21.9 ms** |
-| – tree blocks (`forest.blocks`) | 0.04 ms | 4.3 ms |
-| Re-centring (`recentre`) | 0.16 ms | **30.0 ms** |
-| – moving the regions | 0.10 ms | 19.0 ms |
-| – the ground's collision | 0.06 ms | 10.5 ms |
-| – moving every node | 0.004 ms | 0.9 ms |
-| Grass placement | 0.04 ms | 0.3 ms |
-| Day and night | 0.02 ms | 0.05 ms |
-| Unattributed scripts | 0.09 ms | |
-| Unattributed physics (mostly Jolt's own step) | 0.89 ms | |
+| Scripts and physics together | 1.94 ms | |
+| – scripts | 0.79 ms | |
+| – physics | 1.15 ms | |
+| Far-object levels (`objects`) | 0.27 ms | 3.5 ms |
+| Near trees (`forest`) | 0.16 ms | 21.9 ms |
+| – trunk collision (`forest.collision`) | 0.10 ms | **21.8 ms** |
+| – tree blocks (`forest.blocks`) | 0.04 ms | 4.4 ms |
+| Re-centring (`recentre`) | 0.16 ms | **29.3 ms** |
+| – moving the regions | 0.10 ms | 18.1 ms |
+| – the ground's collision | 0.06 ms | 10.4 ms |
+| – moving every node | 0.004 ms | 0.8 ms |
+| Grass placement | 0.04 ms | 1.7 ms |
+| Day and night | 0.02 ms | 0.06 ms |
+| Unattributed scripts (incl. the benchmark's own stepping) | 0.21 ms | |
+| Unattributed physics (mostly Jolt's own step) | 0.99 ms | |
 
 **What it means:** the two worst single-frame costs are **building trunk
 collision** (up to 22 ms in one frame) and **moving the terrain regions
-when re-centring** (up to 19 ms). Both are one-off spikes, not steady
+when re-centring** (up to 18 ms). Both are one-off spikes, not steady
 costs, so they show as stutters, not as a lower frame rate. Spreading the
 trunk collision over several frames would remove the bigger one.
 

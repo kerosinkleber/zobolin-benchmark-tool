@@ -1,0 +1,130 @@
+{
+  "cases": [
+    {
+      "items": 20,
+      "max_ms": 0.964,
+      "median_ms": 0.88,
+      "min_ms": 0.878,
+      "name": "npc_route",
+      "per_item_us": 44.0,
+      "repeats": 5,
+      "size": 10
+    },
+    {
+      "items": 20,
+      "max_ms": 61.807,
+      "median_ms": 61.725,
+      "min_ms": 60.975,
+      "name": "npc_route",
+      "per_item_us": 3086.25,
+      "repeats": 5,
+      "size": 100
+    },
+    {
+      "items": 3,
+      "max_ms": 1398.223,
+      "median_ms": 1390.552,
+      "min_ms": 1387.655,
+      "name": "npc_route",
+      "per_item_us": 463517.333333333,
+      "repeats": 3,
+      "size": 1000
+    },
+    {
+      "items": 1,
+      "max_ms": 0.495,
+      "median_ms": 0.48,
+      "min_ms": 0.439,
+      "name": "npc_turn_back",
+      "per_item_us": 480.0,
+      "repeats": 5,
+      "size": 10
+    },
+    {
+      "items": 1,
+      "max_ms": 428.628,
+      "median_ms": 428.336,
+      "min_ms": 425.534,
+      "name": "npc_turn_back",
+      "per_item_us": 428336.0,
+      "repeats": 3,
+      "size": 100
+    },
+    {
+      "items": 1000,
+      "max_ms": 35.661,
+      "median_ms": 35.136,
+      "min_ms": 34.526,
+      "name": "record_load",
+      "per_item_us": 35.136,
+      "repeats": 5,
+      "size": 1000
+    },
+    {
+      "items": 10000,
+      "max_ms": 279.655,
+      "median_ms": 272.034,
+      "min_ms": 263.922,
+      "name": "record_load",
+      "per_item_us": 27.2034,
+      "repeats": 5,
+      "size": 10000
+    },
+    {
+      "items": 0,
+      "max_ms": 0.009,
+      "median_ms": 0.008,
+      "min_ms": 0.008,
+      "name": "clock_jump_8h",
+      "per_item_us": 0.0,
+      "repeats": 5,
+      "size": 0
+    },
+    {
+      "items": 100,
+      "max_ms": 421.062,
+      "median_ms": 414.581,
+      "min_ms": 409.463,
+      "name": "clock_jump_8h",
+      "per_item_us": 4145.81,
+      "repeats": 5,
+      "size": 100
+    },
+    {
+      "items": 1000,
+      "max_ms": 4273.74,
+      "median_ms": 4265.393,
+      "min_ms": 4243.566,
+      "name": "clock_jump_8h",
+      "per_item_us": 4265.393,
+      "repeats": 3,
+      "size": 1000
+    },
+    {
+      "items": 1,
+      "max_ms": 0.248,
+      "median_ms": 0.242,
+      "min_ms": 0.24,
+      "name": "day_night_wait_8h",
+      "per_item_us": 242.0,
+      "repeats": 5,
+      "size": 0
+    }
+  ],
+  "debug_build": true,
+  "godot": "4.7.2-stable (official)",
+  "processor": "AMD Ryzen 7 1800X Eight-Core Processor",
+  "schema": 1,
+  "skipped": [
+    {
+      "name": "npc_turn_back",
+      "reason": "too slow to repeat: one update runs a route search from every place, about 464 s here (1000 x 464 ms)",
+      "size": 1000
+    },
+    {
+      "name": "record_load",
+      "reason": "left out with --quick",
+      "size": 100000
+    }
+  ]
+}

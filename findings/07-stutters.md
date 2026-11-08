@@ -24,25 +24,30 @@ distance every frame (as at 60 fps), so every PC sees the same places.
 
 ## The flight on the GTX 970 (high preset, 3 runs)
 
-Average frame 21.1 ms (the flight is slower than the views: it looks across
-the world while new trees and tiles keep coming), p99 39.4 ms, 16 stutters
+Measured after the independent review's fixes (`10-review.md`), game commit
+ff9e4d4. Raw summary: `07-flight-gtx970-summary.json`.
+
+Average frame 21.2 ms (the flight is slower than the views: it looks across
+the world while new trees and tiles keep coming), p99 39.5 ms, 17 stutters
 per run, of which 4 are the benchmark's own screenshots. Every stutter has
 a cause; none is "unknown".
 
 | Main cause | Stutters per run | Slowest | Where (world x) |
 |---|---|---|---|
-| Re-centring | 6 | 54.1 ms | −3060, −2040, −1013, 1033, 2060, 3080 |
-| New far-object tiles | 4 | 46.5 ms | −3047, −1000, 27, 2073 |
-| New grass tile placements | 2 | 37.0 ms | −2027, 3093 |
-| The benchmark's screenshots | 4 | about 1.2 s | −1987, 13, 2013, 4013 |
+| Re-centring | 6 | 54.1 ms | −3067, −2047, −1020, 1027, 2053, 3073 |
+| New grass tile placements | 4 | 46.3 ms | −3053, −2033, 2067, 3087 |
+| New far-object tiles | 3 | 40.1 ms | −1007, 20, 1040 |
+| The benchmark's screenshots | 4 | about 1.3 s | −1993, 7, 2007, 4007 |
 
 **Check (plan step 7):** the re-centring stutters fall on the 1024 m lines,
-as expected. There are 7 re-centres; the one at x = 13 falls on the frame
-of a screenshot, so that stutter's main cause is the screenshot.
+as expected. There are 7 re-centres; the one at x = 7 falls on the frame of
+a screenshot, so that stutter's main cause is the screenshot.
 
-So the game's own stutters on this flight are 12 per run: half from
-re-centring, the rest from new far-object and grass tiles. Step 8's
-stopwatches show which part of each is slowest.
+So the game's own stutters on this flight are 13 per run: about half from
+re-centring, the rest from the grass and far-object tiles that come in
+right after (a stutter is blamed on its own frame and the one before).
+Step 8's stopwatches show which part of each is slowest.
 
-(First printed as "48 stutters": the tool's summary line added up the three
-runs. It now shows stutters per run.)
+(Earlier versions of this file: before the review, a wider blame window put
+11 stutters under re-centring; and the summary line once added up the three
+runs as "48 stutters".)

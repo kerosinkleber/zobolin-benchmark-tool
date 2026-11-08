@@ -6,8 +6,9 @@ most processor time, graphics-card time, and which cause stutters.
 Status: the owner accepted the recommended decisions in section 8
 (2026-11-08). **Step 1 is done** (2026-11-08); its results are in
 `findings/01-engine-check.md` and change the plan in five places (listed
-there). Next: step 2. Corrections from the first fact-check pass are
-marked ✱.
+there). Corrections from the first fact-check pass are
+marked ✱. **Step 2 is done** (2026-11-08): `game/benchmark/bench_stats.gd`.
+Next: step 3.
 
 ---
 
@@ -216,7 +217,7 @@ Every step also passes the three standard checks from the game's CLAUDE.md
 |---|---|---|
 | 0 | Owner's decisions (section 8); entry in the game's `PLAN.md`; this folder set up | Owner says yes |
 | 1 ✅ 2026-11-08 | **Engine check**: a run prints which 4.7.2 numbers really work (Jolt physics counts, shader compiles cumulative or per frame, which monitors refresh every frame, `--gpu-profile` format, thread model) | Done: see `findings/01-engine-check.md`. Per-pass GPU time per frame is readable in `-GpuProfile` runs, so part of step 10 moves forward |
-| 2 | `bench_stats.gd` + tests | Tests pass; agrees with today's `_summarise` on old data |
+| 2 ✅ 2026-11-08 | `bench_stats.gd` + tests | Done: 11 tests pass; average fps, slowest 1 % and slowest frame match `_summarise` exactly on four made-up runs (50–3000 frames) |
 | 3 | Recorder on one terrain view → `frames.csv` + `run.json` | Frame ms within 5 % of a real-clock reference; CPU columns not 0 |
 | 4 | `benchmark.ps1` options + `zbench.ps1` with repeats, PC stamp, shared vsync/fps-cap detector (fails the run if capped) | 3 repeats agree within the PC's noise band (band recorded, not a fail) |
 | 5a | Switches mapped to existing flags | Each verified by its declared method |

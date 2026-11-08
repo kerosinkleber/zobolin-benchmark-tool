@@ -13,10 +13,21 @@
 #       [-Ablate [-Kind all|gpu|cpu]] [-Repeats 3] [-Preset high|low] [-Renderer forward_plus|mobile]
 #       [-Gpu auto|intel|nvidia|<number>] [-GpuProfile] [-CoolDown 20]
 #       [-GameOptions <options for the game>] [-Game <game repo folder>]
+#       [-SaveBaseline] [-Baseline <summary.json to compare with>]
 #   powershell -ExecutionPolicy Bypass -File zbench.ps1 -Reanalyse <results folder>
 #
 # -Reanalyse works out summary.json again from a finished session's runs,
 # without running the game (for example after a change to the statistics).
+#
+# Baselines: -SaveBaseline keeps this session's summary as this PC's
+# baseline for the scenario (baselines\<pc>\<scenario>_<preset>_<renderer>.json).
+# Every later session of the same kind is compared with it (or with the
+# summary.json named by -Baseline): "faster", "slower" or "no change" per
+# view, counting only changes over 5 % and outside the noise.
+#
+# A scenario with "variants" (for example 8, 16, 32, 64 NPCs) is a sweep:
+# every variant runs in turns, and the tool fits a straight line through
+# the costs to show how they grow.
 #
 # Results: results\<date>_<pc>_<commit>_<scenario>\ with one folder per
 # run (r1, r2, ...; with -Ablate <variant>\r1, ...: frames.csv, run.json,
@@ -35,7 +46,9 @@ param(
 	[ValidateRange(0, 600)] [int] $CoolDown = 20,
 	[string[]] $GameOptions = @(),
 	[string] $Game = "C:\Claude\Open World Game - Zobolin",
-	[string] $Reanalyse = ""
+	[string] $Reanalyse = "",
+	[switch] $SaveBaseline,
+	[string] $Baseline = ""
 )
 
 # Not "Stop": Godot writes warnings to its error output, which must not end the run.
@@ -153,7 +166,9 @@ if ($Reanalyse) {
 		exit 1
 	}
 	$sessionInfo = Get-Content -Raw $sessionFile | ConvertFrom-Json
-	$variants = @($sessionInfo.variants)
+	$variants = @($sessionInfo.variants | Where-Object { $_ })
+	# Sessions from before step 5a kept no variants: everything on only.
+	if ($variants.Count -eq 0) { $variants = @([ordered]@{ name = "all_on"; off = @() }) }
 	$expected = $variants.Count * [int]$sessionInfo.repeats
 	$okRuns = @($sessionInfo.runs | Where-Object { $_.ok }).Count
 	if ($okRuns -lt $expected) {
@@ -167,6 +182,8 @@ if ($Reanalyse) {
 	$Renderer = $sessionInfo.renderer
 	$machine = $sessionInfo.machine
 	$warnings = @($sessionInfo.warnings)
+	$plan = $sessionInfo.scenario_plan
+	$multi = $variants.Count -gt 1
 	Write-Host "Analysing again: $session" -ForegroundColor Cyan
 } else {
 
@@ -208,6 +225,14 @@ if ($Ablate) {
 		}
 	}
 	if ($Kind -ne "cpu") { $variants += [ordered]@{ name = "all_off"; off = $parts; detail = $false } }
+} elseif ($plan.variants) {
+	# A sweep: the same scene with more and more of something (for example
+	# 8, 16, 32, 64 NPCs). Each variant has its own game options and a
+	# number "x" (how many); the tool fits a straight line through the costs.
+	$variants = @()
+	foreach ($v in $plan.variants) {
+		$variants += [ordered]@{ name = $v.name; off = @(); extra = @($v.extra); x = [double]$v.x }
+	}
 }
 
 # --- The PC ---
@@ -216,6 +241,8 @@ $commit = $machine.game_commit
 $short = if ($commit.Length -ge 7) { $commit.Substring(0, 7) } else { $commit }
 $stamp = Get-Date -Format "yyyy-MM-dd_HHmmss"
 $label = if ($Ablate) { "$($Scenario)_ablate" } else { $Scenario }
+# More than one variant: each run goes into <variant>\r<round>.
+$multi = $variants.Count -gt 1
 $session = Join-Path $PSScriptRoot "results\$($stamp)_$($machine.pc)_$($short)_$label"
 New-Item -ItemType Directory -Force $session | Out-Null
 
@@ -234,7 +261,7 @@ if ($machine.on_battery) {
 foreach ($w in $warnings) { Write-Host "WARNING: $w" -ForegroundColor Yellow }
 $total = $Repeats * $variants.Count
 $minutes = [math]::Ceiling($total * 0.5 + ($Repeats - 1) * $CoolDown / 60.0)
-if ($Ablate) { Write-Host "Variants: $(($variants | ForEach-Object { $_.name }) -join ', ')" }
+if ($multi) { Write-Host "Variants: $(($variants | ForEach-Object { $_.name }) -join ', ')" }
 Write-Host "$total runs, about $minutes minutes in all. Don't use the PC meanwhile."
 
 $sessionInfo = [ordered]@{
@@ -262,12 +289,13 @@ $done = 0
 for ($r = 1; $r -le $Repeats -and -not $failed; $r++) {
 	foreach ($variant in $variants) {
 		$done++
-		$folder = if ($Ablate) { "$($variant.name)\r$r" } else { "r$r" }
+		$folder = if ($multi) { "$($variant.name)\r$r" } else { "r$r" }
 		$out = Join-Path $session $folder
 		Write-Host ""
-		Write-Host "Run $done of $total$(if ($Ablate) { ": $($variant.name), round $r" })" -ForegroundColor Cyan
+		Write-Host "Run $done of $total$(if ($multi) { ": $($variant.name), round $r" })" -ForegroundColor Cyan
 		$extra = @($plan.extra) + $GameOptions
 		if ($variant.off.Count -gt 0) { $extra += "--off=$($variant.off -join ',')" }
+		if ($variant.extra) { $extra += @($variant.extra) }
 		$options = @{
 			Test = $plan.test; Preset = $Preset; Renderer = $Renderer; Gpu = $Gpu
 			Record = $true; OutDir = $out; Extra = $extra
@@ -322,13 +350,55 @@ $firstRun = $null
 foreach ($variant in $variants) {
 	$runList = @()
 	for ($r = 1; $r -le $Repeats; $r++) {
-		$folder = if ($Ablate) { "$($variant.name)\r$r" } else { "r$r" }
+		$folder = if ($multi) { "$($variant.name)\r$r" } else { "r$r" }
 		$runList += , (Get-Content -Raw (Join-Path $session "$folder\run.json") | ConvertFrom-Json)
 	}
 	if ($null -eq $firstRun) { $firstRun = $runList[0] }
 	$byVariant[$variant.name] = Join-Repeats $runList
 }
-$segments = $byVariant["all_on"]
+# The main numbers: everything on, or in a sweep the first (smallest) variant.
+$segments = if ($byVariant.Contains("all_on")) { $byVariant["all_on"] } else { $byVariant[$variants[0].name] }
+
+# --- A sweep: how the cost grows with the count (a straight line through it) ---
+function Get-LineFit([double[]] $X, [double[]] $Y) {
+	$n = $X.Count
+	if ($n -lt 2) { return $null }
+	$mx = ($X | Measure-Object -Average).Average
+	$my = ($Y | Measure-Object -Average).Average
+	$sxy = 0.0; $sxx = 0.0; $syy = 0.0
+	for ($i = 0; $i -lt $n; $i++) {
+		$sxy += ($X[$i] - $mx) * ($Y[$i] - $my)
+		$sxx += ($X[$i] - $mx) * ($X[$i] - $mx)
+		$syy += ($Y[$i] - $my) * ($Y[$i] - $my)
+	}
+	if ($sxx -eq 0) { return $null }
+	$slope = $sxy / $sxx
+	# How well the line fits: 1 = all points on it, 0 = no straight-line link.
+	$r2 = if ($syy -gt 0) { ($sxy * $sxy) / ($sxx * $syy) } else { 1.0 }
+	return [ordered]@{ slope = $slope; intercept = $my - $slope * $mx; r2 = $r2 }
+}
+$scaling = @()
+$sweepVariants = @($variants | Where-Object { $null -ne $_.x })
+if ($sweepVariants.Count -ge 2) {
+	foreach ($first in $segments) {
+		$xs = @(); $frames = @(); $cpus = @(); $physics = @(); $rows = @()
+		foreach ($variant in $sweepVariants) {
+			$seg = $byVariant[$variant.name] | Where-Object { $_.name -eq $first.name } | Select-Object -First 1
+			if ($null -eq $seg) { continue }
+			$xs += [double]$variant.x
+			$frames += [double]$seg.mean_frame_ms
+			$cpus += [double]$seg.cpu_ms
+			$physics += [double]$seg.physics_mean_ms
+			$rows += [ordered]@{ variant = $variant.name; x = [double]$variant.x; frame_ms = $seg.mean_frame_ms; p99_ms = $seg.p99_frame_ms; cpu_ms = $seg.cpu_ms; physics_ms = $seg.physics_mean_ms; process_ms = $seg.process_mean_ms; gpu_ms = $seg.gpu_ms; hitches = (Get-Median ([double[]]@($seg.hitches))) }
+		}
+		$scaling += [ordered]@{
+			view = $first.name
+			rows = $rows
+			cpu_fit = Get-LineFit ([double[]]$xs) ([double[]]$cpus)
+			frame_fit = Get-LineFit ([double[]]$xs) ([double[]]$frames)
+		}
+	}
+}
 
 # --- What each part costs: all on minus that part off ---
 $costs = @()
@@ -465,6 +535,43 @@ if ($Ablate) {
 	$summary.costs = $costs
 	$summary.interaction = $interaction
 }
+if ($scaling.Count -gt 0) {
+	$summary.variants = $byVariant
+	$summary.scaling = $scaling
+}
+
+# --- Compare with the baseline ---
+$kindLabel = if ($Ablate) { "$($Scenario)_ablate" } else { $Scenario }
+$baselineFile = Join-Path $PSScriptRoot "baselines\$($machine.pc)\$($kindLabel)_$($Preset)_$($Renderer).json"
+$compareWith = if ($Baseline) { $Baseline } else { $baselineFile }
+$comparison = $null
+if ((Test-Path $compareWith) -and -not ($SaveBaseline -and -not $Baseline)) {
+	$base = Get-Content -Raw $compareWith | ConvertFrom-Json
+	$rowsOut = @()
+	foreach ($now in $segments) {
+		$then = $base.segments | Where-Object { $_.name -eq $now.name } | Select-Object -First 1
+		if ($null -eq $then) { continue }
+		$band = [math]::Max([math]::Max([double]$now.noise_band_share, [double]$then.noise_band_share), $MinNoiseShare)
+		$limit = [math]::Max(0.05, $band)
+		$entry = [ordered]@{ view = $now.name }
+		foreach ($metric in @("mean_frame_ms", "p99_frame_ms", "gpu_ms", "cpu_ms")) {
+			$old = [double]$then.$metric
+			$new = [double]$now.$metric
+			if ($old -le 0) { continue }
+			$change = ($new - $old) / $old
+			$verdict = if ([math]::Abs($change) -le $limit) { "no change" } elseif ($change -gt 0) { "slower" } else { "faster" }
+			$entry[$metric] = [ordered]@{ before = $old; now = $new; change_share = $change; verdict = $verdict }
+		}
+		$rowsOut += $entry
+	}
+	$comparison = [ordered]@{
+		baseline_file = (Resolve-Path $compareWith).Path
+		baseline_commit = $base.machine.game_commit
+		baseline_date = $base.analysed
+		rows = $rowsOut
+	}
+	$summary.comparison = $comparison
+}
 $summaryFile = Join-Path $session "summary.json"
 if ($Reanalyse -and (Test-Path $summaryFile)) {
 	# Keep the earlier analysis next to the new one.
@@ -477,12 +584,12 @@ Save-Json $summary $summaryFile
 # --- Print ---
 Write-Host ""
 Write-Host "Summary ($Repeats runs$(if ($Ablate) { ' of everything on' }), middle value of each):" -ForegroundColor Cyan
-Write-Host ("{0,-24} {1,9} {2,8} {3,9} {4,8} {5,8} {6,9}  {7}" -f "view", "frame ms", "spread", "p99 ms", "gpu ms", "gpu-bnd", "stutters", "each run (ms)")
+Write-Host ("{0,-24} {1,9} {2,8} {3,9} {4,8} {5,8} {6,9}  {7}" -f "view", "frame ms", "spread", "p99 ms", "gpu ms", "gpu-bnd", "stutters/run", "each run (ms)")
 foreach ($s in $segments) {
 	$each = ($s.per_repeat_mean_ms | ForEach-Object { "{0:N2}" -f $_ }) -join " / "
 	Write-Host ("{0,-24} {1,9:N2} {2,7:N1}% {3,9:N2} {4,8:N2} {5,7:N0}% {6,9}  {7}" -f $s.name, $s.mean_frame_ms,
 		($s.frame_spread_share * 100), $s.p99_frame_ms, $s.gpu_ms, ($s.gpu_bound_share * 100),
-		(($s.hitches | Measure-Object -Sum).Sum), $each)
+		(Get-Median ([double[]]@($s.hitches))), $each)
 }
 $worst = 0.0
 foreach ($s in $segments) { $worst = [math]::Max($worst, $s.frame_spread_share) }
@@ -565,6 +672,41 @@ if ($Ablate) {
 				$i.sum_of_parts_ms, $i.all_off_saving_ms, $i.floor_frame_ms)
 		}
 	}
+}
+foreach ($sc in $scaling) {
+	Write-Host ""
+	Write-Host "How $($sc.view) grows (middle value of each variant):" -ForegroundColor Cyan
+	Write-Host ("  {0,-14} {1,6} {2,9} {3,9} {4,10} {5,10} {6,8}" -f "variant", "count", "frame ms", "p99 ms", "processor", "physics", "stutters")
+	foreach ($row in $sc.rows) {
+		Write-Host ("  {0,-14} {1,6} {2,9:N2} {3,9:N2} {4,10:N3} {5,10:N3} {6,8}" -f $row.variant, $row.x, $row.frame_ms, $row.p99_ms, $row.cpu_ms, $row.physics_ms, $row.hitches)
+	}
+	if ($sc.cpu_fit) {
+		$steady = if ($sc.cpu_fit.r2 -ge 0.9) { "grows steadily" } else { "does NOT grow along a straight line" }
+		Write-Host ("  Processor time: {0:N4} ms more per extra one; the line fits {1:N0} % ({2})." -f $sc.cpu_fit.slope, ($sc.cpu_fit.r2 * 100), $steady)
+	}
+	if ($sc.frame_fit) {
+		Write-Host ("  Frame time: {0:N4} ms more per extra one (fit {1:N0} %)." -f $sc.frame_fit.slope, ($sc.frame_fit.r2 * 100))
+	}
+}
+if ($comparison) {
+	Write-Host ""
+	Write-Host "Compared with the baseline ($($comparison.baseline_file)):" -ForegroundColor Cyan
+	foreach ($row in $comparison.rows) {
+		$parts = @()
+		foreach ($metric in @("mean_frame_ms", "p99_frame_ms", "gpu_ms", "cpu_ms")) {
+			if (-not $row.Contains($metric)) { continue }
+			$m = $row[$metric]
+			$parts += ("{0} {1:N2} -> {2:N2} ({3:+0.0;-0.0}%, {4})" -f $metric.Replace("_ms", "").Replace("mean_", ""), $m.before, $m.now, ($m.change_share * 100), $m.verdict)
+		}
+		$colour = if (($parts -join " ") -match "slower") { "Red" } elseif (($parts -join " ") -match "faster") { "Green" } else { "Gray" }
+		Write-Host ("  {0,-22} {1}" -f $row.view, ($parts -join "; ")) -ForegroundColor $colour
+	}
+}
+if ($SaveBaseline) {
+	New-Item -ItemType Directory -Force (Split-Path $baselineFile) | Out-Null
+	Copy-Item $summaryFile $baselineFile -Force
+	Write-Host ""
+	Write-Host "Saved as this PC's baseline: $baselineFile" -ForegroundColor Green
 }
 Write-Host "Results: $session" -ForegroundColor Green
 # The report page (report.html): opens in any web browser, also offline.

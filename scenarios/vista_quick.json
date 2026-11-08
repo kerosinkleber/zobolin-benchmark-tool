@@ -1,0 +1,6 @@
+{
+  "description": "Three terrain views (centre, valley floor, village close up), 3 s each. The everyday quick run.",
+  "test": "terrain",
+  "only": "centre_north,valley_floor,village_close",
+  "extra": []
+}

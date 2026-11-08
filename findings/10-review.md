@@ -93,4 +93,4 @@ Five findings did not hold up, or were not defects:
 - **Step 5c:** the savings stand; the totals were too low (see above).
 - **Steps 7 and 8:** the flight's cause table changed as described.
 - **Steps 9a and 9b:** the sweeps were stopped and measured again after the
-  fixes. The numbers in `09-sweeps.md` are from after them.
+  fixes. The numbers in `09-sweeps.md` are from after them (and after the screenshot fix that followed).

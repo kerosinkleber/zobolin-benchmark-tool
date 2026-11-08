@@ -26,7 +26,7 @@
                                    },
                     "has_battery":  false,
                     "on_battery":  false,
-                    "game_commit":  "60e1ab302b3c0cf52758880828c6fe30fdaa6c41",
+                    "game_commit":  "1d84a30ce066d12cc49fb772ab13cb361830f22d",
                     "game_uncommitted_changes":  true
                 },
     "preset":  "high",
@@ -45,61 +45,61 @@
                      {
                          "name":  "adding",
                          "repeats":  3,
-                         "mean_frame_ms":  16.8763806706383,
-                         "frame_spread_share":  0.0778634780778443,
-                         "noise_band_share":  0.0778634780778443,
-                         "p99_frame_ms":  160.983993530273,
-                         "slowest_1_percent_fps":  6.21179769535254,
-                         "gpu_ms":  8.29300022125244,
-                         "gpu_spread_share":  0.088025988515659612,
-                         "gpu_noise_band_share":  0.088025988515659612,
-                         "p99_noise_band_share":  0.01709486043312439,
+                         "mean_frame_ms":  16.8817143213181,
+                         "frame_spread_share":  0.069500374148956157,
+                         "noise_band_share":  0.069500374148956157,
+                         "p99_frame_ms":  158.608001708984,
+                         "slowest_1_percent_fps":  6.30485214632998,
+                         "gpu_ms":  8.45300006866455,
+                         "gpu_spread_share":  0.13001300936762511,
+                         "gpu_noise_band_share":  0.13001300936762511,
+                         "p99_noise_band_share":  0.016978923730494516,
                          "gpu_bound_share":  0.523809523809524,
-                         "process_ms":  2.26200008392334,
-                         "process_mean_ms":  3.39628570420401,
-                         "physics_mean_ms":  1.14008695664613,
-                         "cpu_ms":  4.50880952108474,
-                         "cpu_spread_share":  0.061625397580255641,
-                         "cpu_noise_band_share":  0.061625397580255641,
-                         "draw_ms":  6.18100023269653,
-                         "render_cpu_ms":  0.75,
-                         "draw_calls":  127,
-                         "shadow_draw_calls":  151,
-                         "primitives":  6402,
+                         "process_ms":  2.2720000743866,
+                         "process_mean_ms":  3.358809476807,
+                         "physics_mean_ms":  1.13519047271638,
+                         "cpu_ms":  4.4939999495233796,
+                         "cpu_spread_share":  0.048392574205007512,
+                         "cpu_noise_band_share":  0.048392574205007512,
+                         "draw_ms":  6.69700002670288,
+                         "render_cpu_ms":  0.731000006198883,
+                         "draw_calls":  124,
+                         "shadow_draw_calls":  148,
+                         "primitives":  6238,
                          "hitches":  [
                                          1,
                                          1,
                                          1
                                      ],
                          "per_repeat_mean_ms":  [
-                                                    17.2826187042963,
-                                                    16.8763806706383,
-                                                    15.9685650079147
+                                                    16.3773811885289,
+                                                    17.5506666501363,
+                                                    16.8817143213181
                                                 ],
                          "zones":  {
                                        "items":  {
-                                                     "mean_ms":  0.384869562542957,
-                                                     "max_ms":  1.00399994850159
+                                                     "mean_ms":  0.363714282001768,
+                                                     "max_ms":  0.998000025749207
                                                  },
                                        "player":  {
-                                                      "mean_ms":  0.0651904764984335,
-                                                      "max_ms":  0.458000004291534
+                                                      "mean_ms":  0.0643809517579419,
+                                                      "max_ms":  0.421999990940094
                                                   },
                                        "player.grabber":  {
-                                                              "mean_ms":  0.0132857146451161,
-                                                              "max_ms":  0.0869999974966049
+                                                              "mean_ms":  0.0132380955896917,
+                                                              "max_ms":  0.0820000022649765
                                                           },
                                        "spawn":  {
-                                                     "mean_ms":  3.08680957839603,
-                                                     "max_ms":  24.4150009155273
+                                                     "mean_ms":  3.05690476156416,
+                                                     "max_ms":  23.9409999847412
                                                  }
                                    },
-                         "unattributed_process_ms":  0.220904697087549,
-                         "unattributed_physics_ms":  0.691095243607249,
+                         "unattributed_process_ms":  0.217904788752397,
+                         "unattributed_physics_ms":  0.707095238956667,
                          "hitch_causes":  {
                                               "shader_compiles":  {
                                                                       "count":  1,
-                                                                      "worst_ms":  161.636993408203,
+                                                                      "worst_ms":  160.057998657227,
                                                                       "at_x":  [
                                                                                    -30.0
                                                                                ]
@@ -109,24 +109,24 @@
                      {
                          "name":  "settling",
                          "repeats":  3,
-                         "mean_frame_ms":  8.33864270533081,
-                         "frame_spread_share":  0.0011069650081600268,
+                         "mean_frame_ms":  8.41109587117581,
+                         "frame_spread_share":  0.0067822822090691567,
                          "noise_band_share":  0.015,
-                         "p99_frame_ms":  10.7760000228882,
-                         "slowest_1_percent_fps":  90.7844685742491,
-                         "gpu_ms":  7.69299983978271,
-                         "gpu_spread_share":  0.0066294188636107408,
+                         "p99_frame_ms":  10.7069997787476,
+                         "slowest_1_percent_fps":  90.7465724189238,
+                         "gpu_ms":  7.71000003814697,
+                         "gpu_spread_share":  0.002594093082323271,
                          "gpu_noise_band_share":  0.015,
-                         "p99_noise_band_share":  0.016982146484058044,
-                         "gpu_bound_share":  0.508869179600887,
-                         "process_ms":  0.162000000476837,
-                         "process_mean_ms":  0.17816629705996,
-                         "physics_mean_ms":  0.544248335641662,
-                         "cpu_ms":  0.718660752551254,
-                         "cpu_spread_share":  0.045961820016764,
-                         "cpu_noise_band_share":  0.045961820016764,
-                         "draw_ms":  7.51900005340576,
-                         "render_cpu_ms":  0.875999987125397,
+                         "p99_noise_band_share":  0.019893555799747466,
+                         "gpu_bound_share":  0.512820512820513,
+                         "process_ms":  0.181999996304512,
+                         "process_mean_ms":  0.191280936350923,
+                         "physics_mean_ms":  0.545669257177761,
+                         "cpu_ms":  0.734729097340019,
+                         "cpu_spread_share":  0.01010713536103271,
+                         "cpu_noise_band_share":  0.015,
+                         "draw_ms":  7.63800001144409,
+                         "render_cpu_ms":  0.884999990463257,
                          "draw_calls":  273,
                          "shadow_draw_calls":  310,
                          "primitives":  14870,
@@ -136,48 +136,48 @@
                                          0
                                      ],
                          "per_repeat_mean_ms":  [
-                                                    8.34600220709841,
-                                                    8.33864270533081,
-                                                    8.33677162140806
+                                                    8.41109587117581,
+                                                    8.43242377978269,
+                                                    8.37537735389684
                                                 ],
                          "zones":  {
                                        "items":  {
-                                                     "mean_ms":  0.245954646044864,
-                                                     "max_ms":  1.14800000190735
+                                                     "mean_ms":  0.242373467189412,
+                                                     "max_ms":  1.09599995613098
                                                  },
                                        "player":  {
-                                                      "mean_ms":  0.0408747229774683,
-                                                      "max_ms":  0.140000000596046
+                                                      "mean_ms":  0.0429484305460624,
+                                                      "max_ms":  0.168999999761581
                                                   },
                                        "player.grabber":  {
-                                                              "mean_ms":  0.00850997801391024,
-                                                              "max_ms":  0.0419999994337559
+                                                              "mean_ms":  0.00879800221784563,
+                                                              "max_ms":  0.0240000002086163
                                                           }
                                    },
-                         "unattributed_process_ms":  0.109239467735632,
-                         "unattributed_physics_ms":  0.255526606608884
+                         "unattributed_process_ms":  0.113775784141413,
+                         "unattributed_physics_ms":  0.26054820645550397
                      },
                      {
                          "name":  "at_rest",
                          "repeats":  3,
-                         "mean_frame_ms":  10.118400647584,
-                         "frame_spread_share":  0.080027159362101863,
-                         "noise_band_share":  0.080027159362101863,
-                         "p99_frame_ms":  11.289999961853,
-                         "slowest_1_percent_fps":  88.534749291309,
-                         "gpu_ms":  9.44999980926514,
-                         "gpu_spread_share":  0.078412718564242326,
-                         "gpu_noise_band_share":  0.078412718564242326,
-                         "p99_noise_band_share":  0.085296749406573447,
-                         "gpu_bound_share":  0.969899665551839,
-                         "process_ms":  0.165999993681908,
-                         "process_mean_ms":  0.181030302988961,
-                         "physics_mean_ms":  0.522925925174546,
-                         "cpu_ms":  0.707090300710305,
-                         "cpu_spread_share":  0.02958749367371603,
-                         "cpu_noise_band_share":  0.02958749367371603,
-                         "draw_ms":  9.28899955749512,
-                         "render_cpu_ms":  1.03199994564056,
+                         "mean_frame_ms":  10.8045503767274,
+                         "frame_spread_share":  0.056679931396422509,
+                         "noise_band_share":  0.056679931396422509,
+                         "p99_frame_ms":  11.9680004119873,
+                         "slowest_1_percent_fps":  83.2593237927261,
+                         "gpu_ms":  10.0959997177124,
+                         "gpu_spread_share":  0.056854236789895547,
+                         "gpu_noise_band_share":  0.056854236789895547,
+                         "p99_noise_band_share":  0.069017395152808164,
+                         "gpu_bound_share":  0.981949458483754,
+                         "process_ms":  0.189999997615814,
+                         "process_mean_ms":  0.193859711664615,
+                         "physics_mean_ms":  0.561155234863612,
+                         "cpu_ms":  0.75502158160046706,
+                         "cpu_spread_share":  0.0407908623049271,
+                         "cpu_noise_band_share":  0.0407908623049271,
+                         "draw_ms":  9.84700012207031,
+                         "render_cpu_ms":  1.04200005531311,
                          "draw_calls":  294,
                          "shadow_draw_calls":  602,
                          "primitives":  15466,
@@ -187,48 +187,48 @@
                                          0
                                      ],
                          "per_repeat_mean_ms":  [
-                                                    10.850787000966,
-                                                    10.0410401398522,
-                                                    10.118400647584
+                                                    10.8045503767274,
+                                                    10.8565342934123,
+                                                    10.2441331192902
                                                 ],
                          "zones":  {
                                        "items":  {
-                                                     "mean_ms":  0.192851851082811,
-                                                     "max_ms":  0.367000013589859
+                                                     "mean_ms":  0.20393501808497,
+                                                     "max_ms":  0.432000011205673
                                                  },
                                        "player":  {
-                                                      "mean_ms":  0.0492743683931845,
-                                                      "max_ms":  0.187999993562698
+                                                      "mean_ms":  0.0520819114845361,
+                                                      "max_ms":  0.194000005722046
                                                   },
                                        "player.grabber":  {
-                                                              "mean_ms":  0.0102202168998682,
-                                                              "max_ms":  0.0219999998807907
+                                                              "mean_ms":  0.0107870037475809,
+                                                              "max_ms":  0.0230000000447035
                                                           }
                                    },
-                         "unattributed_process_ms":  0.111471380473989,
-                         "unattributed_physics_ms":  0.28110774388217
+                         "unattributed_process_ms":  0.115129963182155,
+                         "unattributed_physics_ms":  0.300982013224162
                      },
                      {
                          "name":  "all_at_once",
                          "repeats":  3,
-                         "mean_frame_ms":  10.0874673613352,
-                         "frame_spread_share":  0.0038442608816398553,
+                         "mean_frame_ms":  10.1090854232635,
+                         "frame_spread_share":  0.0068804123380080224,
                          "noise_band_share":  0.015,
-                         "p99_frame_ms":  13.0170001983643,
-                         "slowest_1_percent_fps":  76.6459726575352,
-                         "gpu_ms":  9.41100025177002,
-                         "gpu_spread_share":  0.0048878467481591531,
+                         "p99_frame_ms":  12.8739995956421,
+                         "slowest_1_percent_fps":  77.3305496844851,
+                         "gpu_ms":  9.42800045013428,
+                         "gpu_spread_share":  0.01071275215646408,
                          "gpu_noise_band_share":  0.015,
-                         "p99_noise_band_share":  0.022355335953145823,
+                         "p99_noise_band_share":  0.015,
                          "gpu_bound_share":  0.603015075376884,
-                         "process_ms":  0.159999996423721,
-                         "process_mean_ms":  0.177537688732746,
-                         "physics_mean_ms":  1.21442713390044,
-                         "cpu_ms":  1.3984321588697179,
-                         "cpu_spread_share":  0.012055850748869099,
+                         "process_ms":  0.18299999833107,
+                         "process_mean_ms":  0.191336683891526,
+                         "physics_mean_ms":  1.22321211569237,
+                         "cpu_ms":  1.415381907218666,
+                         "cpu_spread_share":  0.0080922504383938668,
                          "cpu_noise_band_share":  0.015,
-                         "draw_ms":  8.25100040435791,
-                         "render_cpu_ms":  0.931999981403351,
+                         "draw_ms":  8.48700046539307,
+                         "render_cpu_ms":  0.944000005722046,
                          "draw_calls":  246,
                          "shadow_draw_calls":  523,
                          "primitives":  13278,
@@ -238,48 +238,48 @@
                                          0
                                      ],
                          "per_repeat_mean_ms":  [
-                                                    10.0631507796858,
-                                                    10.1019296358578,
-                                                    10.0874673613352
+                                                    10.1090854232635,
+                                                    10.1483787912311,
+                                                    10.0788241151589
                                                 ],
                          "zones":  {
                                        "items":  {
-                                                     "mean_ms":  0.577673370514683,
-                                                     "max_ms":  1.23599994182587
+                                                     "mean_ms":  0.571718592739584,
+                                                     "max_ms":  1.26199996471405
                                                  },
                                        "player":  {
-                                                      "mean_ms":  0.0480452263212983,
-                                                      "max_ms":  0.0930000022053719
+                                                      "mean_ms":  0.0488241208558107,
+                                                      "max_ms":  0.109999999403954
                                                   },
                                        "player.grabber":  {
-                                                              "mean_ms":  0.0100452265276307,
-                                                              "max_ms":  0.0189999993890524
+                                                              "mean_ms":  0.0103768846815705,
+                                                              "max_ms":  0.0299999993294477
                                                           }
                                    },
-                         "unattributed_process_ms":  0.111603015238166,
-                         "unattributed_physics_ms":  0.597216077542035
+                         "unattributed_process_ms":  0.115974874596051,
+                         "unattributed_physics_ms":  0.601809047050213
                      },
                      {
                          "name":  "coming_to_rest",
                          "repeats":  3,
-                         "mean_frame_ms":  9.98939619518462,
-                         "frame_spread_share":  0.00073392017915485837,
+                         "mean_frame_ms":  10.0603638331095,
+                         "frame_spread_share":  0.00020353380531437472,
                          "noise_band_share":  0.015,
-                         "p99_frame_ms":  11.6049995422363,
-                         "slowest_1_percent_fps":  85.5700378759044,
-                         "gpu_ms":  9.36100006103516,
-                         "gpu_spread_share":  0.00064101257982112985,
+                         "p99_frame_ms":  11.710000038147,
+                         "slowest_1_percent_fps":  84.7577330470685,
+                         "gpu_ms":  9.37600040435791,
+                         "gpu_spread_share":  0.005119489507599541,
                          "gpu_noise_band_share":  0.015,
                          "p99_noise_band_share":  0.015,
-                         "gpu_bound_share":  0.681904761904762,
-                         "process_ms":  0.158999994397163,
-                         "process_mean_ms":  0.184756189811797,
-                         "physics_mean_ms":  0.699961904798235,
-                         "cpu_ms":  0.886518094709941,
-                         "cpu_spread_share":  0.01883452059907605,
-                         "cpu_noise_band_share":  0.01883452059907605,
-                         "draw_ms":  8.8129997253418,
-                         "render_cpu_ms":  0.929000020027161,
+                         "gpu_bound_share":  0.700952380952381,
+                         "process_ms":  0.189999997615814,
+                         "process_mean_ms":  0.20111809526171,
+                         "physics_mean_ms":  0.71202666759491,
+                         "cpu_ms":  0.91010095323835094,
+                         "cpu_spread_share":  0.0092862519513949651,
+                         "cpu_noise_band_share":  0.015,
+                         "draw_ms":  8.99600028991699,
+                         "render_cpu_ms":  0.947000026702881,
                          "draw_calls":  246,
                          "shadow_draw_calls":  523,
                          "primitives":  13278,
@@ -289,48 +289,48 @@
                                          0
                                      ],
                          "per_repeat_mean_ms":  [
-                                                    9.98831809452602,
-                                                    9.98939619518462,
-                                                    9.99564951397124
+                                                    10.0594056974139,
+                                                    10.0603638331095,
+                                                    10.0614533215477
                                                 ],
                          "zones":  {
                                        "items":  {
-                                                     "mean_ms":  0.308125713723046,
-                                                     "max_ms":  0.74099999666214
+                                                     "mean_ms":  0.305057142462049,
+                                                     "max_ms":  0.748000025749207
                                                  },
                                        "player":  {
-                                                      "mean_ms":  0.0486685717744487,
-                                                      "max_ms":  0.184000000357628
+                                                      "mean_ms":  0.0506838096181552,
+                                                      "max_ms":  0.19200000166893
                                                   },
                                        "player.grabber":  {
-                                                              "mean_ms":  0.0102723813074685,
-                                                              "max_ms":  0.046000000089407
+                                                              "mean_ms":  0.0106761905125209,
+                                                              "max_ms":  0.0329999998211861
                                                           }
                                    },
-                         "unattributed_process_ms":  0.116963809998263,
-                         "unattributed_physics_ms":  0.344967619400649
+                         "unattributed_process_ms":  0.122483809129113,
+                         "unattributed_physics_ms":  0.356228571917329
                      },
                      {
                          "name":  "floating_on_waves",
                          "repeats":  3,
-                         "mean_frame_ms":  11.6309121399282,
-                         "frame_spread_share":  0.0024157750526240052,
-                         "noise_band_share":  0.015,
-                         "p99_frame_ms":  13.2290000915527,
-                         "slowest_1_percent_fps":  13.9478444603455,
-                         "gpu_ms":  10.3509998321533,
-                         "gpu_spread_share":  0.0041542094435098416,
-                         "gpu_noise_band_share":  0.015,
-                         "p99_noise_band_share":  0.015,
-                         "gpu_bound_share":  0.657943925233645,
-                         "process_ms":  0.166999995708466,
-                         "process_mean_ms":  0.212894935377543,
-                         "physics_mean_ms":  1.84810507409344,
-                         "cpu_ms":  2.0610000094709831,
-                         "cpu_spread_share":  0.012313556871977943,
+                         "mean_frame_ms":  11.8128709521647,
+                         "frame_spread_share":  0.015809999526649986,
+                         "noise_band_share":  0.015809999526649986,
+                         "p99_frame_ms":  13.3070001602173,
+                         "slowest_1_percent_fps":  13.9655374385381,
+                         "gpu_ms":  10.4479999542236,
+                         "gpu_spread_share":  0.018376760139770451,
+                         "gpu_noise_band_share":  0.018376760139770451,
+                         "p99_noise_band_share":  0.023521433950045825,
+                         "gpu_bound_share":  0.667931688804554,
+                         "process_ms":  0.188999995589256,
+                         "process_mean_ms":  0.223518026762941,
+                         "physics_mean_ms":  1.21458756901226,
+                         "cpu_ms":  1.436602634842566,
+                         "cpu_spread_share":  0.013255922451995084,
                          "cpu_noise_band_share":  0.015,
-                         "draw_ms":  9.14599990844727,
-                         "render_cpu_ms":  0.943000018596649,
+                         "draw_ms":  9.32699966430664,
+                         "render_cpu_ms":  0.949999988079071,
                          "draw_calls":  307,
                          "shadow_draw_calls":  359,
                          "primitives":  15750,
@@ -340,30 +340,30 @@
                                          1
                                      ],
                          "per_repeat_mean_ms":  [
-                                                    11.6309121399282,
-                                                    11.6170149320987,
-                                                    11.6451125994856
+                                                    11.8128709521647,
+                                                    11.8679045839164,
+                                                    11.6811430997543
                                                 ],
                          "zones":  {
                                        "items":  {
-                                                     "mean_ms":  0.825046906104455,
-                                                     "max_ms":  7.91499996185303
+                                                     "mean_ms":  0.821414311951388,
+                                                     "max_ms":  7.81899976730347
                                                  },
                                        "player":  {
-                                                      "mean_ms":  0.0516416510710349,
-                                                      "max_ms":  0.250999987125397
+                                                      "mean_ms":  0.0547779886727089,
+                                                      "max_ms":  0.24600000679493
                                                   },
                                        "player.grabber":  {
-                                                              "mean_ms":  0.0112382742868104,
-                                                              "max_ms":  0.0689999982714653
+                                                              "mean_ms":  0.0118342748423951,
+                                                              "max_ms":  0.0590000003576279
                                                           }
                                    },
-                         "unattributed_process_ms":  0.142853659554953,
-                         "unattributed_physics_ms":  0.971416516917955,
+                         "unattributed_process_ms":  0.146651600173582,
+                         "unattributed_physics_ms":  0.338060721726752,
                          "hitch_causes":  {
                                               "screenshot":  {
                                                                  "count":  1,
-                                                                 "worst_ms":  377.848999023438,
+                                                                 "worst_ms":  373.06298828125,
                                                                  "at_x":  [
                                                                               38.0
                                                                           ]
@@ -376,61 +376,61 @@
                                        {
                                            "name":  "adding",
                                            "repeats":  3,
-                                           "mean_frame_ms":  16.8763806706383,
-                                           "frame_spread_share":  0.0778634780778443,
-                                           "noise_band_share":  0.0778634780778443,
-                                           "p99_frame_ms":  160.983993530273,
-                                           "slowest_1_percent_fps":  6.21179769535254,
-                                           "gpu_ms":  8.29300022125244,
-                                           "gpu_spread_share":  0.088025988515659612,
-                                           "gpu_noise_band_share":  0.088025988515659612,
-                                           "p99_noise_band_share":  0.01709486043312439,
+                                           "mean_frame_ms":  16.8817143213181,
+                                           "frame_spread_share":  0.069500374148956157,
+                                           "noise_band_share":  0.069500374148956157,
+                                           "p99_frame_ms":  158.608001708984,
+                                           "slowest_1_percent_fps":  6.30485214632998,
+                                           "gpu_ms":  8.45300006866455,
+                                           "gpu_spread_share":  0.13001300936762511,
+                                           "gpu_noise_band_share":  0.13001300936762511,
+                                           "p99_noise_band_share":  0.016978923730494516,
                                            "gpu_bound_share":  0.523809523809524,
-                                           "process_ms":  2.26200008392334,
-                                           "process_mean_ms":  3.39628570420401,
-                                           "physics_mean_ms":  1.14008695664613,
-                                           "cpu_ms":  4.50880952108474,
-                                           "cpu_spread_share":  0.061625397580255641,
-                                           "cpu_noise_band_share":  0.061625397580255641,
-                                           "draw_ms":  6.18100023269653,
-                                           "render_cpu_ms":  0.75,
-                                           "draw_calls":  127,
-                                           "shadow_draw_calls":  151,
-                                           "primitives":  6402,
+                                           "process_ms":  2.2720000743866,
+                                           "process_mean_ms":  3.358809476807,
+                                           "physics_mean_ms":  1.13519047271638,
+                                           "cpu_ms":  4.4939999495233796,
+                                           "cpu_spread_share":  0.048392574205007512,
+                                           "cpu_noise_band_share":  0.048392574205007512,
+                                           "draw_ms":  6.69700002670288,
+                                           "render_cpu_ms":  0.731000006198883,
+                                           "draw_calls":  124,
+                                           "shadow_draw_calls":  148,
+                                           "primitives":  6238,
                                            "hitches":  [
                                                            1,
                                                            1,
                                                            1
                                                        ],
                                            "per_repeat_mean_ms":  [
-                                                                      17.2826187042963,
-                                                                      16.8763806706383,
-                                                                      15.9685650079147
+                                                                      16.3773811885289,
+                                                                      17.5506666501363,
+                                                                      16.8817143213181
                                                                   ],
                                            "zones":  {
                                                          "items":  {
-                                                                       "mean_ms":  0.384869562542957,
-                                                                       "max_ms":  1.00399994850159
+                                                                       "mean_ms":  0.363714282001768,
+                                                                       "max_ms":  0.998000025749207
                                                                    },
                                                          "player":  {
-                                                                        "mean_ms":  0.0651904764984335,
-                                                                        "max_ms":  0.458000004291534
+                                                                        "mean_ms":  0.0643809517579419,
+                                                                        "max_ms":  0.421999990940094
                                                                     },
                                                          "player.grabber":  {
-                                                                                "mean_ms":  0.0132857146451161,
-                                                                                "max_ms":  0.0869999974966049
+                                                                                "mean_ms":  0.0132380955896917,
+                                                                                "max_ms":  0.0820000022649765
                                                                             },
                                                          "spawn":  {
-                                                                       "mean_ms":  3.08680957839603,
-                                                                       "max_ms":  24.4150009155273
+                                                                       "mean_ms":  3.05690476156416,
+                                                                       "max_ms":  23.9409999847412
                                                                    }
                                                      },
-                                           "unattributed_process_ms":  0.220904697087549,
-                                           "unattributed_physics_ms":  0.691095243607249,
+                                           "unattributed_process_ms":  0.217904788752397,
+                                           "unattributed_physics_ms":  0.707095238956667,
                                            "hitch_causes":  {
                                                                 "shader_compiles":  {
                                                                                         "count":  1,
-                                                                                        "worst_ms":  161.636993408203,
+                                                                                        "worst_ms":  160.057998657227,
                                                                                         "at_x":  [
                                                                                                      -30.0
                                                                                                  ]
@@ -440,24 +440,24 @@
                                        {
                                            "name":  "settling",
                                            "repeats":  3,
-                                           "mean_frame_ms":  8.33864270533081,
-                                           "frame_spread_share":  0.0011069650081600268,
+                                           "mean_frame_ms":  8.41109587117581,
+                                           "frame_spread_share":  0.0067822822090691567,
                                            "noise_band_share":  0.015,
-                                           "p99_frame_ms":  10.7760000228882,
-                                           "slowest_1_percent_fps":  90.7844685742491,
-                                           "gpu_ms":  7.69299983978271,
-                                           "gpu_spread_share":  0.0066294188636107408,
+                                           "p99_frame_ms":  10.7069997787476,
+                                           "slowest_1_percent_fps":  90.7465724189238,
+                                           "gpu_ms":  7.71000003814697,
+                                           "gpu_spread_share":  0.002594093082323271,
                                            "gpu_noise_band_share":  0.015,
-                                           "p99_noise_band_share":  0.016982146484058044,
-                                           "gpu_bound_share":  0.508869179600887,
-                                           "process_ms":  0.162000000476837,
-                                           "process_mean_ms":  0.17816629705996,
-                                           "physics_mean_ms":  0.544248335641662,
-                                           "cpu_ms":  0.718660752551254,
-                                           "cpu_spread_share":  0.045961820016764,
-                                           "cpu_noise_band_share":  0.045961820016764,
-                                           "draw_ms":  7.51900005340576,
-                                           "render_cpu_ms":  0.875999987125397,
+                                           "p99_noise_band_share":  0.019893555799747466,
+                                           "gpu_bound_share":  0.512820512820513,
+                                           "process_ms":  0.181999996304512,
+                                           "process_mean_ms":  0.191280936350923,
+                                           "physics_mean_ms":  0.545669257177761,
+                                           "cpu_ms":  0.734729097340019,
+                                           "cpu_spread_share":  0.01010713536103271,
+                                           "cpu_noise_band_share":  0.015,
+                                           "draw_ms":  7.63800001144409,
+                                           "render_cpu_ms":  0.884999990463257,
                                            "draw_calls":  273,
                                            "shadow_draw_calls":  310,
                                            "primitives":  14870,
@@ -467,48 +467,48 @@
                                                            0
                                                        ],
                                            "per_repeat_mean_ms":  [
-                                                                      8.34600220709841,
-                                                                      8.33864270533081,
-                                                                      8.33677162140806
+                                                                      8.41109587117581,
+                                                                      8.43242377978269,
+                                                                      8.37537735389684
                                                                   ],
                                            "zones":  {
                                                          "items":  {
-                                                                       "mean_ms":  0.245954646044864,
-                                                                       "max_ms":  1.14800000190735
+                                                                       "mean_ms":  0.242373467189412,
+                                                                       "max_ms":  1.09599995613098
                                                                    },
                                                          "player":  {
-                                                                        "mean_ms":  0.0408747229774683,
-                                                                        "max_ms":  0.140000000596046
+                                                                        "mean_ms":  0.0429484305460624,
+                                                                        "max_ms":  0.168999999761581
                                                                     },
                                                          "player.grabber":  {
-                                                                                "mean_ms":  0.00850997801391024,
-                                                                                "max_ms":  0.0419999994337559
+                                                                                "mean_ms":  0.00879800221784563,
+                                                                                "max_ms":  0.0240000002086163
                                                                             }
                                                      },
-                                           "unattributed_process_ms":  0.109239467735632,
-                                           "unattributed_physics_ms":  0.255526606608884
+                                           "unattributed_process_ms":  0.113775784141413,
+                                           "unattributed_physics_ms":  0.26054820645550397
                                        },
                                        {
                                            "name":  "at_rest",
                                            "repeats":  3,
-                                           "mean_frame_ms":  10.118400647584,
-                                           "frame_spread_share":  0.080027159362101863,
-                                           "noise_band_share":  0.080027159362101863,
-                                           "p99_frame_ms":  11.289999961853,
-                                           "slowest_1_percent_fps":  88.534749291309,
-                                           "gpu_ms":  9.44999980926514,
-                                           "gpu_spread_share":  0.078412718564242326,
-                                           "gpu_noise_band_share":  0.078412718564242326,
-                                           "p99_noise_band_share":  0.085296749406573447,
-                                           "gpu_bound_share":  0.969899665551839,
-                                           "process_ms":  0.165999993681908,
-                                           "process_mean_ms":  0.181030302988961,
-                                           "physics_mean_ms":  0.522925925174546,
-                                           "cpu_ms":  0.707090300710305,
-                                           "cpu_spread_share":  0.02958749367371603,
-                                           "cpu_noise_band_share":  0.02958749367371603,
-                                           "draw_ms":  9.28899955749512,
-                                           "render_cpu_ms":  1.03199994564056,
+                                           "mean_frame_ms":  10.8045503767274,
+                                           "frame_spread_share":  0.056679931396422509,
+                                           "noise_band_share":  0.056679931396422509,
+                                           "p99_frame_ms":  11.9680004119873,
+                                           "slowest_1_percent_fps":  83.2593237927261,
+                                           "gpu_ms":  10.0959997177124,
+                                           "gpu_spread_share":  0.056854236789895547,
+                                           "gpu_noise_band_share":  0.056854236789895547,
+                                           "p99_noise_band_share":  0.069017395152808164,
+                                           "gpu_bound_share":  0.981949458483754,
+                                           "process_ms":  0.189999997615814,
+                                           "process_mean_ms":  0.193859711664615,
+                                           "physics_mean_ms":  0.561155234863612,
+                                           "cpu_ms":  0.75502158160046706,
+                                           "cpu_spread_share":  0.0407908623049271,
+                                           "cpu_noise_band_share":  0.0407908623049271,
+                                           "draw_ms":  9.84700012207031,
+                                           "render_cpu_ms":  1.04200005531311,
                                            "draw_calls":  294,
                                            "shadow_draw_calls":  602,
                                            "primitives":  15466,
@@ -518,48 +518,48 @@
                                                            0
                                                        ],
                                            "per_repeat_mean_ms":  [
-                                                                      10.850787000966,
-                                                                      10.0410401398522,
-                                                                      10.118400647584
+                                                                      10.8045503767274,
+                                                                      10.8565342934123,
+                                                                      10.2441331192902
                                                                   ],
                                            "zones":  {
                                                          "items":  {
-                                                                       "mean_ms":  0.192851851082811,
-                                                                       "max_ms":  0.367000013589859
+                                                                       "mean_ms":  0.20393501808497,
+                                                                       "max_ms":  0.432000011205673
                                                                    },
                                                          "player":  {
-                                                                        "mean_ms":  0.0492743683931845,
-                                                                        "max_ms":  0.187999993562698
+                                                                        "mean_ms":  0.0520819114845361,
+                                                                        "max_ms":  0.194000005722046
                                                                     },
                                                          "player.grabber":  {
-                                                                                "mean_ms":  0.0102202168998682,
-                                                                                "max_ms":  0.0219999998807907
+                                                                                "mean_ms":  0.0107870037475809,
+                                                                                "max_ms":  0.0230000000447035
                                                                             }
                                                      },
-                                           "unattributed_process_ms":  0.111471380473989,
-                                           "unattributed_physics_ms":  0.28110774388217
+                                           "unattributed_process_ms":  0.115129963182155,
+                                           "unattributed_physics_ms":  0.300982013224162
                                        },
                                        {
                                            "name":  "all_at_once",
                                            "repeats":  3,
-                                           "mean_frame_ms":  10.0874673613352,
-                                           "frame_spread_share":  0.0038442608816398553,
+                                           "mean_frame_ms":  10.1090854232635,
+                                           "frame_spread_share":  0.0068804123380080224,
                                            "noise_band_share":  0.015,
-                                           "p99_frame_ms":  13.0170001983643,
-                                           "slowest_1_percent_fps":  76.6459726575352,
-                                           "gpu_ms":  9.41100025177002,
-                                           "gpu_spread_share":  0.0048878467481591531,
+                                           "p99_frame_ms":  12.8739995956421,
+                                           "slowest_1_percent_fps":  77.3305496844851,
+                                           "gpu_ms":  9.42800045013428,
+                                           "gpu_spread_share":  0.01071275215646408,
                                            "gpu_noise_band_share":  0.015,
-                                           "p99_noise_band_share":  0.022355335953145823,
+                                           "p99_noise_band_share":  0.015,
                                            "gpu_bound_share":  0.603015075376884,
-                                           "process_ms":  0.159999996423721,
-                                           "process_mean_ms":  0.177537688732746,
-                                           "physics_mean_ms":  1.21442713390044,
-                                           "cpu_ms":  1.3984321588697179,
-                                           "cpu_spread_share":  0.012055850748869099,
+                                           "process_ms":  0.18299999833107,
+                                           "process_mean_ms":  0.191336683891526,
+                                           "physics_mean_ms":  1.22321211569237,
+                                           "cpu_ms":  1.415381907218666,
+                                           "cpu_spread_share":  0.0080922504383938668,
                                            "cpu_noise_band_share":  0.015,
-                                           "draw_ms":  8.25100040435791,
-                                           "render_cpu_ms":  0.931999981403351,
+                                           "draw_ms":  8.48700046539307,
+                                           "render_cpu_ms":  0.944000005722046,
                                            "draw_calls":  246,
                                            "shadow_draw_calls":  523,
                                            "primitives":  13278,
@@ -569,48 +569,48 @@
                                                            0
                                                        ],
                                            "per_repeat_mean_ms":  [
-                                                                      10.0631507796858,
-                                                                      10.1019296358578,
-                                                                      10.0874673613352
+                                                                      10.1090854232635,
+                                                                      10.1483787912311,
+                                                                      10.0788241151589
                                                                   ],
                                            "zones":  {
                                                          "items":  {
-                                                                       "mean_ms":  0.577673370514683,
-                                                                       "max_ms":  1.23599994182587
+                                                                       "mean_ms":  0.571718592739584,
+                                                                       "max_ms":  1.26199996471405
                                                                    },
                                                          "player":  {
-                                                                        "mean_ms":  0.0480452263212983,
-                                                                        "max_ms":  0.0930000022053719
+                                                                        "mean_ms":  0.0488241208558107,
+                                                                        "max_ms":  0.109999999403954
                                                                     },
                                                          "player.grabber":  {
-                                                                                "mean_ms":  0.0100452265276307,
-                                                                                "max_ms":  0.0189999993890524
+                                                                                "mean_ms":  0.0103768846815705,
+                                                                                "max_ms":  0.0299999993294477
                                                                             }
                                                      },
-                                           "unattributed_process_ms":  0.111603015238166,
-                                           "unattributed_physics_ms":  0.597216077542035
+                                           "unattributed_process_ms":  0.115974874596051,
+                                           "unattributed_physics_ms":  0.601809047050213
                                        },
                                        {
                                            "name":  "coming_to_rest",
                                            "repeats":  3,
-                                           "mean_frame_ms":  9.98939619518462,
-                                           "frame_spread_share":  0.00073392017915485837,
+                                           "mean_frame_ms":  10.0603638331095,
+                                           "frame_spread_share":  0.00020353380531437472,
                                            "noise_band_share":  0.015,
-                                           "p99_frame_ms":  11.6049995422363,
-                                           "slowest_1_percent_fps":  85.5700378759044,
-                                           "gpu_ms":  9.36100006103516,
-                                           "gpu_spread_share":  0.00064101257982112985,
+                                           "p99_frame_ms":  11.710000038147,
+                                           "slowest_1_percent_fps":  84.7577330470685,
+                                           "gpu_ms":  9.37600040435791,
+                                           "gpu_spread_share":  0.005119489507599541,
                                            "gpu_noise_band_share":  0.015,
                                            "p99_noise_band_share":  0.015,
-                                           "gpu_bound_share":  0.681904761904762,
-                                           "process_ms":  0.158999994397163,
-                                           "process_mean_ms":  0.184756189811797,
-                                           "physics_mean_ms":  0.699961904798235,
-                                           "cpu_ms":  0.886518094709941,
-                                           "cpu_spread_share":  0.01883452059907605,
-                                           "cpu_noise_band_share":  0.01883452059907605,
-                                           "draw_ms":  8.8129997253418,
-                                           "render_cpu_ms":  0.929000020027161,
+                                           "gpu_bound_share":  0.700952380952381,
+                                           "process_ms":  0.189999997615814,
+                                           "process_mean_ms":  0.20111809526171,
+                                           "physics_mean_ms":  0.71202666759491,
+                                           "cpu_ms":  0.91010095323835094,
+                                           "cpu_spread_share":  0.0092862519513949651,
+                                           "cpu_noise_band_share":  0.015,
+                                           "draw_ms":  8.99600028991699,
+                                           "render_cpu_ms":  0.947000026702881,
                                            "draw_calls":  246,
                                            "shadow_draw_calls":  523,
                                            "primitives":  13278,
@@ -620,48 +620,48 @@
                                                            0
                                                        ],
                                            "per_repeat_mean_ms":  [
-                                                                      9.98831809452602,
-                                                                      9.98939619518462,
-                                                                      9.99564951397124
+                                                                      10.0594056974139,
+                                                                      10.0603638331095,
+                                                                      10.0614533215477
                                                                   ],
                                            "zones":  {
                                                          "items":  {
-                                                                       "mean_ms":  0.308125713723046,
-                                                                       "max_ms":  0.74099999666214
+                                                                       "mean_ms":  0.305057142462049,
+                                                                       "max_ms":  0.748000025749207
                                                                    },
                                                          "player":  {
-                                                                        "mean_ms":  0.0486685717744487,
-                                                                        "max_ms":  0.184000000357628
+                                                                        "mean_ms":  0.0506838096181552,
+                                                                        "max_ms":  0.19200000166893
                                                                     },
                                                          "player.grabber":  {
-                                                                                "mean_ms":  0.0102723813074685,
-                                                                                "max_ms":  0.046000000089407
+                                                                                "mean_ms":  0.0106761905125209,
+                                                                                "max_ms":  0.0329999998211861
                                                                             }
                                                      },
-                                           "unattributed_process_ms":  0.116963809998263,
-                                           "unattributed_physics_ms":  0.344967619400649
+                                           "unattributed_process_ms":  0.122483809129113,
+                                           "unattributed_physics_ms":  0.356228571917329
                                        },
                                        {
                                            "name":  "floating_on_waves",
                                            "repeats":  3,
-                                           "mean_frame_ms":  11.6309121399282,
-                                           "frame_spread_share":  0.0024157750526240052,
-                                           "noise_band_share":  0.015,
-                                           "p99_frame_ms":  13.2290000915527,
-                                           "slowest_1_percent_fps":  13.9478444603455,
-                                           "gpu_ms":  10.3509998321533,
-                                           "gpu_spread_share":  0.0041542094435098416,
-                                           "gpu_noise_band_share":  0.015,
-                                           "p99_noise_band_share":  0.015,
-                                           "gpu_bound_share":  0.657943925233645,
-                                           "process_ms":  0.166999995708466,
-                                           "process_mean_ms":  0.212894935377543,
-                                           "physics_mean_ms":  1.84810507409344,
-                                           "cpu_ms":  2.0610000094709831,
-                                           "cpu_spread_share":  0.012313556871977943,
+                                           "mean_frame_ms":  11.8128709521647,
+                                           "frame_spread_share":  0.015809999526649986,
+                                           "noise_band_share":  0.015809999526649986,
+                                           "p99_frame_ms":  13.3070001602173,
+                                           "slowest_1_percent_fps":  13.9655374385381,
+                                           "gpu_ms":  10.4479999542236,
+                                           "gpu_spread_share":  0.018376760139770451,
+                                           "gpu_noise_band_share":  0.018376760139770451,
+                                           "p99_noise_band_share":  0.023521433950045825,
+                                           "gpu_bound_share":  0.667931688804554,
+                                           "process_ms":  0.188999995589256,
+                                           "process_mean_ms":  0.223518026762941,
+                                           "physics_mean_ms":  1.21458756901226,
+                                           "cpu_ms":  1.436602634842566,
+                                           "cpu_spread_share":  0.013255922451995084,
                                            "cpu_noise_band_share":  0.015,
-                                           "draw_ms":  9.14599990844727,
-                                           "render_cpu_ms":  0.943000018596649,
+                                           "draw_ms":  9.32699966430664,
+                                           "render_cpu_ms":  0.949999988079071,
                                            "draw_calls":  307,
                                            "shadow_draw_calls":  359,
                                            "primitives":  15750,
@@ -671,30 +671,30 @@
                                                            1
                                                        ],
                                            "per_repeat_mean_ms":  [
-                                                                      11.6309121399282,
-                                                                      11.6170149320987,
-                                                                      11.6451125994856
+                                                                      11.8128709521647,
+                                                                      11.8679045839164,
+                                                                      11.6811430997543
                                                                   ],
                                            "zones":  {
                                                          "items":  {
-                                                                       "mean_ms":  0.825046906104455,
-                                                                       "max_ms":  7.91499996185303
+                                                                       "mean_ms":  0.821414311951388,
+                                                                       "max_ms":  7.81899976730347
                                                                    },
                                                          "player":  {
-                                                                        "mean_ms":  0.0516416510710349,
-                                                                        "max_ms":  0.250999987125397
+                                                                        "mean_ms":  0.0547779886727089,
+                                                                        "max_ms":  0.24600000679493
                                                                     },
                                                          "player.grabber":  {
-                                                                                "mean_ms":  0.0112382742868104,
-                                                                                "max_ms":  0.0689999982714653
+                                                                                "mean_ms":  0.0118342748423951,
+                                                                                "max_ms":  0.0590000003576279
                                                                             }
                                                      },
-                                           "unattributed_process_ms":  0.142853659554953,
-                                           "unattributed_physics_ms":  0.971416516917955,
+                                           "unattributed_process_ms":  0.146651600173582,
+                                           "unattributed_physics_ms":  0.338060721726752,
                                            "hitch_causes":  {
                                                                 "screenshot":  {
                                                                                    "count":  1,
-                                                                                   "worst_ms":  377.848999023438,
+                                                                                   "worst_ms":  373.06298828125,
                                                                                    "at_x":  [
                                                                                                 38.0
                                                                                             ]
@@ -706,61 +706,61 @@
                                         {
                                             "name":  "adding",
                                             "repeats":  3,
-                                            "mean_frame_ms":  11.2389702725766,
-                                            "frame_spread_share":  0.0053084066243128253,
-                                            "noise_band_share":  0.015,
-                                            "p99_frame_ms":  147.460998535156,
-                                            "slowest_1_percent_fps":  6.78145414674911,
-                                            "gpu_ms":  7.86899995803833,
-                                            "gpu_spread_share":  0.0022874731199639038,
-                                            "gpu_noise_band_share":  0.015,
+                                            "mean_frame_ms":  11.3109254552357,
+                                            "frame_spread_share":  0.047361427941665847,
+                                            "noise_band_share":  0.047361427941665847,
+                                            "p99_frame_ms":  147.949005126953,
+                                            "slowest_1_percent_fps":  6.75908566699663,
+                                            "gpu_ms":  7.90299987792969,
+                                            "gpu_spread_share":  0.048083021676631574,
+                                            "gpu_noise_band_share":  0.048083021676631574,
                                             "p99_noise_band_share":  0.015,
-                                            "gpu_bound_share":  0.462686567164179,
-                                            "process_ms":  2.25999999046326,
-                                            "process_mean_ms":  2.62786568456621,
-                                            "physics_mean_ms":  1.81101491913867,
-                                            "cpu_ms":  4.47634849042604,
-                                            "cpu_spread_share":  0.010246222772799452,
+                                            "gpu_bound_share":  0.447761194029851,
+                                            "process_ms":  2.27699995040894,
+                                            "process_mean_ms":  2.64532836159663,
+                                            "physics_mean_ms":  1.8801641748912299,
+                                            "cpu_ms":  4.5237910498434,
+                                            "cpu_spread_share":  0.0011547538076190967,
                                             "cpu_noise_band_share":  0.015,
-                                            "draw_ms":  5.19500017166138,
-                                            "render_cpu_ms":  1.53699994087219,
-                                            "draw_calls":  444,
-                                            "shadow_draw_calls":  656,
-                                            "primitives":  24722,
+                                            "draw_ms":  5.16200017929077,
+                                            "render_cpu_ms":  1.56200003623962,
+                                            "draw_calls":  442,
+                                            "shadow_draw_calls":  652,
+                                            "primitives":  24698,
                                             "hitches":  [
                                                             1,
                                                             1,
                                                             1
                                                         ],
                                             "per_repeat_mean_ms":  [
-                                                                       11.2389702725766,
-                                                                       11.1976268754077,
-                                                                       11.2572878996531
+                                                                       11.2897312819068,
+                                                                       11.8254328628085,
+                                                                       11.3109254552357
                                                                    ],
                                             "zones":  {
                                                           "items":  {
-                                                                        "mean_ms":  0.846727271874746,
-                                                                        "max_ms":  3.2260000705719
+                                                                        "mean_ms":  0.869611938053103,
+                                                                        "max_ms":  2.73200011253357
                                                                     },
                                                           "player":  {
-                                                                         "mean_ms":  0.0491044778210014,
-                                                                         "max_ms":  0.40599998831749
+                                                                         "mean_ms":  0.0508059703592044,
+                                                                         "max_ms":  0.418999999761581
                                                                      },
                                                           "player.grabber":  {
-                                                                                 "mean_ms":  0.00995522416405269,
-                                                                                 "max_ms":  0.0780000016093254
+                                                                                 "mean_ms":  0.0101940299370396,
+                                                                                 "max_ms":  0.0799999982118607
                                                                              },
                                                           "spawn":  {
-                                                                        "mean_ms":  2.38368656030342,
-                                                                        "max_ms":  24.3199996948242
+                                                                        "mean_ms":  2.3837910427976,
+                                                                        "max_ms":  24.1949996948242
                                                                     }
                                                       },
-                                            "unattributed_process_ms":  0.164089571907004,
-                                            "unattributed_physics_ms":  0.928626864814936,
+                                            "unattributed_process_ms":  0.166701480635066,
+                                            "unattributed_physics_ms":  0.96083581970254,
                                             "hitch_causes":  {
                                                                  "shader_compiles":  {
                                                                                          "count":  1,
-                                                                                         "worst_ms":  148.38200378418,
+                                                                                         "worst_ms":  149.593002319336,
                                                                                          "at_x":  [
                                                                                                       -30.0
                                                                                                   ]
@@ -770,24 +770,24 @@
                                         {
                                             "name":  "settling",
                                             "repeats":  3,
-                                            "mean_frame_ms":  8.7911208384428,
-                                            "frame_spread_share":  0.0017998668939139659,
+                                            "mean_frame_ms":  8.85134782909607,
+                                            "frame_spread_share":  0.0010285048417196581,
                                             "noise_band_share":  0.015,
-                                            "p99_frame_ms":  12.2629995346069,
-                                            "slowest_1_percent_fps":  78.4881447079259,
-                                            "gpu_ms":  8.11999988555908,
-                                            "gpu_spread_share":  0.0017241304386896739,
+                                            "p99_frame_ms":  12.2559995651245,
+                                            "slowest_1_percent_fps":  78.3384421617269,
+                                            "gpu_ms":  8.12800025939941,
+                                            "gpu_spread_share":  0.0019684785304782556,
                                             "gpu_noise_band_share":  0.015,
                                             "p99_noise_band_share":  0.015,
-                                            "gpu_bound_share":  0.527743526510481,
-                                            "process_ms":  0.160999998450279,
-                                            "process_mean_ms":  0.192310727544763,
-                                            "physics_mean_ms":  0.870711467709994,
-                                            "cpu_ms":  1.069467323840253,
-                                            "cpu_spread_share":  0.01903379115122036,
-                                            "cpu_noise_band_share":  0.01903379115122036,
-                                            "draw_ms":  7.45599985122681,
-                                            "render_cpu_ms":  2.53999996185303,
+                                            "gpu_bound_share":  0.53125,
+                                            "process_ms":  0.180000007152557,
+                                            "process_mean_ms":  0.206011180302001,
+                                            "physics_mean_ms":  0.885431057918146,
+                                            "cpu_ms":  1.090789081847698,
+                                            "cpu_spread_share":  0.00071712982697608922,
+                                            "cpu_noise_band_share":  0.015,
+                                            "draw_ms":  7.47700023651123,
+                                            "render_cpu_ms":  2.53200006484985,
                                             "draw_calls":  856,
                                             "shadow_draw_calls":  1506,
                                             "primitives":  46310,
@@ -797,48 +797,48 @@
                                                             0
                                                         ],
                                             "per_repeat_mean_ms":  [
-                                                                       8.80049197506228,
-                                                                       8.7911208384428,
-                                                                       8.78466912770477
+                                                                       8.84815383904034,
+                                                                       8.85725749313831,
+                                                                       8.85134782909607
                                                                    ],
                                             "zones":  {
                                                           "items":  {
-                                                                        "mean_ms":  0.531955609339233,
-                                                                        "max_ms":  2.71099996566772
+                                                                        "mean_ms":  0.535964999869466,
+                                                                        "max_ms":  2.7039999961853
                                                                     },
                                                           "player":  {
-                                                                         "mean_ms":  0.0435795315877797,
-                                                                         "max_ms":  0.200000002980232
+                                                                         "mean_ms":  0.0449615385540514,
+                                                                         "max_ms":  0.196999996900558
                                                                      },
                                                           "player.grabber":  {
-                                                                                 "mean_ms":  0.00889889046356872,
-                                                                                 "max_ms":  0.0450000017881393
+                                                                                 "mean_ms":  0.00909250020282343,
+                                                                                 "max_ms":  0.0410000011324883
                                                                              }
                                                       },
-                                            "unattributed_process_ms":  0.125836004853322,
-                                            "unattributed_physics_ms":  0.296542540941337
+                                            "unattributed_process_ms":  0.132200000129686,
+                                            "unattributed_physics_ms":  0.307019877294946
                                         },
                                         {
                                             "name":  "at_rest",
                                             "repeats":  3,
-                                            "mean_frame_ms":  10.702540903329,
-                                            "frame_spread_share":  0.00062778267292672445,
+                                            "mean_frame_ms":  10.7628315477816,
+                                            "frame_spread_share":  0.0010666614252981149,
                                             "noise_band_share":  0.015,
-                                            "p99_frame_ms":  12.5419998168945,
-                                            "slowest_1_percent_fps":  79.5692649003106,
-                                            "gpu_ms":  10.039999961853,
-                                            "gpu_spread_share":  0.0016932468554674035,
+                                            "p99_frame_ms":  12.4899997711182,
+                                            "slowest_1_percent_fps":  79.8764585728702,
+                                            "gpu_ms":  10.0950002670288,
+                                            "gpu_spread_share":  0.00049521155367647745,
                                             "gpu_noise_band_share":  0.015,
-                                            "p99_noise_band_share":  0.01650452732974559,
-                                            "gpu_bound_share":  0.651245551601424,
-                                            "process_ms":  0.158000007271767,
-                                            "process_mean_ms":  0.196921708400351,
-                                            "physics_mean_ms":  0.883672597993735,
-                                            "cpu_ms":  1.0906654801020841,
-                                            "cpu_spread_share":  0.0295715503155709,
-                                            "cpu_noise_band_share":  0.0295715503155709,
-                                            "draw_ms":  9.26299953460693,
-                                            "render_cpu_ms":  2.97399997711182,
+                                            "p99_noise_band_share":  0.016733434050710726,
+                                            "gpu_bound_share":  0.645161290322581,
+                                            "process_ms":  0.170000001788139,
+                                            "process_mean_ms":  0.204125447031845,
+                                            "physics_mean_ms":  0.913713259081687,
+                                            "cpu_ms":  1.117777777829051,
+                                            "cpu_spread_share":  0.011030590330919765,
+                                            "cpu_noise_band_share":  0.015,
+                                            "draw_ms":  9.27099990844727,
+                                            "render_cpu_ms":  2.96300005912781,
                                             "draw_calls":  900,
                                             "shadow_draw_calls":  2326,
                                             "primitives":  47890,
@@ -848,48 +848,48 @@
                                                             0
                                                         ],
                                             "per_repeat_mean_ms":  [
-                                                                       10.702540903329,
-                                                                       10.6965871688734,
-                                                                       10.7033060386088
+                                                                       10.760215041458,
+                                                                       10.7628315477816,
+                                                                       10.771695338697
                                                                    ],
                                             "zones":  {
                                                           "items":  {
-                                                                        "mean_ms":  0.520362990606722,
-                                                                        "max_ms":  0.926999986171722
+                                                                        "mean_ms":  0.529738352076554,
+                                                                        "max_ms":  0.962999999523163
                                                                     },
                                                           "player":  {
-                                                                         "mean_ms":  0.0520960858814233,
-                                                                         "max_ms":  0.196999996900558
+                                                                         "mean_ms":  0.053473118532409,
+                                                                         "max_ms":  0.120999999344349
                                                                      },
                                                           "player.grabber":  {
-                                                                                 "mean_ms":  0.0108932384929464,
-                                                                                 "max_ms":  0.0509999990463257
+                                                                                 "mean_ms":  0.0108207887285606,
+                                                                                 "max_ms":  0.0219999998807907
                                                                              }
                                                       },
-                                            "unattributed_process_ms":  0.129181494604916,
-                                            "unattributed_physics_ms":  0.317391459574903
+                                            "unattributed_process_ms":  0.130379927254492,
+                                            "unattributed_physics_ms":  0.329655912601285
                                         },
                                         {
                                             "name":  "all_at_once",
                                             "repeats":  3,
-                                            "mean_frame_ms":  10.7653081197996,
-                                            "frame_spread_share":  0.0044897278707616631,
+                                            "mean_frame_ms":  10.8491945679123,
+                                            "frame_spread_share":  0.0029713618433154297,
                                             "noise_band_share":  0.015,
-                                            "p99_frame_ms":  16.5349998474121,
-                                            "slowest_1_percent_fps":  60.351851404194,
-                                            "gpu_ms":  10.0200004577637,
-                                            "gpu_spread_share":  0.0044910253730680427,
+                                            "p99_frame_ms":  16.4249992370605,
+                                            "slowest_1_percent_fps":  60.5455168529237,
+                                            "gpu_ms":  10.1099996566772,
+                                            "gpu_spread_share":  0.0079129501901876453,
                                             "gpu_noise_band_share":  0.015,
-                                            "p99_noise_band_share":  0.015180003649741943,
-                                            "gpu_bound_share":  0.6,
-                                            "process_ms":  0.174999997019768,
-                                            "process_mean_ms":  0.214607525696998,
-                                            "physics_mean_ms":  3.03052972974004,
-                                            "cpu_ms":  3.2435914168675071,
-                                            "cpu_spread_share":  0.0076114587689999208,
-                                            "cpu_noise_band_share":  0.015,
-                                            "draw_ms":  7.20800018310547,
-                                            "render_cpu_ms":  2.88499999046326,
+                                            "p99_noise_band_share":  0.015,
+                                            "gpu_bound_share":  0.616216216216216,
+                                            "process_ms":  0.178000003099442,
+                                            "process_mean_ms":  0.222231182319823,
+                                            "physics_mean_ms":  3.08461080757347,
+                                            "cpu_ms":  3.30535675246973,
+                                            "cpu_spread_share":  0.019332032028801946,
+                                            "cpu_noise_band_share":  0.019332032028801946,
+                                            "draw_ms":  7.1729998588562,
+                                            "render_cpu_ms":  2.88899993896484,
                                             "draw_calls":  852,
                                             "shadow_draw_calls":  2245,
                                             "primitives":  45702,
@@ -899,48 +899,48 @@
                                                             0
                                                         ],
                                             "per_repeat_mean_ms":  [
-                                                                       10.7707956785797,
-                                                                       10.7224623746769,
-                                                                       10.7653081197996
+                                                                       10.8605271888816,
+                                                                       10.8282903061118,
+                                                                       10.8491945679123
                                                                    ],
                                             "zones":  {
                                                           "items":  {
-                                                                        "mean_ms":  1.58331351280212,
-                                                                        "max_ms":  3.33500003814697
+                                                                        "mean_ms":  1.59795135034097,
+                                                                        "max_ms":  3.48099994659424
                                                                     },
                                                           "player":  {
-                                                                         "mean_ms":  0.0520432432761063,
-                                                                         "max_ms":  0.0920000001788139
+                                                                         "mean_ms":  0.0533532610406046,
+                                                                         "max_ms":  0.126000002026558
                                                                      },
                                                           "player.grabber":  {
-                                                                                 "mean_ms":  0.010956756891431,
-                                                                                 "max_ms":  0.0219999998807907
+                                                                                 "mean_ms":  0.0112054057016566,
+                                                                                 "max_ms":  0.028999999165535
                                                                              }
                                                       },
-                                            "unattributed_process_ms":  0.144645160124187,
-                                            "unattributed_physics_ms":  1.401446262715
+                                            "unattributed_process_ms":  0.148275674376133,
+                                            "unattributed_physics_ms":  1.41947827002277
                                         },
                                         {
                                             "name":  "coming_to_rest",
                                             "repeats":  3,
-                                            "mean_frame_ms":  10.6788252289231,
-                                            "frame_spread_share":  0.0024198776075957046,
+                                            "mean_frame_ms":  10.7469963709513,
+                                            "frame_spread_share":  0.0043391109200096685,
                                             "noise_band_share":  0.015,
-                                            "p99_frame_ms":  13.5609998703003,
-                                            "slowest_1_percent_fps":  72.7184573264615,
-                                            "gpu_ms":  9.99699974060059,
-                                            "gpu_spread_share":  0.0022006915450633532,
+                                            "p99_frame_ms":  13.7639999389648,
+                                            "slowest_1_percent_fps":  72.1335906702703,
+                                            "gpu_ms":  10.0659999847412,
+                                            "gpu_spread_share":  0.0037750950595175606,
                                             "gpu_noise_band_share":  0.015,
-                                            "p99_noise_band_share":  0.015,
-                                            "gpu_bound_share":  0.63963963963964,
-                                            "process_ms":  0.158999994397163,
-                                            "process_mean_ms":  0.214122522467965,
-                                            "physics_mean_ms":  1.32193333565652,
-                                            "cpu_ms":  1.5442630656533429,
-                                            "cpu_spread_share":  0.025024910549831091,
-                                            "cpu_noise_band_share":  0.025024910549831091,
-                                            "draw_ms":  8.83500003814697,
-                                            "render_cpu_ms":  2.87299990653992,
+                                            "p99_noise_band_share":  0.02324910272577109,
+                                            "gpu_bound_share":  0.643243243243243,
+                                            "process_ms":  0.174999997019768,
+                                            "process_mean_ms":  0.221994594598676,
+                                            "physics_mean_ms":  1.34981801638732,
+                                            "cpu_ms":  1.570583787922927,
+                                            "cpu_spread_share":  0.0037915525251614917,
+                                            "cpu_noise_band_share":  0.015,
+                                            "draw_ms":  8.78299999237061,
+                                            "render_cpu_ms":  2.86299991607666,
                                             "draw_calls":  853,
                                             "shadow_draw_calls":  2245,
                                             "primitives":  45842,
@@ -950,48 +950,48 @@
                                                             0
                                                         ],
                                             "per_repeat_mean_ms":  [
-                                                                       10.6788252289231,
-                                                                       10.6609783679515,
-                                                                       10.6868198179984
+                                                                       10.7215189358136,
+                                                                       10.7469963709513,
+                                                                       10.7681513451241
                                                                    ],
                                             "zones":  {
                                                           "items":  {
-                                                                        "mean_ms":  0.733744144439697,
-                                                                        "max_ms":  1.58299994468689
+                                                                        "mean_ms":  0.743931530939566,
+                                                                        "max_ms":  2.05900001525879
                                                                     },
                                                           "player":  {
-                                                                         "mean_ms":  0.0501027028101522,
-                                                                         "max_ms":  0.122000001370907
+                                                                         "mean_ms":  0.0515135137884467,
+                                                                         "max_ms":  0.104999996721745
                                                                      },
                                                           "player.grabber":  {
-                                                                                 "mean_ms":  0.0107837839152765,
-                                                                                 "max_ms":  0.0280000008642673
+                                                                                 "mean_ms":  0.0109351353686269,
+                                                                                 "max_ms":  0.0230000000447035
                                                                              }
                                                       },
-                                            "unattributed_process_ms":  0.146576576538988,
-                                            "unattributed_physics_ms":  0.538086488406669
+                                            "unattributed_process_ms":  0.148335134815257,
+                                            "unattributed_physics_ms":  0.554625228262162
                                         },
                                         {
                                             "name":  "floating_on_waves",
                                             "repeats":  3,
-                                            "mean_frame_ms":  11.7425075306083,
-                                            "frame_spread_share":  0.00032620496943382935,
+                                            "mean_frame_ms":  11.8217072731642,
+                                            "frame_spread_share":  0.0033887691342214875,
                                             "noise_band_share":  0.015,
-                                            "p99_frame_ms":  16.2530002593994,
-                                            "slowest_1_percent_fps":  12.6011765485271,
-                                            "gpu_ms":  10.3839998245239,
-                                            "gpu_spread_share":  0.002407513381429232,
+                                            "p99_frame_ms":  16.3840007781982,
+                                            "slowest_1_percent_fps":  12.498020992126,
+                                            "gpu_ms":  10.4130001068115,
+                                            "gpu_spread_share":  0.0010563410594996751,
                                             "gpu_noise_band_share":  0.015,
-                                            "p99_noise_band_share":  0.016796942890911416,
-                                            "gpu_bound_share":  0.660377358490566,
-                                            "process_ms":  0.171000003814697,
-                                            "process_mean_ms":  0.253496226513723,
-                                            "physics_mean_ms":  3.82497548517191,
-                                            "cpu_ms":  4.0784717116856326,
-                                            "cpu_spread_share":  0.010126374455021278,
-                                            "cpu_noise_band_share":  0.015,
-                                            "draw_ms":  6.22499990463257,
-                                            "render_cpu_ms":  1.74000000953674,
+                                            "p99_noise_band_share":  0.015,
+                                            "gpu_bound_share":  0.663498098859316,
+                                            "process_ms":  0.180999994277954,
+                                            "process_mean_ms":  0.262722434780557,
+                                            "physics_mean_ms":  3.17008540028639,
+                                            "cpu_ms":  3.4347609241106021,
+                                            "cpu_spread_share":  0.015900072388592038,
+                                            "cpu_noise_band_share":  0.015900072388592038,
+                                            "draw_ms":  6.25099992752075,
+                                            "render_cpu_ms":  1.74699997901917,
                                             "draw_calls":  602,
                                             "shadow_draw_calls":  708,
                                             "primitives":  29586,
@@ -1001,30 +1001,30 @@
                                                             1
                                                         ],
                                             "per_repeat_mean_ms":  [
-                                                                       11.7425075306083,
-                                                                       11.7433924800945,
-                                                                       11.7395620157844
+                                                                       11.8217072731642,
+                                                                       11.7910831903014,
+                                                                       11.8311442270225
                                                                    ],
                                             "zones":  {
                                                           "items":  {
-                                                                        "mean_ms":  2.62592105937183,
-                                                                        "max_ms":  24.3579998016357
+                                                                        "mean_ms":  2.64770018488904,
+                                                                        "max_ms":  24.8360004425049
                                                                     },
                                                           "player":  {
-                                                                         "mean_ms":  0.0497679245921801,
-                                                                         "max_ms":  0.296000003814697
+                                                                         "mean_ms":  0.0524961980902537,
+                                                                         "max_ms":  0.307000011205673
                                                                      },
                                                           "player.grabber":  {
-                                                                                 "mean_ms":  0.0107452833515434,
-                                                                                 "max_ms":  0.061999998986721
+                                                                                 "mean_ms":  0.0113536124347847,
+                                                                                 "max_ms":  0.063000001013279
                                                                              }
                                                       },
-                                            "unattributed_process_ms":  0.185433962333174,
-                                            "unattributed_physics_ms":  1.14351509573325,
+                                            "unattributed_process_ms":  0.187933461060712,
+                                            "unattributed_physics_ms":  0.470333981728871,
                                             "hitch_causes":  {
                                                                  "screenshot":  {
                                                                                     "count":  1,
-                                                                                    "worst_ms":  396.457000732422,
+                                                                                    "worst_ms":  397.725006103516,
                                                                                     "at_x":  [
                                                                                                  38.0
                                                                                              ]
@@ -1036,139 +1036,155 @@
                                         {
                                             "name":  "adding",
                                             "repeats":  3,
-                                            "mean_frame_ms":  13.9162068836795,
-                                            "frame_spread_share":  0.007800254818265376,
+                                            "mean_frame_ms":  14.0799753513242,
+                                            "frame_spread_share":  0.0019268417020309224,
                                             "noise_band_share":  0.015,
-                                            "p99_frame_ms":  22.7789993286133,
-                                            "slowest_1_percent_fps":  15.4100619338186,
-                                            "gpu_ms":  8.60900020599365,
-                                            "gpu_spread_share":  0.020675977721087327,
-                                            "gpu_noise_band_share":  0.020675977721087327,
-                                            "p99_noise_band_share":  0.015,
-                                            "gpu_bound_share":  0.221674876847291,
-                                            "process_ms":  2.26799988746643,
-                                            "process_mean_ms":  2.46380597086095,
-                                            "physics_mean_ms":  3.53073631946127,
-                                            "cpu_ms":  5.9945422903222205,
-                                            "cpu_spread_share":  0.010618854107172965,
+                                            "p99_frame_ms":  24.0860004425049,
+                                            "slowest_1_percent_fps":  15.0984414709281,
+                                            "gpu_ms":  8.69699954986572,
+                                            "gpu_spread_share":  0.012992977109951081,
+                                            "gpu_noise_band_share":  0.015,
+                                            "p99_noise_band_share":  0.0854853432463305,
+                                            "gpu_bound_share":  0.231527093596059,
+                                            "process_ms":  2.28099989891052,
+                                            "process_mean_ms":  2.47611330471603,
+                                            "physics_mean_ms":  3.5653365879524,
+                                            "cpu_ms":  6.03640886304414,
+                                            "cpu_spread_share":  0.0090189621782536169,
                                             "cpu_noise_band_share":  0.015,
-                                            "draw_ms":  6.76599979400635,
-                                            "render_cpu_ms":  4.0479998588562,
-                                            "draw_calls":  1252,
-                                            "shadow_draw_calls":  2349,
-                                            "primitives":  67054,
+                                            "draw_ms":  6.86399984359741,
+                                            "render_cpu_ms":  4.06199979782104,
+                                            "draw_calls":  1255,
+                                            "shadow_draw_calls":  2357,
+                                            "primitives":  67090,
                                             "hitches":  [
                                                             1,
                                                             1,
-                                                            1
+                                                            2
                                                         ],
                                             "per_repeat_mean_ms":  [
-                                                                       13.9757290309286,
-                                                                       13.8671790711322,
-                                                                       13.9162068836795
+                                                                       14.0796829293414,
+                                                                       14.1068128130119,
+                                                                       14.0799753513242
                                                                    ],
                                             "zones":  {
                                                           "items":  {
-                                                                        "mean_ms":  1.97478606911441,
-                                                                        "max_ms":  6.21500015258789
+                                                                        "mean_ms":  2.00248768309067,
+                                                                        "max_ms":  6.33500003814697
                                                                     },
                                                           "player":  {
-                                                                         "mean_ms":  0.0654187198049329,
-                                                                         "max_ms":  0.416999995708466
+                                                                         "mean_ms":  0.0670246308293249,
+                                                                         "max_ms":  0.421999990940094
                                                                      },
                                                           "player.grabber":  {
-                                                                                 "mean_ms":  0.0134581285414144,
-                                                                                 "max_ms":  0.0799999982118607
+                                                                                 "mean_ms":  0.0137707320382682,
+                                                                                 "max_ms":  0.0820000022649765
                                                                              },
                                                           "spawn":  {
-                                                                        "mean_ms":  2.18472906991179,
-                                                                        "max_ms":  24.3020000457764
+                                                                        "mean_ms":  2.18928571287634,
+                                                                        "max_ms":  24.4029998779297
                                                                     }
                                                       },
-                                            "unattributed_process_ms":  0.192462692991715,
-                                            "unattributed_physics_ms":  1.47822167918893,
+                                            "unattributed_process_ms":  0.189748770736268,
+                                            "unattributed_physics_ms":  1.49593658578105,
                                             "hitch_causes":  {
                                                                  "shader_compiles":  {
                                                                                          "count":  1,
-                                                                                         "worst_ms":  149.005996704102,
+                                                                                         "worst_ms":  150.173004150391,
                                                                                          "at_x":  [
                                                                                                       -30.0
                                                                                                   ]
-                                                                                     }
+                                                                                     },
+                                                                 "physics_catch_up":  {
+                                                                                          "count":  0,
+                                                                                          "worst_ms":  28.0049991607666,
+                                                                                          "at_x":  [
+
+                                                                                                   ]
+                                                                                      }
                                                              }
                                         },
                                         {
                                             "name":  "settling",
                                             "repeats":  3,
-                                            "mean_frame_ms":  13.0473865799068,
-                                            "frame_spread_share":  0.0077029592587972611,
+                                            "mean_frame_ms":  13.3469416544988,
+                                            "frame_spread_share":  0.0054939559781086011,
                                             "noise_band_share":  0.015,
-                                            "p99_frame_ms":  16.0139999389648,
-                                            "slowest_1_percent_fps":  56.1995096097345,
-                                            "gpu_ms":  9.43099975585938,
-                                            "gpu_spread_share":  0.016965311372498439,
-                                            "gpu_noise_band_share":  0.016965311372498439,
-                                            "p99_noise_band_share":  0.015,
-                                            "gpu_bound_share":  0.19280205655527,
-                                            "process_ms":  0.179000005125999,
-                                            "process_mean_ms":  0.308347938543896,
-                                            "physics_mean_ms":  2.42238144038879,
-                                            "cpu_ms":  2.7295592766370378,
-                                            "cpu_spread_share":  0.0082847759628286461,
-                                            "cpu_noise_band_share":  0.015,
-                                            "draw_ms":  10.1400003433228,
-                                            "render_cpu_ms":  7.08500003814697,
+                                            "p99_frame_ms":  16.1459999084473,
+                                            "slowest_1_percent_fps":  53.1088602836537,
+                                            "gpu_ms":  9.38899993896484,
+                                            "gpu_spread_share":  0.015550102183018773,
+                                            "gpu_noise_band_share":  0.015550102183018773,
+                                            "p99_noise_band_share":  0.1322307898946665,
+                                            "gpu_bound_share":  0.175066312997347,
+                                            "process_ms":  0.186000004410744,
+                                            "process_mean_ms":  0.326305040136098,
+                                            "physics_mean_ms":  2.50982759359345,
+                                            "cpu_ms":  2.83286738119012,
+                                            "cpu_spread_share":  0.020525465771962386,
+                                            "cpu_noise_band_share":  0.020525465771962386,
+                                            "draw_ms":  10.3059997558594,
+                                            "render_cpu_ms":  7.19999980926514,
                                             "draw_calls":  2250,
                                             "shadow_draw_calls":  4649,
                                             "primitives":  122318,
                                             "hitches":  [
                                                             0,
                                                             0,
-                                                            0
+                                                            1
                                                         ],
                                             "per_repeat_mean_ms":  [
-                                                                       13.0473865799068,
-                                                                       13.117647813341,
-                                                                       13.0171443260822
+                                                                       13.2751432388468,
+                                                                       13.348470748739,
+                                                                       13.3469416544988
                                                                    ],
                                             "zones":  {
                                                           "items":  {
-                                                                        "mean_ms":  1.88396391733406,
-                                                                        "max_ms":  3.36899995803833
+                                                                        "mean_ms":  1.95336339201788,
+                                                                        "max_ms":  7.03200006484985
                                                                     },
                                                           "player":  {
-                                                                         "mean_ms":  0.0650360826594928,
-                                                                         "max_ms":  0.135000005364418
+                                                                         "mean_ms":  0.0660424407186179,
+                                                                         "max_ms":  0.165000006556511
                                                                      },
                                                           "player.grabber":  {
-                                                                                 "mean_ms":  0.0134627253348654,
-                                                                                 "max_ms":  0.025000000372529
+                                                                                 "mean_ms":  0.0137180855393687,
+                                                                                 "max_ms":  0.0410000011324883
                                                                              }
                                                       },
-                                            "unattributed_process_ms":  0.234768041495963,
-                                            "unattributed_physics_ms":  0.476306701175023
+                                            "unattributed_process_ms":  0.244827586386738,
+                                            "unattributed_physics_ms":  0.490421760856947,
+                                            "hitch_causes":  {
+                                                                 "physics_catch_up":  {
+                                                                                          "count":  0,
+                                                                                          "worst_ms":  31.0610008239746,
+                                                                                          "at_x":  [
+
+                                                                                                   ]
+                                                                                      }
+                                                             }
                                         },
                                         {
                                             "name":  "at_rest",
                                             "repeats":  3,
-                                            "mean_frame_ms":  15.0383417330795,
-                                            "frame_spread_share":  0.0095472187446759716,
+                                            "mean_frame_ms":  15.2483248638018,
+                                            "frame_spread_share":  0.0022776901708888003,
                                             "noise_band_share":  0.015,
-                                            "p99_frame_ms":  17.5559997558594,
-                                            "slowest_1_percent_fps":  55.8492818183968,
-                                            "gpu_ms":  11.7600002288818,
-                                            "gpu_spread_share":  0.0045068409100991989,
+                                            "p99_frame_ms":  18.0240001678467,
+                                            "slowest_1_percent_fps":  55.0372866993889,
+                                            "gpu_ms":  11.8240003585815,
+                                            "gpu_spread_share":  0.0093876909395254025,
                                             "gpu_noise_band_share":  0.015,
-                                            "p99_noise_band_share":  0.030189148668027885,
-                                            "gpu_bound_share":  0.0954773869346734,
-                                            "process_ms":  0.175999999046326,
-                                            "process_mean_ms":  0.309673266688196,
-                                            "physics_mean_ms":  2.65877888550111,
-                                            "cpu_ms":  2.9653366832951797,
-                                            "cpu_spread_share":  0.015819360884232005,
-                                            "cpu_noise_band_share":  0.015819360884232005,
-                                            "draw_ms":  11.8719997406006,
-                                            "render_cpu_ms":  8.4399995803833,
+                                            "p99_noise_band_share":  0.025188557559142444,
+                                            "gpu_bound_share":  0.0812182741116751,
+                                            "process_ms":  0.187000006437302,
+                                            "process_mean_ms":  0.308862944242313,
+                                            "physics_mean_ms":  2.71635532500175,
+                                            "cpu_ms":  3.0297715689627651,
+                                            "cpu_spread_share":  0.011000812894900684,
+                                            "cpu_noise_band_share":  0.015,
+                                            "draw_ms":  12.0649995803833,
+                                            "render_cpu_ms":  8.56400012969971,
                                             "draw_calls":  2347,
                                             "shadow_draw_calls":  6821,
                                             "primitives":  127170,
@@ -1178,50 +1194,50 @@
                                                             0
                                                         ],
                                             "per_repeat_mean_ms":  [
-                                                                       15.0383417330795,
-                                                                       15.077000057278,
-                                                                       14.9334257191951
+                                                                       15.2788375622125,
+                                                                       15.2441066025477,
+                                                                       15.2483248638018
                                                                    ],
                                             "zones":  {
                                                           "items":  {
-                                                                        "mean_ms":  2.06945226659727,
-                                                                        "max_ms":  2.71099996566772
+                                                                        "mean_ms":  2.11627411479272,
+                                                                        "max_ms":  2.82100009918213
                                                                     },
                                                           "player":  {
-                                                                         "mean_ms":  0.07368844264566,
-                                                                         "max_ms":  0.13400000333786
+                                                                         "mean_ms":  0.075309645176539,
+                                                                         "max_ms":  0.118000000715256
                                                                      },
                                                           "player.grabber":  {
-                                                                                 "mean_ms":  0.0155125633162919,
-                                                                                 "max_ms":  0.0260000005364418
+                                                                                 "mean_ms":  0.0157512694899806,
+                                                                                 "max_ms":  0.0240000002086163
                                                                              }
                                                       },
-                                            "unattributed_process_ms":  0.236514850565703,
-                                            "unattributed_physics_ms":  0.512798989762613
+                                            "unattributed_process_ms":  0.227035533088415,
+                                            "unattributed_physics_ms":  0.524502529710682
                                         },
                                         {
                                             "name":  "all_at_once",
                                             "repeats":  3,
-                                            "mean_frame_ms":  50.7672190782501,
-                                            "frame_spread_share":  0.026903601108587225,
-                                            "noise_band_share":  0.026903601108587225,
-                                            "p99_frame_ms":  154.572998046875,
-                                            "slowest_1_percent_fps":  6.46943523536203,
-                                            "gpu_ms":  11.3579998016357,
-                                            "gpu_spread_share":  0.010477235160574937,
-                                            "gpu_noise_band_share":  0.015,
-                                            "p99_noise_band_share":  0.067185049381565956,
+                                            "mean_frame_ms":  53.1912822234325,
+                                            "frame_spread_share":  0.046898293620328546,
+                                            "noise_band_share":  0.046898293620328546,
+                                            "p99_frame_ms":  154.298004150391,
+                                            "slowest_1_percent_fps":  6.48096523027818,
+                                            "gpu_ms":  11.4820003509521,
+                                            "gpu_spread_share":  0.01515413526028773,
+                                            "gpu_noise_band_share":  0.01515413526028773,
+                                            "p99_noise_band_share":  0.015,
                                             "gpu_bound_share":  0,
-                                            "process_ms":  0.186000004410744,
-                                            "process_mean_ms":  0.627073178567537,
-                                            "physics_mean_ms":  37.3869024602378,
-                                            "cpu_ms":  38.013975638805334,
-                                            "cpu_spread_share":  0.034395564538018175,
-                                            "cpu_noise_band_share":  0.034395564538018175,
-                                            "draw_ms":  12.414999961853,
-                                            "render_cpu_ms":  8.32600021362305,
+                                            "process_ms":  0.190999999642372,
+                                            "process_mean_ms":  0.642300006747246,
+                                            "physics_mean_ms":  39.5455900461246,
+                                            "cpu_ms":  40.200077216594671,
+                                            "cpu_spread_share":  0.061215605042057405,
+                                            "cpu_noise_band_share":  0.061215605042057405,
+                                            "draw_ms":  12.7019996643066,
+                                            "render_cpu_ms":  8.45899963378906,
                                             "draw_calls":  2299,
-                                            "shadow_draw_calls":  6738,
+                                            "shadow_draw_calls":  6739,
                                             "primitives":  125110,
                                             "hitches":  [
                                                             1,
@@ -1229,30 +1245,30 @@
                                                             1
                                                         ],
                                             "per_repeat_mean_ms":  [
-                                                                       51.7626499652863,
-                                                                       50.3968289538128,
-                                                                       50.7672190782501
+                                                                       52.5240250110626,
+                                                                       55.0186053828189,
+                                                                       53.1912822234325
                                                                    ],
                                             "zones":  {
                                                           "items":  {
-                                                                        "mean_ms":  20.9492684922567,
-                                                                        "max_ms":  74.6750030517578
+                                                                        "mean_ms":  21.9973333615523,
+                                                                        "max_ms":  73.3649978637695
                                                                     },
                                                           "player":  {
-                                                                         "mean_ms":  0.241146342056554,
-                                                                         "max_ms":  0.674000024795532
+                                                                         "mean_ms":  0.256050000153482,
+                                                                         "max_ms":  0.708000004291534
                                                                      },
                                                           "player.grabber":  {
-                                                                                 "mean_ms":  0.0516097564250231,
-                                                                                 "max_ms":  0.14300000667572
+                                                                                 "mean_ms":  0.0552631587182221,
+                                                                                 "max_ms":  0.145999997854233
                                                                              }
                                                       },
-                                            "unattributed_process_ms":  0.550878056665746,
-                                            "unattributed_physics_ms":  16.2654142868591,
+                                            "unattributed_process_ms":  0.560350006539375,
+                                            "unattributed_physics_ms":  17.2954874523939,
                                             "hitch_causes":  {
                                                                  "physics_catch_up":  {
                                                                                           "count":  1,
-                                                                                          "worst_ms":  162.578994750977,
+                                                                                          "worst_ms":  155.613998413086,
                                                                                           "at_x":  [
                                                                                                        -34.0
                                                                                                    ]
@@ -1262,24 +1278,24 @@
                                         {
                                             "name":  "coming_to_rest",
                                             "repeats":  3,
-                                            "mean_frame_ms":  17.0442714350564,
-                                            "frame_spread_share":  0.012083944583097868,
+                                            "mean_frame_ms":  17.4355901223642,
+                                            "frame_spread_share":  0.0019091085254984133,
                                             "noise_band_share":  0.015,
-                                            "p99_frame_ms":  25.9290008544922,
-                                            "slowest_1_percent_fps":  37.4478541159919,
-                                            "gpu_ms":  11.6199998855591,
-                                            "gpu_spread_share":  0.0004302203800201888,
+                                            "p99_frame_ms":  26.261999130249,
+                                            "slowest_1_percent_fps":  37.2658772583315,
+                                            "gpu_ms":  11.7270002365112,
+                                            "gpu_spread_share":  0.00221710773119532,
                                             "gpu_noise_band_share":  0.015,
-                                            "p99_noise_band_share":  0.017162238426445355,
-                                            "gpu_bound_share":  0.0345679012345679,
-                                            "process_ms":  0.177000001072884,
-                                            "process_mean_ms":  0.358935713714787,
-                                            "physics_mean_ms":  4.57656189657393,
-                                            "cpu_ms":  4.9337642782323421,
-                                            "cpu_spread_share":  0.023195993173629921,
-                                            "cpu_noise_band_share":  0.023195993173629921,
-                                            "draw_ms":  11.9659996032715,
-                                            "render_cpu_ms":  8.32699966430664,
+                                            "p99_noise_band_share":  0.023455987721851729,
+                                            "gpu_bound_share":  0.0271604938271605,
+                                            "process_ms":  0.187000006437302,
+                                            "process_mean_ms":  0.369525924545747,
+                                            "physics_mean_ms":  4.74533826804455,
+                                            "cpu_ms":  5.11452098374749,
+                                            "cpu_spread_share":  0.0070498866950972306,
+                                            "cpu_noise_band_share":  0.015,
+                                            "draw_ms":  12.1669998168945,
+                                            "render_cpu_ms":  8.52999973297119,
                                             "draw_calls":  2299,
                                             "shadow_draw_calls":  6738,
                                             "primitives":  125110,
@@ -1289,48 +1305,48 @@
                                                             0
                                                         ],
                                             "per_repeat_mean_ms":  [
-                                                                       17.1812715601038,
-                                                                       17.0442714350564,
-                                                                       16.9753095286233
+                                                                       17.4662716312173,
+                                                                       17.4329851974676,
+                                                                       17.4355901223642
                                                                    ],
                                             "zones":  {
                                                           "items":  {
-                                                                        "mean_ms":  3.01503809122812,
-                                                                        "max_ms":  7.6710000038147
+                                                                        "mean_ms":  3.12510370678372,
+                                                                        "max_ms":  8.69499969482422
                                                                     },
                                                           "player":  {
-                                                                         "mean_ms":  0.0830738100444987,
-                                                                         "max_ms":  0.195999994874001
+                                                                         "mean_ms":  0.0839629633927051,
+                                                                         "max_ms":  0.175999999046326
                                                                      },
                                                           "player.grabber":  {
-                                                                                 "mean_ms":  0.0180785715358243,
-                                                                                 "max_ms":  0.0500000007450581
+                                                                                 "mean_ms":  0.0184271606720156,
+                                                                                 "max_ms":  0.0379999987781048
                                                                              }
                                                       },
-                                            "unattributed_process_ms":  0.285476190011416,
-                                            "unattributed_physics_ms":  1.47912380501983
+                                            "unattributed_process_ms":  0.289222220359025,
+                                            "unattributed_physics_ms":  1.52787160505483
                                         },
                                         {
                                             "name":  "floating_on_waves",
                                             "repeats":  3,
-                                            "mean_frame_ms":  17.3432458145184,
-                                            "frame_spread_share":  0.00178322232517217,
+                                            "mean_frame_ms":  17.4646183999468,
+                                            "frame_spread_share":  0.011441816718520957,
                                             "noise_band_share":  0.015,
-                                            "p99_frame_ms":  24.9610004425049,
-                                            "slowest_1_percent_fps":  6.67733934031682,
-                                            "gpu_ms":  10.6669998168945,
-                                            "gpu_spread_share":  0.012374610644816543,
-                                            "gpu_noise_band_share":  0.015,
-                                            "p99_noise_band_share":  0.10816877188711541,
-                                            "gpu_bound_share":  0.0497237569060773,
-                                            "process_ms":  0.178000003099442,
-                                            "process_mean_ms":  0.456044199264181,
-                                            "physics_mean_ms":  11.5744570840429,
-                                            "cpu_ms":  12.037825501918654,
-                                            "cpu_spread_share":  0.0032990025504366451,
-                                            "cpu_noise_band_share":  0.015,
-                                            "draw_ms":  4.90000009536743,
-                                            "render_cpu_ms":  3.02099990844727,
+                                            "p99_frame_ms":  23.7709999084473,
+                                            "slowest_1_percent_fps":  6.6307940046613,
+                                            "gpu_ms":  10.5670003890991,
+                                            "gpu_spread_share":  0.025835123822880317,
+                                            "gpu_noise_band_share":  0.025835123822880317,
+                                            "p99_noise_band_share":  0.015,
+                                            "gpu_bound_share":  0.0417827298050139,
+                                            "process_ms":  0.190999999642372,
+                                            "process_mean_ms":  0.468261839391295,
+                                            "physics_mean_ms":  10.574091906003,
+                                            "cpu_ms":  11.042353745394294,
+                                            "cpu_spread_share":  0.018124105654155315,
+                                            "cpu_noise_band_share":  0.018124105654155315,
+                                            "draw_ms":  4.94099998474121,
+                                            "render_cpu_ms":  3.05200004577637,
                                             "draw_calls":  1082,
                                             "shadow_draw_calls":  1355,
                                             "primitives":  52618,
@@ -1340,30 +1356,30 @@
                                                             1
                                                         ],
                                             "per_repeat_mean_ms":  [
-                                                                       17.3215967001836,
-                                                                       17.352523563311,
-                                                                       17.3432458145184
+                                                                       17.4646183999468,
+                                                                       17.6451436311426,
+                                                                       17.4453166683515
                                                                    ],
                                             "zones":  {
                                                           "items":  {
-                                                                        "mean_ms":  9.32719667202218,
-                                                                        "max_ms":  64.8629989624023
+                                                                        "mean_ms":  9.46600000971207,
+                                                                        "max_ms":  64.9380035400391
                                                                     },
                                                           "player":  {
-                                                                         "mean_ms":  0.0783895033396245,
-                                                                         "max_ms":  0.391999989748001
+                                                                         "mean_ms":  0.0786908081730096,
+                                                                         "max_ms":  0.382999986410141
                                                                      },
                                                           "player.grabber":  {
-                                                                                 "mean_ms":  0.0171353593725938,
-                                                                                 "max_ms":  0.0750000029802322
+                                                                                 "mean_ms":  0.0171323948343035,
+                                                                                 "max_ms":  0.0790000036358833
                                                                              }
                                                       },
-                                            "unattributed_process_ms":  0.384955801131482,
-                                            "unattributed_physics_ms":  2.16934628406968,
+                                            "unattributed_process_ms":  0.389128134142307,
+                                            "unattributed_physics_ms":  1.02940108811789,
                                             "hitch_causes":  {
                                                                  "screenshot":  {
                                                                                     "count":  1,
-                                                                                    "worst_ms":  473.907989501953,
+                                                                                    "worst_ms":  474.225006103516,
                                                                                     "at_x":  [
                                                                                                  38.0
                                                                                              ]
@@ -1379,46 +1395,46 @@
                                      {
                                          "variant":  "items_300",
                                          "x":  300,
-                                         "frame_ms":  16.8763806706383,
-                                         "p99_ms":  160.983993530273,
-                                         "cpu_ms":  4.50880952108474,
-                                         "physics_ms":  1.14008695664613,
-                                         "process_ms":  3.39628570420401,
-                                         "gpu_ms":  8.29300022125244,
+                                         "frame_ms":  16.8817143213181,
+                                         "p99_ms":  158.608001708984,
+                                         "cpu_ms":  4.4939999495233796,
+                                         "physics_ms":  1.13519047271638,
+                                         "process_ms":  3.358809476807,
+                                         "gpu_ms":  8.45300006866455,
                                          "hitches":  1
                                      },
                                      {
                                          "variant":  "items_1000",
                                          "x":  1000,
-                                         "frame_ms":  11.2389702725766,
-                                         "p99_ms":  147.460998535156,
-                                         "cpu_ms":  4.47634849042604,
-                                         "physics_ms":  1.81101491913867,
-                                         "process_ms":  2.62786568456621,
-                                         "gpu_ms":  7.86899995803833,
+                                         "frame_ms":  11.3109254552357,
+                                         "p99_ms":  147.949005126953,
+                                         "cpu_ms":  4.5237910498434,
+                                         "physics_ms":  1.8801641748912299,
+                                         "process_ms":  2.64532836159663,
+                                         "gpu_ms":  7.90299987792969,
                                          "hitches":  1
                                      },
                                      {
                                          "variant":  "items_3000",
                                          "x":  3000,
-                                         "frame_ms":  13.9162068836795,
-                                         "p99_ms":  22.7789993286133,
-                                         "cpu_ms":  5.9945422903222205,
-                                         "physics_ms":  3.53073631946127,
-                                         "process_ms":  2.46380597086095,
-                                         "gpu_ms":  8.60900020599365,
+                                         "frame_ms":  14.0799753513242,
+                                         "p99_ms":  24.0860004425049,
+                                         "cpu_ms":  6.03640886304414,
+                                         "physics_ms":  3.5653365879524,
+                                         "process_ms":  2.47611330471603,
+                                         "gpu_ms":  8.69699954986572,
                                          "hitches":  1
                                      }
                                  ],
                         "cpu_fit":  {
-                                        "slope":  0.000596361914709038,
-                                        "intercept":  4.1384480228613789,
-                                        "r2":  0.92824869319201353
+                                        "slope":  0.00061210470824546242,
+                                        "intercept":  4.1407165389851439,
+                                        "r2":  0.94552457797718625
                                     },
                         "frame_fit":  {
-                                          "slope":  -0.000558928971241609,
-                                          "intercept":  14.811650801077773,
-                                          "r2":  0.0771335759740077
+                                          "slope":  -0.00050306855968287043,
+                                          "intercept":  14.811936644838113,
+                                          "r2":  0.064042754232113919
                                       }
                     },
                     {
@@ -1427,46 +1443,46 @@
                                      {
                                          "variant":  "items_300",
                                          "x":  300,
-                                         "frame_ms":  8.33864270533081,
-                                         "p99_ms":  10.7760000228882,
-                                         "cpu_ms":  0.718660752551254,
-                                         "physics_ms":  0.544248335641662,
-                                         "process_ms":  0.17816629705996,
-                                         "gpu_ms":  7.69299983978271,
+                                         "frame_ms":  8.41109587117581,
+                                         "p99_ms":  10.7069997787476,
+                                         "cpu_ms":  0.734729097340019,
+                                         "physics_ms":  0.545669257177761,
+                                         "process_ms":  0.191280936350923,
+                                         "gpu_ms":  7.71000003814697,
                                          "hitches":  0
                                      },
                                      {
                                          "variant":  "items_1000",
                                          "x":  1000,
-                                         "frame_ms":  8.7911208384428,
-                                         "p99_ms":  12.2629995346069,
-                                         "cpu_ms":  1.069467323840253,
-                                         "physics_ms":  0.870711467709994,
-                                         "process_ms":  0.192310727544763,
-                                         "gpu_ms":  8.11999988555908,
+                                         "frame_ms":  8.85134782909607,
+                                         "p99_ms":  12.2559995651245,
+                                         "cpu_ms":  1.090789081847698,
+                                         "physics_ms":  0.885431057918146,
+                                         "process_ms":  0.206011180302001,
+                                         "gpu_ms":  8.12800025939941,
                                          "hitches":  0
                                      },
                                      {
                                          "variant":  "items_3000",
                                          "x":  3000,
-                                         "frame_ms":  13.0473865799068,
-                                         "p99_ms":  16.0139999389648,
-                                         "cpu_ms":  2.7295592766370378,
-                                         "physics_ms":  2.42238144038879,
-                                         "process_ms":  0.308347938543896,
-                                         "gpu_ms":  9.43099975585938,
+                                         "frame_ms":  13.3469416544988,
+                                         "p99_ms":  16.1459999084473,
+                                         "cpu_ms":  2.83286738119012,
+                                         "physics_ms":  2.50982759359345,
+                                         "process_ms":  0.326305040136098,
+                                         "gpu_ms":  9.38899993896484,
                                          "hitches":  0
                                      }
                                  ],
                         "cpu_fit":  {
-                                        "slope":  0.00076359715793951485,
-                                        "intercept":  0.41140652462954375,
-                                        "r2":  0.99220046417287266
+                                        "slope":  0.00079782444433238483,
+                                        "intercept":  0.40924681658286088,
+                                        "r2":  0.99133386766892861
                                     },
                         "frame_fit":  {
-                                          "slope":  0.0018287669471529339,
-                                          "intercept":  7.4378174169742657,
-                                          "r2":  0.97293577565359357
+                                          "slope":  0.0019207256057998056,
+                                          "intercept":  7.4500884166105052,
+                                          "r2":  0.97077880724178778
                                       }
                     },
                     {
@@ -1475,46 +1491,46 @@
                                      {
                                          "variant":  "items_300",
                                          "x":  300,
-                                         "frame_ms":  10.118400647584,
-                                         "p99_ms":  11.289999961853,
-                                         "cpu_ms":  0.707090300710305,
-                                         "physics_ms":  0.522925925174546,
-                                         "process_ms":  0.181030302988961,
-                                         "gpu_ms":  9.44999980926514,
+                                         "frame_ms":  10.8045503767274,
+                                         "p99_ms":  11.9680004119873,
+                                         "cpu_ms":  0.75502158160046706,
+                                         "physics_ms":  0.561155234863612,
+                                         "process_ms":  0.193859711664615,
+                                         "gpu_ms":  10.0959997177124,
                                          "hitches":  0
                                      },
                                      {
                                          "variant":  "items_1000",
                                          "x":  1000,
-                                         "frame_ms":  10.702540903329,
-                                         "p99_ms":  12.5419998168945,
-                                         "cpu_ms":  1.0906654801020841,
-                                         "physics_ms":  0.883672597993735,
-                                         "process_ms":  0.196921708400351,
-                                         "gpu_ms":  10.039999961853,
+                                         "frame_ms":  10.7628315477816,
+                                         "p99_ms":  12.4899997711182,
+                                         "cpu_ms":  1.117777777829051,
+                                         "physics_ms":  0.913713259081687,
+                                         "process_ms":  0.204125447031845,
+                                         "gpu_ms":  10.0950002670288,
                                          "hitches":  0
                                      },
                                      {
                                          "variant":  "items_3000",
                                          "x":  3000,
-                                         "frame_ms":  15.0383417330795,
-                                         "p99_ms":  17.5559997558594,
-                                         "cpu_ms":  2.9653366832951797,
-                                         "physics_ms":  2.65877888550111,
-                                         "process_ms":  0.309673266688196,
-                                         "gpu_ms":  11.7600002288818,
+                                         "frame_ms":  15.2483248638018,
+                                         "p99_ms":  18.0240001678467,
+                                         "cpu_ms":  3.0297715689627651,
+                                         "physics_ms":  2.71635532500175,
+                                         "process_ms":  0.308862944242313,
+                                         "gpu_ms":  11.8240003585815,
                                          "hitches":  0
                                      }
                                  ],
                         "cpu_fit":  {
-                                        "slope":  0.00085866810398468581,
-                                        "intercept":  0.35693987232447344,
-                                        "r2":  0.99136234526326528
+                                        "slope":  0.00086755024494954516,
+                                        "intercept":  0.39070162503641304,
+                                        "r2":  0.98932577762635621
                                     },
                         "frame_fit":  {
-                                          "slope":  0.0018985009142071607,
-                                          "intercept":  9.23190978430057,
-                                          "r2":  0.97952560135133471
+                                          "slope":  0.0017775869751170818,
+                                          "intercept":  9.7240275984357822,
+                                          "r2":  0.93363445070505724
                                       }
                     },
                     {
@@ -1523,46 +1539,46 @@
                                      {
                                          "variant":  "items_300",
                                          "x":  300,
-                                         "frame_ms":  10.0874673613352,
-                                         "p99_ms":  13.0170001983643,
-                                         "cpu_ms":  1.3984321588697179,
-                                         "physics_ms":  1.21442713390044,
-                                         "process_ms":  0.177537688732746,
-                                         "gpu_ms":  9.41100025177002,
+                                         "frame_ms":  10.1090854232635,
+                                         "p99_ms":  12.8739995956421,
+                                         "cpu_ms":  1.415381907218666,
+                                         "physics_ms":  1.22321211569237,
+                                         "process_ms":  0.191336683891526,
+                                         "gpu_ms":  9.42800045013428,
                                          "hitches":  0
                                      },
                                      {
                                          "variant":  "items_1000",
                                          "x":  1000,
-                                         "frame_ms":  10.7653081197996,
-                                         "p99_ms":  16.5349998474121,
-                                         "cpu_ms":  3.2435914168675071,
-                                         "physics_ms":  3.03052972974004,
-                                         "process_ms":  0.214607525696998,
-                                         "gpu_ms":  10.0200004577637,
+                                         "frame_ms":  10.8491945679123,
+                                         "p99_ms":  16.4249992370605,
+                                         "cpu_ms":  3.30535675246973,
+                                         "physics_ms":  3.08461080757347,
+                                         "process_ms":  0.222231182319823,
+                                         "gpu_ms":  10.1099996566772,
                                          "hitches":  0
                                      },
                                      {
                                          "variant":  "items_3000",
                                          "x":  3000,
-                                         "frame_ms":  50.7672190782501,
-                                         "p99_ms":  154.572998046875,
-                                         "cpu_ms":  38.013975638805334,
-                                         "physics_ms":  37.3869024602378,
-                                         "process_ms":  0.627073178567537,
-                                         "gpu_ms":  11.3579998016357,
+                                         "frame_ms":  53.1912822234325,
+                                         "p99_ms":  154.298004150391,
+                                         "cpu_ms":  40.200077216594671,
+                                         "physics_ms":  39.5455900461246,
+                                         "process_ms":  0.642300006747246,
+                                         "gpu_ms":  11.4820003509521,
                                          "hitches":  1
                                      }
                                  ],
                         "cpu_fit":  {
-                                        "slope":  0.014405292641791195,
-                                        "intercept":  -6.4289197150531923,
-                                        "r2":  0.95746885048475683
+                                        "slope":  0.015265798018271718,
+                                        "intercept":  -6.9073718674284414,
+                                        "r2":  0.95685681696657188
                                     },
                         "frame_fit":  {
-                                          "slope":  0.016155657052928381,
-                                          "intercept":  0.71688974393095961,
-                                          "r2":  0.944458555998078
+                                          "slope":  0.017107316050318407,
+                                          "intercept":  0.19603439941304757,
+                                          "r2":  0.94466659117154861
                                       }
                     },
                     {
@@ -1571,46 +1587,46 @@
                                      {
                                          "variant":  "items_300",
                                          "x":  300,
-                                         "frame_ms":  9.98939619518462,
-                                         "p99_ms":  11.6049995422363,
-                                         "cpu_ms":  0.886518094709941,
-                                         "physics_ms":  0.699961904798235,
-                                         "process_ms":  0.184756189811797,
-                                         "gpu_ms":  9.36100006103516,
+                                         "frame_ms":  10.0603638331095,
+                                         "p99_ms":  11.710000038147,
+                                         "cpu_ms":  0.91010095323835094,
+                                         "physics_ms":  0.71202666759491,
+                                         "process_ms":  0.20111809526171,
+                                         "gpu_ms":  9.37600040435791,
                                          "hitches":  0
                                      },
                                      {
                                          "variant":  "items_1000",
                                          "x":  1000,
-                                         "frame_ms":  10.6788252289231,
-                                         "p99_ms":  13.5609998703003,
-                                         "cpu_ms":  1.5442630656533429,
-                                         "physics_ms":  1.32193333565652,
-                                         "process_ms":  0.214122522467965,
-                                         "gpu_ms":  9.99699974060059,
+                                         "frame_ms":  10.7469963709513,
+                                         "p99_ms":  13.7639999389648,
+                                         "cpu_ms":  1.570583787922927,
+                                         "physics_ms":  1.34981801638732,
+                                         "process_ms":  0.221994594598676,
+                                         "gpu_ms":  10.0659999847412,
                                          "hitches":  0
                                      },
                                      {
                                          "variant":  "items_3000",
                                          "x":  3000,
-                                         "frame_ms":  17.0442714350564,
-                                         "p99_ms":  25.9290008544922,
-                                         "cpu_ms":  4.9337642782323421,
-                                         "physics_ms":  4.57656189657393,
-                                         "process_ms":  0.358935713714787,
-                                         "gpu_ms":  11.6199998855591,
+                                         "frame_ms":  17.4355901223642,
+                                         "p99_ms":  26.261999130249,
+                                         "cpu_ms":  5.11452098374749,
+                                         "physics_ms":  4.74533826804455,
+                                         "process_ms":  0.369525924545747,
+                                         "gpu_ms":  11.7270002365112,
                                          "hitches":  0
                                      }
                                  ],
                         "cpu_fit":  {
-                                        "slope":  0.00154218918508734,
-                                        "intercept":  0.24437731424002118,
-                                        "r2":  0.98994347461213006
+                                        "slope":  0.0016045964735401535,
+                                        "intercept":  0.23181362956203566,
+                                        "r2":  0.98883187008399087
                                     },
                         "frame_fit":  {
-                                          "slope":  0.0027386804654955304,
-                                          "intercept":  8.6453889525111141,
-                                          "r2":  0.97343576403564069
+                                          "slope":  0.0028668031630138162,
+                                          "intercept":  8.638565575155198,
+                                          "r2":  0.972008069738851
                                       }
                     },
                     {
@@ -1619,49 +1635,49 @@
                                      {
                                          "variant":  "items_300",
                                          "x":  300,
-                                         "frame_ms":  11.6309121399282,
-                                         "p99_ms":  13.2290000915527,
-                                         "cpu_ms":  2.0610000094709831,
-                                         "physics_ms":  1.84810507409344,
-                                         "process_ms":  0.212894935377543,
-                                         "gpu_ms":  10.3509998321533,
+                                         "frame_ms":  11.8128709521647,
+                                         "p99_ms":  13.3070001602173,
+                                         "cpu_ms":  1.436602634842566,
+                                         "physics_ms":  1.21458756901226,
+                                         "process_ms":  0.223518026762941,
+                                         "gpu_ms":  10.4479999542236,
                                          "hitches":  1
                                      },
                                      {
                                          "variant":  "items_1000",
                                          "x":  1000,
-                                         "frame_ms":  11.7425075306083,
-                                         "p99_ms":  16.2530002593994,
-                                         "cpu_ms":  4.0784717116856326,
-                                         "physics_ms":  3.82497548517191,
-                                         "process_ms":  0.253496226513723,
-                                         "gpu_ms":  10.3839998245239,
+                                         "frame_ms":  11.8217072731642,
+                                         "p99_ms":  16.3840007781982,
+                                         "cpu_ms":  3.4347609241106021,
+                                         "physics_ms":  3.17008540028639,
+                                         "process_ms":  0.262722434780557,
+                                         "gpu_ms":  10.4130001068115,
                                          "hitches":  1
                                      },
                                      {
                                          "variant":  "items_3000",
                                          "x":  3000,
-                                         "frame_ms":  17.3432458145184,
-                                         "p99_ms":  24.9610004425049,
-                                         "cpu_ms":  12.037825501918654,
-                                         "physics_ms":  11.5744570840429,
-                                         "process_ms":  0.456044199264181,
-                                         "gpu_ms":  10.6669998168945,
+                                         "frame_ms":  17.4646183999468,
+                                         "p99_ms":  23.7709999084473,
+                                         "cpu_ms":  11.042353745394294,
+                                         "physics_ms":  10.574091906003,
+                                         "process_ms":  0.468261839391295,
+                                         "gpu_ms":  10.5670003890991,
                                          "hitches":  1
                                      }
                                  ],
                         "cpu_fit":  {
-                                        "slope":  0.0037579258575233454,
-                                        "intercept":  0.67273867857496228,
-                                        "r2":  0.99639843419056751
+                                        "slope":  0.0036120054705895315,
+                                        "intercept":  0.12736459360415875,
+                                        "r2":  0.99708180988405548
                                     },
                         "frame_fit":  {
-                                          "slope":  0.0022667991734032105,
-                                          "intercept":  10.323143013140367,
-                                          "r2":  0.94561318867374888
+                                          "slope":  0.0022539665354224551,
+                                          "intercept":  10.469046840986381,
+                                          "r2":  0.93826000008816479
                                       }
                     }
                 ],
-    "analysed":  "2026-11-08T19:04:26",
+    "analysed":  "2026-11-08T20:29:07",
     "min_noise_share":  0.015
 }

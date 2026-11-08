@@ -1,0 +1,2106 @@
+﻿{
+    "scenario":  "npc_crowd",
+    "ablate":  false,
+    "repeats":  2,
+    "machine":  {
+                    "pc":  "MAHASIM",
+                    "processor":  "AMD Ryzen 7 1800X Eight-Core Processor",
+                    "cores":  8,
+                    "threads":  16,
+                    "ram_gb":  31.9,
+                    "graphics_cards":  [
+                                           {
+                                               "name":  "Virtual Display Driver",
+                                               "driver":  "11.30.4.434"
+                                           },
+                                           {
+                                               "name":  "NVIDIA GeForce GTX 970",
+                                               "driver":  "32.0.15.6094"
+                                           }
+                                       ],
+                    "windows":  "Microsoft Windows 11 Pro 10.0.26300",
+                    "power_plan":  {
+                                       "guid":  "381b4222-f694-41f0-9685-ff5bb260df2e",
+                                       "name":  "Ausbalanciert",
+                                       "full_speed":  false
+                                   },
+                    "has_battery":  false,
+                    "on_battery":  false,
+                    "game_commit":  "60e1ab302b3c0cf52758880828c6fe30fdaa6c41",
+                    "game_uncommitted_changes":  false
+                },
+    "preset":  "high",
+    "renderer":  "forward_plus",
+    "godot":  "4.7.2-stable (official)",
+    "debug_build":  true,
+    "graphics_card_used":  "NVIDIA GeForce GTX 970",
+    "render_3d":  [
+                      5120.0,
+                      2880.0
+                  ],
+    "warnings":  [
+                     "The power plan is \u0027Ausbalanciert\u0027, not High performance: the numbers may vary more."
+                 ],
+    "segments":  [
+                     {
+                         "name":  "village_a_steady",
+                         "repeats":  2,
+                         "mean_frame_ms":  11.1084720146705,
+                         "frame_spread_share":  0.0088921138632341822,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  12.68149995803835,
+                         "slowest_1_percent_fps":  32.0702042492497,
+                         "gpu_ms":  10.1304998397827,
+                         "gpu_spread_share":  0.0012833017607035591,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.015,
+                         "gpu_bound_share":  0.9956389111737155,
+                         "process_ms":  0.29399999976158153,
+                         "process_mean_ms":  0.3068547157054,
+                         "physics_mean_ms":  0.429915252434453,
+                         "cpu_ms":  0.736769968139853,
+                         "cpu_spread_share":  0.085857270120948528,
+                         "cpu_noise_band_share":  0.085857270120948528,
+                         "draw_ms":  10.0295000076294,
+                         "render_cpu_ms":  0.330499991774559,
+                         "draw_calls":  14,
+                         "shadow_draw_calls":  117,
+                         "primitives":  1670,
+                         "hitches":  [
+                                         1,
+                                         1
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    11.157860913671,
+                                                    11.05908311567
+                                                ],
+                         "zones":  {
+                                       "npc":  {
+                                                   "mean_ms":  0.123666985583195,
+                                                   "max_ms":  0.684499979019165
+                                               },
+                                       "npc.level_change":  {
+                                                                "mean_ms":  0.00062029298112018145,
+                                                                "max_ms":  0.49750000238418546
+                                                            },
+                                       "npc.schedule":  {
+                                                            "mean_ms":  6.91881675060478E-05,
+                                                            "max_ms":  0.055499998852610546
+                                                        }
+                                   },
+                         "unattributed_process_ms":  0.117647357615353,
+                         "unattributed_physics_ms":  0.429915252434453,
+                         "hitch_causes":  {
+                                              "shader_compiles":  {
+                                                                      "count":  1,
+                                                                      "worst_ms":  163.638000488281,
+                                                                      "at_x":  [
+                                                                                   10.0
+                                                                               ]
+                                                                  }
+                                          }
+                     },
+                     {
+                         "name":  "rush_0700",
+                         "repeats":  2,
+                         "mean_frame_ms":  10.9200966057788,
+                         "frame_spread_share":  0.017737339856489925,
+                         "noise_band_share":  0.017737339856489925,
+                         "p99_frame_ms":  11.964000225067149,
+                         "slowest_1_percent_fps":  82.598765364907791,
+                         "gpu_ms":  10.151000022888201,
+                         "gpu_spread_share":  0.010639326311918605,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.020227317085188511,
+                         "gpu_bound_share":  0.99345122347444748,
+                         "process_ms":  0.31549999117851246,
+                         "process_mean_ms":  0.329168781314237,
+                         "physics_mean_ms":  0.51743738218220847,
+                         "cpu_ms":  0.84660616349644546,
+                         "cpu_spread_share":  0.072417597218058044,
+                         "cpu_noise_band_share":  0.072417597218058044,
+                         "draw_ms":  9.881500244140625,
+                         "render_cpu_ms":  0.346000000834465,
+                         "draw_calls":  23,
+                         "shadow_draw_calls":  119,
+                         "primitives":  12218,
+                         "hitches":  [
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    11.01694333816,
+                                                    10.8232498733976
+                                                ],
+                         "zones":  {
+                                       "npc":  {
+                                                   "mean_ms":  0.142185958331717,
+                                                   "max_ms":  0.73700001835823048
+                                               },
+                                       "npc.route":  {
+                                                         "mean_ms":  0.00012245975221421648,
+                                                         "max_ms":  0.235499992966652
+                                                     }
+                                   },
+                         "unattributed_process_ms":  0.121623547716747,
+                         "unattributed_physics_ms":  0.51743738218220847
+                     },
+                     {
+                         "name":  "round_the_wall",
+                         "repeats":  2,
+                         "mean_frame_ms":  10.93241451210765,
+                         "frame_spread_share":  0.011626369617062244,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  11.931499958038351,
+                         "slowest_1_percent_fps":  54.5056671421873,
+                         "gpu_ms":  10.105999946594251,
+                         "gpu_spread_share":  0.0051454627004845609,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.015,
+                         "gpu_bound_share":  0.99044449083688046,
+                         "process_ms":  0.31499999761581449,
+                         "process_mean_ms":  0.328256064077761,
+                         "physics_mean_ms":  0.58414682141256558,
+                         "cpu_ms":  0.91240288549032655,
+                         "cpu_spread_share":  0.066096284559275756,
+                         "cpu_noise_band_share":  0.066096284559275756,
+                         "draw_ms":  9.8199996948242188,
+                         "render_cpu_ms":  0.355000004172325,
+                         "draw_calls":  26,
+                         "shadow_draw_calls":  121,
+                         "primitives":  15734,
+                         "hitches":  [
+                                         2,
+                                         2
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    10.99596665807,
+                                                    10.8688623661453
+                                                ],
+                         "zones":  {
+                                       "npc":  {
+                                                   "mean_ms":  0.14272877806707351,
+                                                   "max_ms":  0.40999999642372154
+                                               }
+                                   },
+                         "unattributed_process_ms":  0.12077388096064301,
+                         "unattributed_physics_ms":  0.58414682141256558,
+                         "hitch_causes":  {
+                                              "screenshot":  {
+                                                                 "count":  1,
+                                                                 "worst_ms":  284.647003173828,
+                                                                 "at_x":  [
+                                                                              10.0
+                                                                          ]
+                                                             },
+                                              "unknown":  {
+                                                              "count":  1,
+                                                              "worst_ms":  24.9360008239746,
+                                                              "at_x":  [
+                                                                           10.0
+                                                                       ]
+                                                          }
+                                          }
+                     },
+                     {
+                         "name":  "back_to_road",
+                         "repeats":  2,
+                         "mean_frame_ms":  3.9795397253735247,
+                         "frame_spread_share":  0.016320455270126454,
+                         "noise_band_share":  0.016320455270126454,
+                         "p99_frame_ms":  57.0599994659424,
+                         "slowest_1_percent_fps":  17.5268901124766,
+                         "gpu_ms":  2.5759999752044651,
+                         "gpu_spread_share":  0.0015528676081809764,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.018366637670911977,
+                         "gpu_bound_share":  0.187725306416727,
+                         "process_ms":  0.1510000005364415,
+                         "process_mean_ms":  0.886852649406469,
+                         "physics_mean_ms":  0.10354524165681971,
+                         "cpu_ms":  0.99039789106328868,
+                         "cpu_spread_share":  0.072890452137907027,
+                         "cpu_noise_band_share":  0.072890452137907027,
+                         "draw_ms":  2.9445000886917096,
+                         "render_cpu_ms":  0.23399999737739552,
+                         "draw_calls":  18,
+                         "shadow_draw_calls":  4,
+                         "primitives":  2490,
+                         "hitches":  [
+                                         1,
+                                         1
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    4.01201367541535,
+                                                    3.9470657753317
+                                                ],
+                         "zones":  {
+                                       "npc":  {
+                                                   "mean_ms":  0.04239005068362045,
+                                                   "max_ms":  0.09900000318884844
+                                               },
+                                       "npc.level_change":  {
+                                                                "mean_ms":  0.00042285508944209097,
+                                                                "max_ms":  0.031500000506639453
+                                                            }
+                                   },
+                         "unattributed_process_ms":  0.793907714064422,
+                         "unattributed_physics_ms":  0.10354524165681971,
+                         "hitch_causes":  {
+                                              "physics_catch_up":  {
+                                                                       "count":  1,
+                                                                       "worst_ms":  57.5839996337891,
+                                                                       "at_x":  [
+                                                                                    0.0
+                                                                                ]
+                                                                   }
+                                          }
+                     },
+                     {
+                         "name":  "fast_time_to_noon",
+                         "repeats":  2,
+                         "mean_frame_ms":  3.30779116390407,
+                         "frame_spread_share":  0.0096816468788018,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  4.12750005722046,
+                         "slowest_1_percent_fps":  238.42943589031148,
+                         "gpu_ms":  2.5935000181198102,
+                         "gpu_spread_share":  0.001927848848046248,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.030769195222500993,
+                         "gpu_bound_share":  0.195631716056267,
+                         "process_ms":  0.155500002205372,
+                         "process_mean_ms":  0.17458499814674749,
+                         "physics_mean_ms":  0.088455269608326,
+                         "cpu_ms":  0.2630402677550735,
+                         "cpu_spread_share":  0.082020107558217342,
+                         "cpu_noise_band_share":  0.082020107558217342,
+                         "draw_ms":  2.993499994277955,
+                         "render_cpu_ms":  0.22800000011920951,
+                         "draw_calls":  18,
+                         "shadow_draw_calls":  4,
+                         "primitives":  2490,
+                         "hitches":  [
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    3.32380359690294,
+                                                    3.2917787309052
+                                                ],
+                         "zones":  {
+                                       "npc":  {
+                                                   "mean_ms":  0.045924638802608247,
+                                                   "max_ms":  0.154500000178814
+                                               }
+                                   },
+                         "unattributed_process_ms":  0.077474372428602348,
+                         "unattributed_physics_ms":  0.088455269608326
+                     },
+                     {
+                         "name":  "village_b_noon",
+                         "repeats":  2,
+                         "mean_frame_ms":  11.241833273794249,
+                         "frame_spread_share":  0.012421837949796325,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  12.048499584198,
+                         "slowest_1_percent_fps":  64.854974863703546,
+                         "gpu_ms":  10.430000305175749,
+                         "gpu_spread_share":  0.0026845519760728452,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.015,
+                         "gpu_bound_share":  0.99439736346516,
+                         "process_ms":  0.27199999988079049,
+                         "process_mean_ms":  0.38258394346679447,
+                         "physics_mean_ms":  0.41695946480117696,
+                         "cpu_ms":  0.79954340826797154,
+                         "cpu_spread_share":  0.10839260518570974,
+                         "cpu_noise_band_share":  0.10839260518570974,
+                         "draw_ms":  10.3379998207092,
+                         "render_cpu_ms":  0.28649999201297749,
+                         "draw_calls":  17,
+                         "shadow_draw_calls":  30,
+                         "primitives":  14718,
+                         "hitches":  [
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    11.3116553893871,
+                                                    11.1720111582014
+                                                ],
+                         "zones":  {
+                                       "npc":  {
+                                                   "mean_ms":  0.11965701503086351,
+                                                   "max_ms":  0.664000004529953
+                                               },
+                                       "npc.level_change":  {
+                                                                "mean_ms":  0.0021101223855593352,
+                                                                "max_ms":  0.37649999558925595
+                                                            },
+                                       "npc.schedule":  {
+                                                            "mean_ms":  0.00019609227955425548,
+                                                            "max_ms":  0.0350000001490116
+                                                        }
+                                   },
+                         "unattributed_process_ms":  0.19638158927396249,
+                         "unattributed_physics_ms":  0.41695946480117696
+                     },
+                     {
+                         "name":  "stuck_body",
+                         "repeats":  2,
+                         "mean_frame_ms":  11.02273503565225,
+                         "frame_spread_share":  0.016362788835522987,
+                         "noise_band_share":  0.016362788835522987,
+                         "p99_frame_ms":  14.3875002861023,
+                         "slowest_1_percent_fps":  16.416288163685351,
+                         "gpu_ms":  7.58449983596802,
+                         "gpu_spread_share":  0.0040873014700438968,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.019947850338590666,
+                         "gpu_bound_share":  0.84743762204382755,
+                         "process_ms":  0.26599998772144351,
+                         "process_mean_ms":  0.273986499965764,
+                         "physics_mean_ms":  0.908321481289665,
+                         "cpu_ms":  1.1823079812554291,
+                         "cpu_spread_share":  0.067684615784612032,
+                         "cpu_noise_band_share":  0.067684615784612032,
+                         "draw_ms":  7.996999979019165,
+                         "render_cpu_ms":  0.258500002324581,
+                         "draw_calls":  2,
+                         "shadow_draw_calls":  6,
+                         "primitives":  14,
+                         "hitches":  [
+                                         2,
+                                         2
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    11.1129163785414,
+                                                    10.9325536927631
+                                                ],
+                         "zones":  {
+                                       "npc":  {
+                                                   "mean_ms":  0.11017413401035051,
+                                                   "max_ms":  0.203999996185303
+                                               },
+                                       "npc.level_change":  {
+                                                                "mean_ms":  1.263325360935085E-05,
+                                                                "max_ms":  0.010499999858438989
+                                                            }
+                                   },
+                         "unattributed_process_ms":  0.10055991264060024,
+                         "unattributed_physics_ms":  0.908321481289665,
+                         "hitch_causes":  {
+                                              "screenshot":  {
+                                                                 "count":  2,
+                                                                 "worst_ms":  279.109008789063,
+                                                                 "at_x":  [
+                                                                              289.0,
+                                                                              288.0
+                                                                          ]
+                                                             }
+                                          }
+                     },
+                     {
+                         "name":  "clock_jump_8h",
+                         "repeats":  2,
+                         "mean_frame_ms":  10.8244896702678,
+                         "frame_spread_share":  0.0084596625710238668,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  11.68349981307985,
+                         "slowest_1_percent_fps":  85.2252308121836,
+                         "gpu_ms":  10.0724997520447,
+                         "gpu_spread_share":  0.0014892373980704291,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.015,
+                         "gpu_bound_share":  0.99796472184531893,
+                         "process_ms":  0.30100001394748649,
+                         "process_mean_ms":  0.31268909658101951,
+                         "physics_mean_ms":  0.42779248813530951,
+                         "cpu_ms":  0.74048158471632908,
+                         "cpu_spread_share":  0.098920081298517024,
+                         "cpu_noise_band_share":  0.098920081298517024,
+                         "draw_ms":  9.9520001411437988,
+                         "render_cpu_ms":  0.33999998867511749,
+                         "draw_calls":  14,
+                         "shadow_draw_calls":  128,
+                         "primitives":  1670,
+                         "hitches":  [
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    10.8702754353248,
+                                                    10.7787039052108
+                                                ],
+                         "zones":  {
+                                       "npc":  {
+                                                   "mean_ms":  0.1399877500702415,
+                                                   "max_ms":  0.61550000309944153
+                                               },
+                                       "npc.level_change":  {
+                                                                "mean_ms":  0.00057452550868915459,
+                                                                "max_ms":  0.42499999701976748
+                                                            },
+                                       "npc.route":  {
+                                                         "mean_ms":  0.00032093752052495548,
+                                                         "max_ms":  0.23749999701976798
+                                                     },
+                                       "npc.schedule":  {
+                                                            "mean_ms":  4.9322394999175E-05,
+                                                            "max_ms":  0.0364999994635582
+                                                        }
+                                   },
+                         "unattributed_process_ms":  0.1065639298606435,
+                         "unattributed_physics_ms":  0.42779248813530951
+                     }
+                 ],
+    "variants":  {
+                     "npcs_8":  [
+                                    {
+                                        "name":  "village_a_steady",
+                                        "repeats":  2,
+                                        "mean_frame_ms":  11.1084720146705,
+                                        "frame_spread_share":  0.0088921138632341822,
+                                        "noise_band_share":  0.015,
+                                        "p99_frame_ms":  12.68149995803835,
+                                        "slowest_1_percent_fps":  32.0702042492497,
+                                        "gpu_ms":  10.1304998397827,
+                                        "gpu_spread_share":  0.0012833017607035591,
+                                        "gpu_noise_band_share":  0.015,
+                                        "p99_noise_band_share":  0.015,
+                                        "gpu_bound_share":  0.9956389111737155,
+                                        "process_ms":  0.29399999976158153,
+                                        "process_mean_ms":  0.3068547157054,
+                                        "physics_mean_ms":  0.429915252434453,
+                                        "cpu_ms":  0.736769968139853,
+                                        "cpu_spread_share":  0.085857270120948528,
+                                        "cpu_noise_band_share":  0.085857270120948528,
+                                        "draw_ms":  10.0295000076294,
+                                        "render_cpu_ms":  0.330499991774559,
+                                        "draw_calls":  14,
+                                        "shadow_draw_calls":  117,
+                                        "primitives":  1670,
+                                        "hitches":  [
+                                                        1,
+                                                        1
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   11.157860913671,
+                                                                   11.05908311567
+                                                               ],
+                                        "zones":  {
+                                                      "npc":  {
+                                                                  "mean_ms":  0.123666985583195,
+                                                                  "max_ms":  0.684499979019165
+                                                              },
+                                                      "npc.level_change":  {
+                                                                               "mean_ms":  0.00062029298112018145,
+                                                                               "max_ms":  0.49750000238418546
+                                                                           },
+                                                      "npc.schedule":  {
+                                                                           "mean_ms":  6.91881675060478E-05,
+                                                                           "max_ms":  0.055499998852610546
+                                                                       }
+                                                  },
+                                        "unattributed_process_ms":  0.117647357615353,
+                                        "unattributed_physics_ms":  0.429915252434453,
+                                        "hitch_causes":  {
+                                                             "shader_compiles":  {
+                                                                                     "count":  1,
+                                                                                     "worst_ms":  163.638000488281,
+                                                                                     "at_x":  [
+                                                                                                  10.0
+                                                                                              ]
+                                                                                 }
+                                                         }
+                                    },
+                                    {
+                                        "name":  "rush_0700",
+                                        "repeats":  2,
+                                        "mean_frame_ms":  10.9200966057788,
+                                        "frame_spread_share":  0.017737339856489925,
+                                        "noise_band_share":  0.017737339856489925,
+                                        "p99_frame_ms":  11.964000225067149,
+                                        "slowest_1_percent_fps":  82.598765364907791,
+                                        "gpu_ms":  10.151000022888201,
+                                        "gpu_spread_share":  0.010639326311918605,
+                                        "gpu_noise_band_share":  0.015,
+                                        "p99_noise_band_share":  0.020227317085188511,
+                                        "gpu_bound_share":  0.99345122347444748,
+                                        "process_ms":  0.31549999117851246,
+                                        "process_mean_ms":  0.329168781314237,
+                                        "physics_mean_ms":  0.51743738218220847,
+                                        "cpu_ms":  0.84660616349644546,
+                                        "cpu_spread_share":  0.072417597218058044,
+                                        "cpu_noise_band_share":  0.072417597218058044,
+                                        "draw_ms":  9.881500244140625,
+                                        "render_cpu_ms":  0.346000000834465,
+                                        "draw_calls":  23,
+                                        "shadow_draw_calls":  119,
+                                        "primitives":  12218,
+                                        "hitches":  [
+                                                        0,
+                                                        0
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   11.01694333816,
+                                                                   10.8232498733976
+                                                               ],
+                                        "zones":  {
+                                                      "npc":  {
+                                                                  "mean_ms":  0.142185958331717,
+                                                                  "max_ms":  0.73700001835823048
+                                                              },
+                                                      "npc.route":  {
+                                                                        "mean_ms":  0.00012245975221421648,
+                                                                        "max_ms":  0.235499992966652
+                                                                    }
+                                                  },
+                                        "unattributed_process_ms":  0.121623547716747,
+                                        "unattributed_physics_ms":  0.51743738218220847
+                                    },
+                                    {
+                                        "name":  "round_the_wall",
+                                        "repeats":  2,
+                                        "mean_frame_ms":  10.93241451210765,
+                                        "frame_spread_share":  0.011626369617062244,
+                                        "noise_band_share":  0.015,
+                                        "p99_frame_ms":  11.931499958038351,
+                                        "slowest_1_percent_fps":  54.5056671421873,
+                                        "gpu_ms":  10.105999946594251,
+                                        "gpu_spread_share":  0.0051454627004845609,
+                                        "gpu_noise_band_share":  0.015,
+                                        "p99_noise_band_share":  0.015,
+                                        "gpu_bound_share":  0.99044449083688046,
+                                        "process_ms":  0.31499999761581449,
+                                        "process_mean_ms":  0.328256064077761,
+                                        "physics_mean_ms":  0.58414682141256558,
+                                        "cpu_ms":  0.91240288549032655,
+                                        "cpu_spread_share":  0.066096284559275756,
+                                        "cpu_noise_band_share":  0.066096284559275756,
+                                        "draw_ms":  9.8199996948242188,
+                                        "render_cpu_ms":  0.355000004172325,
+                                        "draw_calls":  26,
+                                        "shadow_draw_calls":  121,
+                                        "primitives":  15734,
+                                        "hitches":  [
+                                                        2,
+                                                        2
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   10.99596665807,
+                                                                   10.8688623661453
+                                                               ],
+                                        "zones":  {
+                                                      "npc":  {
+                                                                  "mean_ms":  0.14272877806707351,
+                                                                  "max_ms":  0.40999999642372154
+                                                              }
+                                                  },
+                                        "unattributed_process_ms":  0.12077388096064301,
+                                        "unattributed_physics_ms":  0.58414682141256558,
+                                        "hitch_causes":  {
+                                                             "screenshot":  {
+                                                                                "count":  1,
+                                                                                "worst_ms":  284.647003173828,
+                                                                                "at_x":  [
+                                                                                             10.0
+                                                                                         ]
+                                                                            },
+                                                             "unknown":  {
+                                                                             "count":  1,
+                                                                             "worst_ms":  24.9360008239746,
+                                                                             "at_x":  [
+                                                                                          10.0
+                                                                                      ]
+                                                                         }
+                                                         }
+                                    },
+                                    {
+                                        "name":  "back_to_road",
+                                        "repeats":  2,
+                                        "mean_frame_ms":  3.9795397253735247,
+                                        "frame_spread_share":  0.016320455270126454,
+                                        "noise_band_share":  0.016320455270126454,
+                                        "p99_frame_ms":  57.0599994659424,
+                                        "slowest_1_percent_fps":  17.5268901124766,
+                                        "gpu_ms":  2.5759999752044651,
+                                        "gpu_spread_share":  0.0015528676081809764,
+                                        "gpu_noise_band_share":  0.015,
+                                        "p99_noise_band_share":  0.018366637670911977,
+                                        "gpu_bound_share":  0.187725306416727,
+                                        "process_ms":  0.1510000005364415,
+                                        "process_mean_ms":  0.886852649406469,
+                                        "physics_mean_ms":  0.10354524165681971,
+                                        "cpu_ms":  0.99039789106328868,
+                                        "cpu_spread_share":  0.072890452137907027,
+                                        "cpu_noise_band_share":  0.072890452137907027,
+                                        "draw_ms":  2.9445000886917096,
+                                        "render_cpu_ms":  0.23399999737739552,
+                                        "draw_calls":  18,
+                                        "shadow_draw_calls":  4,
+                                        "primitives":  2490,
+                                        "hitches":  [
+                                                        1,
+                                                        1
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   4.01201367541535,
+                                                                   3.9470657753317
+                                                               ],
+                                        "zones":  {
+                                                      "npc":  {
+                                                                  "mean_ms":  0.04239005068362045,
+                                                                  "max_ms":  0.09900000318884844
+                                                              },
+                                                      "npc.level_change":  {
+                                                                               "mean_ms":  0.00042285508944209097,
+                                                                               "max_ms":  0.031500000506639453
+                                                                           }
+                                                  },
+                                        "unattributed_process_ms":  0.793907714064422,
+                                        "unattributed_physics_ms":  0.10354524165681971,
+                                        "hitch_causes":  {
+                                                             "physics_catch_up":  {
+                                                                                      "count":  1,
+                                                                                      "worst_ms":  57.5839996337891,
+                                                                                      "at_x":  [
+                                                                                                   0.0
+                                                                                               ]
+                                                                                  }
+                                                         }
+                                    },
+                                    {
+                                        "name":  "fast_time_to_noon",
+                                        "repeats":  2,
+                                        "mean_frame_ms":  3.30779116390407,
+                                        "frame_spread_share":  0.0096816468788018,
+                                        "noise_band_share":  0.015,
+                                        "p99_frame_ms":  4.12750005722046,
+                                        "slowest_1_percent_fps":  238.42943589031148,
+                                        "gpu_ms":  2.5935000181198102,
+                                        "gpu_spread_share":  0.001927848848046248,
+                                        "gpu_noise_band_share":  0.015,
+                                        "p99_noise_band_share":  0.030769195222500993,
+                                        "gpu_bound_share":  0.195631716056267,
+                                        "process_ms":  0.155500002205372,
+                                        "process_mean_ms":  0.17458499814674749,
+                                        "physics_mean_ms":  0.088455269608326,
+                                        "cpu_ms":  0.2630402677550735,
+                                        "cpu_spread_share":  0.082020107558217342,
+                                        "cpu_noise_band_share":  0.082020107558217342,
+                                        "draw_ms":  2.993499994277955,
+                                        "render_cpu_ms":  0.22800000011920951,
+                                        "draw_calls":  18,
+                                        "shadow_draw_calls":  4,
+                                        "primitives":  2490,
+                                        "hitches":  [
+                                                        0,
+                                                        0
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   3.32380359690294,
+                                                                   3.2917787309052
+                                                               ],
+                                        "zones":  {
+                                                      "npc":  {
+                                                                  "mean_ms":  0.045924638802608247,
+                                                                  "max_ms":  0.154500000178814
+                                                              }
+                                                  },
+                                        "unattributed_process_ms":  0.077474372428602348,
+                                        "unattributed_physics_ms":  0.088455269608326
+                                    },
+                                    {
+                                        "name":  "village_b_noon",
+                                        "repeats":  2,
+                                        "mean_frame_ms":  11.241833273794249,
+                                        "frame_spread_share":  0.012421837949796325,
+                                        "noise_band_share":  0.015,
+                                        "p99_frame_ms":  12.048499584198,
+                                        "slowest_1_percent_fps":  64.854974863703546,
+                                        "gpu_ms":  10.430000305175749,
+                                        "gpu_spread_share":  0.0026845519760728452,
+                                        "gpu_noise_band_share":  0.015,
+                                        "p99_noise_band_share":  0.015,
+                                        "gpu_bound_share":  0.99439736346516,
+                                        "process_ms":  0.27199999988079049,
+                                        "process_mean_ms":  0.38258394346679447,
+                                        "physics_mean_ms":  0.41695946480117696,
+                                        "cpu_ms":  0.79954340826797154,
+                                        "cpu_spread_share":  0.10839260518570974,
+                                        "cpu_noise_band_share":  0.10839260518570974,
+                                        "draw_ms":  10.3379998207092,
+                                        "render_cpu_ms":  0.28649999201297749,
+                                        "draw_calls":  17,
+                                        "shadow_draw_calls":  30,
+                                        "primitives":  14718,
+                                        "hitches":  [
+                                                        0,
+                                                        0
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   11.3116553893871,
+                                                                   11.1720111582014
+                                                               ],
+                                        "zones":  {
+                                                      "npc":  {
+                                                                  "mean_ms":  0.11965701503086351,
+                                                                  "max_ms":  0.664000004529953
+                                                              },
+                                                      "npc.level_change":  {
+                                                                               "mean_ms":  0.0021101223855593352,
+                                                                               "max_ms":  0.37649999558925595
+                                                                           },
+                                                      "npc.schedule":  {
+                                                                           "mean_ms":  0.00019609227955425548,
+                                                                           "max_ms":  0.0350000001490116
+                                                                       }
+                                                  },
+                                        "unattributed_process_ms":  0.19638158927396249,
+                                        "unattributed_physics_ms":  0.41695946480117696
+                                    },
+                                    {
+                                        "name":  "stuck_body",
+                                        "repeats":  2,
+                                        "mean_frame_ms":  11.02273503565225,
+                                        "frame_spread_share":  0.016362788835522987,
+                                        "noise_band_share":  0.016362788835522987,
+                                        "p99_frame_ms":  14.3875002861023,
+                                        "slowest_1_percent_fps":  16.416288163685351,
+                                        "gpu_ms":  7.58449983596802,
+                                        "gpu_spread_share":  0.0040873014700438968,
+                                        "gpu_noise_band_share":  0.015,
+                                        "p99_noise_band_share":  0.019947850338590666,
+                                        "gpu_bound_share":  0.84743762204382755,
+                                        "process_ms":  0.26599998772144351,
+                                        "process_mean_ms":  0.273986499965764,
+                                        "physics_mean_ms":  0.908321481289665,
+                                        "cpu_ms":  1.1823079812554291,
+                                        "cpu_spread_share":  0.067684615784612032,
+                                        "cpu_noise_band_share":  0.067684615784612032,
+                                        "draw_ms":  7.996999979019165,
+                                        "render_cpu_ms":  0.258500002324581,
+                                        "draw_calls":  2,
+                                        "shadow_draw_calls":  6,
+                                        "primitives":  14,
+                                        "hitches":  [
+                                                        2,
+                                                        2
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   11.1129163785414,
+                                                                   10.9325536927631
+                                                               ],
+                                        "zones":  {
+                                                      "npc":  {
+                                                                  "mean_ms":  0.11017413401035051,
+                                                                  "max_ms":  0.203999996185303
+                                                              },
+                                                      "npc.level_change":  {
+                                                                               "mean_ms":  1.263325360935085E-05,
+                                                                               "max_ms":  0.010499999858438989
+                                                                           }
+                                                  },
+                                        "unattributed_process_ms":  0.10055991264060024,
+                                        "unattributed_physics_ms":  0.908321481289665,
+                                        "hitch_causes":  {
+                                                             "screenshot":  {
+                                                                                "count":  2,
+                                                                                "worst_ms":  279.109008789063,
+                                                                                "at_x":  [
+                                                                                             289.0,
+                                                                                             288.0
+                                                                                         ]
+                                                                            }
+                                                         }
+                                    },
+                                    {
+                                        "name":  "clock_jump_8h",
+                                        "repeats":  2,
+                                        "mean_frame_ms":  10.8244896702678,
+                                        "frame_spread_share":  0.0084596625710238668,
+                                        "noise_band_share":  0.015,
+                                        "p99_frame_ms":  11.68349981307985,
+                                        "slowest_1_percent_fps":  85.2252308121836,
+                                        "gpu_ms":  10.0724997520447,
+                                        "gpu_spread_share":  0.0014892373980704291,
+                                        "gpu_noise_band_share":  0.015,
+                                        "p99_noise_band_share":  0.015,
+                                        "gpu_bound_share":  0.99796472184531893,
+                                        "process_ms":  0.30100001394748649,
+                                        "process_mean_ms":  0.31268909658101951,
+                                        "physics_mean_ms":  0.42779248813530951,
+                                        "cpu_ms":  0.74048158471632908,
+                                        "cpu_spread_share":  0.098920081298517024,
+                                        "cpu_noise_band_share":  0.098920081298517024,
+                                        "draw_ms":  9.9520001411437988,
+                                        "render_cpu_ms":  0.33999998867511749,
+                                        "draw_calls":  14,
+                                        "shadow_draw_calls":  128,
+                                        "primitives":  1670,
+                                        "hitches":  [
+                                                        0,
+                                                        0
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   10.8702754353248,
+                                                                   10.7787039052108
+                                                               ],
+                                        "zones":  {
+                                                      "npc":  {
+                                                                  "mean_ms":  0.1399877500702415,
+                                                                  "max_ms":  0.61550000309944153
+                                                              },
+                                                      "npc.level_change":  {
+                                                                               "mean_ms":  0.00057452550868915459,
+                                                                               "max_ms":  0.42499999701976748
+                                                                           },
+                                                      "npc.route":  {
+                                                                        "mean_ms":  0.00032093752052495548,
+                                                                        "max_ms":  0.23749999701976798
+                                                                    },
+                                                      "npc.schedule":  {
+                                                                           "mean_ms":  4.9322394999175E-05,
+                                                                           "max_ms":  0.0364999994635582
+                                                                       }
+                                                  },
+                                        "unattributed_process_ms":  0.1065639298606435,
+                                        "unattributed_physics_ms":  0.42779248813530951
+                                    }
+                                ],
+                     "npcs_24":  [
+                                     {
+                                         "name":  "village_a_steady",
+                                         "repeats":  2,
+                                         "mean_frame_ms":  11.2092342416882,
+                                         "frame_spread_share":  0.0014617811697129046,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  12.51000022888185,
+                                         "slowest_1_percent_fps":  30.8002586515936,
+                                         "gpu_ms":  10.263999938964851,
+                                         "gpu_spread_share":  0.00058461796907474672,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.99433724632859644,
+                                         "process_ms":  0.44650000333786,
+                                         "process_mean_ms":  0.466350184397226,
+                                         "physics_mean_ms":  0.51278606879458655,
+                                         "cpu_ms":  0.97913625319181252,
+                                         "cpu_spread_share":  0.015307237736792174,
+                                         "cpu_noise_band_share":  0.015307237736792174,
+                                         "draw_ms":  9.8610000610351563,
+                                         "render_cpu_ms":  0.37549999356269848,
+                                         "draw_calls":  14,
+                                         "shadow_draw_calls":  145,
+                                         "primitives":  1670,
+                                         "hitches":  [
+                                                         1,
+                                                         1
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    11.2010415179175,
+                                                                    11.2174269654589
+                                                                ],
+                                         "zones":  {
+                                                       "npc":  {
+                                                                   "mean_ms":  0.272856501648006,
+                                                                   "max_ms":  1.6119999885559051
+                                                               },
+                                                       "npc.level_change":  {
+                                                                                "mean_ms":  0.001435474402671505,
+                                                                                "max_ms":  1.1405000090599051
+                                                                            },
+                                                       "npc.schedule":  {
+                                                                            "mean_ms":  0.00015103765795285,
+                                                                            "max_ms":  0.12000000104308151
+                                                                        }
+                                                   },
+                                         "unattributed_process_ms":  0.12705275607816802,
+                                         "unattributed_physics_ms":  0.51278606879458655,
+                                         "hitch_causes":  {
+                                                              "shader_compiles":  {
+                                                                                      "count":  1,
+                                                                                      "worst_ms":  166.675003051758,
+                                                                                      "at_x":  [
+                                                                                                   10.0
+                                                                                               ]
+                                                                                  }
+                                                          }
+                                     },
+                                     {
+                                         "name":  "rush_0700",
+                                         "repeats":  2,
+                                         "mean_frame_ms":  11.0604174949286,
+                                         "frame_spread_share":  0.0062630289439582071,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  12.43650007247925,
+                                         "slowest_1_percent_fps":  78.924587677132152,
+                                         "gpu_ms":  10.32850027084355,
+                                         "gpu_spread_share":  0.0059059755725134029,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.89595276422459857,
+                                         "process_ms":  0.48349998891353596,
+                                         "process_mean_ms":  0.504281933792206,
+                                         "physics_mean_ms":  0.6994251519754866,
+                                         "cpu_ms":  1.2037070857676926,
+                                         "cpu_spread_share":  0.0086521891454836523,
+                                         "cpu_noise_band_share":  0.015,
+                                         "draw_ms":  9.6009998321533256,
+                                         "render_cpu_ms":  0.4089999943971635,
+                                         "draw_calls":  40,
+                                         "shadow_draw_calls":  153,
+                                         "primitives":  29882,
+                                         "hitches":  [
+                                                         0,
+                                                         0
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    11.0257816374771,
+                                                                    11.0950533523801
+                                                                ],
+                                         "zones":  {
+                                                       "npc":  {
+                                                                   "mean_ms":  0.31428220435683096,
+                                                                   "max_ms":  1.8644999861717202
+                                                               },
+                                                       "npc.route":  {
+                                                                         "mean_ms":  0.00030409963848028449,
+                                                                         "max_ms":  0.577499985694885
+                                                                     }
+                                                   },
+                                         "unattributed_process_ms":  0.1271733635755235,
+                                         "unattributed_physics_ms":  0.6994251519754866
+                                     },
+                                     {
+                                         "name":  "round_the_wall",
+                                         "repeats":  2,
+                                         "mean_frame_ms":  11.100075952745049,
+                                         "frame_spread_share":  0.0038066572841828688,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  12.3869996070862,
+                                         "slowest_1_percent_fps":  52.723094136043947,
+                                         "gpu_ms":  10.300499916076649,
+                                         "gpu_spread_share":  0.0051453324490766542,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.88958926605985456,
+                                         "process_ms":  0.492500007152557,
+                                         "process_mean_ms":  0.5108365408718385,
+                                         "physics_mean_ms":  0.77511232368588545,
+                                         "cpu_ms":  1.2859488645577239,
+                                         "cpu_spread_share":  0.012640989391402215,
+                                         "cpu_noise_band_share":  0.015,
+                                         "draw_ms":  9.5219998359680211,
+                                         "render_cpu_ms":  0.432000011205673,
+                                         "draw_calls":  44,
+                                         "shadow_draw_calls":  155,
+                                         "primitives":  36854,
+                                         "hitches":  [
+                                                         2,
+                                                         2
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    11.0789488602548,
+                                                                    11.1212030452353
+                                                                ],
+                                         "zones":  {
+                                                       "npc":  {
+                                                                   "mean_ms":  0.31703871049911203,
+                                                                   "max_ms":  1.929499924182895
+                                                               }
+                                                   },
+                                         "unattributed_process_ms":  0.13012754201078952,
+                                         "unattributed_physics_ms":  0.77511232368588545,
+                                         "hitch_causes":  {
+                                                              "screenshot":  {
+                                                                                 "count":  1,
+                                                                                 "worst_ms":  291.72900390625,
+                                                                                 "at_x":  [
+                                                                                              10.0
+                                                                                          ]
+                                                                             },
+                                                              "unknown":  {
+                                                                              "count":  1,
+                                                                              "worst_ms":  26.8409996032715,
+                                                                              "at_x":  [
+                                                                                           10.0
+                                                                                       ]
+                                                                          }
+                                                          }
+                                     },
+                                     {
+                                         "name":  "back_to_road",
+                                         "repeats":  2,
+                                         "mean_frame_ms":  3.9280823736221748,
+                                         "frame_spread_share":  0.0059071259113727907,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  55.363500595092745,
+                                         "slowest_1_percent_fps":  18.062453336980049,
+                                         "gpu_ms":  2.565000057220455,
+                                         "gpu_spread_share":  0.0023391975936919965,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.1960868079289135,
+                                         "process_ms":  0.2025000005960465,
+                                         "process_mean_ms":  0.90303460014468406,
+                                         "physics_mean_ms":  0.0994748801492048,
+                                         "cpu_ms":  1.0025094802938888,
+                                         "cpu_spread_share":  0.017857260173316545,
+                                         "cpu_noise_band_share":  0.017857260173316545,
+                                         "draw_ms":  2.8904999494552603,
+                                         "render_cpu_ms":  0.254999995231628,
+                                         "draw_calls":  18,
+                                         "shadow_draw_calls":  4,
+                                         "primitives":  2490,
+                                         "hitches":  [
+                                                         1,
+                                                         1
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    3.93968421220779,
+                                                                    3.91648053503656
+                                                                ],
+                                         "zones":  {
+                                                       "npc":  {
+                                                                   "mean_ms":  0.091978041737156443,
+                                                                   "max_ms":  0.20949999988079049
+                                                               },
+                                                       "npc.level_change":  {
+                                                                                "mean_ms":  0.000875939871614222,
+                                                                                "max_ms":  0.067000001668930054
+                                                                            }
+                                                   },
+                                         "unattributed_process_ms":  0.762761530516668,
+                                         "unattributed_physics_ms":  0.0994748801492048,
+                                         "hitch_causes":  {
+                                                              "physics_catch_up":  {
+                                                                                       "count":  1,
+                                                                                       "worst_ms":  55.4080009460449,
+                                                                                       "at_x":  [
+                                                                                                    0.0
+                                                                                                ]
+                                                                                   }
+                                                          }
+                                     },
+                                     {
+                                         "name":  "fast_time_to_noon",
+                                         "repeats":  2,
+                                         "mean_frame_ms":  3.3110816974451649,
+                                         "frame_spread_share":  0.0054291964645815319,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  4.0149998664855948,
+                                         "slowest_1_percent_fps":  245.96978914709248,
+                                         "gpu_ms":  2.6075000762939449,
+                                         "gpu_spread_share":  0.0049856226514735187,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.085678673501924457,
+                                         "gpu_bound_share":  0.196019971664572,
+                                         "process_ms":  0.215499997138977,
+                                         "process_mean_ms":  0.23128193539960951,
+                                         "physics_mean_ms":  0.0877157843257696,
+                                         "cpu_ms":  0.3189977197253791,
+                                         "cpu_spread_share":  0.020269087670734379,
+                                         "cpu_noise_band_share":  0.020269087670734379,
+                                         "draw_ms":  2.94099998474121,
+                                         "render_cpu_ms":  0.245000004768372,
+                                         "draw_calls":  18,
+                                         "shadow_draw_calls":  4,
+                                         "primitives":  2490,
+                                         "hitches":  [
+                                                         0,
+                                                         0
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    3.30209344092231,
+                                                                    3.32006995396802
+                                                                ],
+                                         "zones":  {
+                                                       "npc":  {
+                                                                   "mean_ms":  0.1041399723265205,
+                                                                   "max_ms":  0.284499987959862
+                                                               }
+                                                   },
+                                         "unattributed_process_ms":  0.0768478322114459,
+                                         "unattributed_physics_ms":  0.0877157843257696
+                                     },
+                                     {
+                                         "name":  "village_b_noon",
+                                         "repeats":  2,
+                                         "mean_frame_ms":  11.330254239551099,
+                                         "frame_spread_share":  0.0025181290368934536,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  12.670000076293951,
+                                         "slowest_1_percent_fps":  60.5501591644729,
+                                         "gpu_ms":  10.5085000991821,
+                                         "gpu_spread_share":  9.510878566550791E-05,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.994350282485876,
+                                         "process_ms":  0.401500001549721,
+                                         "process_mean_ms":  0.51034463487439252,
+                                         "physics_mean_ms":  0.46982768396873253,
+                                         "cpu_ms":  0.98017231884312506,
+                                         "cpu_spread_share":  0.019649486775878407,
+                                         "cpu_noise_band_share":  0.019649486775878407,
+                                         "draw_ms":  10.197000026702849,
+                                         "render_cpu_ms":  0.34849999845027946,
+                                         "draw_calls":  35,
+                                         "shadow_draw_calls":  54,
+                                         "primitives":  35598,
+                                         "hitches":  [
+                                                         0,
+                                                         0
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    11.3159887184531,
+                                                                    11.3445197606491
+                                                                ],
+                                         "zones":  {
+                                                       "npc":  {
+                                                                   "mean_ms":  0.24548587522937748,
+                                                                   "max_ms":  1.2220000028610249
+                                                               },
+                                                       "npc.level_change":  {
+                                                                                "mean_ms":  0.00498022602102851,
+                                                                                "max_ms":  0.881500005722046
+                                                                            },
+                                                       "npc.schedule":  {
+                                                                            "mean_ms":  0.000451977412074299,
+                                                                            "max_ms":  0.080000001937150955
+                                                                        }
+                                                   },
+                                         "unattributed_process_ms":  0.199870058803656,
+                                         "unattributed_physics_ms":  0.46982768396873253
+                                     },
+                                     {
+                                         "name":  "stuck_body",
+                                         "repeats":  2,
+                                         "mean_frame_ms":  11.0625150165036,
+                                         "frame_spread_share":  0.00590231365030375,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  14.55399990081785,
+                                         "slowest_1_percent_fps":  16.176741481935149,
+                                         "gpu_ms":  7.5525000095367449,
+                                         "gpu_spread_share":  0.0059582389142626225,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.87340083116036493,
+                                         "process_ms":  0.39800000190734852,
+                                         "process_mean_ms":  0.413380849213447,
+                                         "physics_mean_ms":  0.90810272359017952,
+                                         "cpu_ms":  1.3214835728036265,
+                                         "cpu_spread_share":  0.0218801456267558,
+                                         "cpu_noise_band_share":  0.0218801456267558,
+                                         "draw_ms":  7.7940001487731951,
+                                         "render_cpu_ms":  0.273499995470047,
+                                         "draw_calls":  2,
+                                         "shadow_draw_calls":  6,
+                                         "primitives":  14,
+                                         "hitches":  [
+                                                         2,
+                                                         2
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    11.0951622331979,
+                                                                    11.0298677998093
+                                                                ],
+                                         "zones":  {
+                                                       "npc":  {
+                                                                   "mean_ms":  0.24712798402293051,
+                                                                   "max_ms":  0.821999996900558
+                                                               },
+                                                       "npc.level_change":  {
+                                                                                "mean_ms":  2.11122300172536E-05,
+                                                                                "max_ms":  0.0175000000745058
+                                                                            }
+                                                   },
+                                         "unattributed_process_ms":  0.10438084951320049,
+                                         "unattributed_physics_ms":  0.90810272359017952,
+                                         "hitch_causes":  {
+                                                              "screenshot":  {
+                                                                                 "count":  2,
+                                                                                 "worst_ms":  285.680999755859,
+                                                                                 "at_x":  [
+                                                                                              289.0,
+                                                                                              288.0
+                                                                                          ]
+                                                                             }
+                                                          }
+                                     },
+                                     {
+                                         "name":  "clock_jump_8h",
+                                         "repeats":  2,
+                                         "mean_frame_ms":  10.90352480772345,
+                                         "frame_spread_share":  0.0021366409388087733,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  12.02449989318845,
+                                         "slowest_1_percent_fps":  82.18074102637064,
+                                         "gpu_ms":  10.112500190734899,
+                                         "gpu_spread_share":  9.8833193052968109E-05,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.99523900438934654,
+                                         "process_ms":  0.478500008583069,
+                                         "process_mean_ms":  0.4953716454240375,
+                                         "physics_mean_ms":  0.51037887693351047,
+                                         "cpu_ms":  1.005750522357548,
+                                         "cpu_spread_share":  0.024183259362774,
+                                         "cpu_noise_band_share":  0.024183259362774,
+                                         "draw_ms":  9.808499813079834,
+                                         "render_cpu_ms":  0.39049999415874448,
+                                         "draw_calls":  14,
+                                         "shadow_draw_calls":  166,
+                                         "primitives":  1670,
+                                         "hitches":  [
+                                                         0,
+                                                         0
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    10.8918763489827,
+                                                                    10.9151732664642
+                                                                ],
+                                         "zones":  {
+                                                       "npc":  {
+                                                                   "mean_ms":  0.31828285159611747,
+                                                                   "max_ms":  1.41100001335144
+                                                               },
+                                                       "npc.level_change":  {
+                                                                                "mean_ms":  0.001206287267608545,
+                                                                                "max_ms":  0.886000007390976
+                                                                            },
+                                                       "npc.route":  {
+                                                                         "mean_ms":  0.00091425480842643352,
+                                                                         "max_ms":  0.67149999737739552
+                                                                     },
+                                                       "npc.schedule":  {
+                                                                            "mean_ms":  0.00010279005316351101,
+                                                                            "max_ms":  0.0755000002682209
+                                                                        }
+                                                   },
+                                         "unattributed_process_ms":  0.1122474022598425,
+                                         "unattributed_physics_ms":  0.51037887693351047
+                                     }
+                                 ],
+                     "npcs_64":  [
+                                     {
+                                         "name":  "village_a_steady",
+                                         "repeats":  2,
+                                         "mean_frame_ms":  11.21379264978545,
+                                         "frame_spread_share":  0.0034794198271755309,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  12.954999923706051,
+                                         "slowest_1_percent_fps":  29.6404573186056,
+                                         "gpu_ms":  10.236999988555901,
+                                         "gpu_spread_share":  0.0050795244857018505,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.023002727707315297,
+                                         "gpu_bound_share":  0.803033135412244,
+                                         "process_ms":  0.83050000667572044,
+                                         "process_mean_ms":  0.866959156590521,
+                                         "physics_mean_ms":  0.75785931357882652,
+                                         "cpu_ms":  1.6248184701693476,
+                                         "cpu_spread_share":  0.0059295350609810983,
+                                         "cpu_noise_band_share":  0.015,
+                                         "draw_ms":  9.08649969100952,
+                                         "render_cpu_ms":  0.49150000512599951,
+                                         "draw_calls":  14,
+                                         "shadow_draw_calls":  196,
+                                         "primitives":  1670,
+                                         "hitches":  [
+                                                         1,
+                                                         1
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    11.1942839035437,
+                                                                    11.2333013960272
+                                                                ],
+                                         "zones":  {
+                                                       "npc":  {
+                                                                   "mean_ms":  0.64023023807420509,
+                                                                   "max_ms":  3.95200002193451
+                                                               },
+                                                       "npc.level_change":  {
+                                                                                "mean_ms":  0.0034846094774500548,
+                                                                                "max_ms":  2.7685000896453849
+                                                                            },
+                                                       "npc.schedule":  {
+                                                                            "mean_ms":  0.000327874395826577,
+                                                                            "max_ms":  0.26049999892711651
+                                                                        }
+                                                   },
+                                         "unattributed_process_ms":  0.156736282399873,
+                                         "unattributed_physics_ms":  0.75785931357882652,
+                                         "hitch_causes":  {
+                                                              "shader_compiles":  {
+                                                                                      "count":  1,
+                                                                                      "worst_ms":  172.647994995117,
+                                                                                      "at_x":  [
+                                                                                                   10.0
+                                                                                               ]
+                                                                                  }
+                                                          }
+                                     },
+                                     {
+                                         "name":  "rush_0700",
+                                         "repeats":  2,
+                                         "mean_frame_ms":  11.29214141478905,
+                                         "frame_spread_share":  0.0015105813057354248,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  13.6890001296997,
+                                         "slowest_1_percent_fps":  72.302772806186056,
+                                         "gpu_ms":  10.5629997253418,
+                                         "gpu_spread_share":  0.0026507506066127851,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.685482623853227,
+                                         "process_ms":  0.95699998736381509,
+                                         "process_mean_ms":  0.986595679992385,
+                                         "physics_mean_ms":  1.3094622152276552,
+                                         "cpu_ms":  2.29605789522004,
+                                         "cpu_spread_share":  0.0040790146465069545,
+                                         "cpu_noise_band_share":  0.015,
+                                         "draw_ms":  8.5789999961853,
+                                         "render_cpu_ms":  0.631999999284744,
+                                         "draw_calls":  86,
+                                         "shadow_draw_calls":  238,
+                                         "primitives":  79290,
+                                         "hitches":  [
+                                                         0,
+                                                         0
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    11.2836125659276,
+                                                                    11.3006702636505
+                                                                ],
+                                         "zones":  {
+                                                       "npc":  {
+                                                                   "mean_ms":  0.752353647058499,
+                                                                   "max_ms":  3.31150007247925
+                                                               },
+                                                       "npc.route":  {
+                                                                         "mean_ms":  0.000775031301342809,
+                                                                         "max_ms":  1.44150000810623
+                                                                     }
+                                                   },
+                                         "unattributed_process_ms":  0.1633910408564995,
+                                         "unattributed_physics_ms":  1.3094622152276552
+                                     },
+                                     {
+                                         "name":  "round_the_wall",
+                                         "repeats":  2,
+                                         "mean_frame_ms":  11.331337732386501,
+                                         "frame_spread_share":  0.0011162073121559941,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  13.5060000419617,
+                                         "slowest_1_percent_fps":  47.926935613131747,
+                                         "gpu_ms":  10.513999938964851,
+                                         "gpu_spread_share":  0.00057071702812771109,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.675136974224514,
+                                         "process_ms":  0.961499989032745,
+                                         "process_mean_ms":  0.99774971366099408,
+                                         "physics_mean_ms":  1.376449414449785,
+                                         "cpu_ms":  2.3741991281107788,
+                                         "cpu_spread_share":  0.0012037060343003416,
+                                         "cpu_noise_band_share":  0.015,
+                                         "draw_ms":  8.4355001449585,
+                                         "render_cpu_ms":  0.65049999952316251,
+                                         "draw_calls":  92,
+                                         "shadow_draw_calls":  240,
+                                         "primitives":  93174,
+                                         "hitches":  [
+                                                         2,
+                                                         2
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    11.3250136713698,
+                                                                    11.3376617934032
+                                                                ],
+                                         "zones":  {
+                                                       "npc":  {
+                                                                   "mean_ms":  0.76258598085809648,
+                                                                   "max_ms":  4.260500073432925
+                                                               }
+                                                   },
+                                         "unattributed_process_ms":  0.164261823926173,
+                                         "unattributed_physics_ms":  1.376449414449785,
+                                         "hitch_causes":  {
+                                                              "screenshot":  {
+                                                                                 "count":  1,
+                                                                                 "worst_ms":  319.109985351563,
+                                                                                 "at_x":  [
+                                                                                              10.0
+                                                                                          ]
+                                                                             },
+                                                              "unknown":  {
+                                                                              "count":  1,
+                                                                              "worst_ms":  25.7800006866455,
+                                                                              "at_x":  [
+                                                                                           10.0
+                                                                                       ]
+                                                                          }
+                                                          }
+                                     },
+                                     {
+                                         "name":  "back_to_road",
+                                         "repeats":  2,
+                                         "mean_frame_ms":  4.0607440004030151,
+                                         "frame_spread_share":  0.0038473687459438435,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  56.777000427246051,
+                                         "slowest_1_percent_fps":  17.6139268090555,
+                                         "gpu_ms":  2.592000007629395,
+                                         "gpu_spread_share":  0.00077154901065728057,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.016238918283362741,
+                                         "gpu_bound_share":  0.18506006006005998,
+                                         "process_ms":  0.35449999570846547,
+                                         "process_mean_ms":  1.0982958035370198,
+                                         "physics_mean_ms":  0.110024022839001,
+                                         "cpu_ms":  1.2083198263760209,
+                                         "cpu_spread_share":  0.012988016952632653,
+                                         "cpu_noise_band_share":  0.015,
+                                         "draw_ms":  2.76349997520447,
+                                         "render_cpu_ms":  0.3125,
+                                         "draw_calls":  18,
+                                         "shadow_draw_calls":  4,
+                                         "primitives":  2490,
+                                         "hitches":  [
+                                                         1,
+                                                         1
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    4.06855559017923,
+                                                                    4.0529324106268
+                                                                ],
+                                         "zones":  {
+                                                       "npc":  {
+                                                                   "mean_ms":  0.227726913882313,
+                                                                   "max_ms":  0.478500008583069
+                                                               },
+                                                       "npc.level_change":  {
+                                                                                "mean_ms":  0.0020752627844432851,
+                                                                                "max_ms":  0.151500001549721
+                                                                            }
+                                                   },
+                                         "unattributed_process_ms":  0.81539978285938153,
+                                         "unattributed_physics_ms":  0.110024022839001,
+                                         "hitch_causes":  {
+                                                              "physics_catch_up":  {
+                                                                                       "count":  1,
+                                                                                       "worst_ms":  57.2379989624023,
+                                                                                       "at_x":  [
+                                                                                                    0.0
+                                                                                                ]
+                                                                                   }
+                                                          }
+                                     },
+                                     {
+                                         "name":  "fast_time_to_noon",
+                                         "repeats":  2,
+                                         "mean_frame_ms":  3.3226920901403254,
+                                         "frame_spread_share":  0.0013024465029461011,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  4.6440000534057653,
+                                         "slowest_1_percent_fps":  206.5902754768565,
+                                         "gpu_ms":  2.605499982833865,
+                                         "gpu_spread_share":  0.0034541641079350871,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.20486156883475648,
+                                         "process_ms":  0.379000008106232,
+                                         "process_mean_ms":  0.394716612878732,
+                                         "physics_mean_ms":  0.089182360488196888,
+                                         "cpu_ms":  0.48389897336692889,
+                                         "cpu_spread_share":  0.004424150758566385,
+                                         "cpu_noise_band_share":  0.015,
+                                         "draw_ms":  2.7685000896453849,
+                                         "render_cpu_ms":  0.29950000345706951,
+                                         "draw_calls":  18,
+                                         "shadow_draw_calls":  4,
+                                         "primitives":  2490,
+                                         "hitches":  [
+                                                         0,
+                                                         0
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    3.32052827579374,
+                                                                    3.32485590448691
+                                                                ],
+                                         "zones":  {
+                                                       "npc":  {
+                                                                   "mean_ms":  0.24806499157282402,
+                                                                   "max_ms":  0.74550002813339256
+                                                               }
+                                                   },
+                                         "unattributed_process_ms":  0.090069842489144791,
+                                         "unattributed_physics_ms":  0.089182360488196888
+                                     },
+                                     {
+                                         "name":  "village_b_noon",
+                                         "repeats":  2,
+                                         "mean_frame_ms":  11.79868527019725,
+                                         "frame_spread_share":  0.0017564273608217768,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  12.8840003013611,
+                                         "slowest_1_percent_fps":  53.6122128935073,
+                                         "gpu_ms":  10.99300003051755,
+                                         "gpu_spread_share":  0.0029109058422509917,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.994117647058824,
+                                         "process_ms":  0.72600001096725453,
+                                         "process_mean_ms":  0.86382941147860348,
+                                         "physics_mean_ms":  0.645626471673741,
+                                         "cpu_ms":  1.5094558831523444,
+                                         "cpu_spread_share":  0.015295730310971154,
+                                         "cpu_noise_band_share":  0.015295730310971154,
+                                         "draw_ms":  10.1254997253418,
+                                         "render_cpu_ms":  0.532499998807907,
+                                         "draw_calls":  83,
+                                         "shadow_draw_calls":  118,
+                                         "primitives":  91278,
+                                         "hitches":  [
+                                                         1,
+                                                         1
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    11.7883235033821,
+                                                                    11.8090470370124
+                                                                ],
+                                         "zones":  {
+                                                       "npc":  {
+                                                                   "mean_ms":  0.560355883310823,
+                                                                   "max_ms":  2.7265000343322749
+                                                               },
+                                                       "npc.level_change":  {
+                                                                                "mean_ms":  0.011108823734171248,
+                                                                                "max_ms":  1.8885000348091099
+                                                                            },
+                                                       "npc.schedule":  {
+                                                                            "mean_ms":  0.0010588235276586849,
+                                                                            "max_ms":  0.179999999701977
+                                                                        }
+                                                   },
+                                         "unattributed_process_ms":  0.234467645515414,
+                                         "unattributed_physics_ms":  0.645626471673741,
+                                         "hitch_causes":  {
+                                                              "npc_level_changes":  {
+                                                                                        "count":  1,
+                                                                                        "worst_ms":  24.4559993743896,
+                                                                                        "at_x":  [
+                                                                                                     1280.0
+                                                                                                 ]
+                                                                                    }
+                                                          }
+                                     },
+                                     {
+                                         "name":  "stuck_body",
+                                         "repeats":  2,
+                                         "mean_frame_ms":  11.053985613170351,
+                                         "frame_spread_share":  0.0062273429601430886,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  14.4309997558594,
+                                         "slowest_1_percent_fps":  15.786316948153399,
+                                         "gpu_ms":  7.5740001201629648,
+                                         "gpu_spread_share":  0.0092421666953794168,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.897785028912937,
+                                         "process_ms":  0.734499990940094,
+                                         "process_mean_ms":  0.77146194538321544,
+                                         "physics_mean_ms":  0.92767050380010541,
+                                         "cpu_ms":  1.6991324491833208,
+                                         "cpu_spread_share":  0.010422123468449791,
+                                         "cpu_noise_band_share":  0.015,
+                                         "draw_ms":  7.45799994468689,
+                                         "render_cpu_ms":  0.32900001108646404,
+                                         "draw_calls":  2,
+                                         "shadow_draw_calls":  6,
+                                         "primitives":  14,
+                                         "hitches":  [
+                                                         3,
+                                                         2
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    11.0884040929152,
+                                                                    11.0195671334255
+                                                                ],
+                                         "zones":  {
+                                                       "npc":  {
+                                                                   "mean_ms":  0.573612336386201,
+                                                                   "max_ms":  2.64549994468689
+                                                               },
+                                                       "npc.level_change":  {
+                                                                                "mean_ms":  4.5708184696846145E-05,
+                                                                                "max_ms":  0.037999998778104754
+                                                                            }
+                                                   },
+                                         "unattributed_process_ms":  0.130546861860558,
+                                         "unattributed_physics_ms":  0.92767050380010541,
+                                         "hitch_causes":  {
+                                                              "screenshot":  {
+                                                                                 "count":  2,
+                                                                                 "worst_ms":  299.688995361328,
+                                                                                 "at_x":  [
+                                                                                              289.0,
+                                                                                              288.0
+                                                                                          ]
+                                                                             },
+                                                              "unknown":  {
+                                                                              "count":  0.5,
+                                                                              "worst_ms":  20.9039993286133,
+                                                                              "at_x":  [
+                                                                                           288.0
+                                                                                       ]
+                                                                          }
+                                                          }
+                                     },
+                                     {
+                                         "name":  "clock_jump_8h",
+                                         "repeats":  2,
+                                         "mean_frame_ms":  10.977629427504251,
+                                         "frame_spread_share":  0.00079002212335311714,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  12.4019999504089,
+                                         "slowest_1_percent_fps":  79.9374057670407,
+                                         "gpu_ms":  10.2220001220703,
+                                         "gpu_spread_share":  0.0013695890038754625,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.787524663171543,
+                                         "process_ms":  0.94099998474121094,
+                                         "process_mean_ms":  0.971391102548196,
+                                         "physics_mean_ms":  0.777960408911125,
+                                         "cpu_ms":  1.749351511459321,
+                                         "cpu_spread_share":  0.0058799022799627242,
+                                         "cpu_noise_band_share":  0.015,
+                                         "draw_ms":  9.1195001602172852,
+                                         "render_cpu_ms":  0.532499998807907,
+                                         "draw_calls":  14,
+                                         "shadow_draw_calls":  235,
+                                         "primitives":  1670,
+                                         "hitches":  [
+                                                         0,
+                                                         0
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    10.9732931424494,
+                                                                    10.9819657125591
+                                                                ],
+                                         "zones":  {
+                                                       "npc":  {
+                                                                   "mean_ms":  0.75587003735056546,
+                                                                   "max_ms":  3.39699995517731
+                                                               },
+                                                       "npc.level_change":  {
+                                                                                "mean_ms":  0.0027738410187298,
+                                                                                "max_ms":  2.0234999656677251
+                                                                            },
+                                                       "npc.route":  {
+                                                                         "mean_ms":  0.0022419076800796597,
+                                                                         "max_ms":  1.63550001382828
+                                                                     },
+                                                       "npc.schedule":  {
+                                                                            "mean_ms":  0.00023440724351771349,
+                                                                            "max_ms":  0.171000003814697
+                                                                        }
+                                                   },
+                                         "unattributed_process_ms":  0.145127096936009,
+                                         "unattributed_physics_ms":  0.777960408911125
+                                     }
+                                 ]
+                 },
+    "scaling":  [
+                    {
+                        "view":  "village_a_steady",
+                        "rows":  [
+                                     {
+                                         "variant":  "npcs_8",
+                                         "x":  8,
+                                         "frame_ms":  11.1084720146705,
+                                         "p99_ms":  12.68149995803835,
+                                         "cpu_ms":  0.736769968139853,
+                                         "physics_ms":  0.429915252434453,
+                                         "process_ms":  0.3068547157054,
+                                         "gpu_ms":  10.1304998397827,
+                                         "hitches":  1
+                                     },
+                                     {
+                                         "variant":  "npcs_24",
+                                         "x":  24,
+                                         "frame_ms":  11.2092342416882,
+                                         "p99_ms":  12.51000022888185,
+                                         "cpu_ms":  0.97913625319181252,
+                                         "physics_ms":  0.51278606879458655,
+                                         "process_ms":  0.466350184397226,
+                                         "gpu_ms":  10.263999938964851,
+                                         "hitches":  1
+                                     },
+                                     {
+                                         "variant":  "npcs_64",
+                                         "x":  64,
+                                         "frame_ms":  11.21379264978545,
+                                         "p99_ms":  12.954999923706051,
+                                         "cpu_ms":  1.6248184701693476,
+                                         "physics_ms":  0.75785931357882652,
+                                         "process_ms":  0.866959156590521,
+                                         "gpu_ms":  10.236999988555901,
+                                         "hitches":  1
+                                     }
+                                 ],
+                        "cpu_fit":  {
+                                        "slope":  0.015912633283971245,
+                                        "intercept":  0.60437063207992447,
+                                        "r2":  0.99980756715088148
+                                    },
+                        "frame_fit":  {
+                                          "slope":  0.0015409630453947071,
+                                          "intercept":  11.12785548459542,
+                                          "r2":  0.55740168806489176
+                                      }
+                    },
+                    {
+                        "view":  "rush_0700",
+                        "rows":  [
+                                     {
+                                         "variant":  "npcs_8",
+                                         "x":  8,
+                                         "frame_ms":  10.9200966057788,
+                                         "p99_ms":  11.964000225067149,
+                                         "cpu_ms":  0.84660616349644546,
+                                         "physics_ms":  0.51743738218220847,
+                                         "process_ms":  0.329168781314237,
+                                         "gpu_ms":  10.151000022888201,
+                                         "hitches":  0
+                                     },
+                                     {
+                                         "variant":  "npcs_24",
+                                         "x":  24,
+                                         "frame_ms":  11.0604174949286,
+                                         "p99_ms":  12.43650007247925,
+                                         "cpu_ms":  1.2037070857676926,
+                                         "physics_ms":  0.6994251519754866,
+                                         "process_ms":  0.504281933792206,
+                                         "gpu_ms":  10.32850027084355,
+                                         "hitches":  0
+                                     },
+                                     {
+                                         "variant":  "npcs_64",
+                                         "x":  64,
+                                         "frame_ms":  11.29214141478905,
+                                         "p99_ms":  13.6890001296997,
+                                         "cpu_ms":  2.29605789522004,
+                                         "physics_ms":  1.3094622152276552,
+                                         "process_ms":  0.986595679992385,
+                                         "gpu_ms":  10.5629997253418,
+                                         "hitches":  0
+                                     }
+                                 ],
+                        "cpu_fit":  {
+                                        "slope":  0.026157240406841979,
+                                        "intercept":  0.611758688475783,
+                                        "r2":  0.998208717265774
+                                    },
+                        "frame_fit":  {
+                                          "slope":  0.0064800882062076865,
+                                          "intercept":  10.883522349233504,
+                                          "r2":  0.98970042598952646
+                                      }
+                    },
+                    {
+                        "view":  "round_the_wall",
+                        "rows":  [
+                                     {
+                                         "variant":  "npcs_8",
+                                         "x":  8,
+                                         "frame_ms":  10.93241451210765,
+                                         "p99_ms":  11.931499958038351,
+                                         "cpu_ms":  0.91240288549032655,
+                                         "physics_ms":  0.58414682141256558,
+                                         "process_ms":  0.328256064077761,
+                                         "gpu_ms":  10.105999946594251,
+                                         "hitches":  2
+                                     },
+                                     {
+                                         "variant":  "npcs_24",
+                                         "x":  24,
+                                         "frame_ms":  11.100075952745049,
+                                         "p99_ms":  12.3869996070862,
+                                         "cpu_ms":  1.2859488645577239,
+                                         "physics_ms":  0.77511232368588545,
+                                         "process_ms":  0.5108365408718385,
+                                         "gpu_ms":  10.300499916076649,
+                                         "hitches":  2
+                                     },
+                                     {
+                                         "variant":  "npcs_64",
+                                         "x":  64,
+                                         "frame_ms":  11.331337732386501,
+                                         "p99_ms":  13.5060000419617,
+                                         "cpu_ms":  2.3741991281107788,
+                                         "physics_ms":  1.376449414449785,
+                                         "process_ms":  0.99774971366099408,
+                                         "gpu_ms":  10.513999938964851,
+                                         "hitches":  2
+                                     }
+                                 ],
+                        "cpu_fit":  {
+                                        "slope":  0.026315572074107747,
+                                        "intercept":  0.682085319681495,
+                                        "r2":  0.99894040963934549
+                                    },
+                        "frame_fit":  {
+                                          "slope":  0.00686553577152887,
+                                          "intercept":  10.901578921057476,
+                                          "r2":  0.9774384784440141
+                                      }
+                    },
+                    {
+                        "view":  "back_to_road",
+                        "rows":  [
+                                     {
+                                         "variant":  "npcs_8",
+                                         "x":  8,
+                                         "frame_ms":  3.9795397253735247,
+                                         "p99_ms":  57.0599994659424,
+                                         "cpu_ms":  0.99039789106328868,
+                                         "physics_ms":  0.10354524165681971,
+                                         "process_ms":  0.886852649406469,
+                                         "gpu_ms":  2.5759999752044651,
+                                         "hitches":  1
+                                     },
+                                     {
+                                         "variant":  "npcs_24",
+                                         "x":  24,
+                                         "frame_ms":  3.9280823736221748,
+                                         "p99_ms":  55.363500595092745,
+                                         "cpu_ms":  1.0025094802938888,
+                                         "physics_ms":  0.0994748801492048,
+                                         "process_ms":  0.90303460014468406,
+                                         "gpu_ms":  2.565000057220455,
+                                         "hitches":  1
+                                     },
+                                     {
+                                         "variant":  "npcs_64",
+                                         "x":  64,
+                                         "frame_ms":  4.0607440004030151,
+                                         "p99_ms":  56.777000427246051,
+                                         "cpu_ms":  1.2083198263760209,
+                                         "physics_ms":  0.110024022839001,
+                                         "process_ms":  1.0982958035370198,
+                                         "gpu_ms":  2.592000007629395,
+                                         "hitches":  1
+                                     }
+                                 ],
+                        "cpu_fit":  {
+                                        "slope":  0.0041325776539438879,
+                                        "intercept":  0.93483324765152831,
+                                        "r2":  0.94732799022108372
+                                    },
+                        "frame_fit":  {
+                                          "slope":  0.0018090117878332274,
+                                          "intercept":  3.9315669892555749,
+                                          "r2":  0.6086351795254038
+                                      }
+                    },
+                    {
+                        "view":  "fast_time_to_noon",
+                        "rows":  [
+                                     {
+                                         "variant":  "npcs_8",
+                                         "x":  8,
+                                         "frame_ms":  3.30779116390407,
+                                         "p99_ms":  4.12750005722046,
+                                         "cpu_ms":  0.2630402677550735,
+                                         "physics_ms":  0.088455269608326,
+                                         "process_ms":  0.17458499814674749,
+                                         "gpu_ms":  2.5935000181198102,
+                                         "hitches":  0
+                                     },
+                                     {
+                                         "variant":  "npcs_24",
+                                         "x":  24,
+                                         "frame_ms":  3.3110816974451649,
+                                         "p99_ms":  4.0149998664855948,
+                                         "cpu_ms":  0.3189977197253791,
+                                         "physics_ms":  0.0877157843257696,
+                                         "process_ms":  0.23128193539960951,
+                                         "gpu_ms":  2.6075000762939449,
+                                         "hitches":  0
+                                     },
+                                     {
+                                         "variant":  "npcs_64",
+                                         "x":  64,
+                                         "frame_ms":  3.3226920901403254,
+                                         "p99_ms":  4.6440000534057653,
+                                         "cpu_ms":  0.48389897336692889,
+                                         "physics_ms":  0.089182360488196888,
+                                         "process_ms":  0.394716612878732,
+                                         "gpu_ms":  2.605499982833865,
+                                         "hitches":  0
+                                     }
+                                 ],
+                        "cpu_fit":  {
+                                        "slope":  0.0039782565888322879,
+                                        "intercept":  0.22800810943982724,
+                                        "r2":  0.99878369419134649
+                                    },
+                        "frame_fit":  {
+                                          "slope":  0.00027073640098041987,
+                                          "intercept":  3.30519141899848,
+                                          "r2":  0.995208091965378
+                                      }
+                    },
+                    {
+                        "view":  "village_b_noon",
+                        "rows":  [
+                                     {
+                                         "variant":  "npcs_8",
+                                         "x":  8,
+                                         "frame_ms":  11.241833273794249,
+                                         "p99_ms":  12.048499584198,
+                                         "cpu_ms":  0.79954340826797154,
+                                         "physics_ms":  0.41695946480117696,
+                                         "process_ms":  0.38258394346679447,
+                                         "gpu_ms":  10.430000305175749,
+                                         "hitches":  0
+                                     },
+                                     {
+                                         "variant":  "npcs_24",
+                                         "x":  24,
+                                         "frame_ms":  11.330254239551099,
+                                         "p99_ms":  12.670000076293951,
+                                         "cpu_ms":  0.98017231884312506,
+                                         "physics_ms":  0.46982768396873253,
+                                         "process_ms":  0.51034463487439252,
+                                         "gpu_ms":  10.5085000991821,
+                                         "hitches":  0
+                                     },
+                                     {
+                                         "variant":  "npcs_64",
+                                         "x":  64,
+                                         "frame_ms":  11.79868527019725,
+                                         "p99_ms":  12.8840003013611,
+                                         "cpu_ms":  1.5094558831523444,
+                                         "physics_ms":  0.645626471673741,
+                                         "process_ms":  0.86382941147860348,
+                                         "gpu_ms":  10.99300003051755,
+                                         "hitches":  1
+                                     }
+                                 ],
+                        "cpu_fit":  {
+                                        "slope":  0.012783754754626623,
+                                        "intercept":  0.68731038460642846,
+                                        "r2":  0.99886245363462534
+                                    },
+                        "frame_fit":  {
+                                          "slope":  0.010283591441611319,
+                                          "intercept":  11.127849335049303,
+                                          "r2":  0.98247855856543176
+                                      }
+                    },
+                    {
+                        "view":  "stuck_body",
+                        "rows":  [
+                                     {
+                                         "variant":  "npcs_8",
+                                         "x":  8,
+                                         "frame_ms":  11.02273503565225,
+                                         "p99_ms":  14.3875002861023,
+                                         "cpu_ms":  1.1823079812554291,
+                                         "physics_ms":  0.908321481289665,
+                                         "process_ms":  0.273986499965764,
+                                         "gpu_ms":  7.58449983596802,
+                                         "hitches":  2
+                                     },
+                                     {
+                                         "variant":  "npcs_24",
+                                         "x":  24,
+                                         "frame_ms":  11.0625150165036,
+                                         "p99_ms":  14.55399990081785,
+                                         "cpu_ms":  1.3214835728036265,
+                                         "physics_ms":  0.90810272359017952,
+                                         "process_ms":  0.413380849213447,
+                                         "gpu_ms":  7.5525000095367449,
+                                         "hitches":  2
+                                     },
+                                     {
+                                         "variant":  "npcs_64",
+                                         "x":  64,
+                                         "frame_ms":  11.053985613170351,
+                                         "p99_ms":  14.4309997558594,
+                                         "cpu_ms":  1.6991324491833208,
+                                         "physics_ms":  0.92767050380010541,
+                                         "process_ms":  0.77146194538321544,
+                                         "gpu_ms":  7.5740001201629648,
+                                         "hitches":  2.5
+                                     }
+                                 ],
+                        "cpu_fit":  {
+                                        "slope":  0.0092698186546315842,
+                                        "intercept":  1.1043404707992481,
+                                        "r2":  0.99968352862488641
+                                    },
+                        "frame_fit":  {
+                                          "slope":  0.00040972273663968215,
+                                          "intercept":  11.033300760869595,
+                                          "r2":  0.31842154991665267
+                                      }
+                    },
+                    {
+                        "view":  "clock_jump_8h",
+                        "rows":  [
+                                     {
+                                         "variant":  "npcs_8",
+                                         "x":  8,
+                                         "frame_ms":  10.8244896702678,
+                                         "p99_ms":  11.68349981307985,
+                                         "cpu_ms":  0.74048158471632908,
+                                         "physics_ms":  0.42779248813530951,
+                                         "process_ms":  0.31268909658101951,
+                                         "gpu_ms":  10.0724997520447,
+                                         "hitches":  0
+                                     },
+                                     {
+                                         "variant":  "npcs_24",
+                                         "x":  24,
+                                         "frame_ms":  10.90352480772345,
+                                         "p99_ms":  12.02449989318845,
+                                         "cpu_ms":  1.005750522357548,
+                                         "physics_ms":  0.51037887693351047,
+                                         "process_ms":  0.4953716454240375,
+                                         "gpu_ms":  10.112500190734899,
+                                         "hitches":  0
+                                     },
+                                     {
+                                         "variant":  "npcs_64",
+                                         "x":  64,
+                                         "frame_ms":  10.977629427504251,
+                                         "p99_ms":  12.4019999504089,
+                                         "cpu_ms":  1.749351511459321,
+                                         "physics_ms":  0.777960408911125,
+                                         "process_ms":  0.971391102548196,
+                                         "gpu_ms":  10.2220001220703,
+                                         "hitches":  0
+                                     }
+                                 ],
+                        "cpu_fit":  {
+                                        "slope":  0.018126013314090139,
+                                        "intercept":  0.58516211346018143,
+                                        "r2":  0.9993935911348667
+                                    },
+                        "frame_fit":  {
+                                          "slope":  0.0025650187090872764,
+                                          "intercept":  10.819800703141043,
+                                          "r2":  0.93333692267160961
+                                      }
+                    }
+                ],
+    "analysed":  "2026-11-08T18:55:37",
+    "min_noise_share":  0.015
+}

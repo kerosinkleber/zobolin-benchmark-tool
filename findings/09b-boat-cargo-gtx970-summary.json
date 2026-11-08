@@ -1,0 +1,1862 @@
+﻿{
+    "scenario":  "boat_cargo",
+    "ablate":  false,
+    "repeats":  3,
+    "machine":  {
+                    "pc":  "MAHASIM",
+                    "processor":  "AMD Ryzen 7 1800X Eight-Core Processor",
+                    "cores":  8,
+                    "threads":  16,
+                    "ram_gb":  31.9,
+                    "graphics_cards":  [
+                                           {
+                                               "name":  "Virtual Display Driver",
+                                               "driver":  "11.30.4.434"
+                                           },
+                                           {
+                                               "name":  "NVIDIA GeForce GTX 970",
+                                               "driver":  "32.0.15.6094"
+                                           }
+                                       ],
+                    "windows":  "Microsoft Windows 11 Pro 10.0.26300",
+                    "power_plan":  {
+                                       "guid":  "381b4222-f694-41f0-9685-ff5bb260df2e",
+                                       "name":  "Ausbalanciert",
+                                       "full_speed":  false
+                                   },
+                    "has_battery":  false,
+                    "on_battery":  false,
+                    "game_commit":  "60e1ab302b3c0cf52758880828c6fe30fdaa6c41",
+                    "game_uncommitted_changes":  true
+                },
+    "preset":  "high",
+    "renderer":  "forward_plus",
+    "godot":  "4.7.2-stable (official)",
+    "debug_build":  true,
+    "graphics_card_used":  "NVIDIA GeForce GTX 970",
+    "render_3d":  [
+                      5120.0,
+                      2880.0
+                  ],
+    "warnings":  [
+                     "The power plan is \u0027Ausbalanciert\u0027, not High performance: the numbers may vary more."
+                 ],
+    "segments":  [
+                     {
+                         "name":  "settling",
+                         "repeats":  3,
+                         "mean_frame_ms":  10.5189460204435,
+                         "frame_spread_share":  0.0024648436004339638,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  13.2279996871948,
+                         "slowest_1_percent_fps":  24.8253533352953,
+                         "gpu_ms":  9.50399971008301,
+                         "gpu_spread_share":  0.00063126739346854857,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.043846381722216159,
+                         "gpu_bound_share":  0.774891774891775,
+                         "process_ms":  0.151999995112419,
+                         "process_mean_ms":  0.168731601884613,
+                         "physics_mean_ms":  0.657665946745667,
+                         "cpu_ms":  0.832549782832722,
+                         "cpu_spread_share":  0.030484995927869456,
+                         "cpu_noise_band_share":  0.030484995927869456,
+                         "draw_ms":  9.09899997711182,
+                         "render_cpu_ms":  0.26800000667572,
+                         "draw_calls":  12,
+                         "shadow_draw_calls":  13,
+                         "primitives":  322058,
+                         "hitches":  [
+                                         1,
+                                         1,
+                                         1
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    10.5122694332024,
+                                                    10.5189460204435,
+                                                    10.5381969899842
+                                                ],
+                         "zones":  {
+                                       "boat":  {
+                                                    "mean_ms":  0.084316017501282,
+                                                    "max_ms":  0.799000024795532
+                                                },
+                                       "boat.buoyancy":  {
+                                                             "mean_ms":  0.0508146550955957,
+                                                             "max_ms":  0.537999987602234
+                                                         },
+                                       "boat.holding":  {
+                                                            "mean_ms":  0.0119612066181585,
+                                                            "max_ms":  0.0480000004172325
+                                                        },
+                                       "boat.stowing":  {
+                                                            "mean_ms":  0.00463362072859409,
+                                                            "max_ms":  0.27700001001358
+                                                        },
+                                       "player.grabber":  {
+                                                              "mean_ms":  0.011812499680171,
+                                                              "max_ms":  0.0769999995827675
+                                                          }
+                                   },
+                         "unattributed_process_ms":  0.10211904774303,
+                         "unattributed_physics_ms":  0.5617564643115,
+                         "hitch_causes":  {
+                                              "shader_compiles":  {
+                                                                      "count":  1,
+                                                                      "worst_ms":  143.792007446289,
+                                                                      "at_x":  [
+                                                                                   0.0
+                                                                               ]
+                                                                  }
+                                          }
+                     },
+                     {
+                         "name":  "drifting",
+                         "repeats":  3,
+                         "mean_frame_ms":  10.1278759606277,
+                         "frame_spread_share":  0.001019119484008712,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  11.46399974823,
+                         "slowest_1_percent_fps":  86.8347645711434,
+                         "gpu_ms":  9.4379997253418,
+                         "gpu_spread_share":  0.00031779040182082523,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.015,
+                         "gpu_bound_share":  0.774683544303797,
+                         "process_ms":  0.160999998450279,
+                         "process_mean_ms":  0.180597468012873,
+                         "physics_mean_ms":  0.63211265900467,
+                         "cpu_ms":  0.82076076145602206,
+                         "cpu_spread_share":  0.033141528505282292,
+                         "cpu_noise_band_share":  0.033141528505282292,
+                         "draw_ms":  9.06599998474121,
+                         "render_cpu_ms":  0.266999989748001,
+                         "draw_calls":  12,
+                         "shadow_draw_calls":  13,
+                         "primitives":  322058,
+                         "hitches":  [
+                                         0,
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    10.1372126591356,
+                                                    10.1268911434125,
+                                                    10.1278759606277
+                                                ],
+                         "zones":  {
+                                       "boat":  {
+                                                    "mean_ms":  0.0818189872971064,
+                                                    "max_ms":  0.248999997973442
+                                                },
+                                       "boat.buoyancy":  {
+                                                             "mean_ms":  0.0497848102374922,
+                                                             "max_ms":  0.119999997317791
+                                                         },
+                                       "boat.holding":  {
+                                                            "mean_ms":  0.0120620250560438,
+                                                            "max_ms":  0.0320000015199184
+                                                        },
+                                       "boat.stowing":  {
+                                                            "mean_ms":  0.00370379750958726,
+                                                            "max_ms":  0.00800000037997961
+                                                        },
+                                       "player.grabber":  {
+                                                              "mean_ms":  0.010445569462697,
+                                                              "max_ms":  0.0230000000447035
+                                                          }
+                                   },
+                         "unattributed_process_ms":  0.113835442641491,
+                         "unattributed_physics_ms":  0.539848102244867
+                     },
+                     {
+                         "name":  "sailing",
+                         "repeats":  3,
+                         "mean_frame_ms":  10.2209673229837,
+                         "frame_spread_share":  0.0012946716593002265,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  11.5769996643066,
+                         "slowest_1_percent_fps":  86.0444499587677,
+                         "gpu_ms":  9.54899978637695,
+                         "gpu_spread_share":  0.00010466548391969392,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.015,
+                         "gpu_bound_share":  0.786734693877551,
+                         "process_ms":  0.155000001192093,
+                         "process_mean_ms":  0.168907143061562,
+                         "physics_mean_ms":  0.644918283780578,
+                         "cpu_ms":  0.819587755484544,
+                         "cpu_spread_share":  0.040058503261674393,
+                         "cpu_noise_band_share":  0.040058503261674393,
+                         "draw_ms":  9.13899993896484,
+                         "render_cpu_ms":  0.264999985694885,
+                         "draw_calls":  10,
+                         "shadow_draw_calls":  11,
+                         "primitives":  321818,
+                         "hitches":  [
+                                         0,
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    10.2261440240083,
+                                                    10.2209673229837,
+                                                    10.2129112272846
+                                                ],
+                         "zones":  {
+                                       "boat":  {
+                                                    "mean_ms":  0.0818549539357332,
+                                                    "max_ms":  0.247999995946884
+                                                },
+                                       "boat.buoyancy":  {
+                                                             "mean_ms":  0.0497262514100255,
+                                                             "max_ms":  0.13400000333786
+                                                         },
+                                       "boat.holding":  {
+                                                            "mean_ms":  0.0120091927889449,
+                                                            "max_ms":  0.0430000014603138
+                                                        },
+                                       "boat.stowing":  {
+                                                            "mean_ms":  0.00375893773497734,
+                                                            "max_ms":  0.0750000029802322
+                                                        },
+                                       "player.grabber":  {
+                                                              "mean_ms":  0.0112860059561598,
+                                                              "max_ms":  0.0329999998211861
+                                                          }
+                                   },
+                         "unattributed_process_ms":  0.102159183909546,
+                         "unattributed_physics_ms":  0.551777323888685
+                     },
+                     {
+                         "name":  "turning",
+                         "repeats":  3,
+                         "mean_frame_ms":  10.0635159091534,
+                         "frame_spread_share":  0.0014631021069095411,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  11.4569997787476,
+                         "slowest_1_percent_fps":  83.6668394139996,
+                         "gpu_ms":  9.36900043487549,
+                         "gpu_spread_share":  0.0007471415473910292,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.015,
+                         "gpu_bound_share":  0.745393634840871,
+                         "process_ms":  0.157000005245209,
+                         "process_mean_ms":  0.191497487189183,
+                         "physics_mean_ms":  0.636926174963881,
+                         "cpu_ms":  0.829380233533419,
+                         "cpu_spread_share":  0.038764161858345636,
+                         "cpu_noise_band_share":  0.038764161858345636,
+                         "draw_ms":  9.01599979400635,
+                         "render_cpu_ms":  0.263000011444092,
+                         "draw_calls":  10,
+                         "shadow_draw_calls":  11,
+                         "primitives":  321818,
+                         "hitches":  [
+                                         0,
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    10.0731979824553,
+                                                    10.0584740311257,
+                                                    10.0635159091534
+                                                ],
+                         "zones":  {
+                                       "boat":  {
+                                                    "mean_ms":  0.0804244965789902,
+                                                    "max_ms":  0.246999993920326
+                                                },
+                                       "boat.buoyancy":  {
+                                                             "mean_ms":  0.0490268456230828,
+                                                             "max_ms":  0.165000006556511
+                                                         },
+                                       "boat.holding":  {
+                                                            "mean_ms":  0.0118070467228332,
+                                                            "max_ms":  0.0769999995827675
+                                                        },
+                                       "boat.stowing":  {
+                                                            "mean_ms":  0.00371140944177672,
+                                                            "max_ms":  0.0140000004321337
+                                                        },
+                                       "player.grabber":  {
+                                                              "mean_ms":  0.0113316581286552,
+                                                              "max_ms":  0.0230000000447035
+                                                          }
+                                   },
+                         "unattributed_process_ms":  0.124242880648405,
+                         "unattributed_physics_ms":  0.545050336316778
+                     },
+                     {
+                         "name":  "walking_on_deck",
+                         "repeats":  3,
+                         "mean_frame_ms":  11.5190827968014,
+                         "frame_spread_share":  0.00416843943300194,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  12.9350004196167,
+                         "slowest_1_percent_fps":  76.6078053056393,
+                         "gpu_ms":  10.8699998855591,
+                         "gpu_spread_share":  0.0050597380018804127,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.015,
+                         "gpu_bound_share":  0.987261146496815,
+                         "process_ms":  0.155000001192093,
+                         "process_mean_ms":  0.171121018802284,
+                         "physics_mean_ms":  0.722477706754284,
+                         "cpu_ms":  0.893598725556568,
+                         "cpu_spread_share":  0.023988833156773519,
+                         "cpu_noise_band_share":  0.023988833156773519,
+                         "draw_ms":  10.4259996414185,
+                         "render_cpu_ms":  0.263000011444092,
+                         "draw_calls":  9,
+                         "shadow_draw_calls":  16,
+                         "primitives":  321698,
+                         "hitches":  [
+                                         0,
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    11.5286242172217,
+                                                    11.4806076182595,
+                                                    11.5190827968014
+                                                ],
+                         "zones":  {
+                                       "boat":  {
+                                                    "mean_ms":  0.0913184716538259,
+                                                    "max_ms":  0.163000002503395
+                                                },
+                                       "boat.buoyancy":  {
+                                                             "mean_ms":  0.0553757961198782,
+                                                             "max_ms":  0.0989999994635582
+                                                         },
+                                       "boat.holding":  {
+                                                            "mean_ms":  0.0135796175569676,
+                                                            "max_ms":  0.0260000005364418
+                                                        },
+                                       "boat.stowing":  {
+                                                            "mean_ms":  0.0041464968513294,
+                                                            "max_ms":  0.00700000021606684
+                                                        },
+                                       "player.grabber":  {
+                                                              "mean_ms":  0.0123375795757884,
+                                                              "max_ms":  0.034000001847744
+                                                          }
+                                   },
+                         "unattributed_process_ms":  0.104050955005512,
+                         "unattributed_physics_ms":  0.618675158732826
+                     },
+                     {
+                         "name":  "saving_and_loading",
+                         "repeats":  3,
+                         "mean_frame_ms":  11.7814117347493,
+                         "frame_spread_share":  0.0051880325582901229,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  13.2040004730225,
+                         "slowest_1_percent_fps":  75.6162712113748,
+                         "gpu_ms":  11.1149997711182,
+                         "gpu_spread_share":  0.0075573221339482752,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.019388030593269052,
+                         "gpu_bound_share":  0.976377952755906,
+                         "process_ms":  0.158999994397163,
+                         "process_mean_ms":  0.184429134044239,
+                         "physics_mean_ms":  0.751090016150428,
+                         "cpu_ms":  0.936775591503096,
+                         "cpu_spread_share":  0.047350295417594085,
+                         "cpu_noise_band_share":  0.047350295417594085,
+                         "draw_ms":  10.6770000457764,
+                         "render_cpu_ms":  0.257999986410141,
+                         "draw_calls":  6,
+                         "shadow_draw_calls":  7,
+                         "primitives":  321662,
+                         "hitches":  [
+                                         0,
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    11.7533815942865,
+                                                    11.7814117347493,
+                                                    11.814503941949
+                                                ],
+                         "zones":  {
+                                       "boat":  {
+                                                    "mean_ms":  0.0944586615334815,
+                                                    "max_ms":  0.20100000500679
+                                                },
+                                       "boat.buoyancy":  {
+                                                             "mean_ms":  0.0567952755427971,
+                                                             "max_ms":  0.142000004649162
+                                                         },
+                                       "boat.holding":  {
+                                                            "mean_ms":  0.0136908020955417,
+                                                            "max_ms":  0.0759999975562096
+                                                        },
+                                       "boat.stowing":  {
+                                                            "mean_ms":  0.0043131115849981,
+                                                            "max_ms":  0.0130000002682209
+                                                        },
+                                       "player.grabber":  {
+                                                              "mean_ms":  0.0140177163288115,
+                                                              "max_ms":  0.0350000001490116
+                                                          },
+                                       "trip_loading":  {
+                                                            "mean_ms":  0.000940944852791433,
+                                                            "max_ms":  0.477999985218048
+                                                        },
+                                       "trip_loading.restow":  {
+                                                                   "mean_ms":  0.000210629922785158,
+                                                                   "max_ms":  0.10700000077486
+                                                               },
+                                       "trip_loading.unstow":  {
+                                                                   "mean_ms":  0.000438356177914166,
+                                                                   "max_ms":  0.224000006914139
+                                                               },
+                                       "trip_saving":  {
+                                                           "mean_ms":  0.00856666658438888,
+                                                           "max_ms":  4.36899995803833
+                                                       }
+                                   },
+                         "unattributed_process_ms":  0.105277559514649,
+                         "unattributed_physics_ms":  0.643101758154113
+                     }
+                 ],
+    "variants":  {
+                     "cargo_0":  [
+                                     {
+                                         "name":  "settling",
+                                         "repeats":  3,
+                                         "mean_frame_ms":  10.5189460204435,
+                                         "frame_spread_share":  0.0024648436004339638,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  13.2279996871948,
+                                         "slowest_1_percent_fps":  24.8253533352953,
+                                         "gpu_ms":  9.50399971008301,
+                                         "gpu_spread_share":  0.00063126739346854857,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.043846381722216159,
+                                         "gpu_bound_share":  0.774891774891775,
+                                         "process_ms":  0.151999995112419,
+                                         "process_mean_ms":  0.168731601884613,
+                                         "physics_mean_ms":  0.657665946745667,
+                                         "cpu_ms":  0.832549782832722,
+                                         "cpu_spread_share":  0.030484995927869456,
+                                         "cpu_noise_band_share":  0.030484995927869456,
+                                         "draw_ms":  9.09899997711182,
+                                         "render_cpu_ms":  0.26800000667572,
+                                         "draw_calls":  12,
+                                         "shadow_draw_calls":  13,
+                                         "primitives":  322058,
+                                         "hitches":  [
+                                                         1,
+                                                         1,
+                                                         1
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    10.5122694332024,
+                                                                    10.5189460204435,
+                                                                    10.5381969899842
+                                                                ],
+                                         "zones":  {
+                                                       "boat":  {
+                                                                    "mean_ms":  0.084316017501282,
+                                                                    "max_ms":  0.799000024795532
+                                                                },
+                                                       "boat.buoyancy":  {
+                                                                             "mean_ms":  0.0508146550955957,
+                                                                             "max_ms":  0.537999987602234
+                                                                         },
+                                                       "boat.holding":  {
+                                                                            "mean_ms":  0.0119612066181585,
+                                                                            "max_ms":  0.0480000004172325
+                                                                        },
+                                                       "boat.stowing":  {
+                                                                            "mean_ms":  0.00463362072859409,
+                                                                            "max_ms":  0.27700001001358
+                                                                        },
+                                                       "player.grabber":  {
+                                                                              "mean_ms":  0.011812499680171,
+                                                                              "max_ms":  0.0769999995827675
+                                                                          }
+                                                   },
+                                         "unattributed_process_ms":  0.10211904774303,
+                                         "unattributed_physics_ms":  0.5617564643115,
+                                         "hitch_causes":  {
+                                                              "shader_compiles":  {
+                                                                                      "count":  1,
+                                                                                      "worst_ms":  143.792007446289,
+                                                                                      "at_x":  [
+                                                                                                   0.0
+                                                                                               ]
+                                                                                  }
+                                                          }
+                                     },
+                                     {
+                                         "name":  "drifting",
+                                         "repeats":  3,
+                                         "mean_frame_ms":  10.1278759606277,
+                                         "frame_spread_share":  0.001019119484008712,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  11.46399974823,
+                                         "slowest_1_percent_fps":  86.8347645711434,
+                                         "gpu_ms":  9.4379997253418,
+                                         "gpu_spread_share":  0.00031779040182082523,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.774683544303797,
+                                         "process_ms":  0.160999998450279,
+                                         "process_mean_ms":  0.180597468012873,
+                                         "physics_mean_ms":  0.63211265900467,
+                                         "cpu_ms":  0.82076076145602206,
+                                         "cpu_spread_share":  0.033141528505282292,
+                                         "cpu_noise_band_share":  0.033141528505282292,
+                                         "draw_ms":  9.06599998474121,
+                                         "render_cpu_ms":  0.266999989748001,
+                                         "draw_calls":  12,
+                                         "shadow_draw_calls":  13,
+                                         "primitives":  322058,
+                                         "hitches":  [
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    10.1372126591356,
+                                                                    10.1268911434125,
+                                                                    10.1278759606277
+                                                                ],
+                                         "zones":  {
+                                                       "boat":  {
+                                                                    "mean_ms":  0.0818189872971064,
+                                                                    "max_ms":  0.248999997973442
+                                                                },
+                                                       "boat.buoyancy":  {
+                                                                             "mean_ms":  0.0497848102374922,
+                                                                             "max_ms":  0.119999997317791
+                                                                         },
+                                                       "boat.holding":  {
+                                                                            "mean_ms":  0.0120620250560438,
+                                                                            "max_ms":  0.0320000015199184
+                                                                        },
+                                                       "boat.stowing":  {
+                                                                            "mean_ms":  0.00370379750958726,
+                                                                            "max_ms":  0.00800000037997961
+                                                                        },
+                                                       "player.grabber":  {
+                                                                              "mean_ms":  0.010445569462697,
+                                                                              "max_ms":  0.0230000000447035
+                                                                          }
+                                                   },
+                                         "unattributed_process_ms":  0.113835442641491,
+                                         "unattributed_physics_ms":  0.539848102244867
+                                     },
+                                     {
+                                         "name":  "sailing",
+                                         "repeats":  3,
+                                         "mean_frame_ms":  10.2209673229837,
+                                         "frame_spread_share":  0.0012946716593002265,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  11.5769996643066,
+                                         "slowest_1_percent_fps":  86.0444499587677,
+                                         "gpu_ms":  9.54899978637695,
+                                         "gpu_spread_share":  0.00010466548391969392,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.786734693877551,
+                                         "process_ms":  0.155000001192093,
+                                         "process_mean_ms":  0.168907143061562,
+                                         "physics_mean_ms":  0.644918283780578,
+                                         "cpu_ms":  0.819587755484544,
+                                         "cpu_spread_share":  0.040058503261674393,
+                                         "cpu_noise_band_share":  0.040058503261674393,
+                                         "draw_ms":  9.13899993896484,
+                                         "render_cpu_ms":  0.264999985694885,
+                                         "draw_calls":  10,
+                                         "shadow_draw_calls":  11,
+                                         "primitives":  321818,
+                                         "hitches":  [
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    10.2261440240083,
+                                                                    10.2209673229837,
+                                                                    10.2129112272846
+                                                                ],
+                                         "zones":  {
+                                                       "boat":  {
+                                                                    "mean_ms":  0.0818549539357332,
+                                                                    "max_ms":  0.247999995946884
+                                                                },
+                                                       "boat.buoyancy":  {
+                                                                             "mean_ms":  0.0497262514100255,
+                                                                             "max_ms":  0.13400000333786
+                                                                         },
+                                                       "boat.holding":  {
+                                                                            "mean_ms":  0.0120091927889449,
+                                                                            "max_ms":  0.0430000014603138
+                                                                        },
+                                                       "boat.stowing":  {
+                                                                            "mean_ms":  0.00375893773497734,
+                                                                            "max_ms":  0.0750000029802322
+                                                                        },
+                                                       "player.grabber":  {
+                                                                              "mean_ms":  0.0112860059561598,
+                                                                              "max_ms":  0.0329999998211861
+                                                                          }
+                                                   },
+                                         "unattributed_process_ms":  0.102159183909546,
+                                         "unattributed_physics_ms":  0.551777323888685
+                                     },
+                                     {
+                                         "name":  "turning",
+                                         "repeats":  3,
+                                         "mean_frame_ms":  10.0635159091534,
+                                         "frame_spread_share":  0.0014631021069095411,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  11.4569997787476,
+                                         "slowest_1_percent_fps":  83.6668394139996,
+                                         "gpu_ms":  9.36900043487549,
+                                         "gpu_spread_share":  0.0007471415473910292,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.745393634840871,
+                                         "process_ms":  0.157000005245209,
+                                         "process_mean_ms":  0.191497487189183,
+                                         "physics_mean_ms":  0.636926174963881,
+                                         "cpu_ms":  0.829380233533419,
+                                         "cpu_spread_share":  0.038764161858345636,
+                                         "cpu_noise_band_share":  0.038764161858345636,
+                                         "draw_ms":  9.01599979400635,
+                                         "render_cpu_ms":  0.263000011444092,
+                                         "draw_calls":  10,
+                                         "shadow_draw_calls":  11,
+                                         "primitives":  321818,
+                                         "hitches":  [
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    10.0731979824553,
+                                                                    10.0584740311257,
+                                                                    10.0635159091534
+                                                                ],
+                                         "zones":  {
+                                                       "boat":  {
+                                                                    "mean_ms":  0.0804244965789902,
+                                                                    "max_ms":  0.246999993920326
+                                                                },
+                                                       "boat.buoyancy":  {
+                                                                             "mean_ms":  0.0490268456230828,
+                                                                             "max_ms":  0.165000006556511
+                                                                         },
+                                                       "boat.holding":  {
+                                                                            "mean_ms":  0.0118070467228332,
+                                                                            "max_ms":  0.0769999995827675
+                                                                        },
+                                                       "boat.stowing":  {
+                                                                            "mean_ms":  0.00371140944177672,
+                                                                            "max_ms":  0.0140000004321337
+                                                                        },
+                                                       "player.grabber":  {
+                                                                              "mean_ms":  0.0113316581286552,
+                                                                              "max_ms":  0.0230000000447035
+                                                                          }
+                                                   },
+                                         "unattributed_process_ms":  0.124242880648405,
+                                         "unattributed_physics_ms":  0.545050336316778
+                                     },
+                                     {
+                                         "name":  "walking_on_deck",
+                                         "repeats":  3,
+                                         "mean_frame_ms":  11.5190827968014,
+                                         "frame_spread_share":  0.00416843943300194,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  12.9350004196167,
+                                         "slowest_1_percent_fps":  76.6078053056393,
+                                         "gpu_ms":  10.8699998855591,
+                                         "gpu_spread_share":  0.0050597380018804127,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.987261146496815,
+                                         "process_ms":  0.155000001192093,
+                                         "process_mean_ms":  0.171121018802284,
+                                         "physics_mean_ms":  0.722477706754284,
+                                         "cpu_ms":  0.893598725556568,
+                                         "cpu_spread_share":  0.023988833156773519,
+                                         "cpu_noise_band_share":  0.023988833156773519,
+                                         "draw_ms":  10.4259996414185,
+                                         "render_cpu_ms":  0.263000011444092,
+                                         "draw_calls":  9,
+                                         "shadow_draw_calls":  16,
+                                         "primitives":  321698,
+                                         "hitches":  [
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    11.5286242172217,
+                                                                    11.4806076182595,
+                                                                    11.5190827968014
+                                                                ],
+                                         "zones":  {
+                                                       "boat":  {
+                                                                    "mean_ms":  0.0913184716538259,
+                                                                    "max_ms":  0.163000002503395
+                                                                },
+                                                       "boat.buoyancy":  {
+                                                                             "mean_ms":  0.0553757961198782,
+                                                                             "max_ms":  0.0989999994635582
+                                                                         },
+                                                       "boat.holding":  {
+                                                                            "mean_ms":  0.0135796175569676,
+                                                                            "max_ms":  0.0260000005364418
+                                                                        },
+                                                       "boat.stowing":  {
+                                                                            "mean_ms":  0.0041464968513294,
+                                                                            "max_ms":  0.00700000021606684
+                                                                        },
+                                                       "player.grabber":  {
+                                                                              "mean_ms":  0.0123375795757884,
+                                                                              "max_ms":  0.034000001847744
+                                                                          }
+                                                   },
+                                         "unattributed_process_ms":  0.104050955005512,
+                                         "unattributed_physics_ms":  0.618675158732826
+                                     },
+                                     {
+                                         "name":  "saving_and_loading",
+                                         "repeats":  3,
+                                         "mean_frame_ms":  11.7814117347493,
+                                         "frame_spread_share":  0.0051880325582901229,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  13.2040004730225,
+                                         "slowest_1_percent_fps":  75.6162712113748,
+                                         "gpu_ms":  11.1149997711182,
+                                         "gpu_spread_share":  0.0075573221339482752,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.019388030593269052,
+                                         "gpu_bound_share":  0.976377952755906,
+                                         "process_ms":  0.158999994397163,
+                                         "process_mean_ms":  0.184429134044239,
+                                         "physics_mean_ms":  0.751090016150428,
+                                         "cpu_ms":  0.936775591503096,
+                                         "cpu_spread_share":  0.047350295417594085,
+                                         "cpu_noise_band_share":  0.047350295417594085,
+                                         "draw_ms":  10.6770000457764,
+                                         "render_cpu_ms":  0.257999986410141,
+                                         "draw_calls":  6,
+                                         "shadow_draw_calls":  7,
+                                         "primitives":  321662,
+                                         "hitches":  [
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    11.7533815942865,
+                                                                    11.7814117347493,
+                                                                    11.814503941949
+                                                                ],
+                                         "zones":  {
+                                                       "boat":  {
+                                                                    "mean_ms":  0.0944586615334815,
+                                                                    "max_ms":  0.20100000500679
+                                                                },
+                                                       "boat.buoyancy":  {
+                                                                             "mean_ms":  0.0567952755427971,
+                                                                             "max_ms":  0.142000004649162
+                                                                         },
+                                                       "boat.holding":  {
+                                                                            "mean_ms":  0.0136908020955417,
+                                                                            "max_ms":  0.0759999975562096
+                                                                        },
+                                                       "boat.stowing":  {
+                                                                            "mean_ms":  0.0043131115849981,
+                                                                            "max_ms":  0.0130000002682209
+                                                                        },
+                                                       "player.grabber":  {
+                                                                              "mean_ms":  0.0140177163288115,
+                                                                              "max_ms":  0.0350000001490116
+                                                                          },
+                                                       "trip_loading":  {
+                                                                            "mean_ms":  0.000940944852791433,
+                                                                            "max_ms":  0.477999985218048
+                                                                        },
+                                                       "trip_loading.restow":  {
+                                                                                   "mean_ms":  0.000210629922785158,
+                                                                                   "max_ms":  0.10700000077486
+                                                                               },
+                                                       "trip_loading.unstow":  {
+                                                                                   "mean_ms":  0.000438356177914166,
+                                                                                   "max_ms":  0.224000006914139
+                                                                               },
+                                                       "trip_saving":  {
+                                                                           "mean_ms":  0.00856666658438888,
+                                                                           "max_ms":  4.36899995803833
+                                                                       }
+                                                   },
+                                         "unattributed_process_ms":  0.105277559514649,
+                                         "unattributed_physics_ms":  0.643101758154113
+                                     }
+                                 ],
+                     "cargo_13":  [
+                                      {
+                                          "name":  "settling",
+                                          "repeats":  3,
+                                          "mean_frame_ms":  10.527090712191,
+                                          "frame_spread_share":  0.012362044314408288,
+                                          "noise_band_share":  0.015,
+                                          "p99_frame_ms":  12.2550001144409,
+                                          "slowest_1_percent_fps":  26.7431160850467,
+                                          "gpu_ms":  9.5629997253418,
+                                          "gpu_spread_share":  0.00094110893887006141,
+                                          "gpu_noise_band_share":  0.015,
+                                          "p99_noise_band_share":  0.033863725661167313,
+                                          "gpu_bound_share":  0.61038961038961,
+                                          "process_ms":  0.159999996423721,
+                                          "process_mean_ms":  0.175196544011777,
+                                          "physics_mean_ms":  0.890926403916759,
+                                          "cpu_ms":  1.066367962401666,
+                                          "cpu_spread_share":  0.020795883695682693,
+                                          "cpu_noise_band_share":  0.020795883695682693,
+                                          "draw_ms":  8.8129997253418,
+                                          "render_cpu_ms":  0.287000000476837,
+                                          "draw_calls":  20,
+                                          "shadow_draw_calls":  21,
+                                          "primitives":  322154,
+                                          "hitches":  [
+                                                          1,
+                                                          1,
+                                                          1
+                                                      ],
+                                          "per_repeat_mean_ms":  [
+                                                                     10.5161623335504,
+                                                                     10.6462986954363,
+                                                                     10.527090712191
+                                                                 ],
+                                          "zones":  {
+                                                        "boat":  {
+                                                                     "mean_ms":  0.0982116632984215,
+                                                                     "max_ms":  1.01999998092651
+                                                                 },
+                                                        "boat.buoyancy":  {
+                                                                              "mean_ms":  0.0496969697634121,
+                                                                              "max_ms":  0.560999989509583
+                                                                          },
+                                                        "boat.holding":  {
+                                                                             "mean_ms":  0.0266025918445371,
+                                                                             "max_ms":  0.0590000003576279
+                                                                         },
+                                                        "boat.stowing":  {
+                                                                             "mean_ms":  0.00612770565946736,
+                                                                             "max_ms":  0.778999984264374
+                                                                         },
+                                                        "player.grabber":  {
+                                                                               "mean_ms":  0.0111580084670674,
+                                                                               "max_ms":  0.0810000002384186
+                                                                           }
+                                                    },
+                                          "unattributed_process_ms":  0.105274297715392,
+                                          "unattributed_physics_ms":  0.78161688024799,
+                                          "hitch_causes":  {
+                                                               "shader_compiles":  {
+                                                                                       "count":  1,
+                                                                                       "worst_ms":  190.998992919922,
+                                                                                       "at_x":  [
+                                                                                                    0.0
+                                                                                                ]
+                                                                                   }
+                                                           }
+                                      },
+                                      {
+                                          "name":  "drifting",
+                                          "repeats":  3,
+                                          "mean_frame_ms":  10.1733303797139,
+                                          "frame_spread_share":  0.00094154511209044165,
+                                          "noise_band_share":  0.015,
+                                          "p99_frame_ms":  11.8549995422363,
+                                          "slowest_1_percent_fps":  83.8302029782049,
+                                          "gpu_ms":  9.48200035095215,
+                                          "gpu_spread_share":  0.00084374325503235026,
+                                          "gpu_noise_band_share":  0.015,
+                                          "p99_noise_band_share":  0.015,
+                                          "gpu_bound_share":  0.610687022900763,
+                                          "process_ms":  0.167999997735024,
+                                          "process_mean_ms":  0.185414758574872,
+                                          "physics_mean_ms":  0.862795425339908,
+                                          "cpu_ms":  1.0492391858543759,
+                                          "cpu_spread_share":  0.012167101725153159,
+                                          "cpu_noise_band_share":  0.015,
+                                          "draw_ms":  8.72900009155273,
+                                          "render_cpu_ms":  0.284000009298325,
+                                          "draw_calls":  20,
+                                          "shadow_draw_calls":  21,
+                                          "primitives":  322154,
+                                          "hitches":  [
+                                                          0,
+                                                          0,
+                                                          0
+                                                      ],
+                                          "per_repeat_mean_ms":  [
+                                                                     10.1794160182846,
+                                                                     10.1698373687919,
+                                                                     10.1733303797139
+                                                                 ],
+                                          "zones":  {
+                                                        "boat":  {
+                                                                     "mean_ms":  0.094222363202893,
+                                                                     "max_ms":  0.263000011444092
+                                                                 },
+                                                        "boat.buoyancy":  {
+                                                                              "mean_ms":  0.0484053367202133,
+                                                                              "max_ms":  0.137999996542931
+                                                                          },
+                                                        "boat.holding":  {
+                                                                             "mean_ms":  0.0269923762073965,
+                                                                             "max_ms":  0.0920000001788139
+                                                                         },
+                                                        "boat.stowing":  {
+                                                                             "mean_ms":  0.00360609915550074,
+                                                                             "max_ms":  0.00800000037997961
+                                                                         },
+                                                        "player.grabber":  {
+                                                                               "mean_ms":  0.00974809152427255,
+                                                                               "max_ms":  0.0230000000447035
+                                                                           }
+                                                    },
+                                          "unattributed_process_ms":  0.117795165595018,
+                                          "unattributed_physics_ms":  0.758767471368291
+                                      },
+                                      {
+                                          "name":  "sailing",
+                                          "repeats":  3,
+                                          "mean_frame_ms":  10.1285232677151,
+                                          "frame_spread_share":  0.0029414535368708283,
+                                          "noise_band_share":  0.015,
+                                          "p99_frame_ms":  11.9350004196167,
+                                          "slowest_1_percent_fps":  82.891933827861,
+                                          "gpu_ms":  9.46000003814697,
+                                          "gpu_spread_share":  0.0015855591530609698,
+                                          "gpu_noise_band_share":  0.015,
+                                          "p99_noise_band_share":  0.015,
+                                          "gpu_bound_share":  0.607287449392713,
+                                          "process_ms":  0.163000002503395,
+                                          "process_mean_ms":  0.173786802332716,
+                                          "physics_mean_ms":  0.865834516559155,
+                                          "cpu_ms":  1.039621318891871,
+                                          "cpu_spread_share":  0.019570735724451074,
+                                          "cpu_noise_band_share":  0.019570735724451074,
+                                          "draw_ms":  8.66100025177002,
+                                          "render_cpu_ms":  0.284000009298325,
+                                          "draw_calls":  18,
+                                          "shadow_draw_calls":  19,
+                                          "primitives":  321914,
+                                          "hitches":  [
+                                                          0,
+                                                          0,
+                                                          0
+                                                      ],
+                                          "per_repeat_mean_ms":  [
+                                                                     10.1470213139723,
+                                                                     10.1285232677151,
+                                                                     10.1172287333832
+                                                                 ],
+                                          "zones":  {
+                                                        "boat":  {
+                                                                     "mean_ms":  0.0939228428650628,
+                                                                     "max_ms":  0.254999995231628
+                                                                 },
+                                                        "boat.buoyancy":  {
+                                                                              "mean_ms":  0.0481340101376403,
+                                                                              "max_ms":  0.135000005364418
+                                                                          },
+                                                        "boat.holding":  {
+                                                                             "mean_ms":  0.0268410931752339,
+                                                                             "max_ms":  0.0700000002980232
+                                                                         },
+                                                        "boat.stowing":  {
+                                                                             "mean_ms":  0.00363056684291812,
+                                                                             "max_ms":  0.0540000014007092
+                                                                         },
+                                                        "player.grabber":  {
+                                                                               "mean_ms":  0.0104477156275117,
+                                                                               "max_ms":  0.0320000015199184
+                                                                           }
+                                                    },
+                                          "unattributed_process_ms":  0.105479757124294,
+                                          "unattributed_physics_ms":  0.761463958066581
+                                      },
+                                      {
+                                          "name":  "turning",
+                                          "repeats":  3,
+                                          "mean_frame_ms":  10.0080232810657,
+                                          "frame_spread_share":  0.0016303605630263542,
+                                          "noise_band_share":  0.015,
+                                          "p99_frame_ms":  11.793999671936,
+                                          "slowest_1_percent_fps":  81.3253699523701,
+                                          "gpu_ms":  9.32900047302246,
+                                          "gpu_spread_share":  0.0011790844686137881,
+                                          "gpu_noise_band_share":  0.015,
+                                          "p99_noise_band_share":  0.015,
+                                          "gpu_bound_share":  0.6,
+                                          "process_ms":  0.160999998450279,
+                                          "process_mean_ms":  0.193056572991084,
+                                          "physics_mean_ms":  0.860126667221387,
+                                          "cpu_ms":  1.057473333912591,
+                                          "cpu_spread_share":  0.027090995870721286,
+                                          "cpu_noise_band_share":  0.027090995870721286,
+                                          "draw_ms":  8.56599998474121,
+                                          "render_cpu_ms":  0.284999996423721,
+                                          "draw_calls":  18,
+                                          "shadow_draw_calls":  19,
+                                          "primitives":  321914,
+                                          "hitches":  [
+                                                          0,
+                                                          0,
+                                                          0
+                                                      ],
+                                          "per_repeat_mean_ms":  [
+                                                                     10.0186300086975,
+                                                                     10.0023133222262,
+                                                                     10.0080232810657
+                                                                 ],
+                                          "zones":  {
+                                                        "boat":  {
+                                                                     "mean_ms":  0.0934775376850476,
+                                                                     "max_ms":  0.252999991178513
+                                                                 },
+                                                        "boat.buoyancy":  {
+                                                                              "mean_ms":  0.0475707155049541,
+                                                                              "max_ms":  0.175999999046326
+                                                                          },
+                                                        "boat.holding":  {
+                                                                             "mean_ms":  0.0267853577638327,
+                                                                             "max_ms":  0.068000003695488
+                                                                         },
+                                                        "boat.stowing":  {
+                                                                             "mean_ms":  0.00361231285241896,
+                                                                             "max_ms":  0.00999999977648258
+                                                                         },
+                                                        "player.grabber":  {
+                                                                               "mean_ms":  0.0108166664994011,
+                                                                               "max_ms":  0.0230000000447035
+                                                                           }
+                                                    },
+                                          "unattributed_process_ms":  0.124853577842927,
+                                          "unattributed_physics_ms":  0.757090000432606
+                                      },
+                                      {
+                                          "name":  "walking_on_deck",
+                                          "repeats":  3,
+                                          "mean_frame_ms":  11.5374522467328,
+                                          "frame_spread_share":  0.0019493442742151538,
+                                          "noise_band_share":  0.015,
+                                          "p99_frame_ms":  13.4479999542236,
+                                          "slowest_1_percent_fps":  74.1152501554735,
+                                          "gpu_ms":  10.8900003433228,
+                                          "gpu_spread_share":  0.0018365016950218087,
+                                          "gpu_noise_band_share":  0.015,
+                                          "p99_noise_band_share":  0.016061909405194613,
+                                          "gpu_bound_share":  0.713375796178344,
+                                          "process_ms":  0.162000000476837,
+                                          "process_mean_ms":  0.175165604918626,
+                                          "physics_mean_ms":  0.993203824492776,
+                                          "cpu_ms":  1.168369429411402,
+                                          "cpu_spread_share":  0.024782754518244257,
+                                          "cpu_noise_band_share":  0.024782754518244257,
+                                          "draw_ms":  10.0920000076294,
+                                          "render_cpu_ms":  0.27700001001358,
+                                          "draw_calls":  13,
+                                          "shadow_draw_calls":  24,
+                                          "primitives":  321746,
+                                          "hitches":  [
+                                                          0,
+                                                          0,
+                                                          0
+                                                      ],
+                                          "per_repeat_mean_ms":  [
+                                                                     11.5374522467328,
+                                                                     11.548464987688,
+                                                                     11.5259745212118
+                                                                 ],
+                                          "zones":  {
+                                                        "boat":  {
+                                                                     "mean_ms":  0.107286624040953,
+                                                                     "max_ms":  0.216000005602837
+                                                                 },
+                                                        "boat.buoyancy":  {
+                                                                              "mean_ms":  0.0544713377762752,
+                                                                              "max_ms":  0.101000003516674
+                                                                          },
+                                                        "boat.holding":  {
+                                                                             "mean_ms":  0.0308152867872624,
+                                                                             "max_ms":  0.063000001013279
+                                                                         },
+                                                        "boat.stowing":  {
+                                                                             "mean_ms":  0.00407006372371392,
+                                                                             "max_ms":  0.00800000037997961
+                                                                         },
+                                                        "player.grabber":  {
+                                                                               "mean_ms":  0.0125923565630415,
+                                                                               "max_ms":  0.0350000001490116
+                                                                           }
+                                                    },
+                                          "unattributed_process_ms":  0.106891720063367,
+                                          "unattributed_physics_ms":  0.873477709349126
+                                      },
+                                      {
+                                          "name":  "saving_and_loading",
+                                          "repeats":  3,
+                                          "mean_frame_ms":  11.8090334492406,
+                                          "frame_spread_share":  0.0019356855601479915,
+                                          "noise_band_share":  0.015,
+                                          "p99_frame_ms":  13.6899995803833,
+                                          "slowest_1_percent_fps":  72.8756751399648,
+                                          "gpu_ms":  11.1319999694824,
+                                          "gpu_spread_share":  0.0016169285929971526,
+                                          "gpu_noise_band_share":  0.015,
+                                          "p99_noise_band_share":  0.016508388537654822,
+                                          "gpu_bound_share":  0.72244094488189,
+                                          "process_ms":  0.160999998450279,
+                                          "process_mean_ms":  0.189383103170072,
+                                          "physics_mean_ms":  1.01500000138648,
+                                          "cpu_ms":  1.2043831045565518,
+                                          "cpu_spread_share":  0.012892544258995688,
+                                          "cpu_noise_band_share":  0.015,
+                                          "draw_ms":  10.3149995803833,
+                                          "render_cpu_ms":  0.259999990463257,
+                                          "draw_calls":  6,
+                                          "shadow_draw_calls":  7,
+                                          "primitives":  321662,
+                                          "hitches":  [
+                                                          0,
+                                                          0,
+                                                          0
+                                                      ],
+                                          "per_repeat_mean_ms":  [
+                                                                     11.8011512522145,
+                                                                     11.8240098277415,
+                                                                     11.8090334492406
+                                                                 ],
+                                          "zones":  {
+                                                        "boat":  {
+                                                                     "mean_ms":  0.109224409759631,
+                                                                     "max_ms":  0.280000001192093
+                                                                 },
+                                                        "boat.buoyancy":  {
+                                                                              "mean_ms":  0.0555295276448248,
+                                                                              "max_ms":  0.13400000333786
+                                                                          },
+                                                        "boat.holding":  {
+                                                                             "mean_ms":  0.0314409449608542,
+                                                                             "max_ms":  0.0820000022649765
+                                                                         },
+                                                        "boat.stowing":  {
+                                                                             "mean_ms":  0.00424015753000505,
+                                                                             "max_ms":  0.0260000005364418
+                                                                         },
+                                                        "player.grabber":  {
+                                                                               "mean_ms":  0.0136640469373473,
+                                                                               "max_ms":  0.034000001847744
+                                                                           },
+                                                        "trip_loading":  {
+                                                                             "mean_ms":  0.00410609020465484,
+                                                                             "max_ms":  2.08999991416931
+                                                                         },
+                                                        "trip_loading.restow":  {
+                                                                                    "mean_ms":  0.00102952756280974,
+                                                                                    "max_ms":  0.523000001907349
+                                                                                },
+                                                        "trip_loading.unstow":  {
+                                                                                    "mean_ms":  0.00264047147717129,
+                                                                                    "max_ms":  1.34399998188019
+                                                                                },
+                                                        "trip_saving":  {
+                                                                            "mean_ms":  0.00856385109232545,
+                                                                            "max_ms":  4.35900020599365
+                                                                        }
+                                                    },
+                                          "unattributed_process_ms":  0.108375984544712,
+                                          "unattributed_physics_ms":  0.892287403698937
+                                      }
+                                  ],
+                     "cargo_26":  [
+                                      {
+                                          "name":  "settling",
+                                          "repeats":  3,
+                                          "mean_frame_ms":  10.6299738196827,
+                                          "frame_spread_share":  0.000772425412750987,
+                                          "noise_band_share":  0.015,
+                                          "p99_frame_ms":  12.8009996414185,
+                                          "slowest_1_percent_fps":  25.9842846046766,
+                                          "gpu_ms":  9.65799999237061,
+                                          "gpu_spread_share":  0.0014495691629632973,
+                                          "gpu_noise_band_share":  0.015,
+                                          "p99_noise_band_share":  0.024841797413523131,
+                                          "gpu_bound_share":  0.615720524017467,
+                                          "process_ms":  0.158999994397163,
+                                          "process_mean_ms":  0.17345414819871,
+                                          "physics_mean_ms":  1.1469846830848,
+                                          "cpu_ms":  1.323540481846754,
+                                          "cpu_spread_share":  0.0095466461613608646,
+                                          "cpu_noise_band_share":  0.015,
+                                          "draw_ms":  8.4980001449585,
+                                          "render_cpu_ms":  0.296000003814697,
+                                          "draw_calls":  24,
+                                          "shadow_draw_calls":  25,
+                                          "primitives":  322202,
+                                          "hitches":  [
+                                                          1,
+                                                          1,
+                                                          1
+                                                      ],
+                                          "per_repeat_mean_ms":  [
+                                                                     10.6299738196827,
+                                                                     10.6375798573901,
+                                                                     10.6293689954749
+                                                                 ],
+                                          "zones":  {
+                                                        "boat":  {
+                                                                     "mean_ms":  0.114323144558996,
+                                                                     "max_ms":  1.37600004673004
+                                                                 },
+                                                        "boat.buoyancy":  {
+                                                                              "mean_ms":  0.049460698618639,
+                                                                              "max_ms":  0.563000023365021
+                                                                          },
+                                                        "boat.holding":  {
+                                                                             "mean_ms":  0.0409869000114354,
+                                                                             "max_ms":  0.112000003457069
+                                                                         },
+                                                        "boat.stowing":  {
+                                                                             "mean_ms":  0.00778602628244746,
+                                                                             "max_ms":  1.27699995040894
+                                                                         },
+                                                        "player.grabber":  {
+                                                                               "mean_ms":  0.0116564549151115,
+                                                                               "max_ms":  0.090999998152256
+                                                                           }
+                                                    },
+                                          "unattributed_process_ms":  0.104275108961689,
+                                          "unattributed_physics_ms":  1.02044420190261,
+                                          "hitch_causes":  {
+                                                               "shader_compiles":  {
+                                                                                       "count":  1,
+                                                                                       "worst_ms":  140.156997680664,
+                                                                                       "at_x":  [
+                                                                                                    0.0
+                                                                                                ]
+                                                                                   }
+                                                           }
+                                      },
+                                      {
+                                          "name":  "drifting",
+                                          "repeats":  3,
+                                          "mean_frame_ms":  10.2819884750748,
+                                          "frame_spread_share":  0.0037631162764280622,
+                                          "noise_band_share":  0.015,
+                                          "p99_frame_ms":  12.4379997253418,
+                                          "slowest_1_percent_fps":  79.9624169563553,
+                                          "gpu_ms":  9.58600044250488,
+                                          "gpu_spread_share":  0.0051115985932665255,
+                                          "gpu_noise_band_share":  0.015,
+                                          "p99_noise_band_share":  0.015,
+                                          "gpu_bound_share":  0.61617458279846,
+                                          "process_ms":  0.162000000476837,
+                                          "process_mean_ms":  0.182095360682951,
+                                          "physics_mean_ms":  1.12071501826138,
+                                          "cpu_ms":  1.3033131445690809,
+                                          "cpu_spread_share":  0.0021875731977910018,
+                                          "cpu_noise_band_share":  0.015,
+                                          "draw_ms":  8.4040002822876,
+                                          "render_cpu_ms":  0.294999986886978,
+                                          "draw_calls":  24,
+                                          "shadow_draw_calls":  25,
+                                          "primitives":  322202,
+                                          "hitches":  [
+                                                          0,
+                                                          0,
+                                                          0
+                                                      ],
+                                          "per_repeat_mean_ms":  [
+                                                                     10.2819884750748,
+                                                                     10.2764185004424,
+                                                                     10.315110818627
+                                                                 ],
+                                          "zones":  {
+                                                        "boat":  {
+                                                                     "mean_ms":  0.109042526117152,
+                                                                     "max_ms":  0.316000014543533
+                                                                 },
+                                                        "boat.buoyancy":  {
+                                                                              "mean_ms":  0.0477715018031992,
+                                                                              "max_ms":  0.166999995708466
+                                                                          },
+                                                        "boat.holding":  {
+                                                                             "mean_ms":  0.0414094996132884,
+                                                                             "max_ms":  0.181999996304512
+                                                                         },
+                                                        "boat.stowing":  {
+                                                                             "mean_ms":  0.00359178435258252,
+                                                                             "max_ms":  0.00899999961256981
+                                                                         },
+                                                        "player.grabber":  {
+                                                                               "mean_ms":  0.00946649485723759,
+                                                                               "max_ms":  0.025000000372529
+                                                                           }
+                                                    },
+                                          "unattributed_process_ms":  0.115191270918878,
+                                          "unattributed_physics_ms":  1.00213735467074
+                                      },
+                                      {
+                                          "name":  "sailing",
+                                          "repeats":  3,
+                                          "mean_frame_ms":  10.1479807315927,
+                                          "frame_spread_share":  0.00095609651776281139,
+                                          "noise_band_share":  0.015,
+                                          "p99_frame_ms":  12.3699998855591,
+                                          "slowest_1_percent_fps":  80.3735759788895,
+                                          "gpu_ms":  9.4689998626709,
+                                          "gpu_spread_share":  0.00052795024174816512,
+                                          "gpu_noise_band_share":  0.015,
+                                          "p99_noise_band_share":  0.015,
+                                          "gpu_bound_share":  0.609533468559838,
+                                          "process_ms":  0.153999999165535,
+                                          "process_mean_ms":  0.167664300589907,
+                                          "physics_mean_ms":  1.10632251532518,
+                                          "cpu_ms":  1.2804300197405769,
+                                          "cpu_spread_share":  0.011397264404798746,
+                                          "cpu_noise_band_share":  0.015,
+                                          "draw_ms":  8.29199981689453,
+                                          "render_cpu_ms":  0.294999986886978,
+                                          "draw_calls":  22,
+                                          "shadow_draw_calls":  23,
+                                          "primitives":  321962,
+                                          "hitches":  [
+                                                          0,
+                                                          0,
+                                                          0
+                                                      ],
+                                          "per_repeat_mean_ms":  [
+                                                                     10.1550933110545,
+                                                                     10.1453908620147,
+                                                                     10.1479807315927
+                                                                 ],
+                                          "zones":  {
+                                                        "boat":  {
+                                                                     "mean_ms":  0.107102537881299,
+                                                                     "max_ms":  0.25900000333786
+                                                                 },
+                                                        "boat.buoyancy":  {
+                                                                              "mean_ms":  0.0471784988490007,
+                                                                              "max_ms":  0.108999997377396
+                                                                          },
+                                                        "boat.holding":  {
+                                                                             "mean_ms":  0.0406146048592747,
+                                                                             "max_ms":  0.111000001430511
+                                                                         },
+                                                        "boat.stowing":  {
+                                                                             "mean_ms":  0.00353448277123983,
+                                                                             "max_ms":  0.00999999977648258
+                                                                         },
+                                                        "player.grabber":  {
+                                                                               "mean_ms":  0.0111227178668441,
+                                                                               "max_ms":  0.0469999983906746
+                                                                           }
+                                                    },
+                                          "unattributed_process_ms":  0.101896552130973,
+                                          "unattributed_physics_ms":  0.98781440161928
+                                      },
+                                      {
+                                          "name":  "turning",
+                                          "repeats":  3,
+                                          "mean_frame_ms":  10.0497926469631,
+                                          "frame_spread_share":  0.00081276190893042079,
+                                          "noise_band_share":  0.015,
+                                          "p99_frame_ms":  12.168999671936,
+                                          "slowest_1_percent_fps":  77.1218141168267,
+                                          "gpu_ms":  9.36699962615967,
+                                          "gpu_spread_share":  0.0011744030830350041,
+                                          "gpu_noise_band_share":  0.015,
+                                          "p99_noise_band_share":  0.015,
+                                          "gpu_bound_share":  0.602006688963211,
+                                          "process_ms":  0.158000007271767,
+                                          "process_mean_ms":  0.192678930468384,
+                                          "physics_mean_ms":  1.10265384589549,
+                                          "cpu_ms":  1.3003846145543341,
+                                          "cpu_spread_share":  0.012590140754215327,
+                                          "cpu_noise_band_share":  0.015,
+                                          "draw_ms":  8.18599987030029,
+                                          "render_cpu_ms":  0.293999999761581,
+                                          "draw_calls":  22,
+                                          "shadow_draw_calls":  23,
+                                          "primitives":  321962,
+                                          "hitches":  [
+                                                          0,
+                                                          0,
+                                                          0
+                                                      ],
+                                          "per_repeat_mean_ms":  [
+                                                                     10.0497926469631,
+                                                                     10.0463461429379,
+                                                                     10.054514231594
+                                                                 ],
+                                          "zones":  {
+                                                        "boat":  {
+                                                                     "mean_ms":  0.106593645486146,
+                                                                     "max_ms":  0.287000000476837
+                                                                 },
+                                                        "boat.buoyancy":  {
+                                                                              "mean_ms":  0.046784280908347,
+                                                                              "max_ms":  0.108999997377396
+                                                                          },
+                                                        "boat.holding":  {
+                                                                             "mean_ms":  0.0401739134674387,
+                                                                             "max_ms":  0.112000003457069
+                                                                         },
+                                                        "boat.stowing":  {
+                                                                             "mean_ms":  0.00348408711478239,
+                                                                             "max_ms":  0.0130000002682209
+                                                                         },
+                                                        "player.grabber":  {
+                                                                               "mean_ms":  0.0112324412927704,
+                                                                               "max_ms":  0.028999999165535
+                                                                           }
+                                                    },
+                                          "unattributed_process_ms":  0.12558194046161,
+                                          "unattributed_physics_ms":  0.984827759116577
+                                      },
+                                      {
+                                          "name":  "walking_on_deck",
+                                          "repeats":  3,
+                                          "mean_frame_ms":  11.64034841599,
+                                          "frame_spread_share":  0.0075556461187866906,
+                                          "noise_band_share":  0.015,
+                                          "p99_frame_ms":  13.9409999847412,
+                                          "slowest_1_percent_fps":  71.5486708076823,
+                                          "gpu_ms":  11.0100002288818,
+                                          "gpu_spread_share":  0.010899171940451993,
+                                          "gpu_noise_band_share":  0.015,
+                                          "p99_noise_band_share":  0.015,
+                                          "gpu_bound_share":  0.703225806451613,
+                                          "process_ms":  0.162000000476837,
+                                          "process_mean_ms":  0.174890321925763,
+                                          "physics_mean_ms":  1.27661290322581,
+                                          "cpu_ms":  1.4518910235701499,
+                                          "cpu_spread_share":  0.012330971117582745,
+                                          "cpu_noise_band_share":  0.015,
+                                          "draw_ms":  9.80200004577637,
+                                          "render_cpu_ms":  0.287999987602234,
+                                          "draw_calls":  17,
+                                          "shadow_draw_calls":  32,
+                                          "primitives":  321794,
+                                          "hitches":  [
+                                                          0,
+                                                          0,
+                                                          0
+                                                      ],
+                                          "per_repeat_mean_ms":  [
+                                                                     11.6532645056325,
+                                                                     11.5653141523019,
+                                                                     11.64034841599
+                                                                 ],
+                                          "zones":  {
+                                                        "boat":  {
+                                                                     "mean_ms":  0.121858064493825,
+                                                                     "max_ms":  0.224000006914139
+                                                                 },
+                                                        "boat.buoyancy":  {
+                                                                              "mean_ms":  0.0536774191644884,
+                                                                              "max_ms":  0.0989999994635582
+                                                                          },
+                                                        "boat.holding":  {
+                                                                             "mean_ms":  0.0465192310512066,
+                                                                             "max_ms":  0.118000000715256
+                                                                         },
+                                                        "boat.stowing":  {
+                                                                             "mean_ms":  0.00399354839276883,
+                                                                             "max_ms":  0.00700000021606684
+                                                                         },
+                                                        "player.grabber":  {
+                                                                               "mean_ms":  0.0124615383489678,
+                                                                               "max_ms":  0.0370000004768372
+                                                                           }
+                                                    },
+                                          "unattributed_process_ms":  0.106576923185434,
+                                          "unattributed_physics_ms":  1.14161538261658
+                                      },
+                                      {
+                                          "name":  "saving_and_loading",
+                                          "repeats":  3,
+                                          "mean_frame_ms":  11.9316063628756,
+                                          "frame_spread_share":  0.0041166419819151836,
+                                          "noise_band_share":  0.015,
+                                          "p99_frame_ms":  14.1149997711182,
+                                          "slowest_1_percent_fps":  70.6663838868331,
+                                          "gpu_ms":  11.2519998550415,
+                                          "gpu_spread_share":  0.0037326535225365187,
+                                          "gpu_noise_band_share":  0.015,
+                                          "p99_noise_band_share":  0.015,
+                                          "gpu_bound_share":  0.717131474103586,
+                                          "process_ms":  0.158999994397163,
+                                          "process_mean_ms":  0.194310757179422,
+                                          "physics_mean_ms":  1.3074970325621,
+                                          "cpu_ms":  1.5008950521302651,
+                                          "cpu_spread_share":  0.0071957412728079189,
+                                          "cpu_noise_band_share":  0.015,
+                                          "draw_ms":  10.0089998245239,
+                                          "render_cpu_ms":  0.272000014781952,
+                                          "draw_calls":  10,
+                                          "shadow_draw_calls":  11,
+                                          "primitives":  321710,
+                                          "hitches":  [
+                                                          0,
+                                                          0,
+                                                          0
+                                                      ],
+                                          "per_repeat_mean_ms":  [
+                                                                     11.9316063628756,
+                                                                     11.8834336535765,
+                                                                     11.9325518052416
+                                                                 ],
+                                          "zones":  {
+                                                        "boat":  {
+                                                                     "mean_ms":  0.125611880893755,
+                                                                     "max_ms":  0.24099999666214
+                                                                 },
+                                                        "boat.buoyancy":  {
+                                                                              "mean_ms":  0.0552644133271564,
+                                                                              "max_ms":  0.114000000059605
+                                                                          },
+                                                        "boat.holding":  {
+                                                                             "mean_ms":  0.0476055781679799,
+                                                                             "max_ms":  0.108000002801418
+                                                                         },
+                                                        "boat.stowing":  {
+                                                                             "mean_ms":  0.0042653465376115704,
+                                                                             "max_ms":  0.0689999982714653
+                                                                         },
+                                                        "player.grabber":  {
+                                                                               "mean_ms":  0.0135287126747541,
+                                                                               "max_ms":  0.034000001847744
+                                                                           },
+                                                        "trip_loading":  {
+                                                                             "mean_ms":  0.00968787305160735,
+                                                                             "max_ms":  4.8730001449585
+                                                                         },
+                                                        "trip_loading.restow":  {
+                                                                                    "mean_ms":  0.00182868522476865,
+                                                                                    "max_ms":  0.917999982833862
+                                                                                },
+                                                        "trip_loading.unstow":  {
+                                                                                    "mean_ms":  0.00723260439650913,
+                                                                                    "max_ms":  3.63800001144409
+                                                                                },
+                                                        "trip_saving":  {
+                                                                            "mean_ms":  0.00891434243950711,
+                                                                            "max_ms":  4.49900007247925
+                                                                        }
+                                                    },
+                                          "unattributed_process_ms":  0.106503984783275,
+                                          "unattributed_physics_ms":  1.1683564389936
+                                      }
+                                  ]
+                 },
+    "scaling":  [
+                    {
+                        "view":  "settling",
+                        "rows":  [
+                                     {
+                                         "variant":  "cargo_0",
+                                         "x":  0,
+                                         "frame_ms":  10.5189460204435,
+                                         "p99_ms":  13.2279996871948,
+                                         "cpu_ms":  0.832549782832722,
+                                         "physics_ms":  0.657665946745667,
+                                         "process_ms":  0.168731601884613,
+                                         "gpu_ms":  9.50399971008301,
+                                         "hitches":  1
+                                     },
+                                     {
+                                         "variant":  "cargo_13",
+                                         "x":  13,
+                                         "frame_ms":  10.527090712191,
+                                         "p99_ms":  12.2550001144409,
+                                         "cpu_ms":  1.066367962401666,
+                                         "physics_ms":  0.890926403916759,
+                                         "process_ms":  0.175196544011777,
+                                         "gpu_ms":  9.5629997253418,
+                                         "hitches":  1
+                                     },
+                                     {
+                                         "variant":  "cargo_26",
+                                         "x":  26,
+                                         "frame_ms":  10.6299738196827,
+                                         "p99_ms":  12.8009996414185,
+                                         "cpu_ms":  1.323540481846754,
+                                         "physics_ms":  1.1469846830848,
+                                         "process_ms":  0.17345414819871,
+                                         "gpu_ms":  9.65799999237061,
+                                         "hitches":  1
+                                     }
+                                 ],
+                        "cpu_fit":  {
+                                        "slope":  0.018884257654385846,
+                                        "intercept":  0.8286573928533647,
+                                        "r2":  0.99924640154360078
+                                    },
+                        "frame_fit":  {
+                                          "slope":  0.0042702999707384332,
+                                          "intercept":  10.503156284486135,
+                                          "r2":  0.80470026183727006
+                                      }
+                    },
+                    {
+                        "view":  "drifting",
+                        "rows":  [
+                                     {
+                                         "variant":  "cargo_0",
+                                         "x":  0,
+                                         "frame_ms":  10.1278759606277,
+                                         "p99_ms":  11.46399974823,
+                                         "cpu_ms":  0.82076076145602206,
+                                         "physics_ms":  0.63211265900467,
+                                         "process_ms":  0.180597468012873,
+                                         "gpu_ms":  9.4379997253418,
+                                         "hitches":  0
+                                     },
+                                     {
+                                         "variant":  "cargo_13",
+                                         "x":  13,
+                                         "frame_ms":  10.1733303797139,
+                                         "p99_ms":  11.8549995422363,
+                                         "cpu_ms":  1.0492391858543759,
+                                         "physics_ms":  0.862795425339908,
+                                         "process_ms":  0.185414758574872,
+                                         "gpu_ms":  9.48200035095215,
+                                         "hitches":  0
+                                     },
+                                     {
+                                         "variant":  "cargo_26",
+                                         "x":  26,
+                                         "frame_ms":  10.2819884750748,
+                                         "p99_ms":  12.4379997253418,
+                                         "cpu_ms":  1.3033131445690809,
+                                         "physics_ms":  1.12071501826138,
+                                         "process_ms":  0.182095360682951,
+                                         "gpu_ms":  9.58600044250488,
+                                         "hitches":  0
+                                     }
+                                 ],
+                        "cpu_fit":  {
+                                        "slope":  0.018559707042809955,
+                                        "intercept":  0.81649483906996356,
+                                        "r2":  0.99906306142916679
+                                    },
+                        "frame_fit":  {
+                                          "slope":  0.005927404401811524,
+                                          "intercept":  10.117342014581917,
+                                          "r2":  0.94691189945968712
+                                      }
+                    },
+                    {
+                        "view":  "sailing",
+                        "rows":  [
+                                     {
+                                         "variant":  "cargo_0",
+                                         "x":  0,
+                                         "frame_ms":  10.2209673229837,
+                                         "p99_ms":  11.5769996643066,
+                                         "cpu_ms":  0.819587755484544,
+                                         "physics_ms":  0.644918283780578,
+                                         "process_ms":  0.168907143061562,
+                                         "gpu_ms":  9.54899978637695,
+                                         "hitches":  0
+                                     },
+                                     {
+                                         "variant":  "cargo_13",
+                                         "x":  13,
+                                         "frame_ms":  10.1285232677151,
+                                         "p99_ms":  11.9350004196167,
+                                         "cpu_ms":  1.039621318891871,
+                                         "physics_ms":  0.865834516559155,
+                                         "process_ms":  0.173786802332716,
+                                         "gpu_ms":  9.46000003814697,
+                                         "hitches":  0
+                                     },
+                                     {
+                                         "variant":  "cargo_26",
+                                         "x":  26,
+                                         "frame_ms":  10.1479807315927,
+                                         "p99_ms":  12.3699998855591,
+                                         "cpu_ms":  1.2804300197405769,
+                                         "physics_ms":  1.10632251532518,
+                                         "process_ms":  0.167664300589907,
+                                         "gpu_ms":  9.4689998626709,
+                                         "hitches":  0
+                                     }
+                                 ],
+                        "cpu_fit":  {
+                                        "slope":  0.01772470247138588,
+                                        "intercept":  0.81612523257764769,
+                                        "r2":  0.99932303245224152
+                                    },
+                        "frame_fit":  {
+                                          "slope":  -0.0028071765919615533,
+                                          "intercept":  10.202317069792667,
+                                          "r2":  0.56068077341164113
+                                      }
+                    },
+                    {
+                        "view":  "turning",
+                        "rows":  [
+                                     {
+                                         "variant":  "cargo_0",
+                                         "x":  0,
+                                         "frame_ms":  10.0635159091534,
+                                         "p99_ms":  11.4569997787476,
+                                         "cpu_ms":  0.829380233533419,
+                                         "physics_ms":  0.636926174963881,
+                                         "process_ms":  0.191497487189183,
+                                         "gpu_ms":  9.36900043487549,
+                                         "hitches":  0
+                                     },
+                                     {
+                                         "variant":  "cargo_13",
+                                         "x":  13,
+                                         "frame_ms":  10.0080232810657,
+                                         "p99_ms":  11.793999671936,
+                                         "cpu_ms":  1.057473333912591,
+                                         "physics_ms":  0.860126667221387,
+                                         "process_ms":  0.193056572991084,
+                                         "gpu_ms":  9.32900047302246,
+                                         "hitches":  0
+                                     },
+                                     {
+                                         "variant":  "cargo_26",
+                                         "x":  26,
+                                         "frame_ms":  10.0497926469631,
+                                         "p99_ms":  12.168999671936,
+                                         "cpu_ms":  1.3003846145543341,
+                                         "physics_ms":  1.10265384589549,
+                                         "process_ms":  0.192678930468384,
+                                         "gpu_ms":  9.36699962615967,
+                                         "hitches":  0
+                                     }
+                                 ],
+                        "cpu_fit":  {
+                                        "slope":  0.018115553116189041,
+                                        "intercept":  0.82691053682299054,
+                                        "r2":  0.999670181253282
+                                    },
+                        "frame_fit":  {
+                                          "slope":  -0.00052781777655001112,
+                                          "intercept":  10.047305576822549,
+                                          "r2":  0.056358162664714564
+                                      }
+                    },
+                    {
+                        "view":  "walking_on_deck",
+                        "rows":  [
+                                     {
+                                         "variant":  "cargo_0",
+                                         "x":  0,
+                                         "frame_ms":  11.5190827968014,
+                                         "p99_ms":  12.9350004196167,
+                                         "cpu_ms":  0.893598725556568,
+                                         "physics_ms":  0.722477706754284,
+                                         "process_ms":  0.171121018802284,
+                                         "gpu_ms":  10.8699998855591,
+                                         "hitches":  0
+                                     },
+                                     {
+                                         "variant":  "cargo_13",
+                                         "x":  13,
+                                         "frame_ms":  11.5374522467328,
+                                         "p99_ms":  13.4479999542236,
+                                         "cpu_ms":  1.168369429411402,
+                                         "physics_ms":  0.993203824492776,
+                                         "process_ms":  0.175165604918626,
+                                         "gpu_ms":  10.8900003433228,
+                                         "hitches":  0
+                                     },
+                                     {
+                                         "variant":  "cargo_26",
+                                         "x":  26,
+                                         "frame_ms":  11.64034841599,
+                                         "p99_ms":  13.9409999847412,
+                                         "cpu_ms":  1.4518910235701499,
+                                         "physics_ms":  1.27661290322581,
+                                         "process_ms":  0.174890321925763,
+                                         "gpu_ms":  11.0100002288818,
+                                         "hitches":  0
+                                     }
+                                 ],
+                        "cpu_fit":  {
+                                        "slope":  0.021472780692830068,
+                                        "intercept":  0.89214024383924928,
+                                        "r2":  0.99991811122271346
+                                    },
+                        "frame_fit":  {
+                                          "slope":  0.00466406227648462,
+                                          "intercept":  11.504995010247097,
+                                          "r2":  0.860619345683561
+                                      }
+                    },
+                    {
+                        "view":  "saving_and_loading",
+                        "rows":  [
+                                     {
+                                         "variant":  "cargo_0",
+                                         "x":  0,
+                                         "frame_ms":  11.7814117347493,
+                                         "p99_ms":  13.2040004730225,
+                                         "cpu_ms":  0.936775591503096,
+                                         "physics_ms":  0.751090016150428,
+                                         "process_ms":  0.184429134044239,
+                                         "gpu_ms":  11.1149997711182,
+                                         "hitches":  0
+                                     },
+                                     {
+                                         "variant":  "cargo_13",
+                                         "x":  13,
+                                         "frame_ms":  11.8090334492406,
+                                         "p99_ms":  13.6899995803833,
+                                         "cpu_ms":  1.2043831045565518,
+                                         "physics_ms":  1.01500000138648,
+                                         "process_ms":  0.189383103170072,
+                                         "gpu_ms":  11.1319999694824,
+                                         "hitches":  0
+                                     },
+                                     {
+                                         "variant":  "cargo_26",
+                                         "x":  26,
+                                         "frame_ms":  11.9316063628756,
+                                         "p99_ms":  14.1149997711182,
+                                         "cpu_ms":  1.5008950521302651,
+                                         "physics_ms":  1.3074970325621,
+                                         "process_ms":  0.194310757179422,
+                                         "gpu_ms":  11.2519998550415,
+                                         "hitches":  0
+                                     }
+                                 ],
+                        "cpu_fit":  {
+                                        "slope":  0.021696902331814198,
+                                        "intercept":  0.93195818574971989,
+                                        "r2":  0.99912564933590486
+                                    },
+                        "frame_fit":  {
+                                          "slope":  0.0057767164663961633,
+                                          "intercept":  11.765586534892016,
+                                          "r2":  0.88244084520376864
+                                      }
+                    }
+                ],
+    "analysed":  "2026-11-08T19:11:42",
+    "min_noise_share":  0.015
+}

@@ -102,6 +102,24 @@ function Join-Repeats($RunList) {
 			}
 		}
 		if ($passes.Count -gt 0) { $segment.gpu_passes_ms = $passes }
+		# Stutters by main cause, over the repeats: the middle count, the
+		# slowest stutter, and where (world x) in the first repeat.
+		$causeNames = @()
+		foreach ($run in $per) {
+			if ($run.hitch_causes) { foreach ($p in $run.hitch_causes.PSObject.Properties) { if ($causeNames -notcontains $p.Name) { $causeNames += $p.Name } } }
+		}
+		if ($causeNames.Count -gt 0) {
+			$causes = [ordered]@{}
+			foreach ($causeName in $causeNames) {
+				$counts = [double[]]@($per | ForEach-Object { if ($_.hitch_causes.$causeName) { $_.hitch_causes.$causeName.count } else { 0 } })
+				$worst = 0.0
+				foreach ($run in $per) { if ($run.hitch_causes.$causeName) { $worst = [math]::Max($worst, [double]$run.hitch_causes.$causeName.worst_ms) } }
+				$firstAt = @()
+				if ($per[0].hitch_causes.$causeName) { $firstAt = @($per[0].hitch_causes.$causeName.at_x) }
+				$causes[$causeName] = [ordered]@{ count = Get-Median $counts; worst_ms = $worst; at_x = $firstAt }
+			}
+			$segment.hitch_causes = $causes
+		}
 		$combined += $segment
 	}
 	return , $combined
@@ -451,6 +469,17 @@ $worst = 0.0
 foreach ($s in $segments) { $worst = [math]::Max($worst, $s.frame_spread_share) }
 $band = [math]::Max($MinNoiseShare, $worst)
 Write-Host ("Repeats differ by up to {0:N1}%: on this PC, changes smaller than {1:N1}% count as 'no change'." -f ($worst * 100), ($band * 100))
+foreach ($s in $segments) {
+	if (-not $s.hitch_causes) { continue }
+	Write-Host ""
+	Write-Host "Stutters in $($s.name) by main cause (middle count of the runs, slowest, where in the first run):" -ForegroundColor Cyan
+	foreach ($causeName in $s.hitch_causes.Keys) {
+		$entry = $s.hitch_causes[$causeName]
+		$where = ($entry.at_x | ForEach-Object { [string]::Format([cultureinfo]::InvariantCulture, "{0:F0}", $_) }) -join ", "
+		$count = if ($entry.count -gt 0) { "{0,4} stutters" -f $entry.count } else { "  in some runs only" }
+		Write-Host ("  {0,-18} {1}, slowest {2,7:N1} ms, at world x {3}" -f $causeName, $count, $entry.worst_ms, $where)
+	}
+}
 
 if ($Ablate) {
 	$ranked = @($costs | Where-Object { $_.variant -ne "all_off" -and -not $_.detail } | Sort-Object { $_.mean_frame_saving_ms } -Descending)

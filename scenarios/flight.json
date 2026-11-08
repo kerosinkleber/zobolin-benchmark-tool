@@ -1,0 +1,6 @@
+{
+  "description": "The flight across the whole world, west edge to east edge, 60 m above the ground, the same distance every frame. Shows stutters and what causes them (re-centring, new trees, new tiles).",
+  "test": "terrain",
+  "only": "flight",
+  "extra": ["--fixed-flight"]
+}

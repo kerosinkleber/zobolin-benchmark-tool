@@ -12,7 +12,7 @@
 #   powershell -ExecutionPolicy Bypass -File zbench.ps1 [-Scenario vista_quick|vista]
 #       [-Ablate [-Kind all|gpu|cpu]] [-Repeats 3] [-Preset high|low] [-Renderer forward_plus|mobile]
 #       [-Gpu auto|intel|nvidia|<number>] [-GpuProfile] [-CoolDown 20]
-#       [-GameOptions <options for the game>] [-Game <game repo folder>]
+#       [-GameOptions <options for the game>] [-Game <game repo folder; default: "Open World Game - Zobolin" next to this folder>]
 #       [-SaveBaseline] [-Baseline <summary.json to compare with>]
 #   powershell -ExecutionPolicy Bypass -File zbench.ps1 -Reanalyse <results folder>
 #
@@ -45,7 +45,7 @@ param(
 	[switch] $GpuProfile,
 	[ValidateRange(0, 600)] [int] $CoolDown = 20,
 	[string[]] $GameOptions = @(),
-	[string] $Game = "C:\Claude\Open World Game - Zobolin",
+	[string] $Game = "",
 	[string] $Reanalyse = "",
 	[switch] $SaveBaseline,
 	[string] $Baseline = ""
@@ -54,6 +54,12 @@ param(
 # Several game options may come as one string ("--npcs=8 --grass=off"),
 # as `powershell -File` passes them: split them at spaces.
 $GameOptions = @($GameOptions | ForEach-Object { $_ -split '\s+' } | Where-Object { $_ })
+# The game's folder: -Game, else the folder "Open World Game - Zobolin"
+# next to this one (as on every PC so far), else C:\Claude\....
+if (-not $Game) {
+	$besideTool = Join-Path (Split-Path $PSScriptRoot -Parent) "Open World Game - Zobolin"
+	$Game = if (Test-Path (Join-Path $besideTool "tools\benchmark.ps1")) { $besideTool } else { "C:\Claude\Open World Game - Zobolin" }
+}
 # Not "Stop": Godot writes warnings to its error output, which must not end the run.
 # Note: PowerShell doesn't tell upper and lower case apart in names, so no
 # variable here may share a name with an option above ($gpu would be $Gpu).

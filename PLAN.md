@@ -1,0 +1,266 @@
+# Zobolin Benchmark Tool: plan
+
+Goal: measure what every part of Zobolin costs, and rank which parts use the
+most processor time, graphics-card time, and which cause stutters.
+
+Status: the owner accepted the recommended decisions in section 8
+(2026-11-08). **Step 1 is done** (2026-11-08); its results are in
+`findings/01-engine-check.md` and change the plan in five places (listed
+there). Next: step 2. Corrections from the first fact-check pass are
+marked ✱.
+
+---
+
+## 1. How this is done (short explainer)
+
+**A frame has two halves running at the same time.** The *processor (CPU)*
+runs scripts and physics and prepares the list of things to draw. The
+*graphics card (GPU)* draws it. The frame takes as long as the slower half.
+When the graphics card is the slower half, the frame is *GPU-bound*; when the
+processor is slower, it is *CPU-bound*. So "what costs most?" has two answers,
+and the tool first says which half is the limit.
+
+There are four ways to measure:
+
+| Method | What it is | Good for | Limit |
+|---|---|---|---|
+| **Stopwatches** (instrumentation) | A timer around a piece of our code: "forest update took 0.4 ms" | Processor time of *our* scripts, named per system | Only our own code, only processor time |
+| **Switch off and measure again** (ablation) | Run the same camera route with grass on, then off. The difference is what grass costs | The **only** way to get graphics-card cost per feature, and to measure Terrain3D (compiled add-on) | Systems affect each other, so the savings don't simply add up |
+| **Engine counters** | Godot's own numbers: physics time, draw calls, triangles, GPU total | Cheap overall picture | Totals only, not per system |
+| **Sampling / outside tools** | A program (Tracy, PIX, RenderDoc) watches the game from outside | Deep dives on one suspect | Manual; Tracy needs a custom-built Godot |
+
+**How results are read:**
+- **Milliseconds, not fps.** 60 fps = 16.7 ms per frame. Milliseconds can be
+  added up ("grass costs 3.5 ms"); fps can't.
+- **Percentiles.** p50 = the typical frame; p99 = the slowest 1 in 100.
+  Averages hide stutters, percentiles show them.
+- **Hitches (stutters).** One frame much slower than its neighbours (today's
+  rule: over 33.3 ms). Each hitch is logged with the time, the camera position
+  and what happened on that frame (e.g. "terrain re-centred").
+- **Noise.** Two identical runs never give identical numbers (heat, clock
+  speeds). Each run is repeated 3 times and the middle value is used; a
+  difference smaller than the run-to-run spread counts as "no change".
+
+---
+
+## 2. What Godot 4.7.2 gives us, and its limits
+
+| Feature | Gives | Limit |
+|---|---|---|
+| Measured render time (`RenderingServer.viewport_get_measured_render_time_gpu/cpu`) | Total GPU ms and render-prep CPU ms. Already used today | One total, no split by feature; arrives 1–2 frames late |
+| `Performance` monitors | Main-loop time ✱, physics tick time, navigation, draw calls, triangles, shader compiles, video memory | ✱ `TIME_PROCESS` is the whole main-loop step, not "script time". ✱ Some monitors refresh with up to ~1 s delay, so they're not per-frame values |
+| Custom monitors | Our stopwatch values show in the editor's Debugger graphs | Display only; nothing is saved |
+| `--gpu-profile` launch flag | GPU ms per drawing pass (shadows, opaque, transparent, sky, post) once a second | By pass, not by feature (grass and terrain are both "opaque"). ✱ Has its own cost, so it gets its own separate run |
+| Editor profiler | Top script functions | Needs the editor attached; hard to automate |
+| Tracy/Perfetto (since 4.6) | Full timeline of engine + scripts | Needs a custom-compiled Godot. Not now |
+| RenderDoc / PIX / Nsight | Cost per single draw call | Manual, one frame at a time |
+
+Not available from a script at all: GPU time per feature, and the editor
+profiler's per-function data. That's why the plan relies on **switch-off runs
+for the graphics card** and **our own stopwatches for the processor**.
+
+✱ All runs use the editor binary (a debug build), so script numbers are higher
+than in a shipped game. The build type is recorded with every result; a
+`-Release` mode with an exported build can come later.
+
+---
+
+## 3. Tool architecture
+
+### Components
+1. **Runner – `zbench.ps1`** (this folder). The one command you run. Builds
+   the run list (everything on, each switch off, everything off, × 3 repeats),
+   runs them interleaved (A B C A B C, with a short cool-down) so heat affects
+   all variants equally, stamps the PC details and the game commit, combines
+   the results, compares them with saved baselines and writes the report.
+2. **Launcher – `tools\benchmark.ps1`** (game repo). Extended, not copied.
+   New options: `-Extra` (pass settings to the game), `-Out`, `-Scenario`,
+   `-GpuProfile`.
+3. **In-game recorder.** One row per frame: real frame ms, GPU ms, render CPU
+   ms, main-loop and physics ms (✱ measured with our own timers at the frame
+   boundaries, not the delayed monitors), physics ticks this frame, draw calls
+   (main and shadow), triangles, shader compiles, video memory, camera
+   position, event counts and stopwatch values.
+4. **Stopwatches ("zones").** One-line `begin`/`end` calls in each system,
+   off by default (then each costs one yes/no check). Many-copy systems
+   (items, doors, NPC bodies) share one zone.
+5. **Event counters.** Tiny counts like "terrain re-centred", "tree block
+   built", "far-object tiles rebuilt", "game hour changed", "blocks freed".
+   These name the cause of almost every stutter.
+6. **Switches.** One `--off=grass,trees_far,…` setting. Each switch declares
+   what it removes (drawing only, or the script work too) and how it is
+   verified (screenshot difference, draw-call difference, or a counter).
+7. **Scenarios.** Fixed, repeatable routes: fixed seed, time stopped, weather
+   held, vsync off, no fps cap. Each waits until shader compiles and
+   background loading have stopped before measuring.
+8. **Report.** One HTML file that opens offline.
+
+### Folder layout
+```
+C:\Claude\Open World Game - Zobolin\     (only what must run inside Godot)
+  tools\benchmark.ps1                     extended
+  game\benchmark\bench_zones.gd           stopwatches
+  game\benchmark\bench_counters.gd        event counters
+  game\benchmark\bench_recorder.gd        per-frame rows -> frames.csv + run.json
+  game\benchmark\bench_stats.gd           percentiles, 1% low, hitches
+  game\benchmark\bench_switches.gd        --off= handling
+  game\benchmark\scenarios\*.gd           camera routes
+  game\tests\bench_stats_test.gd          GdUnit4 tests
+
+C:\Claude\Zobolin Benchmark Tool\         (this folder)
+  zbench.ps1                              the one command
+  lib\Stats.psm1  Report.psm1  Machine.psm1
+  scenarios\*.json
+  baselines\<pc>\<scenario>_<preset>.json
+  results\<date>_<pc>_<commit>\           raw runs + report.html
+  README.md
+```
+Scripts that run inside the game must live in the game repo (Godot only loads
+them from inside the project, and the stopwatches sit inside `forest.gd` etc.).
+The recorder is a node added only for benchmark runs, not an autoload, so
+`project.godot` and normal play stay unchanged.
+
+---
+
+## 4. Measurement map
+
+**Z** stopwatch · **C** counter · **M** engine monitor · **A** switch-off · **P** per-pass GPU printout
+
+| System | Measured by | Expected cost |
+|---|---|---|
+| Terrain drawing (Terrain3D) | **A** terrain (✱ via Terrain3D's own toggles, confirmed by draw-call delta), shader variants; **P** opaque | GPU, probably top 2 |
+| Terrain re-centring (`TerrainWorld.recentre`) | **Z** with sub-zones; **C**; ✱ blame window = that frame + 2 (follow-on physics cost) | Stutter, 21–29 ms, ~7 per flight |
+| ✱ Terrain3D collision around the player | **M** physics time + **C** in walk/flight | Physics |
+| Grass (~200k clumps) | **A** grass + distance sweep 100/200/300 m; **Z** tile placement | GPU, top 2 (~3.5 ms at 5K) |
+| Far tree pictures (impostors) | **A** trees_far | GPU |
+| Near 3D trees, block building | **A** trees_near, tree_shadows; **Z** `forest` update; **C** blocks made / ✱ freed | GPU + stutter |
+| Trunk collision | **A** trunks; **Z**; **M** bodies | Physics stutter |
+| Far objects (4 bands) | **A** objects; **Z**; **C** tiles made | Stutter, some GPU |
+| Shadows | **A** shadows, ✱ split by caster: terrain / trees / far objects; **M** shadow draw calls; **P** | GPU, large |
+| Sky shader + updates every 0.1 s | **A** sky, sky_updates; **P** sky | GPU, medium |
+| ✱ Water surface (`water_surface.gdshader`, `WaterVolume`) | **A** water; **Z** | GPU near shore |
+| ✱ Post-processing (fog, glow, SSAO etc., downscale) | **A** post, ssao… (whatever the graphics preset enables); **P** post | GPU |
+| Day/night + weather blending | **A** daynight; **Z** `update_now` (✱ incl. season parsing) | CPU, small |
+| Rain/snow, lightning | Weather held clear / rain / snow / storm | GPU (transparency) |
+| Lighting zones, ✱ house lamps | **A** zones, lamps; **Z**; **C** | CPU + GPU |
+| Spawn queue | its own existing ms counter | CPU, capped at 2 ms |
+| NPC detail levels, schedules, route finding | **Z** per tier, `best_way`, Dijkstra; **C** level changes, new hour; **A** NPC count 0/8/16/32/64 | CPU, likely future hotspot |
+| NPC bodies (walking, avoidance) | **Z** physics + `move_and_slide`; **M** navigation | CPU / physics |
+| Navmesh baking | **Z** load rows | Loading stutter |
+| Loose items, buoyancy | **Z** shared; **M**; ✱ own awake-body counter if Jolt reports 0; **A** count 300/1000/3000 | Physics |
+| Boat + cargo | **Z**; **A** cargo 0/20/100 | Physics scripts |
+| Doors, player, grabber | **Z** shared | Small |
+| Game clock jumps | **Z**; headless micro test | Spike, grows with NPCs |
+| Records, save/load | **Z** load rows; micro test 1k/10k/100k records | Loading time |
+| ImGui, overlay, the tool itself | hidden while measuring; **Z** | ~0.6 ms claimed for ImGui |
+| ✱ Video memory | **M** texture + buffer memory; warn above ~3.3 GB (GTX 970) | Ceiling |
+| ✱ Physics catch-up | physics ticks per frame are part of hitch blame | Multiplies physics on slow frames |
+| Unattributed remainder | ✱ main-loop ms − render CPU − our process-side zones | Engine, Terrain3D, untimed code |
+
+---
+
+## 5. Scenarios
+
+| Name | What it does | Stresses |
+|---|---|---|
+| `vista` | The existing 8 views + 3 village views, ✱ 10 s each | Steady GPU load; main switch-off target |
+| `flight` | Existing flight x −4080 → 4080. ✱ Moves a fixed distance per frame so every PC visits the same positions | Re-centring, streaming stutters |
+| `forest_lowpass` | Low and fast over the densest forest | Tree blocks, trunk collision |
+| `village_walk` | Into the village and the house | Lighting zones, lamps, nearest far objects |
+| `storm_noon`, `storm_night`, `snow` | Weather held, lightning every 5 s | Particles, sky, second light |
+| `time_fast` | Time × 600 for 60 s | Day/night churn |
+| `npc_crowd_8/16/32/64` | Villagers, a 07:00 rush, an 8-hour clock jump | NPC CPU, navigation |
+| `items_300/1000/3000` | Drop and settle, dry vs waves | Jolt physics, buoyancy |
+| `boat_cargo_0/20/100` | Waves and throttle on | Cargo code |
+| `load` | Cold start to first steady frame (✱ with `-ColdCache` to clear shader/picture caches) | Loading |
+| `micro` | Headless: route finding with 10/100/1000 places, records, clock jumps | Future hotspots, no GPU needed |
+
+Run lengths (✱ to be re-measured in phase 4, since each start costs ~7 s of
+world building plus warm-up): `-Quick` everyday run ~15 min, full switch-off
+run before milestones ~1 h.
+
+---
+
+## 6. Output
+
+Per run: `frames.csv` (one row per frame) and `run.json` (summary per
+segment: frame ms p50/p95/p99/max, 1% low, GPU ms, GPU-bound share, CPU split,
+counts, zones, unattributed ms, hitches with causes, load times, warm-up,
+video memory, and PC/build/thread-model/cache-state details). The old
+`results.json` files stay as they are, so existing checks keep working.
+
+Per session: `summary.json` (medians, noise band, each switch's saving) and
+**`report.html`**:
+1. **Verdict in plain words** – e.g. "This PC is held back by the graphics
+   card in 82 % of frames. The biggest stutters come from re-centring."
+2. **Top costs table** – every system in one list, sorted by ms: resource
+   (GPU / CPU / physics / stutter), ms, % of the 16.7 ms budget, confidence
+   (outside noise or not), how measured, red mark if over its own budget.
+3. Frame-time chart per scenario with hitch marks (hover shows the cause).
+4. Hitches grouped by cause.
+5. CPU vs GPU per view (✱ shown as "critical path", not a stacked sum, since
+   the halves run in parallel), load-time table.
+6. Warning when systems clearly affect each other.
+7. Comparison with the baseline (green/red only outside the noise band), and
+   PCs side by side (GTX 970 high, UHD 770 low, HD 630 low) each against its
+   own target. This replaces typing up `measurements\*.md` by hand.
+
+---
+
+## 7. Build plan (small steps, each with a check)
+
+Every step also passes the three standard checks from the game's CLAUDE.md
+(import, one-frame run, GdUnit4 tests).
+
+| Step | Deliverable | Check |
+|---|---|---|
+| 0 | Owner's decisions (section 8); entry in the game's `PLAN.md`; this folder set up | Owner says yes |
+| 1 ✅ 2026-11-08 | **Engine check**: a run prints which 4.7.2 numbers really work (Jolt physics counts, shader compiles cumulative or per frame, which monitors refresh every frame, `--gpu-profile` format, thread model) | Done: see `findings/01-engine-check.md`. Per-pass GPU time per frame is readable in `-GpuProfile` runs, so part of step 10 moves forward |
+| 2 | `bench_stats.gd` + tests | Tests pass; agrees with today's `_summarise` on old data |
+| 3 | Recorder on one terrain view → `frames.csv` + `run.json` | Frame ms within 5 % of a real-clock reference; CPU columns not 0 |
+| 4 | `benchmark.ps1` options + `zbench.ps1` with repeats, PC stamp, shared vsync/fps-cap detector (fails the run if capped) | 3 repeats agree within the PC's noise band (band recorded, not a fail) |
+| 5a | Switches mapped to existing flags | Each verified by its declared method |
+| 5b | New GPU switches (water, post, shadow casters, lamps…) | Same |
+| 5c | CPU/physics switches | Verified by counters |
+| 6 | Switch-off matrix on `vista` + first `report.html` | Grass ≈ 3.5 ms ± 25 % on the GTX 970 at 5K high; UHD 770 says "GPU-bound" |
+| 7 | Event counters + hitch blame + flight chart | Flight report puts ~7 hitches under "re-centre" at the 1024 m lines |
+| 8 | Stopwatches in world systems + unattributed row | Overhead from a 100k-call micro loop < 0.1 ms/frame; re-centre sub-zones add up within 10 % |
+| 9a | NPC stopwatches + crowd scenarios | NPC cost grows steadily with count (straight-line fit); 07:00 rush flagged |
+| 9b | Items, boat, doors, player stopwatches + scenarios | Existing items/boat checks still pass |
+| 9c | Headless `micro` tests | Run without a window and finish |
+| 10 | `-GpuProfile` (separate run) | Pass total within 10 % of GPU ms averaged over the same second |
+| 11a | Baselines + comparison + PC table | Two runs at the same commit show "no change" |
+| 11b | Switch the i9 batch file and prompt over to zbench | Owner runs it on the i9 |
+| 12 (optional) | Live in-game cost table (ImGui); Tracy build only if the unattributed row stays big | Visible, with its own cost shown |
+
+Steps 1–7 already answer the main question for terrain, flight and forest.
+
+---
+
+## 8. Decisions for the owner
+
+| # | Question | Recommendation |
+|---|---|---|
+| 1 | May small one-line hooks go into the game repo (`game/benchmark/` + probes in forest, grass, terrain_world, day_night, npcs…)? | **Yes** – they do nothing unless the benchmark setting is given |
+| 2 | Recorder as a global autoload, or a node added only in benchmark runs? | **Benchmark-only node** – normal play unchanged |
+| 3 | Is this folder its own git repo (GPL-3.0), with baselines and reports committed here? | **Yes** |
+| 4 | PowerShell only, or also Python? | **PowerShell only** – nothing to install on the i9 or laptop |
+| 5 | Thresholds: hitch > 33.3 ms or > 2× typical; noise band 3 % (wider per PC if needed); alarm at > 5 % and outside noise | **Accept, revisit after step 4** |
+| 6 | Default run length | **`-Quick` everyday, full run before milestones** |
+| 7 | Custom Godot build with Tracy? | **Not now** |
+| 8 | Make this a side item in the game's `PLAN.md` now? | **Yes** – steps 1–7 directly help the current 60 fps checks |
+| 9 | Install RenderDoc/PIX? | **Later**, at step 10, only if needed |
+
+## Risks
+- Switch-off savings don't simply add up (systems interact) → the report
+  shows the everything-off floor and an interaction warning.
+- Hidden ≠ gone: hiding stops drawing, not script work → each switch says
+  which it removes.
+- GPU time is late and noisy → uncapped runs, medians, noise band, 2-frame
+  blame window, skip 2–3 frames after each screenshot.
+- Compiled parts (Terrain3D, Jolt, navigation, worker threads) can't be timed
+  from inside → measured around their calls, by counters and by switching off.
+- Shader and picture caches on disk make the first repeat different → cache
+  state recorded; first repeat discarded or `-ColdCache` used deliberately.
+- Laptops and Intel graphics vary with heat and power → power plan, battery
+  and elapsed time recorded; cool-down between runs.

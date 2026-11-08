@@ -1,0 +1,692 @@
+{
+  "engine": {
+    "api_version": "1.3.280",
+    "debug_build": true,
+    "driver": "vulkan",
+    "frame_queue_size": 2,
+    "godot": "4.7.2-stable (official)",
+    "graphics_card": "NVIDIA GeForce GTX 970",
+    "max_fps": 0,
+    "max_physics_steps_per_frame": 8,
+    "physics_engine": "Jolt Physics",
+    "physics_ticks_per_second": 60,
+    "preset": "high",
+    "processor": "AMD Ryzen 7 1800X Eight-Core Processor",
+    "processor_count": 16,
+    "renderer": "forward_plus",
+    "rendering_device": true,
+    "scaling_3d_scale": 2.0,
+    "thread_model": 1,
+    "vendor": "NVIDIA",
+    "vsync_mode": 0,
+    "window": [
+      2560.0,
+      1440.0
+    ]
+  },
+  "frame_cap": {
+    "looks_capped": false,
+    "median_ms": 14.409,
+    "p10_ms": 13.933,
+    "p90_ms": 14.907
+  },
+  "gpu_timestamps": {
+    "available": true,
+    "count": 60,
+    "frame": 1288,
+    "timestamps": [
+      "Frame Begin: gpu 1794146822048.162 ms, cpu 26.443 ms",
+      "Prepare Render Frame: gpu 1794146822048.163 ms, cpu 26.443 ms",
+      "> Render Viewports: gpu 1794146822048.164 ms, cpu 26.443 ms",
+      "> Render Viewport 0: gpu 1794146822048.164 ms, cpu 26.443 ms",
+      "Cull 2D Lights: gpu 1794146822048.165 ms, cpu 26.443 ms",
+      "< Render Viewport 0: gpu 1794146822048.166 ms, cpu 26.443 ms",
+      "> Render Viewport 3: gpu 1794146822048.167 ms, cpu 26.443 ms",
+      "vp_begin_3672197038080: gpu 1794146822048.168 ms, cpu 26.443 ms",
+      "> Render 3D Scene: gpu 1794146822048.168 ms, cpu 26.443 ms",
+      "Update Occlusion Buffer: gpu 1794146822048.169 ms, cpu 26.443 ms",
+      "Update Visibility Dependencies: gpu 1794146822048.170 ms, cpu 26.443 ms",
+      "Cull 3D Scene: gpu 1794146822048.170 ms, cpu 26.443 ms",
+      "Cull DirectionalLight3D, Split 0: gpu 1794146822048.171 ms, cpu 26.443 ms",
+      "Cull DirectionalLight3D, Split 1: gpu 1794146822048.172 ms, cpu 26.443 ms",
+      "Cull DirectionalLight3D, Split 2: gpu 1794146822048.173 ms, cpu 26.443 ms",
+      "Cull DirectionalLight3D, Split 3: gpu 1794146822048.174 ms, cpu 26.443 ms",
+      "Render 3D Scene: gpu 1794146822048.174 ms, cpu 26.443 ms",
+      "Prepare 3D Scene: gpu 1794146822048.175 ms, cpu 26.443 ms",
+      "Setup 3D Scene: gpu 1794146822048.176 ms, cpu 26.443 ms",
+      "Setup Sky: gpu 1794146822048.180 ms, cpu 26.443 ms",
+      "Render Depth Pre-Pass: gpu 1794146822048.182 ms, cpu 26.443 ms",
+      "Process Pre Opaque Compositor Effects: gpu 1794146822050.527 ms, cpu 26.443 ms",
+      "Setup Shadows: gpu 1794146822050.528 ms, cpu 26.443 ms",
+      "Render Directional/SpotLight Shadows: gpu 1794146822050.587 ms, cpu 26.443 ms",
+      "Pre Opaque Render: gpu 1794146822051.485 ms, cpu 26.444 ms",
+      "> Bake 3D Cluster: gpu 1794146822051.487 ms, cpu 26.444 ms",
+      "< Bake 3D Cluster: gpu 1794146822051.568 ms, cpu 26.444 ms",
+      "Update Volumetric Fog: gpu 1794146822051.569 ms, cpu 26.444 ms",
+      "Render Opaque Pass: gpu 1794146822051.570 ms, cpu 26.444 ms",
+      "Process Post Opaque Compositor Effects: gpu 1794146822060.570 ms, cpu 26.444 ms",
+      "Render Sky: gpu 1794146822060.571 ms, cpu 26.444 ms",
+      "Process Post Sky Compositor Effects: gpu 1794146822061.848 ms, cpu 26.444 ms",
+      "Copy Depth Texture: gpu 1794146822061.848 ms, cpu 26.444 ms",
+      "Process Pre Transparent Compositor Effects: gpu 1794146822061.849 ms, cpu 26.444 ms",
+      "Render 3D Transparent Pass: gpu 1794146822061.850 ms, cpu 26.444 ms",
+      "Resolve: gpu 1794146822061.856 ms, cpu 26.444 ms",
+      "Process Post Transparent Compositor Effects: gpu 1794146822061.856 ms, cpu 26.444 ms",
+      "Tonemap: gpu 1794146822061.857 ms, cpu 26.444 ms",
+      "Tonemap: gpu 1794146822061.858 ms, cpu 26.444 ms",
+      "< Render 3D Scene: gpu 1794146822062.340 ms, cpu 26.444 ms",
+      "Cull 2D Lights: gpu 1794146822062.341 ms, cpu 26.444 ms",
+      "> Render Canvas 0: gpu 1794146822062.341 ms, cpu 26.444 ms",
+      "Cull CanvasItem Tree: gpu 1794146822062.342 ms, cpu 26.444 ms",
+      "Render CanvasItems: gpu 1794146822062.343 ms, cpu 26.444 ms",
+      "< Render Canvas 0: gpu 1794146822062.345 ms, cpu 26.444 ms",
+      "> Render Canvas 1: gpu 1794146822062.346 ms, cpu 26.444 ms",
+      "Cull CanvasItem Tree: gpu 1794146822062.347 ms, cpu 26.444 ms",
+      "Render CanvasItems: gpu 1794146822062.347 ms, cpu 26.444 ms",
+      "< Render Canvas 1: gpu 1794146822062.349 ms, cpu 26.444 ms",
+      "> Render Canvas 2: gpu 1794146822062.350 ms, cpu 26.444 ms",
+      "Cull CanvasItem Tree: gpu 1794146822062.351 ms, cpu 26.444 ms",
+      "Render CanvasItems: gpu 1794146822062.352 ms, cpu 26.444 ms",
+      "< Render Canvas 2: gpu 1794146822062.374 ms, cpu 26.444 ms",
+      "> Render Canvas 3: gpu 1794146822062.375 ms, cpu 26.444 ms",
+      "Cull CanvasItem Tree: gpu 1794146822062.376 ms, cpu 26.444 ms",
+      "Render CanvasItems: gpu 1794146822062.376 ms, cpu 26.444 ms",
+      "< Render Canvas 3: gpu 1794146822062.469 ms, cpu 26.444 ms",
+      "vp_end_3672197038080: gpu 1794146822062.470 ms, cpu 26.444 ms",
+      "< Render Viewport 3: gpu 1794146822062.470 ms, cpu 26.444 ms",
+      "< Render Viewports: gpu 1794146822062.471 ms, cpu 26.444 ms"
+    ]
+  },
+  "monitors": {
+    "AUDIO_OUTPUT_LATENCY": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.00999999977648258,
+      "median": 0.00999999977648258,
+      "min": 0.00999999977648258
+    },
+    "MEMORY_MESSAGE_BUFFER_MAX": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 4096.0,
+      "median": 4096.0,
+      "min": 4096.0
+    },
+    "MEMORY_STATIC": {
+      "changed_share_of_frames": 1.0,
+      "changes_per_second": 69.3,
+      "max": 386381737.0,
+      "median": 386078493.0,
+      "min": 385777945.0
+    },
+    "MEMORY_STATIC_MAX": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 447347336.0,
+      "median": 447347336.0,
+      "min": 447347336.0
+    },
+    "NAVIGATION_2D_ACTIVE_MAPS": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_2D_AGENT_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_2D_EDGE_CONNECTION_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_2D_EDGE_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_2D_EDGE_FREE_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_2D_EDGE_MERGE_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_2D_LINK_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_2D_OBSTACLE_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_2D_POLYGON_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_2D_REGION_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_3D_ACTIVE_MAPS": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_3D_AGENT_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_3D_EDGE_CONNECTION_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_3D_EDGE_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_3D_EDGE_FREE_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_3D_EDGE_MERGE_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_3D_LINK_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_3D_OBSTACLE_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_3D_POLYGON_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_3D_REGION_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_ACTIVE_MAPS": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_AGENT_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_EDGE_CONNECTION_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_EDGE_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_EDGE_FREE_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_EDGE_MERGE_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_LINK_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_OBSTACLE_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_POLYGON_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "NAVIGATION_REGION_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "OBJECT_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 4280.0,
+      "median": 4280.0,
+      "min": 4280.0
+    },
+    "OBJECT_NODE_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 1267.0,
+      "median": 1267.0,
+      "min": 1267.0
+    },
+    "OBJECT_ORPHAN_NODE_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "OBJECT_RESOURCE_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 53.0,
+      "median": 53.0,
+      "min": 53.0
+    },
+    "PHYSICS_2D_ACTIVE_OBJECTS": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "PHYSICS_2D_COLLISION_PAIRS": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "PHYSICS_2D_ISLAND_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "PHYSICS_3D_ACTIVE_OBJECTS": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "PHYSICS_3D_COLLISION_PAIRS": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "PHYSICS_3D_ISLAND_COUNT": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "PIPELINE_COMPILATIONS_CANVAS": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 2.0,
+      "median": 2.0,
+      "min": 2.0
+    },
+    "PIPELINE_COMPILATIONS_DRAW": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "PIPELINE_COMPILATIONS_MESH": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.0,
+      "median": 0.0,
+      "min": 0.0
+    },
+    "PIPELINE_COMPILATIONS_SPECIALIZATION": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 15.0,
+      "median": 15.0,
+      "min": 15.0
+    },
+    "PIPELINE_COMPILATIONS_SURFACE": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 27.0,
+      "median": 27.0,
+      "min": 27.0
+    },
+    "RENDER_BUFFER_MEM_USED": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 189746312.0,
+      "median": 189746312.0,
+      "min": 189746312.0
+    },
+    "RENDER_TEXTURE_MEM_USED": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 724326400.0,
+      "median": 724326400.0,
+      "min": 724326400.0
+    },
+    "RENDER_TOTAL_DRAW_CALLS_IN_FRAME": {
+      "changed_share_of_frames": 0.595,
+      "changes_per_second": 41.3,
+      "max": 790.0,
+      "median": 748.0,
+      "min": 684.0
+    },
+    "RENDER_TOTAL_OBJECTS_IN_FRAME": {
+      "changed_share_of_frames": 0.548,
+      "changes_per_second": 38.0,
+      "max": 1896.0,
+      "median": 1833.0,
+      "min": 1746.0
+    },
+    "RENDER_TOTAL_PRIMITIVES_IN_FRAME": {
+      "changed_share_of_frames": 0.575,
+      "changes_per_second": 39.9,
+      "max": 2333696.0,
+      "median": 2139282.0,
+      "min": 2017128.0
+    },
+    "RENDER_VIDEO_MEM_USED": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 1000329520.0,
+      "median": 1000329520.0,
+      "min": 1000329520.0
+    },
+    "TIME_FPS": {
+      "changed_share_of_frames": 0.013,
+      "changes_per_second": 0.9,
+      "max": 70.0,
+      "median": 69.0,
+      "min": 59.0
+    },
+    "TIME_NAVIGATION_PROCESS": {
+      "changed_share_of_frames": 0.0,
+      "changes_per_second": 0.0,
+      "max": 0.000003,
+      "median": 0.000003,
+      "min": 0.000003
+    },
+    "TIME_PHYSICS_PROCESS": {
+      "changed_share_of_frames": 0.017,
+      "changes_per_second": 1.2,
+      "max": 0.000606,
+      "median": 0.000568,
+      "min": 0.000535
+    },
+    "TIME_PROCESS": {
+      "changed_share_of_frames": 0.017,
+      "changes_per_second": 1.2,
+      "max": 0.018319,
+      "median": 0.014828,
+      "min": 0.014555
+    }
+  },
+  "physics": {
+    "PHYSICS_3D_ACTIVE_OBJECTS": {
+      "max": 0.0,
+      "median": 0.0
+    },
+    "PHYSICS_3D_COLLISION_PAIRS": {
+      "max": 0.0,
+      "median": 0.0
+    },
+    "PHYSICS_3D_ISLAND_COUNT": {
+      "max": 0.0,
+      "median": 0.0
+    },
+    "boxes": 20,
+    "our_awake_boxes_last": 14.0,
+    "our_awake_boxes_max": 20.0
+  },
+  "pipeline_compilations": {
+    "PIPELINE_COMPILATIONS_CANVAS": {
+      "falls": 0,
+      "kind": "never changed",
+      "max_by_phase": {
+        "new_view": 2.0,
+        "physics": 2.0,
+        "steady": 2.0,
+        "terrain_hidden": 2.0,
+        "terrain_shown": 2.0
+      },
+      "nonzero_frames": 840,
+      "rises": 0
+    },
+    "PIPELINE_COMPILATIONS_DRAW": {
+      "falls": 0,
+      "kind": "never changed",
+      "max_by_phase": {
+        "new_view": 0.0,
+        "physics": 0.0,
+        "steady": 0.0,
+        "terrain_hidden": 0.0,
+        "terrain_shown": 0.0
+      },
+      "nonzero_frames": 0,
+      "rises": 0
+    },
+    "PIPELINE_COMPILATIONS_MESH": {
+      "falls": 0,
+      "kind": "never changed",
+      "max_by_phase": {
+        "new_view": 0.0,
+        "physics": 0.0,
+        "steady": 0.0,
+        "terrain_hidden": 0.0,
+        "terrain_shown": 0.0
+      },
+      "nonzero_frames": 0,
+      "rises": 0
+    },
+    "PIPELINE_COMPILATIONS_SPECIALIZATION": {
+      "falls": 0,
+      "kind": "adds up (never falls)",
+      "max_by_phase": {
+        "new_view": 18.0,
+        "physics": 18.0,
+        "steady": 15.0,
+        "terrain_hidden": 18.0,
+        "terrain_shown": 18.0
+      },
+      "nonzero_frames": 840,
+      "rises": 1
+    },
+    "PIPELINE_COMPILATIONS_SURFACE": {
+      "falls": 0,
+      "kind": "never changed",
+      "max_by_phase": {
+        "new_view": 27.0,
+        "physics": 27.0,
+        "steady": 27.0,
+        "terrain_hidden": 27.0,
+        "terrain_shown": 27.0
+      },
+      "nonzero_frames": 840,
+      "rises": 0
+    }
+  },
+  "render_functions": {
+    "get_frame_profile": false,
+    "get_frame_profile_frame": false,
+    "get_frame_setup_time_cpu": true,
+    "set_frame_profiling_enabled": false,
+    "viewport_get_measured_render_time_cpu": true,
+    "viewport_get_measured_render_time_gpu": true,
+    "viewport_get_render_info": true
+  },
+  "stopwatch_cost": {
+    "ignore": 5017,
+    "pairs": 100000,
+    "plain_clock_us_per_pair": 0.119,
+    "zone_off_us_per_pair": 0.492,
+    "zone_on_us_per_pair": 1.079,
+    "zone_pairs_per_frame_for_0_1_ms": 92
+  },
+  "terrain_hide": {
+    "terrain_hidden": {
+      "draw_calls": 333.0,
+      "gpu_ms": 10.701000213623,
+      "objects": 333.0,
+      "primitives": 814748.0,
+      "shadow_draw_calls": 324.0
+    },
+    "terrain_settings": [
+      "collision = <Terrain3DCollision#49694115418>",
+      "Collision = <null>",
+      "collision_mode = 1",
+      "collision_shape_size = 16",
+      "collision_radius = 64",
+      "collision_target = Player:<CharacterBody3D#47898953221>",
+      "collision_layer = 1",
+      "collision_mask = 1",
+      "collision_priority = 1.0",
+      "Terrain Mesh = <null>",
+      "clipmap_target = Player:<CharacterBody3D#47898953221>",
+      "mesh_lods = 8",
+      "mesh_size = 48",
+      "cull_margin = 0.0",
+      "cast_shadows = 1",
+      "render_layers = 2147483649",
+      "Ocean Mesh = <null>",
+      "ocean_mesh_lods = 7",
+      "ocean_mesh_size = 32",
+      "ocean_cull_margin = 20.0",
+      "ocean_cast_shadows = 0",
+      "ocean_render_layers = 1",
+      "Rendering = <null>",
+      "visible = true"
+    ],
+    "terrain_shown": {
+      "draw_calls": 370.0,
+      "gpu_ms": 14.8879995346069,
+      "objects": 423.0,
+      "primitives": 1071140.0,
+      "shadow_draw_calls": 415.0
+    }
+  },
+  "timing": {
+    "TIME_PROCESS_vs_our_process_span": {
+      "lag": 3,
+      "mean_difference_ms": 14.731
+    },
+    "TIME_PROCESS_vs_our_process_start_to_draw_end": {
+      "lag": 3,
+      "mean_difference_ms": 1.059
+    },
+    "measured_gpu_changed_share_of_frames": 1.0,
+    "measured_gpu_vs_frame_interval": {
+      "lag": 3,
+      "mean_difference_ms": 0.748
+    },
+    "measured_render_cpu_vs_our_draw_span": {
+      "lag": 3,
+      "mean_difference_ms": 12.511
+    },
+    "median_ms": {
+      "TIME_PHYSICS_PROCESS": 0.568,
+      "TIME_PROCESS": 14.828,
+      "frame_interval": 14.409,
+      "frame_setup_cpu": 0.028,
+      "measured_gpu": 13.701000213623,
+      "measured_render_cpu": 1.0460000038147,
+      "our_draw_span": 13.58,
+      "our_process_span": 0.094,
+      "our_process_start_to_draw_end": 13.771
+    },
+    "physics_steps_per_frame": {
+      "max": 1.0,
+      "median": 1.0
+    }
+  }
+}

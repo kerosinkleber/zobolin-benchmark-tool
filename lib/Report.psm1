@@ -93,16 +93,28 @@ function Get-PartName([string] $Variant) {
 	return $Variant
 }
 
-# Plain names for what was happening in a stutter frame (newer sessions).
+# Plain names for what was happening in a stutter frame (newer sessions):
+# the game's events, plus physics catch-up and shader compiles.
 $CauseNames = @{
-	recentre = "re-centring the world"
-	grass_tiles = "new grass tiles"
-	object_tiles = "new tiles of far houses and rocks"
-	tree_blocks = "new blocks of trees"
-	trunk_bodies = "new tree trunk collision"
-	physics_catch_up = "physics catching up (several physics steps in one frame)"
-	screenshot = "the benchmark's own screenshot (not the game)"
-	shader_compiles = "a new shader being prepared"
+	recentre = "Re-centring the world"
+	tree_blocks = "New near trees"
+	trunk_bodies = "New tree-trunk collision"
+	grass_tiles = "New grass tiles"
+	object_tiles = "New far houses and rocks"
+	screenshot = "The benchmark's own screenshot (not the game's fault)"
+	shader_compiles = "Shaders compiled for the first time"
+	physics_catch_up = "Physics catching up after a slow frame"
+	unknown = "Unknown"
+	npc_level_changes = "NPCs switching how closely they are simulated"
+	new_hour = "A new hour (NPCs change what they do)"
+	route_searches = "NPC route searches"
+	bodies_made = "New NPC bodies"
+	items_spawned = "New loose items"
+	items_woke = "Loose items waking up (physics)"
+	cargo_stowed = "Cargo stowed on the boat"
+	cargo_released = "Cargo released from the boat"
+	trip_saved = "Saving the trip"
+	trip_loaded = "Loading the trip"
 }
 
 function Get-CauseName([string] $Id) {
@@ -110,9 +122,144 @@ function Get-CauseName([string] $Id) {
 	return $Id
 }
 
+# Plain names for the stopwatch zones. A name with a dot is a piece of the
+# zone before the dot (shown indented under it).
+$ZoneNames = @{
+	forest = "Near trees (building after moving)"
+	"forest.blocks" = "tree blocks"
+	"forest.collision" = "trunk collision"
+	objects = "Far houses and rocks"
+	grass = "Grass tiles"
+	daynight = "Day, night and weather"
+	recentre = "Re-centring (physics)"
+	"recentre.regions" = "moving the ground's regions"
+	"recentre.shift" = "moving every node"
+	"recentre.collision" = "the ground's collision"
+	"recentre.signals" = "the systems that follow"
+	npc = "NPCs (each frame)"
+	"npc.schedule" = "following their day plans"
+	"npc.level_change" = "switching how closely they are simulated"
+	"npc.route" = "route searches"
+	npc_bodies = "NPC bodies (physics)"
+	"npc_bodies.steer" = "steering"
+	"npc_bodies.move" = "moving"
+	items = "Loose items (physics)"
+	"items.water" = "checking for water"
+	"items.buoyancy" = "floating"
+	spawn = "Adding items"
+	player = "The player (physics)"
+	"player.grabber" = "grabbing and carrying"
+	boat = "The boat (physics)"
+	"boat.holding" = "holding the cargo in place"
+	"boat.stowing" = "stowing cargo"
+	"boat.buoyancy" = "floating"
+	trip_saving = "Saving the trip"
+	trip_loading = "Loading the trip"
+	"trip_loading.unstow" = "taking the cargo off"
+	"trip_loading.restow" = "stowing the cargo again"
+	_overhead = "The stopwatches' own cost"
+}
+
+function Get-ZoneName([string] $Id) {
+	if ($ZoneNames.ContainsKey($Id)) { return $ZoneNames[$Id] }
+	return $Id
+}
+
 function Get-LowerFirst([string] $Text) {
 	if ($Text.Length -lt 2) { return $Text }
+	# Keep short words in capitals (NPC) as they are.
+	if ([char]::IsUpper($Text[1])) { return $Text }
 	return $Text.Substring(0, 1).ToLower() + $Text.Substring(1)
+}
+
+# The name/value pairs of a JSON object (empty for $null).
+function Get-Pairs($Object) {
+	if ($null -eq $Object) { return @() }
+	if ($Object -is [System.Collections.IDictionary]) { return @($Object.GetEnumerator() | ForEach-Object { [pscustomobject]@{ Name = [string]$_.Key; Value = $_.Value } }) }
+	return @($Object.PSObject.Properties | ForEach-Object { [pscustomobject]@{ Name = $_.Name; Value = $_.Value } })
+}
+
+# Small milliseconds: more digits when the number is tiny.
+function Fmt-Ms($Value) {
+	if ($null -eq $Value) { return "-" }
+	$abs = [math]::Abs([double]$Value)
+	if ($abs -gt 0 -and $abs -lt 0.01) { return (Fmt $Value 4) }
+	if ($abs -lt 1) { return (Fmt $Value 3) }
+	return (Fmt $Value 2)
+}
+
+# A round step for an axis that should have about four lines.
+function Get-NiceStep([double] $Span) {
+	if ($Span -le 0) { return 1.0 }
+	$raw = $Span / 4.0
+	$magnitude = [math]::Pow(10, [math]::Floor([math]::Log10($raw)))
+	foreach ($m in @(1.0, 2.0, 2.5, 5.0, 10.0)) { if ($m * $magnitude -ge $raw) { return $m * $magnitude } }
+	return 10.0 * $magnitude
+}
+
+# What a sweep counts, for its sentences ("per extra NPC").
+function Get-SweepUnit([string] $Scenario, [string] $FirstVariant) {
+	$key = "$Scenario $FirstVariant"
+	if ($key -match "npc") { return @{ one = "NPC"; many = "NPCs" } }
+	if ($key -match "cargo") { return @{ one = "crate of cargo"; many = "crates of cargo" } }
+	if ($key -match "item") { return @{ one = "item"; many = "items" } }
+	return @{ one = "one"; many = "count" }
+}
+
+# One small chart for a sweep: points (x, ms) and the fitted straight line.
+function New-GrowthChart([string] $Caption, $Points, $Fit, [string] $Cls, [string] $XLabel) {
+	$width = 360.0; $height = 210.0
+	$left = 48.0; $right = 14.0; $top = 12.0; $bottom = 36.0
+	$plotW = $width - $left - $right
+	$plotH = $height - $top - $bottom
+	$pts = @($Points | Where-Object { $null -ne $_.y })
+	if ($pts.Count -lt 1) { return "<p class=""muted small"">$(Esc "$Caption`: not recorded.")</p>" }
+	$xMin = [double]::MaxValue; $xMax = [double]::MinValue; $yTop = 0.0
+	foreach ($p in $pts) {
+		if ($p.x -lt $xMin) { $xMin = $p.x }
+		if ($p.x -gt $xMax) { $xMax = $p.x }
+		if ($p.y -gt $yTop) { $yTop = $p.y }
+	}
+	if ($xMax -le $xMin) { $xMax = $xMin + 1.0 }
+	if ($null -ne $Fit) {
+		foreach ($xEnd in @($xMin, $xMax)) {
+			$yEnd = [double]$Fit.intercept + [double]$Fit.slope * $xEnd
+			if ($yEnd -gt $yTop) { $yTop = $yEnd }
+		}
+	}
+	if ($yTop -le 0) { $yTop = 1.0 }
+	$step = Get-NiceStep ($yTop * 1.1)
+	$yMax = [math]::Ceiling(($yTop * 1.1) / $step) * $step
+	# Enough digits to show the step exactly (0.25 needs two).
+	$digits = 0
+	while ($digits -lt 4 -and [math]::Abs($step * [math]::Pow(10, $digits) - [math]::Round($step * [math]::Pow(10, $digits))) -gt 1e-6) { $digits++ }
+	$sb = New-Object System.Text.StringBuilder
+	[void]$sb.Append("<svg class=""chart"" viewBox=""0 0 $(Fmt $width 0) $(Fmt $height 0)"" role=""img"" aria-label=""$(Esc $Caption)"">")
+	for ($g = 0.0; $g -le $yMax + $step / 1000.0; $g += $step) {
+		$y = $top + (1.0 - $g / $yMax) * $plotH
+		[void]$sb.Append("<line class=""grid"" x1=""$(Fmt $left 1)"" x2=""$(Fmt ($width - $right) 1)"" y1=""$(Fmt $y 1)"" y2=""$(Fmt $y 1)""/>")
+		[void]$sb.Append("<text class=""axis"" x=""$(Fmt ($left - 6) 1)"" y=""$(Fmt ($y + 4) 1)"" text-anchor=""end"">$(Fmt $g $digits)</text>")
+	}
+	[void]$sb.Append("<text class=""axis"" x=""4"" y=""$(Fmt ($top + 2) 1)"" transform=""rotate(-90 4,$(Fmt ($top + 2) 1))"" text-anchor=""end"" dy=""8"">ms</text>")
+	$xs = @($pts | ForEach-Object { $_.x } | Sort-Object -Unique)
+	foreach ($xv in $xs) {
+		$x = $left + (($xv - $xMin) / ($xMax - $xMin)) * $plotW
+		[void]$sb.Append("<text class=""axis"" x=""$(Fmt $x 1)"" y=""$(Fmt ($height - $bottom + 15) 1)"" text-anchor=""middle"">$(Esc ([string]::Format($Inv, '{0:0.##}', $xv)))</text>")
+	}
+	[void]$sb.Append("<text class=""axis"" x=""$(Fmt ($left + $plotW / 2) 1)"" y=""$(Fmt ($height - 4) 1)"" text-anchor=""middle"">$(Esc $XLabel)</text>")
+	if ($null -ne $Fit) {
+		$y1 = $top + (1.0 - [math]::Max(0.0, [double]$Fit.intercept + [double]$Fit.slope * $xMin) / $yMax) * $plotH
+		$y2 = $top + (1.0 - [math]::Max(0.0, [double]$Fit.intercept + [double]$Fit.slope * $xMax) / $yMax) * $plotH
+		[void]$sb.Append("<line class=""fit $Cls"" x1=""$(Fmt $left 1)"" x2=""$(Fmt ($width - $right) 1)"" y1=""$(Fmt $y1 1)"" y2=""$(Fmt $y2 1)""><title>The straight line that fits best</title></line>")
+	}
+	foreach ($p in $pts) {
+		$x = $left + (($p.x - $xMin) / ($xMax - $xMin)) * $plotW
+		$y = $top + (1.0 - [math]::Min([double]$p.y, $yMax) / $yMax) * $plotH
+		$tip = [string]::Format($Inv, "{0}: {1} ms", $p.label, (Fmt-Ms $p.y))
+		[void]$sb.Append("<circle class=""pt $Cls"" cx=""$(Fmt $x 1)"" cy=""$(Fmt $y 1)"" r=""4""><title>$(Esc $tip)</title></circle>")
+	}
+	[void]$sb.Append("</svg>")
+	return "<figure class=""growth"">$($sb.ToString())<figcaption class=""small muted"">$(Esc $Caption)</figcaption></figure>"
 }
 
 function Get-PartId([string] $Variant) {
@@ -238,8 +385,12 @@ function New-FrameChart([string] $View, $Rows, $Hitches) {
 		$y = $top + (1.0 - [math]::Min($worst, $yMax) / $yMax) * $plotH
 		$tip = [string]::Format($Inv, "Stutter at {0:F2} s: {1:F1} ms", ($t - $tStart) / 1000.0, $worst)
 		$causes = @(Get-Field $h "causes" | Where-Object { $_ })
-		if ($causes.Count -eq 0) { $one = Get-Field $h "cause"; if ($one) { $causes = @($one) } }
-		if ($causes.Count -gt 0) { $tip += "; happening in that frame: " + (($causes | ForEach-Object { Get-CauseName $_ }) -join ", ") }
+		$mainCause = [string](Get-Field $h "cause")
+		if ($mainCause) {
+			$tip += "; main cause: " + (Get-LowerFirst (Get-CauseName $mainCause))
+			$others = @($causes | Where-Object { $_ -ne $mainCause })
+			if ($others.Count -gt 0) { $tip += "; also happening: " + (($others | ForEach-Object { Get-LowerFirst (Get-CauseName $_) }) -join ", ") }
+		} elseif ($causes.Count -gt 0) { $tip += "; happening in that frame: " + (($causes | ForEach-Object { Get-LowerFirst (Get-CauseName $_) }) -join ", ") }
 		$count = Get-Field $h "frames"
 		if ($null -ne $count -and [int]$count -gt 1) { $tip += " ($count slow frames in a row)" }
 		$steps = Get-Field $h "physics_steps"
@@ -286,7 +437,20 @@ function New-BenchReport {
 	$notShown = @()
 
 	# The all-on runs: <session>\r1 for plain sessions, all_on\r1 with -Ablate.
+	# A sweep keeps each variant in its own folder (<variant>\r1); its main
+	# numbers are the first (smallest) variant's, so its runs are used.
+	$scaling = @(Get-Field $summary "scaling" | Where-Object { $null -ne $_ })
+	$comparison = Get-Field $summary "comparison"
+	$runVariant = $null
 	$runRoot = if (Test-Path -LiteralPath (Join-Path $dir "all_on")) { Join-Path $dir "all_on" } else { $dir }
+	if (-not (Test-Path -LiteralPath (Join-Path $runRoot "r1"))) {
+		$candidates = @()
+		if ($scaling.Count -gt 0) { $candidates += @(@($scaling[0].rows) | ForEach-Object { [string]$_.variant }) }
+		$candidates += @(Get-ChildItem -LiteralPath $dir -Directory | Sort-Object Name | ForEach-Object { $_.Name })
+		foreach ($candidate in $candidates) {
+			if ($candidate -and (Test-Path -LiteralPath (Join-Path $dir "$candidate\r1\run.json"))) { $runVariant = $candidate; $runRoot = Join-Path $dir $candidate; break }
+		}
+	}
 	$runs = @()
 	for ($r = 1; $r -le [math]::Max(1, $repeats); $r++) {
 		$run = Read-Json (Join-Path $runRoot "r$r\run.json")
@@ -338,6 +502,12 @@ function New-BenchReport {
 			band = $band
 			repeatsMs = @(Get-Field $seg "per_repeat_mean_ms")
 			hitches = @(Get-Field $seg "hitches")
+			causes = Get-Field $seg "hitch_causes"
+			zones = Get-Field $seg "zones"
+			processMean = Get-Field $seg "process_mean_ms"
+			physicsMean = Get-Field $seg "physics_mean_ms"
+			unattributedProcess = Get-Field $seg "unattributed_process_ms"
+			unattributedPhysics = Get-Field $seg "unattributed_physics_ms"
 		}
 	}
 
@@ -404,6 +574,12 @@ svg .hitch { fill:var(--bad); stroke:var(--card); stroke-width:1.5; cursor:help;
 .bar-wrap { position:relative; background:var(--grid); border-radius:3px; }
 .bar-wrap .goal { position:absolute; top:-3px; bottom:-3px; border-left:2px dashed var(--muted); }
 .v { text-align:right; font-variant-numeric:tabular-nums; }
+.good { color:var(--good); } .same { color:var(--muted); } .bad { color:var(--bad); }
+td.piece { padding-left:1.6rem; color:var(--muted); } tr.own td { color:var(--muted); }
+.growths { display:grid; grid-template-columns:1fr 1fr; gap:8px 16px; } figure.growth { margin:0; }
+svg .fit { stroke-width:1.6; stroke-dasharray:5 3; } svg .pt { stroke:var(--card); stroke-width:1.5; cursor:help; }
+svg .fit.s-cpu { stroke:var(--cpu); } svg .pt.s-cpu { fill:var(--cpu); } svg .fit.s-frame { stroke:var(--frame); } svg .pt.s-frame { fill:var(--frame); }
+@media (max-width: 560px) { .growths { grid-template-columns:1fr; } }
 @media (max-width: 560px) { dl.facts { grid-template-columns:1fr; } dl.facts dd { margin-bottom:6px; } .bars { grid-template-columns:1fr 4.6rem; } .bars > span:nth-child(3n+1) { grid-column:1 / -1; margin-top:4px; } }
 '@
 	Add "</style></head><body><main>"
@@ -470,7 +646,8 @@ svg .hitch { fill:var(--bad); stroke:var(--card); stroke-width:1.5; cursor:help;
 		$verdict += "Biggest costs on the graphics card (frame time saved when switched off, average of the views): $list."
 	}
 	$cpuParts = @($costs | Where-Object { [bool](Get-Field $_ "cpu") -and -not ([string](Get-Field $_ "check")).StartsWith("NO") } | Sort-Object { [double](Get-Field $_ "mean_cpu_saving_ms") } -Descending)
-	$cpuValues = @($views | Where-Object { $null -ne $_.cpu } | ForEach-Object { [double]$_.cpu })
+	# Sessions from before step 5c recorded no processor time (0): left out.
+	$cpuValues = @($views | Where-Object { $null -ne $_.cpu -and [double]$_.cpu -gt 0 } | ForEach-Object { [double]$_.cpu })
 	if ($cpuValues.Count -gt 0) {
 		$cpuMean = 0.0
 		foreach ($c in $cpuValues) { $cpuMean += $c }
@@ -483,16 +660,55 @@ svg .hitch { fill:var(--bad); stroke:var(--card); stroke-width:1.5; cursor:help;
 		}
 		$verdict += "$sentence."
 	}
+	# Stutters per run: each view's hitches hold one count per repeat.
 	$totalHitches = 0
-	foreach ($v in $views) { foreach ($h in $v.hitches) { if ($null -ne $h) { $totalHitches += [int]$h } } }
+	$repeatCount = 1
+	foreach ($v in $views) {
+		$counts = @($v.hitches | Where-Object { $null -ne $_ })
+		$repeatCount = [math]::Max($repeatCount, $counts.Count)
+		foreach ($h in $counts) { $totalHitches += [int]$h }
+	}
+	$perRun = [math]::Round($totalHitches / $repeatCount)
 	if ($totalHitches -eq 0) { $verdict += "No stutters in the measured views." }
 	else {
-		$stutterLine = "$totalHitches stutter$(if ($totalHitches -ne 1) { 's' }) (frames much slower than the ones around them) across all repeats; see the red marks in the charts."
+		$stutterLine = "About $perRun stutter$(if ($perRun -ne 1) { 's' }) per run (frames much slower than the ones around them; $totalHitches over all $repeatCount runs); see the red marks in the charts."
 		# Newer sessions say what was happening; the benchmark's own screenshots aren't the game's fault.
 		$shots = 0
 		foreach ($run in $runs) { foreach ($rs in @($run.segments)) { foreach ($h in @(Get-Field $rs "hitches")) { if ($h -and (Get-Field $h "cause") -eq "screenshot") { $shots++ } } } }
-		if ($shots -gt 0) { $stutterLine += " $shots of them happened while the benchmark took its own screenshot, so they are not the game's." }
+		if ($shots -gt 0) { $shotsPerRun = [math]::Round($shots / [math]::Max(1, @($runs).Count)); $stutterLine += " $shotsPerRun of them per run happened while the benchmark took its own screenshot, so they are not the game's." }
 		$verdict += $stutterLine
+	}
+	# The biggest cause of the game's own stutters (newer sessions).
+	$causeTotals = @{}
+	foreach ($v in $views) {
+		foreach ($pair in (Get-Pairs $v.causes)) {
+			if ($pair.Name -eq "screenshot") { continue }
+			if (-not $causeTotals.ContainsKey($pair.Name)) { $causeTotals[$pair.Name] = @{ count = 0.0; worst = 0.0; views = @() } }
+			$entry = $causeTotals[$pair.Name]
+			$entry.count += [double](Get-Field $pair.Value "count")
+			$entry.worst = [math]::Max($entry.worst, [double](Get-Field $pair.Value "worst_ms"))
+			$entry.views += $v.name
+		}
+	}
+	if ($causeTotals.Count -gt 0) {
+		$topCause = @($causeTotals.Keys | Sort-Object @{ Expression = { $causeTotals[$_].count }; Descending = $true }, @{ Expression = { $causeTotals[$_].worst }; Descending = $true }) | Select-Object -First 1
+		$entry = $causeTotals[$topCause]
+		$where = if ($views.Count -eq 1) { "in $($views[0].name)" } else { "over all the views" }
+		$howMany = if ($entry.count -gt 0) { [string]::Format($Inv, "{0:0.#} per run {1}", $entry.count, $where) } else { "in some runs only" }
+		$verdict += [string]::Format($Inv, "The biggest cause of the game's own stutters: {0} ({1}, the slowest {2:F1} ms).", (Get-LowerFirst (Get-CauseName $topCause)), $howMany, $entry.worst)
+	}
+	# A sweep: how the processor's cost grows with the count.
+	$fitted = @($scaling | Where-Object { $null -ne (Get-Field $_ "cpu_fit") })
+	if ($fitted.Count -gt 0) {
+		$unit = Get-SweepUnit $scenario ([string](@($fitted[0].rows) | Select-Object -First 1).variant)
+		$steep = @($fitted | Sort-Object { [double]$_.cpu_fit.slope } -Descending) | Select-Object -First 1
+		$steadyCount = @($fitted | Where-Object { [double]$_.cpu_fit.r2 -ge 0.9 }).Count
+		$grows = if ([double]$steep.cpu_fit.slope -ge 0) { "grows" } else { "shrinks" }
+		$line = "Processor time $grows by $(Fmt-Ms ([math]::Abs([double]$steep.cpu_fit.slope))) ms per extra $($unit.one)"
+		if ($fitted.Count -gt 1) { $line += " in $($steep.view) (the view where it grows fastest); it grows along a straight line in $steadyCount of $($fitted.Count) views." }
+		elseif ($steadyCount -eq 1) { $line += ", steadily (along a straight line)." }
+		else { $line += ", but not along a straight line." }
+		$verdict += $line
 	}
 	if ($costs.Count -eq 0) { $verdict += "This session didn't switch parts off, so it can't say what each part costs (run zbench.ps1 with -Ablate for that)." }
 	Add "<h2>Verdict</h2>"
@@ -500,6 +716,51 @@ svg .hitch { fill:var(--bad); stroke:var(--card); stroke-width:1.5; cursor:help;
 	foreach ($line in $verdict) { Add "<p>$(Esc $line)</p>" }
 	Add "</div>"
 	Add "<p class=""muted small"">ms = millisecond, a thousandth of a second. fps = frames per second. A view is one part of the test that is measured on its own (usually one fixed camera position).</p>"
+
+	# ---------- Compared with the baseline ----------
+	$compareRows = @(Get-Field $comparison "rows" | Where-Object { $null -ne $_ })
+	if ($compareRows.Count -gt 0) {
+		$metrics = @(
+			@{ id = "mean_frame_ms"; label = "Average frame" },
+			@{ id = "p99_frame_ms"; label = "Slowest 1 in 100 frames" },
+			@{ id = "gpu_ms"; label = "Graphics card" },
+			@{ id = "cpu_ms"; label = "Processor" }
+		)
+		Add "<h2>Compared with the baseline</h2>"
+		$baseCommit = [string](Get-Field $comparison "baseline_commit")
+		$baseShort = if ($baseCommit.Length -ge 7) { $baseCommit.Substring(0, 7) } else { $baseCommit }
+		$baseDate = [string](Get-Field $comparison "baseline_date")
+		$baseFile = [string](Get-Field $comparison "baseline_file")
+		$baseText = "The baseline is an earlier session on this PC"
+		if ($baseShort) { $baseText += ", game commit $baseShort" }
+		if ($baseDate) { $baseText += ", worked out $($baseDate.Replace('T', ' '))" }
+		$baseText += "."
+		$fileHtml = ""
+		if ($baseFile) { $fileHtml = ' <span class="muted small" style="overflow-wrap:anywhere">(' + (Esc $baseFile) + ')</span>' }
+		Add "<p>$(Esc $baseText)$fileHtml</p>"
+		$faster = 0; $slower = 0
+		Add "<div class=""scroll""><table><thead><tr><th>View</th>"
+		foreach ($m in $metrics) { Add "<th class=""n"">$(Esc $m.label) (ms)</th>" }
+		Add "</tr></thead><tbody>"
+		foreach ($row in $compareRows) {
+			$cells = ""
+			foreach ($m in $metrics) {
+				$cell = Get-Field $row $m.id
+				if ($null -eq $cell) { $cells += "<td class=""n muted"">-</td>"; continue }
+				$verdictWord = [string](Get-Field $cell "verdict")
+				$cls = if ($verdictWord -eq "faster") { "good" } elseif ($verdictWord -eq "slower") { "bad" } else { "same" }
+				if ($verdictWord -eq "faster") { $faster++ } elseif ($verdictWord -eq "slower") { $slower++ }
+				$changePct = [double](Get-Field $cell "change_share") * 100
+				$sign = if ($changePct -gt 0) { "+" } else { "" }
+				$cells += "<td class=""n $cls"">$(Fmt (Get-Field $cell 'before') 2) &rarr; $(Fmt (Get-Field $cell 'now') 2)<br><span class=""small"">$sign$(Fmt $changePct 1) %, $(Esc $verdictWord)</span></td>"
+			}
+			Add "<tr><td>$(Esc (Get-Field $row 'view'))</td>$cells</tr>"
+		}
+		Add "</tbody></table></div>"
+		$summaryWord = if ($faster -eq 0 -and $slower -eq 0) { "Nothing changed beyond the noise." } else { "$faster number$(if ($faster -ne 1) { 's' }) got faster, $slower slower." }
+		Add "<p class=""small"">$(Esc $summaryWord) <span class=""good"">Green = faster</span>, <span class=""bad"">red = slower</span>, <span class=""same"">grey = no change</span>.</p>"
+		Add "<p class=""muted small"">$(Esc "A change counts only if it is over 5 % and outside the noise (more than the repeats of either session differed); anything smaller is shown as no change. Each cell: before, then now, in ms per frame; processor = the game's scripts and physics.")</p>"
+	}
 
 	# ---------- Top costs ----------
 	if ($costs.Count -gt 0) {
@@ -592,9 +853,46 @@ svg .hitch { fill:var(--bad); stroke:var(--card); stroke-width:1.5; cursor:help;
 		Add "<p class=""muted small"">* = inside the noise: smaller than how much the repeats differed, so it may be no real change. Cost is the average of the views; processor costs have 3 decimals because they are small. % of 16.7 ms = how much of the time one frame may take at 60 fps. Negative numbers (red) mean the frame got slower when the part was off.</p>"
 	}
 
+	# ---------- How it grows (a sweep) ----------
+	if ($scaling.Count -gt 0) {
+		$firstVariant = [string](@($scaling[0].rows) | Select-Object -First 1).variant
+		$unit = Get-SweepUnit $scenario $firstVariant
+		Add "<h2>How it grows</h2>"
+		Add "<p>$(Esc "The same test was run with more and more $($unit.many). Each number is the middle value of the repeats; the dashed line is the straight line that fits the points best.")</p>"
+		foreach ($sc in $scaling) {
+			$scRows = @($sc.rows | Where-Object { $null -ne $_ } | Sort-Object { [double]$_.x })
+			Add "<div class=""card""><h3>$(Esc $sc.view)</h3>"
+			$sentences = @()
+			foreach ($fitInfo in @(@{ fit = (Get-Field $sc "cpu_fit"); what = "Processor time" }, @{ fit = (Get-Field $sc "frame_fit"); what = "Frame time" })) {
+				$fitValue = $fitInfo.fit
+				if ($null -eq $fitValue) { continue }
+				$slope = [double]$fitValue.slope
+				$r2 = [double]$fitValue.r2
+				$grows = if ($slope -ge 0) { "grows" } else { "shrinks" }
+				$shape = if ($r2 -ge 0.9) { "it grows steadily" } else { "it does not grow along a straight line" }
+				$sentences += [string]::Format($Inv, "{0} {1} by {2} ms per extra {3}; the straight line fits {4:F0} % ({5}).", $fitInfo.what, $grows, (Fmt-Ms ([math]::Abs($slope))), $unit.one, $r2 * 100, $shape)
+			}
+			foreach ($s in $sentences) { Add "<p>$(Esc $s)</p>" }
+			$xLabel = if ($unit.one -eq "one") { "count" } else { "number of $($unit.many)" }
+			$cpuPoints = @($scRows | ForEach-Object { [pscustomobject]@{ x = [double]$_.x; y = $(if ($null -ne (Get-Field $_ "cpu_ms")) { [double]$_.cpu_ms } else { $null }); label = [string]$_.variant } })
+			$framePoints = @($scRows | ForEach-Object { [pscustomobject]@{ x = [double]$_.x; y = $(if ($null -ne (Get-Field $_ "frame_ms")) { [double]$_.frame_ms } else { $null }); label = [string]$_.variant } })
+			Add "<div class=""growths"">"
+			Add (New-GrowthChart "Processor time per frame (scripts and physics)" $cpuPoints (Get-Field $sc "cpu_fit") "s-cpu" $xLabel)
+			Add (New-GrowthChart "Whole frame (average)" $framePoints (Get-Field $sc "frame_fit") "s-frame" $xLabel)
+			Add "</div>"
+			Add "<div class=""scroll""><table><thead><tr><th>Variant</th><th class=""n"">How many</th><th class=""n"">Average frame (ms)</th><th class=""n"">Slowest 1 in 100 (ms)</th><th class=""n"">Graphics card (ms)</th><th class=""n"">Processor (ms)</th><th class=""n"">of it physics (ms)</th><th class=""n"">Stutters per run</th></tr></thead><tbody>"
+			foreach ($r in $scRows) {
+				Add "<tr><td>$(Esc $r.variant)</td><td class=""n"">$(Esc ([string]::Format($Inv, '{0:0.##}', [double]$r.x)))</td><td class=""n"">$(Fmt (Get-Field $r 'frame_ms') 2)</td><td class=""n"">$(Fmt (Get-Field $r 'p99_ms') 2)</td><td class=""n"">$(Fmt (Get-Field $r 'gpu_ms') 2)</td><td class=""n"">$(Fmt (Get-Field $r 'cpu_ms') 3)</td><td class=""n"">$(Fmt (Get-Field $r 'physics_ms') 3)</td><td class=""n"">$(if ($null -ne (Get-Field $r 'hitches')) { [string]::Format($Inv, '{0:0.#}', [double]$r.hitches) } else { '-' })</td></tr>"
+			}
+			Add "</tbody></table></div></div>"
+		}
+		Add "<p class=""muted small"">Processor = the game's scripts and the physics step, averaged over all frames. A straight line that fits 90 % or more means the cost grows steadily with the count; less means it jumps or grows faster than the count.</p>"
+	}
+
 	# ---------- Frame-time charts ----------
 	Add "<h2>Frame time over each view</h2>"
-	Add "<p>From the first run with everything on. Lower is better; below the dashed line is faster than 60 fps.</p>"
+	$fromText = if ($runVariant) { "From the first run of $runVariant (the smallest variant)." } else { "From the first run with everything on." }
+	Add "<p>$(Esc $fromText) Lower is better; below the dashed line is faster than 60 fps.</p>"
 	Add "<div class=""legend""><span><span class=""key"" style=""background:var(--frame)""></span>whole frame</span><span><span class=""key"" style=""background:var(--gpu)""></span>graphics card's time</span><span><span class=""key dot"" style=""background:var(--bad)""></span>stutter (point at it for details)</span></div>"
 	foreach ($v in $views) {
 		$rows = if ($rowsByView.ContainsKey($v.name)) { $rowsByView[$v.name] } else { @() }
@@ -611,6 +909,29 @@ svg .hitch { fill:var(--bad); stroke:var(--card); stroke-width:1.5; cursor:help;
 		$hitchCount = @($runHitches | Where-Object { $_ }).Count
 		$line += "; stutters in this run: $hitchCount."
 		Add "<p class=""small"">$(Esc $line)</p></div>"
+	}
+
+	# ---------- What causes the stutters ----------
+	$causeViews = @($views | Where-Object { @(Get-Pairs $_.causes).Count -gt 0 })
+	if ($causeViews.Count -gt 0) {
+		Add "<h2>What causes the stutters</h2>"
+		Add "<p>Each stutter is put down to what the game was doing in the frames around it (its main cause). Sorted by how often it happens.</p>"
+		foreach ($v in $causeViews) {
+			$causeRows = @(Get-Pairs $v.causes | ForEach-Object {
+				[pscustomobject]@{ id = $_.Name; count = [double](Get-Field $_.Value "count"); worst = [double](Get-Field $_.Value "worst_ms"); at = @(Get-Field $_.Value "at_x" | Where-Object { $null -ne $_ }) }
+			} | Sort-Object @{ Expression = { $_.id -eq "screenshot" } }, @{ Expression = { $_.count }; Descending = $true }, @{ Expression = { $_.worst }; Descending = $true })
+			Add "<div class=""card""><h3>$(Esc $v.name)</h3>"
+			Add "<div class=""scroll""><table><thead><tr><th>Main cause</th><th class=""n"">Stutters per run</th><th class=""n"">Slowest (ms)</th><th>Where (world x, first run)</th></tr></thead><tbody>"
+			foreach ($c in $causeRows) {
+				$countText = if ($c.count -gt 0) { [string]::Format($Inv, "{0:0.#}", $c.count) } else { "in some runs only" }
+				$places = @($c.at | ForEach-Object { [string]::Format($Inv, "{0:F0}", [double]$_) })
+				$placeText = if ($places.Count -eq 0) { "-" } elseif ($places.Count -gt 12) { (($places | Select-Object -First 12) -join ", ") + " and $($places.Count - 12) more" } else { $places -join ", " }
+				$rowCls = if ($c.id -eq "screenshot") { " class=""own""" } else { "" }
+				Add "<tr$rowCls><td title=""$(Esc $c.id)"">$(Esc (Get-CauseName $c.id))</td><td class=""n"">$(Esc $countText)</td><td class=""n"">$(Fmt $c.worst 1)</td><td>$(Esc $placeText)</td></tr>"
+			}
+			Add "</tbody></table></div></div>"
+		}
+		Add "<p class=""muted small"">$(Esc "Stutters per run: the middle value over the repeats; when that is 0, the cause happened in some runs only. Slowest: the slowest such stutter in any repeat. Where: the camera's world x position in the first run. When several things happened at once, the main cause is the first of: the screenshot, re-centring, new near trees, new trunk collision, new far houses and rocks, new grass tiles, shaders, physics catching up (which mostly follows a slow frame rather than causing it).")</p>"
 	}
 
 	# ---------- Where the frame goes ----------
@@ -642,6 +963,42 @@ svg .hitch { fill:var(--bad); stroke:var(--card); stroke-width:1.5; cursor:help;
 	}
 	$physNote = if ($physicsMissing) { " This older session didn't record physics time separately, so the scripts bar shows scripts only (typical frame)." } else { "" }
 	Add "<p class=""muted small"">$(Esc "Graphics card: its time to draw one frame (typical frame). Preparing the drawing: the processor's time to hand the frame to the graphics card (typical frame). Scripts and physics: the game's own code and the physics step, averaged over all frames.$physNote The dashed line is 16.7 ms.")</p>"
+
+	# ---------- Where the processor time goes ----------
+	$zoneViews = @($views | Where-Object { @(Get-Pairs $_.zones).Count -gt 0 })
+	if ($zoneViews.Count -gt 0) {
+		Add "<h2>Where the processor time goes</h2>"
+		Add "<p>Stopwatches in the game's own systems: the average time per frame, and the slowest single frame (a big slowest frame with a small average is a one-off spike, so a stutter rather than a lower frame rate).</p>"
+		foreach ($v in $zoneViews) {
+			$zoneList = @(Get-Pairs $v.zones | ForEach-Object {
+				[pscustomobject]@{ id = $_.Name; mean = [double](Get-Field $_.Value "mean_ms"); max = [double](Get-Field $_.Value "max_ms") }
+			})
+			$zoneIds = @($zoneList | ForEach-Object { $_.id })
+			$tops = @($zoneList | Where-Object { $_.id.IndexOf(".") -lt 0 -or $zoneIds -notcontains $_.id.Substring(0, $_.id.IndexOf(".")) } | Sort-Object mean -Descending)
+			Add "<div class=""card""><h3>$(Esc $v.name)</h3>"
+			Add "<div class=""scroll""><table><thead><tr><th>Part</th><th class=""n"">Average per frame (ms)</th><th class=""n"">Slowest frame (ms)</th></tr></thead><tbody>"
+			if ($null -ne $v.processMean -or $null -ne $v.physicsMean) {
+				$together = 0.0
+				if ($null -ne $v.processMean) { $together += [double]$v.processMean }
+				if ($null -ne $v.physicsMean) { $together += [double]$v.physicsMean }
+				$split = "all scripts $(Fmt-Ms $v.processMean), physics $(Fmt-Ms $v.physicsMean)"
+				Add "<tr class=""total""><td>Scripts and physics together<br><span class=""muted small"">$(Esc $split)</span></td><td class=""n"">$(Fmt-Ms $together)</td><td class=""n""></td></tr>"
+			}
+			foreach ($z in $tops) {
+				$dot = $z.id.IndexOf(".")
+				$name = if ($dot -gt 0 -and -not $ZoneNames.ContainsKey($z.id)) { $z.id } elseif ($dot -gt 0) { "$(Get-ZoneName $z.id.Substring(0, $dot)): $(Get-ZoneName $z.id)" } else { Get-ZoneName $z.id }
+				Add "<tr><td title=""$(Esc $z.id)"">$(Esc $name)</td><td class=""n"">$(Fmt-Ms $z.mean)</td><td class=""n"">$(Fmt $z.max 2)</td></tr>"
+				$pieces = @($zoneList | Where-Object { $_.id.StartsWith("$($z.id).") } | Sort-Object mean -Descending)
+				foreach ($p in $pieces) {
+					Add "<tr><td class=""piece"" title=""$(Esc $p.id)"">&ndash; $(Esc (Get-ZoneName $p.id))</td><td class=""n"">$(Fmt-Ms $p.mean)</td><td class=""n"">$(Fmt $p.max 2)</td></tr>"
+				}
+			}
+			if ($null -ne $v.unattributedProcess) { Add "<tr class=""own""><td>Scripts without a stopwatch</td><td class=""n"">$(Fmt-Ms $v.unattributedProcess)</td><td class=""n""></td></tr>" }
+			if ($null -ne $v.unattributedPhysics) { Add "<tr class=""own""><td>Physics without a stopwatch (mostly the physics engine's own step)</td><td class=""n"">$(Fmt-Ms $v.unattributedPhysics)</td><td class=""n""></td></tr>" }
+			Add "</tbody></table></div></div>"
+		}
+		Add "<p class=""muted small"">Indented rows are pieces of the part above them, already counted in it. Parts marked (physics) run in the physics step and count towards the physics time. Each number is the middle value over the repeats.</p>"
+	}
 
 	# ---------- Do the parts add up? ----------
 	if ($interaction.Count -gt 0) {

@@ -27,9 +27,15 @@ processor switches are now also checked by comparing screenshots
 **Steps 6 to 11a are done** (2026-11-08), see the table in section 7 and
 `findings/07` to `findings/10`. After step 9 an independent review (four
 reviewers and a verifier) found 24 problems; all were fixed and the sweeps
-measured again (`findings/10-review.md`). **Left:** step 11b (using it on the
-i9 PC and the laptop, the owner's) and step 12 (optional). The scenarios
-not built yet are listed in section 5.
+measured again (`findings/10-review.md`).
+
+**Steps 11b and 12 are done too** (2026-11-08): the tool is on GitHub
+(https://github.com/kerosinkleber/zobolin-benchmark-tool) and was run on the
+i9's built-in graphics (Intel UHD 770; `baselines/DESKTOP-PK8LI3N`, the game's
+`measurements/i9-low-tier.md`); the i7 7700K + GTX 1050 run is under way in
+its own session. The live cost table is in the terrain test (F4). The last
+scenarios of section 5 are built and measured (`findings/11-scenarios.md`).
+Every step of this plan is built.
 
 ---
 
@@ -203,10 +209,12 @@ Built (scenario files in `scenarios\`):
 | `boat_cargo` | 0, 13 and 26 crates on deck (one layer: stacked cargo isn't re-stowed after loading, a game bug for the owner) | Cargo code |
 | `micro` (the game's `-Test micro`) | Without a window: route finding with 10/100/1000 places, records, clock jumps with 0/100/1000 NPCs | Future hotspots |
 
-Not built yet (each needs its own route or scene; later, when needed):
-`forest_lowpass`, `village_walk` (house lamps), `storm_noon` /
-`storm_night` / `snow`, `time_fast`, `load` (cold start with
-`-ColdCache`), and water (in the boat scene, without a switch yet).
+| `forest_lowpass` | 2 km at 30 m over the densest row of tree blocks, 60 m/s fixed | Near trees, trunk collision, grass streaming |
+| `village_walk` | To the house's door, in and out (switch: `lamps`) | House light and lamps |
+| `storm_noon` / `storm_night` / `snow` | The quick views in a storm (lightning every 5 s) at noon or 23:00, or in snow | Weather drawing and scripts |
+| `time_fast` | The quick views with time 600 times faster | Day-and-night updates |
+| `load` | The start-up (with `-ColdCache`: shaders, pipelines and tree pictures cleared first) | Loading, shader compiling |
+| `boat` | The boat scene (switch: `water`) | Water surface, buoyancy |
 
 Run lengths on the development PC: `vista_quick` 3 runs about 2 min;
 `-Ablate` on `vista_quick` about 35 min; `npc_crowd` about 45 min.
@@ -262,8 +270,8 @@ Every step also passes the three standard checks from the game's CLAUDE.md
 | 9c ✅ 2026-11-08 | Micro benchmarks without a window (`tools\benchmark.ps1 -Test micro`) | Done: they run headless and finish (`MICRO DONE`); route finding is the future hotspot; `findings/09c-micro.md` |
 | 10 ✅ 2026-11-08 | `-GpuProfile`: per-pass GPU time every frame (built in step 3) | Done: the passes add up to within 3 % of the GPU total on every view (`findings/10-gpu-passes-gtx970-summary.json`) |
 | 11a ✅ 2026-11-08 | Baselines (`-SaveBaseline`), comparison, `compare_pcs.ps1` | Done: the same commit shows "no change" on every view; grass to 300 m shows "slower" on every view (+7 to +10 %), processor "no change" |
-| 11b | Use it on the i9 and the laptop (the tool's repository needs to reach them first: it has no GitHub repository yet) | Owner runs it on the i9 |
-| 12 (optional) | Live in-game cost table (ImGui); Tracy build only if the unattributed row stays big | Visible, with its own cost shown |
+| 11b ✅ 2026-11-08 | Use it on the i9 and the laptop: public GitHub repository; run by a session on the i9 (UHD 770, both renderers) and one on an i7 7700K + GTX 1050 | Done on the i9: graphics-card bound (94-100 % of frames with Forward+), 0 of 3 views at 60 with Forward+, 1 with Mobile; baselines committed. i7: in its own session |
+| 12 ✅ 2026-11-08 | Live in-game cost table (ImGui, F4 or `-- --bench-panel`); Tracy not built (the stopwatches and switches were enough so far) | Visible, its own cost shown as `bench_panel` (about 0.15 ms) |
 
 Steps 1–7 already answer the main question for terrain, flight and forest.
 

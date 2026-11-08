@@ -8,12 +8,12 @@ Licence: GPL-3.0-or-later (see `LICENSE`).
 
 ## Status
 
-Steps 1 to 11a are built (see `PLAN.md`): the one command, switching parts
-off (graphics card and processor), stopwatches in the game's systems,
-stutter blame, sweeps (more NPCs, items, cargo), micro benchmarks, the
-report page, baselines and the comparison between PCs. Step 11b (using it
-on the i9 PC and the laptop) is for you; step 12 (a live in-game table) is
-optional and not built.
+Every step of `PLAN.md` is built: the one command, switching parts off
+(graphics card and processor), stopwatches in the game's systems, stutter
+blame, sweeps (more NPCs, items, cargo), micro benchmarks, the report page,
+baselines and the comparison between PCs, the i9/laptop run (step 11b) and
+a live cost table in the game (step 12, F4). Public repository:
+https://github.com/kerosinkleber/zobolin-benchmark-tool
 
 ## Running it
 
@@ -41,6 +41,12 @@ optional and not built.
 | `-Scenario items` | The items test with 300, 1000 and 3000 items, and how their cost grows |
 | `-Scenario boat_cargo` | The boat with 0, 13 and 26 crates of cargo, and how their cost grows |
 | `-Scenario vista` | All 11 terrain views instead of the quick 3 (`vista_quick`) |
+| `-Scenario forest_lowpass` | Low (30 m) and fast over the densest forest for 2 km: near trees, trunk collision and grass keep coming |
+| `-Scenario village_walk` | To the house's door, in and out again (its light and lamps); with `-Ablate` the lamps are switched off once |
+| `-Scenario storm_noon` / `storm_night` / `snow` | The 3 quick views in a storm (a loud lightning strike every 5 s) at noon or at 23:00, or in snow |
+| `-Scenario time_fast` | The 3 quick views with the game time running 600 times faster (an hour every 6 s) |
+| `-Scenario load` (add `-ColdCache`) | The start-up: how long until the first view, and where the time goes; `-ColdCache` first clears Godot's compiled shaders, graphics pipelines and tree pictures (only those) |
+| `-Scenario boat -Ablate` | The boat scene with and without drawing the water |
 | `-Scenario storm` | A storm with fully wet surfaces (7c), at the centre, valley floor, village, lake shore and market stall; with `-Ablate` also what rain (`precipitation`), the wet look (`wet`) and the lake (`lake`) cost |
 | `-Ablate` | Also once with each part off (shadows, grass, houses and rocks, trees, ground, sky, fog, and the pieces: far tree pictures, the ground's, near trees' and houses' shadows) and once with the parts all off, then a table of what each part costs; then the processor switches (physics, updates, day and night, panel, re-centring, collision, ImGui) and a table of processor time saved. Three rounds of 21 runs: about 35 minutes |
 | `-Ablate -Kind gpu` / `-Kind cpu` | Only the graphics card's switches (about 21 minutes) or only the processor's (about 15 minutes) |
@@ -65,6 +71,15 @@ folder isn't committed.
   marked `*` ("inside the noise").
 - **A change against a baseline** counts only if it is over 5 % and
   outside the noise, each number with its own noise.
+
+### The live cost table (in the game)
+
+In the terrain test, press **F4**: a window shows, averaged over the last
+second, the frame time, the graphics card's time, Godot's main-loop and
+physics time, and every stopwatch (what each system's scripts cost), with
+the table's own cost as `bench_panel`. `-- --bench-panel` on the command
+line opens it at the start. It is for looking around; the tool's runs are
+what count.
 
 ### Baselines and comparing PCs
 
@@ -108,3 +123,17 @@ tests (the tool uses it):
   record loading, clock jumps with many NPCs (step 9c).
 - `-OutDir <folder>` writes the results there; don't end the folder name
   with `\` (Windows PowerShell then mixes up the options after it).
+- `tools\benchmark_low_tier_intel.bat` (the i9 and the laptop) runs the
+  old low-tier checks and then this tool, if it is next to the game's
+  folder; `tools\i9_test_session_prompt.md` is the prompt for a measuring
+  session there.
+
+## On another PC
+
+Clone this repository next to the game's folder (the same parent folder):
+
+    git clone https://github.com/kerosinkleber/zobolin-benchmark-tool "Zobolin Benchmark Tool"
+
+`zbench.ps1` finds the game folder `Open World Game - Zobolin` next to it
+(or give `-Game <folder>`). Save a baseline there with `-SaveBaseline` and
+commit the `baselines` folder, so `compare_pcs.ps1` can show every PC.

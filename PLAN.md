@@ -22,7 +22,14 @@ switches, see `findings/05c-cpu-switches.md` (the processor does 0.5 ms
 per frame, 0.31 ms of it Jolt's step). Its "re-centring makes the graphics
 card slower" turned out to be the grass vanishing without re-centring; the
 processor switches are now also checked by comparing screenshots
-(`lib/Pictures.psm1`). Next: step 6.
+(`lib/Pictures.psm1`).
+
+**Steps 6 to 11a are done** (2026-11-08), see the table in section 7 and
+`findings/07` to `findings/10`. After step 9 an independent review (four
+reviewers and a verifier) found 24 problems; all were fixed and the sweeps
+measured again (`findings/10-review.md`). **Left:** step 11b (using it on the
+i9 PC and the laptop, the owner's) and step 12 (optional). The scenarios
+not built yet are listed in section 5.
 
 ---
 
@@ -247,15 +254,15 @@ Every step also passes the three standard checks from the game's CLAUDE.md
 | 5a ✅ 2026-11-08 | Switches mapped to existing flags (`--off=shadows,grass,objects,trees,pictures,terrain`) + `zbench.ps1 -Ablate` (all on, each off, all off, in turns) | Done: every switch took away draw calls or triangles on every view (verified by counts, not screenshots) |
 | 5b ✅ 2026-11-08 | New GPU switches: sky, fog, shadows by caster (ground, near trees, nearest houses and rocks); parts vs pieces (`detail_switches`) so nothing is counted twice. Water and lamps moved to the boat and house scenarios (not in the outdoor views); the high preset has no glow or SSAO | Done: 10 switches drew less, the sky held its setting and saved time; fog held but saves less than the noise |
 | 5c ✅ 2026-11-08 | CPU/physics switches in the terrain test (world updates, day and night, panel, Jolt's step, re-centring, ground and trunk collision, ImGui; the update ones act only while a view is measured) + `physics_ms` column + `zbench.ps1 -Kind cpu`. NPC and item switches move to steps 9a/9b with their scenarios | Done: every counter showed the work stopped, in all 3 rounds |
-| 6 | Switch-off matrix on `vista` + first `report.html` | Grass ≈ 3.5 ms ± 25 % on the GTX 970 at 5K high; UHD 770 says "GPU-bound" |
-| 7 | Event counters + hitch blame + flight chart | Flight report puts ~7 hitches under "re-centre" at the 1024 m lines |
-| 8 | Stopwatches in world systems + unattributed row | Overhead from a 100k-call micro loop < 0.1 ms/frame; re-centre sub-zones add up within 10 % |
-| 9a | NPC stopwatches + crowd scenarios | NPC cost grows steadily with count (straight-line fit); 07:00 rush flagged |
-| 9b | Items, boat, doors, player stopwatches + scenarios | Existing items/boat checks still pass |
-| 9c | Headless `micro` tests | Run without a window and finish |
-| 10 | `-GpuProfile` (separate run) | Pass total within 10 % of GPU ms averaged over the same second |
-| 11a | Baselines + comparison + PC table | Two runs at the same commit show "no change" |
-| 11b | Switch the i9 batch file and prompt over to zbench | Owner runs it on the i9 |
+| 6 ✅ 2026-11-08 (check partly not met) | Switch-off matrix on `vista` + `report.html` (built by agents, reviewed) | Report: done. Grass ≈ 3.5 ms: **not met**, it is 1.5 ms on average (3.2 at most): the 3.5 ms is from item 1b, before trees and with grass to 250 m (now 200 m). UHD 770: needs the i9 (11b). `findings/06-vista.md` |
+| 7 ✅ 2026-11-08 | Event counters + stutter blame + the recorded flight (`--fixed-flight`, scenario `flight`) | Done: 6 stutters per flight under re-centring at the 1024 m lines (the 7th re-centre falls on a screenshot frame); `findings/07-stutters.md` |
+| 8 ✅ 2026-11-08 | Stopwatches (`BenchZones`) in the world systems + unattributed rows | Done: 1.6 µs per pair on, 0.24 off (about 0.025 ms per frame); the re-centre pieces add up to the game's own timing within 0.1 %; `findings/08-stopwatches.md` |
+| 9a ✅ 2026-11-08 | NPC recording, stopwatch, events, `--npcs=` + scenario `npc_crowd` (8/24/64) | Done: processor time grows along a straight line (fit 100 % in every phase), the 07:00 rush is the dearest phase (0.026 ms per NPC); `findings/09-sweeps.md` |
+| 9b ✅ 2026-11-08 | Items and boat recording, stopwatches, events, `--items=` / `--cargo=` + scenarios `items`, `boat_cargo` (doors: no separate scenario, they cost too little to see) | Done: the normal items and boat checks pass as before; 3000 moving items take 38 ms of physics; `findings/09-sweeps.md` |
+| 9c ✅ 2026-11-08 | Micro benchmarks without a window (`tools\benchmark.ps1 -Test micro`) | Done: they run headless and finish (`MICRO DONE`); route finding is the future hotspot; `findings/09c-micro.md` |
+| 10 ✅ 2026-11-08 | `-GpuProfile`: per-pass GPU time every frame (built in step 3) | Done: the passes add up to within 3 % of the GPU total on every view (`findings/10-gpu-passes-gtx970-summary.json`) |
+| 11a ✅ 2026-11-08 | Baselines (`-SaveBaseline`), comparison, `compare_pcs.ps1` | Done: the same commit shows "no change" on every view; grass to 300 m shows "slower" on every view (+7 to +10 %), processor "no change" |
+| 11b | Use it on the i9 and the laptop (the tool's repository needs to reach them first: it has no GitHub repository yet) | Owner runs it on the i9 |
 | 12 (optional) | Live in-game cost table (ImGui); Tracy build only if the unattributed row stays big | Visible, with its own cost shown |
 
 Steps 1–7 already answer the main question for terrain, flight and forest.

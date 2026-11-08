@@ -17,5 +17,15 @@
     "terrain_shadows",
     "tree_shadows",
     "object_shadows"
+  ],
+  "cpu_switches": [
+    "world_updates",
+    "daynight",
+    "overlay",
+    "physics_engine",
+    "recentre",
+    "terrain_collision",
+    "trunk_collision",
+    "imgui"
   ]
 }

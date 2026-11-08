@@ -17,7 +17,10 @@ GTX 970). **Step 5b is done** (2026-11-08): sky, fog and shadows by
 caster, see `findings/05b-switches.md`. Water and house lamps wait for
 their scenarios (boat, house). The noise floor is now 1.5 % (decision 5,
 2026-11-08), and `zbench.ps1 -Reanalyse <folder>` works out a finished
-session again. Next: step 5c.
+session again. **Step 5c is done** (2026-11-08): processor and physics
+switches, see `findings/05c-cpu-switches.md` (the processor does 0.5 ms
+per frame, 0.31 ms of it Jolt's step; open question: re-centring makes the
+graphics card about 0.8 ms slower). Next: step 6.
 
 ---
 
@@ -231,7 +234,7 @@ Every step also passes the three standard checks from the game's CLAUDE.md
 | 4 ✅ 2026-11-08 | `benchmark.ps1` options (`-OutDir`, `-Extra`; scenarios live in the tool's `scenarios\*.json`, so no `-Scenario` there) + `zbench.ps1` with repeats, PC stamp, shared vsync/fps-cap detector (fails the run if capped) | Done: 3 repeats agree within 1.4 % on the GTX 970; a run held at 60 fps was refused |
 | 5a ✅ 2026-11-08 | Switches mapped to existing flags (`--off=shadows,grass,objects,trees,pictures,terrain`) + `zbench.ps1 -Ablate` (all on, each off, all off, in turns) | Done: every switch took away draw calls or triangles on every view (verified by counts, not screenshots) |
 | 5b ✅ 2026-11-08 | New GPU switches: sky, fog, shadows by caster (ground, near trees, nearest houses and rocks); parts vs pieces (`detail_switches`) so nothing is counted twice. Water and lamps moved to the boat and house scenarios (not in the outdoor views); the high preset has no glow or SSAO | Done: 10 switches drew less, the sky held its setting and saved time; fog held but saves less than the noise |
-| 5c | CPU/physics switches | Verified by counters |
+| 5c ✅ 2026-11-08 | CPU/physics switches in the terrain test (world updates, day and night, panel, Jolt's step, re-centring, ground and trunk collision, ImGui; the update ones act only while a view is measured) + `physics_ms` column + `zbench.ps1 -Kind cpu`. NPC and item switches move to steps 9a/9b with their scenarios | Done: every counter showed the work stopped, in all 3 rounds |
 | 6 | Switch-off matrix on `vista` + first `report.html` | Grass ≈ 3.5 ms ± 25 % on the GTX 970 at 5K high; UHD 770 says "GPU-bound" |
 | 7 | Event counters + hitch blame + flight chart | Flight report puts ~7 hitches under "re-centre" at the 1024 m lines |
 | 8 | Stopwatches in world systems + unattributed row | Overhead from a 100k-call micro loop < 0.1 ms/frame; re-centre sub-zones add up within 10 % |

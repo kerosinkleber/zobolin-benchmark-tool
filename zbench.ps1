@@ -10,7 +10,7 @@
 # affects all of them alike.
 #
 #   powershell -ExecutionPolicy Bypass -File zbench.ps1 [-Scenario vista_quick|vista]
-#       [-Ablate] [-Repeats 3] [-Preset high|low] [-Renderer forward_plus|mobile]
+#       [-Ablate [-Kind all|gpu|cpu]] [-Repeats 3] [-Preset high|low] [-Renderer forward_plus|mobile]
 #       [-Gpu auto|intel|nvidia|<number>] [-GpuProfile] [-CoolDown 20]
 #       [-GameOptions <options for the game>] [-Game <game repo folder>]
 #   powershell -ExecutionPolicy Bypass -File zbench.ps1 -Reanalyse <results folder>
@@ -26,6 +26,7 @@
 param(
 	[string] $Scenario = "vista_quick",
 	[switch] $Ablate,
+	[ValidateSet("all", "gpu", "cpu")] [string] $Kind = "all",
 	[ValidateRange(1, 20)] [int] $Repeats = 3,
 	[ValidateSet("high", "low")] [string] $Preset = "high",
 	[ValidateSet("forward_plus", "mobile")] [string] $Renderer = "forward_plus",
@@ -59,6 +60,9 @@ function Join-Repeats($RunList) {
 		$per = @($RunList | ForEach-Object { $_.segments | Where-Object { $_.name -eq $name } | Select-Object -First 1 })
 		$frameBand = Get-NoiseBand ([double[]]@($per | ForEach-Object { $_.frame_ms.mean_ms }))
 		$gpuBand = Get-NoiseBand ([double[]]@($per | ForEach-Object { $_.p50.gpu_ms }))
+		# Processor time per frame: scripts plus physics, as averages (physics
+		# runs only on some frames, so the middle frame can show none).
+		$cpuBand = Get-NoiseBand ([double[]]@($per | ForEach-Object { [double]$_.mean.process_ms + [double]$_.mean.physics_ms }))
 		$segment = [ordered]@{
 			name = $name
 			repeats = $per.Count
@@ -71,6 +75,11 @@ function Join-Repeats($RunList) {
 			gpu_spread_share = $gpuBand.spread_share
 			gpu_bound_share = Get-MedianOf $per { $_.gpu_bound_share }
 			process_ms = Get-MedianOf $per { $_.p50.process_ms }
+			process_mean_ms = Get-MedianOf $per { $_.mean.process_ms }
+			physics_mean_ms = Get-MedianOf $per { $_.mean.physics_ms }
+			cpu_ms = $cpuBand.median
+			cpu_spread_share = $cpuBand.spread_share
+			cpu_noise_band_share = $cpuBand.band_share
 			draw_ms = Get-MedianOf $per { $_.p50.draw_ms }
 			render_cpu_ms = Get-MedianOf $per { $_.p50.render_cpu_ms }
 			draw_calls = Get-MedianOf $per { $_.p50.draw_calls }
@@ -141,11 +150,21 @@ if ($Ablate) {
 	# "switches" are separate parts; "detail_switches" are pieces of them
 	# (the trees' shadows are part of the trees), measured one by one but
 	# left out of "all off" and of adding the parts up.
-	foreach ($part in $parts) { $variants += [ordered]@{ name = "$($part)_off"; off = @($part); detail = $false } }
-	foreach ($part in @($plan.detail_switches)) {
-		if ($part) { $variants += [ordered]@{ name = "$($part)_off"; off = @($part); detail = $true } }
+	# -Kind gpu runs only the drawing switches, -Kind cpu only the processor ones.
+	if ($Kind -ne "cpu") {
+		foreach ($part in $parts) { $variants += [ordered]@{ name = "$($part)_off"; off = @($part); detail = $false } }
+		foreach ($part in @($plan.detail_switches)) {
+			if ($part) { $variants += [ordered]@{ name = "$($part)_off"; off = @($part); detail = $true } }
+		}
 	}
-	$variants += [ordered]@{ name = "all_off"; off = $parts; detail = $false }
+	# "cpu_switches" stop processor or physics work; they are judged on the
+	# processor's time, not the frame's, and also left out of "all off".
+	if ($Kind -ne "gpu") {
+		foreach ($part in @($plan.cpu_switches)) {
+			if ($part) { $variants += [ordered]@{ name = "$($part)_off"; off = @($part); detail = $true; cpu = $true } }
+		}
+	}
+	if ($Kind -ne "cpu") { $variants += [ordered]@{ name = "all_off"; off = $parts; detail = $false } }
 }
 
 # --- The PC ---
@@ -285,28 +304,42 @@ if ($Ablate) {
 			$fewerPrimitives = $on.primitives - $off.primitives
 			# The switch did something if it took away draw calls or triangles.
 			if ($fewerCalls -gt 0 -or $fewerPrimitives -gt 0.01 * $on.primitives) { $verified = $true }
+			# Processor time saved: scripts plus physics, per frame on average.
+			$cpuSaving = [double]$on.cpu_ms - [double]$off.cpu_ms
+			$cpuNoise = [math]::Max([double]$on.cpu_noise_band_share, [double]$off.cpu_noise_band_share) * [double]$on.cpu_ms
 			$views += [ordered]@{
 				view = $on.name
 				frame_saving_ms = $frameSaving
 				gpu_saving_ms = $gpuSaving
+				cpu_saving_ms = $cpuSaving
 				share_of_frame = if ($on.mean_frame_ms -gt 0) { $frameSaving / $on.mean_frame_ms } else { 0 }
 				outside_noise = ([math]::Abs($frameSaving) -gt $noise)
+				cpu_outside_noise = ([math]::Abs($cpuSaving) -gt $cpuNoise)
 				fewer_draw_calls = $fewerCalls
 				fewer_primitives = $fewerPrimitives
 			}
 		}
 		$meanFrame = ($views | ForEach-Object { $_.frame_saving_ms } | Measure-Object -Average).Average
 		$meanGpu = ($views | ForEach-Object { $_.gpu_saving_ms } | Measure-Object -Average).Average
+		$meanCpu = ($views | ForEach-Object { $_.cpu_saving_ms } | Measure-Object -Average).Average
 		# What the game says about each switch, in every round: what it takes
-		# away, how to check it, and whether it was still off at the end.
+		# away, how to check it, whether it was still off at the end, and for
+		# processor switches whether its counter showed the work stopped.
 		$removes = @()
 		$method = "counts"
 		$held = $true
+		$stoppedAll = $true
+		$evidence = @()
 		for ($r = 1; $r -le $Repeats; $r++) {
 			$offRun = Get-Content -Raw (Join-Path $session "$($variant.name)\r$r\run.json") | ConvertFrom-Json
 			foreach ($property in @($offRun.off.PSObject.Properties)) {
 				if ($r -eq 1) { $removes += $property.Value.removes }
 				if ($property.Value.check -eq "setting" -and $variant.off.Count -eq 1) { $method = "setting" }
+				if ($property.Value.check -eq "counter" -and $variant.off.Count -eq 1) {
+					$method = "counter"
+					if (-not $property.Value.work_stopped) { $stoppedAll = $false }
+					if ($r -eq 1) { $evidence += $property.Value.evidence }
+				}
 				if (-not $property.Value.still_off) { $held = $false }
 			}
 		}
@@ -314,6 +347,9 @@ if ($Ablate) {
 		if (-not $held) {
 			$verified = $false
 			$check = "NO: something switched it back on during the run"
+		} elseif ($method -eq "counter") {
+			$verified = $stoppedAll
+			$check = if ($stoppedAll) { "yes (counter: $($evidence -join '; '))" } else { "NO: the work went on ($($evidence -join '; '))" }
 		} elseif ($method -eq "setting") {
 			$verified = $faster
 			$check = if ($faster) { "yes (setting held, frame faster)" } else { "setting held, but no measurable saving" }
@@ -324,12 +360,14 @@ if ($Ablate) {
 			variant = $variant.name
 			off = $variant.off
 			detail = [bool]$variant.detail
+			cpu = [bool]$variant.cpu
 			removes = $removes -join "; "
 			check_method = $method
 			verified = $verified
 			check = $check
 			mean_frame_saving_ms = $meanFrame
 			mean_gpu_saving_ms = $meanGpu
+			mean_cpu_saving_ms = $meanCpu
 			views = $views
 		}
 	}
@@ -337,7 +375,7 @@ if ($Ablate) {
 
 # Do the parts' costs add up to everything off? If not, they affect each other.
 $interaction = @()
-if ($Ablate) {
+if ($Ablate -and @($costs | Where-Object { $_.variant -eq "all_off" }).Count -gt 0) {
 	foreach ($on in $segments) {
 		$sum = 0.0
 		foreach ($c in ($costs | Where-Object { $_.variant -ne "all_off" -and -not $_.detail })) {
@@ -396,16 +434,18 @@ $band = [math]::Max($MinNoiseShare, $worst)
 Write-Host ("Repeats differ by up to {0:N1}%: on this PC, changes smaller than {1:N1}% count as 'no change'." -f ($worst * 100), ($band * 100))
 
 if ($Ablate) {
-	Write-Host ""
-	Write-Host "What each part costs (frame time saved when it is off, ms; * = inside the noise):" -ForegroundColor Cyan
-	Write-Host "(Lines starting with '-' are pieces of a part above, such as the trees' shadows.)"
-	$header = "{0,-22}" -f "part"
-	foreach ($s in $segments) { $header += " {0,14}" -f ($s.name.Substring(0, [math]::Min(14, $s.name.Length))) }
-	$header += " {0,8} {1,8}  {2}" -f "average", "gpu avg", "switch worked?"
-	Write-Host $header
 	$ranked = @($costs | Where-Object { $_.variant -ne "all_off" -and -not $_.detail } | Sort-Object { $_.mean_frame_saving_ms } -Descending)
-	$ranked += @($costs | Where-Object { $_.detail } | Sort-Object { $_.mean_frame_saving_ms } -Descending)
+	$ranked += @($costs | Where-Object { $_.detail -and -not $_.cpu } | Sort-Object { $_.mean_frame_saving_ms } -Descending)
 	$ranked += @($costs | Where-Object { $_.variant -eq "all_off" })
+	if ($ranked.Count -gt 0) {
+		Write-Host ""
+		Write-Host "What each part costs (frame time saved when it is off, ms; * = inside the noise):" -ForegroundColor Cyan
+		Write-Host "(Lines starting with '-' are pieces of a part above, such as the trees' shadows.)"
+		$header = "{0,-22}" -f "part"
+		foreach ($s in $segments) { $header += " {0,14}" -f ($s.name.Substring(0, [math]::Min(14, $s.name.Length))) }
+		$header += " {0,8} {1,8}  {2}" -f "average", "gpu avg", "switch worked?"
+		Write-Host $header
+	}
 	foreach ($c in $ranked) {
 		$line = "{0,-22}" -f $(if ($c.detail) { "- $($c.variant)" } else { $c.variant })
 		foreach ($v in $c.views) {
@@ -416,11 +456,34 @@ if ($Ablate) {
 		$line += " {0,8:N2} {1,8:N2}  {2}" -f $c.mean_frame_saving_ms, $c.mean_gpu_saving_ms, $check
 		Write-Host $line
 	}
-	Write-Host ""
-	Write-Host "Do the parts add up to everything off? (if not, they affect each other)"
-	foreach ($i in $interaction) {
-		Write-Host ("  {0,-24} parts together {1,6:N2} ms, everything off {2,6:N2} ms, frame with everything off {3,6:N2} ms" -f $i.view,
-			$i.sum_of_parts_ms, $i.all_off_saving_ms, $i.floor_frame_ms)
+	$cpuCosts = @($costs | Where-Object { $_.cpu } | Sort-Object { $_.mean_cpu_saving_ms } -Descending)
+	if ($cpuCosts.Count -gt 0) {
+		Write-Host ""
+		Write-Host "Processor and physics: processor time saved per frame (scripts + physics, ms; * = inside the noise)" -ForegroundColor Cyan
+		$header = "{0,-22}" -f "part"
+		foreach ($s in $segments) { $header += " {0,14}" -f ($s.name.Substring(0, [math]::Min(14, $s.name.Length))) }
+		$header += " {0,8} {1,9}  {2}" -f "average", "frame avg", "work stopped?"
+		Write-Host $header
+		$line = "{0,-22}" -f "(processor time, all on)"
+		foreach ($s in $segments) { $line += " {0,13:N3} " -f $s.cpu_ms }
+		Write-Host $line
+		foreach ($c in $cpuCosts) {
+			$line = "{0,-22}" -f $c.variant
+			foreach ($v in $c.views) {
+				$mark = if ($v.cpu_outside_noise) { " " } else { "*" }
+				$line += " {0,13:N3}{1}" -f $v.cpu_saving_ms, $mark
+			}
+			$line += " {0,8:N3} {1,9:N2}  {2}" -f $c.mean_cpu_saving_ms, $c.mean_frame_saving_ms, $c.check
+			Write-Host $line
+		}
+	}
+	if ($interaction.Count -gt 0) {
+		Write-Host ""
+		Write-Host "Do the parts add up to everything off? (if not, they affect each other)"
+		foreach ($i in $interaction) {
+			Write-Host ("  {0,-24} parts together {1,6:N2} ms, everything off {2,6:N2} ms, frame with everything off {3,6:N2} ms" -f $i.view,
+				$i.sum_of_parts_ms, $i.all_off_saving_ms, $i.floor_frame_ms)
+		}
 	}
 }
 Write-Host "Results: $session" -ForegroundColor Green

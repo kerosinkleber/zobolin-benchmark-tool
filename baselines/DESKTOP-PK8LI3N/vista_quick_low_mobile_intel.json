@@ -1,0 +1,190 @@
+﻿{
+    "scenario":  "vista_quick",
+    "ablate":  false,
+    "repeats":  3,
+    "machine":  {
+                    "pc":  "DESKTOP-PK8LI3N",
+                    "processor":  "12th Gen Intel(R) Core(TM) i9-12900K",
+                    "cores":  16,
+                    "threads":  24,
+                    "ram_gb":  63.7,
+                    "graphics_cards":  [
+                                           {
+                                               "name":  "Virtual Display Driver",
+                                               "driver":  "11.30.4.434"
+                                           },
+                                           {
+                                               "name":  "Intel(R) UHD Graphics 770",
+                                               "driver":  "31.0.101.4255"
+                                           },
+                                           {
+                                               "name":  "NVIDIA GeForce RTX 3080 Ti",
+                                               "driver":  "32.0.16.1692"
+                                           }
+                                       ],
+                    "windows":  "Microsoft Windows 11 Pro 10.0.26200",
+                    "power_plan":  {
+                                       "guid":  "381b4222-f694-41f0-9685-ff5bb260df2e",
+                                       "name":  "Ausbalanciert",
+                                       "full_speed":  false
+                                   },
+                    "has_battery":  false,
+                    "on_battery":  false,
+                    "game_commit":  "e3191a1d174d9922f6131bb4533cd41dd2bbe662",
+                    "game_uncommitted_changes":  false
+                },
+    "preset":  "low",
+    "renderer":  "mobile",
+    "godot":  "4.7.2-stable (official)",
+    "debug_build":  true,
+    "graphics_card_used":  "Intel(R) UHD Graphics 770",
+    "render_3d":  [
+                      1280.0,
+                      720.0
+                  ],
+    "warnings":  [
+                     "The power plan is \u0027Ausbalanciert\u0027, not High performance: the numbers may vary more."
+                 ],
+    "segments":  [
+                     {
+                         "name":  "centre_north",
+                         "repeats":  3,
+                         "mean_frame_ms":  12.0533079910278,
+                         "frame_spread_share":  0.0016013736065623528,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  13.6599998474121,
+                         "slowest_1_percent_fps":  71.4540897079406,
+                         "gpu_ms":  10.8450002670288,
+                         "gpu_spread_share":  0.00046105249587698578,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.050878455533501891,
+                         "gpu_bound_share":  0.972,
+                         "process_ms":  0.238000005483627,
+                         "process_mean_ms":  0.257710843021611,
+                         "physics_mean_ms":  0.372867470165812,
+                         "cpu_ms":  0.630578313187423,
+                         "cpu_spread_share":  0.077858689211235871,
+                         "cpu_noise_band_share":  0.077858689211235871,
+                         "draw_ms":  11.2840003967285,
+                         "render_cpu_ms":  0.483000010251999,
+                         "draw_calls":  439,
+                         "shadow_draw_calls":  144,
+                         "primitives":  1165532,
+                         "hitches":  [
+                                         0,
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    12.0544538306424,
+                                                    12.0533079910278,
+                                                    12.0351519813538
+                                                ],
+                         "zones":  {
+                                       "daynight":  {
+                                                        "mean_ms":  0.0157560001499951,
+                                                        "max_ms":  0.0579999983310699
+                                                    }
+                                   },
+                         "unattributed_process_ms":  0.161979918749666,
+                         "unattributed_physics_ms":  0.372867470165812
+                     },
+                     {
+                         "name":  "valley_floor",
+                         "repeats":  3,
+                         "mean_frame_ms":  18.3248423489657,
+                         "frame_spread_share":  0.0007196719578025009,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  19.431999206543,
+                         "slowest_1_percent_fps":  36.7795810918181,
+                         "gpu_ms":  17.1399993896484,
+                         "gpu_spread_share":  0.00093353257003983016,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.072354888572436743,
+                         "gpu_bound_share":  0.993939393939394,
+                         "process_ms":  0.23199999332428,
+                         "process_mean_ms":  0.258472728097078,
+                         "physics_mean_ms":  0.543987880511717,
+                         "cpu_ms":  0.802460608608795,
+                         "cpu_spread_share":  0.049076326560141381,
+                         "cpu_noise_band_share":  0.049076326560141381,
+                         "draw_ms":  17.4930000305176,
+                         "render_cpu_ms":  0.46399998664856,
+                         "draw_calls":  364,
+                         "shadow_draw_calls":  144,
+                         "primitives":  1164018,
+                         "hitches":  [
+                                         1,
+                                         0,
+                                         1
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    18.3248423489657,
+                                                    18.3347151669589,
+                                                    18.3215272917892
+                                                ],
+                         "zones":  {
+                                       "daynight":  {
+                                                        "mean_ms":  0.0155696971849962,
+                                                        "max_ms":  0.034000001847744
+                                                    }
+                                   },
+                         "unattributed_process_ms":  0.16411515110257,
+                         "unattributed_physics_ms":  0.543987880511717,
+                         "hitch_causes":  {
+                                              "unknown":  {
+                                                              "count":  1,
+                                                              "worst_ms":  35.5439987182617,
+                                                              "at_x":  [
+                                                                           1800.0
+                                                                       ]
+                                                          }
+                                          }
+                     },
+                     {
+                         "name":  "village_close",
+                         "repeats":  3,
+                         "mean_frame_ms":  16.8838315277957,
+                         "frame_spread_share":  0.0018803866552704592,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  17.7759990692139,
+                         "slowest_1_percent_fps":  56.2239986204805,
+                         "gpu_ms":  15.6899995803833,
+                         "gpu_spread_share":  0.00025498176317998442,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.07240103080095471,
+                         "gpu_bound_share":  1,
+                         "process_ms":  0.229000002145767,
+                         "process_mean_ms":  0.251342696085405,
+                         "physics_mean_ms":  0.50849438266138,
+                         "cpu_ms":  0.759837078746785,
+                         "cpu_spread_share":  0.090713976808678584,
+                         "cpu_noise_band_share":  0.090713976808678584,
+                         "draw_ms":  16.056999206543,
+                         "render_cpu_ms":  0.432000011205673,
+                         "draw_calls":  429,
+                         "shadow_draw_calls":  83,
+                         "primitives":  1449028,
+                         "hitches":  [
+                                         0,
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    16.8838315277957,
+                                                    16.8839157511679,
+                                                    16.8521676196732
+                                                ],
+                         "zones":  {
+                                       "daynight":  {
+                                                        "mean_ms":  0.0157486035244009,
+                                                        "max_ms":  0.061999998986721
+                                                    }
+                                   },
+                         "unattributed_process_ms":  0.15794381912107,
+                         "unattributed_physics_ms":  0.50849438266138
+                     }
+                 ],
+    "analysed":  "2026-11-08T21:45:48",
+    "min_noise_share":  0.015
+}

@@ -110,24 +110,32 @@ than in a shipped game. The build type is recorded with every result; a
    background loading have stopped before measuring.
 8. **Report.** One HTML file that opens offline.
 
-### Folder layout
+### Folder layout (as built)
 ```
 C:\Claude\Open World Game - Zobolin\     (only what must run inside Godot)
-  tools\benchmark.ps1                     extended
+  tools\benchmark.ps1                     the launcher: -Record, -OutDir, -Extra,
+                                          -GpuProfile, -TimeLimit, -Test micro|engine
+  game\benchmark\bench_stats.gd           percentiles, 1% low, stutters, noise, frame cap
+  game\benchmark\bench_recorder.gd        per-frame rows -> frames.csv + run.json,
+                                          event counters (event_sources), stutter blame
   game\benchmark\bench_zones.gd           stopwatches
-  game\benchmark\bench_counters.gd        event counters
-  game\benchmark\bench_recorder.gd        per-frame rows -> frames.csv + run.json
-  game\benchmark\bench_stats.gd           percentiles, 1% low, hitches
-  game\benchmark\bench_switches.gd        --off= handling
-  game\benchmark\scenarios\*.gd           camera routes
-  game\tests\bench_stats_test.gd          GdUnit4 tests
+  game\benchmark\terrain_cpu_switches.gd  processor and physics switches + counters
+  game\benchmark\micro_bench.gd           micro benchmarks without a window
+  game\benchmark\engine_check.gd          step 1's check of Godot's tools
+  game\prototypes\terrain\terrain_benchmark.gd   views, flight, --off= drawing switches
+  game\prototypes\npcs|items|boat\*       their checks record with --record, and take
+                                          --npcs= / --items= / --cargo=
+  game\world, npc, vehicles, player       one-line stopwatches and event counters
+  game\tests\bench_*_test.gd and others   GdUnit4 tests
 
 C:\Claude\Zobolin Benchmark Tool\         (this folder)
   zbench.ps1                              the one command
-  lib\Stats.psm1  Report.psm1  Machine.psm1
-  scenarios\*.json
-  baselines\<pc>\<scenario>_<preset>.json
-  results\<date>_<pc>_<commit>\           raw runs + report.html
+  report.ps1, compare_pcs.ps1             report page; PCs side by side
+  lib\Stats.psm1 Report.psm1 Machine.psm1 Pictures.psm1
+  scenarios\*.json                        vista_quick, vista, flight, npc_crowd, items, boat_cargo
+  baselines\<pc>\<scenario>_<preset>_<renderer>_<graphics card>.json
+  results\<date>_<pc>_<commit>_<scenario>\   raw runs + summary.json + report.html (not committed)
+  findings\*.md                           what each step found, with raw summaries
   README.md
 ```
 Scripts that run inside the game must live in the game repo (Godot only loads
@@ -163,7 +171,7 @@ The recorder is a node added only for benchmark runs, not an autoload, so
 | NPC bodies (walking, avoidance) | **Z** physics + `move_and_slide`; **M** navigation | CPU / physics |
 | Navmesh baking | **Z** load rows | Loading stutter |
 | Loose items, buoyancy | **Z** shared; **M**; ✱ own awake-body counter if Jolt reports 0; **A** count 300/1000/3000 | Physics |
-| Boat + cargo | **Z**; **A** cargo 0/20/100 | Physics scripts |
+| Boat + cargo | **Z**; **A** cargo 0/13/26 (one layer) | Physics scripts |
 | Doors, player, grabber | **Z** shared | Small |
 | Game clock jumps | **Z**; headless micro test | Spike, grows with NPCs |
 | Records, save/load | **Z** load rows; micro test 1k/10k/100k records | Loading time |
@@ -176,23 +184,25 @@ The recorder is a node added only for benchmark runs, not an autoload, so
 
 ## 5. Scenarios
 
+Built (scenario files in `scenarios\`):
+
 | Name | What it does | Stresses |
 |---|---|---|
-| `vista` | The existing 8 views + 3 village views, ✱ 10 s each | Steady GPU load; main switch-off target |
-| `flight` | Existing flight x −4080 → 4080. ✱ Moves a fixed distance per frame so every PC visits the same positions | Re-centring, streaming stutters |
-| `forest_lowpass` | Low and fast over the densest forest | Tree blocks, trunk collision |
-| `village_walk` | Into the village and the house | Lighting zones, lamps, nearest far objects |
-| `storm_noon`, `storm_night`, `snow` | Weather held, lightning every 5 s | Particles, sky, second light |
-| `time_fast` | Time × 600 for 60 s | Day/night churn |
-| `npc_crowd_8/16/32/64` | Villagers, a 07:00 rush, an 8-hour clock jump | NPC CPU, navigation |
-| `items_300/1000/3000` | Drop and settle, dry vs waves | Jolt physics, buoyancy |
-| `boat_cargo_0/20/100` | Waves and throttle on | Cargo code |
-| `load` | Cold start to first steady frame (✱ with `-ColdCache` to clear shader/picture caches) | Loading |
-| `micro` | Headless: route finding with 10/100/1000 places, records, clock jumps | Future hotspots, no GPU needed |
+| `vista_quick` | 3 of the views (centre, valley floor, village close), 3 s each; the everyday run | Steady GPU load |
+| `vista` | The 8 fixed views + 3 village views, 3 s each (the planned 10 s was not needed: repeats agree within 1.5 %) | Steady GPU load; main switch-off target |
+| `flight` | The flight x −4080 → 4080, moving a fixed distance per frame (`--fixed-flight`) so every PC visits the same positions | Re-centring, streaming stutters |
+| `npc_crowd` | Villagers with 8, 24 and 64 NPCs: their day, the 07:00 rush, an 8-hour clock jump (about 7 min a run, so 2 repeats) | NPC CPU, navigation |
+| `items` | 300, 1000 and 3000 items: adding, settling, at rest, all thrown, floating on waves | Jolt physics, buoyancy |
+| `boat_cargo` | 0, 13 and 26 crates on deck (one layer: stacked cargo isn't re-stowed after loading, a game bug for the owner) | Cargo code |
+| `micro` (the game's `-Test micro`) | Without a window: route finding with 10/100/1000 places, records, clock jumps with 0/100/1000 NPCs | Future hotspots |
 
-Run lengths (✱ to be re-measured in phase 4, since each start costs ~7 s of
-world building plus warm-up): `-Quick` everyday run ~15 min, full switch-off
-run before milestones ~1 h.
+Not built yet (each needs its own route or scene; later, when needed):
+`forest_lowpass`, `village_walk` (house lamps), `storm_noon` /
+`storm_night` / `snow`, `time_fast`, `load` (cold start with
+`-ColdCache`), and water (in the boat scene, without a switch yet).
+
+Run lengths on the development PC: `vista_quick` 3 runs about 2 min;
+`-Ablate` on `vista_quick` about 35 min; `npc_crowd` about 45 min.
 
 ---
 
@@ -261,7 +271,7 @@ Steps 1–7 already answer the main question for terrain, flight and forest.
 | 3 | Is this folder its own git repo (GPL-3.0), with baselines and reports committed here? | **Yes** |
 | 4 | PowerShell only, or also Python? | **PowerShell only** – nothing to install on the i9 or laptop |
 | 5 | Thresholds: hitch > 33.3 ms or > 2× typical; noise band ~~3 %~~ **1.5 %** (wider per PC if needed); alarm at > 5 % and outside noise | **Accepted. Noise floor lowered to 1.5 % on 2026-11-08** (owner's choice): repeats on the GTX 970 agree within 0.7 % |
-| 6 | Default run length | **`-Quick` everyday, full run before milestones** |
+| 6 | Default run length | **The quick scenario (`vista_quick`) everyday, the full ones before milestones** |
 | 7 | Custom Godot build with Tracy? | **Not now** |
 | 8 | Make this a side item in the game's `PLAN.md` now? | **Yes** – steps 1–7 directly help the current 60 fps checks |
 | 9 | Install RenderDoc/PIX? | **Later**, at step 10, only if needed |

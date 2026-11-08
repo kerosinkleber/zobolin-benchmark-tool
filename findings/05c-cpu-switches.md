@@ -70,7 +70,7 @@ probe ball falling 76–156 m, 343–1071 trunk bodies).
 ## Corrected: re-centring does NOT make the graphics card slower
 
 With re-centring off, the frame was 0.83 ms faster on average (up to
-1.1 ms on the two views away from the centre), with the same draw calls
+1.4 ms: 1.05 and 1.37 ms on the two views away from the centre), with the same draw calls
 and triangles. This first looked like "something draws more slowly after
 re-centring". It was not (looked into the same day):
 

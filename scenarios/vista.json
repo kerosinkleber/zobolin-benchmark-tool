@@ -2,5 +2,13 @@
   "description": "All 11 terrain views (8 fixed views and 3 of the first village), 3 s each.",
   "test": "terrain",
   "only": "centre_north,centre_east,centre_south,centre_west,high_above_centre,valley_floor,west_edge_looking_east,corner_looking_in,village_close,village_1500m,village_3000m",
-  "extra": []
+  "extra": [],
+  "switches": [
+    "shadows",
+    "grass",
+    "objects",
+    "trees",
+    "pictures",
+    "terrain"
+  ]
 }

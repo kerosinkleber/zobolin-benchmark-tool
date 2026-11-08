@@ -1,0 +1,1120 @@
+﻿{
+    "scenario":  "vista_quick",
+    "ablate":  true,
+    "repeats":  3,
+    "machine":  {
+                    "pc":  "MAHASIM",
+                    "processor":  "AMD Ryzen 7 1800X Eight-Core Processor",
+                    "cores":  8,
+                    "threads":  16,
+                    "ram_gb":  31.9,
+                    "graphics_cards":  [
+                                           {
+                                               "name":  "Virtual Display Driver",
+                                               "driver":  "11.30.4.434"
+                                           },
+                                           {
+                                               "name":  "NVIDIA GeForce GTX 970",
+                                               "driver":  "32.0.15.6094"
+                                           }
+                                       ],
+                    "windows":  "Microsoft Windows 11 Pro 10.0.26300",
+                    "power_plan":  {
+                                       "guid":  "381b4222-f694-41f0-9685-ff5bb260df2e",
+                                       "name":  "Ausbalanciert",
+                                       "full_speed":  false
+                                   },
+                    "has_battery":  false,
+                    "on_battery":  false,
+                    "game_commit":  "3f53b0abfdb389319a412031add6c6b1107fe892",
+                    "game_uncommitted_changes":  true
+                },
+    "preset":  "high",
+    "renderer":  "forward_plus",
+    "godot":  "4.7.2-stable (official)",
+    "debug_build":  true,
+    "graphics_card_used":  "NVIDIA GeForce GTX 970",
+    "render_3d":  [
+                      5120.0,
+                      2880.0
+                  ],
+    "warnings":  [
+                     "The power plan is \u0027Ausbalanciert\u0027, not High performance: the numbers may vary more."
+                 ],
+    "segments":  [
+                     {
+                         "name":  "centre_north",
+                         "repeats":  3,
+                         "mean_frame_ms":  14.8100541730232,
+                         "frame_spread_share":  0.014640762632695904,
+                         "noise_band_share":  0.03,
+                         "p99_frame_ms":  15.6949996948242,
+                         "slowest_1_percent_fps":  63.4665424826106,
+                         "gpu_ms":  14.1359996795654,
+                         "gpu_spread_share":  0.017968287764619416,
+                         "gpu_bound_share":  1,
+                         "process_ms":  0.0890000015497208,
+                         "draw_ms":  14.043999671936,
+                         "render_cpu_ms":  1.067999958992,
+                         "draw_calls":  384,
+                         "shadow_draw_calls":  442,
+                         "primitives":  1165532,
+                         "hitches":  [
+                                         0,
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    14.8100541730232,
+                                                    14.9130841340169,
+                                                    14.6962536462923
+                                                ]
+                     },
+                     {
+                         "name":  "valley_floor",
+                         "repeats":  3,
+                         "mean_frame_ms":  17.1151988723061,
+                         "frame_spread_share":  0.005574349236413258,
+                         "noise_band_share":  0.03,
+                         "p99_frame_ms":  17.9020004272461,
+                         "slowest_1_percent_fps":  55.8035711909891,
+                         "gpu_ms":  16.3729991912842,
+                         "gpu_spread_share":  0.00641296936557582,
+                         "gpu_bound_share":  1,
+                         "process_ms":  0.0860000029206276,
+                         "draw_ms":  16.3649997711182,
+                         "render_cpu_ms":  1.00999999046326,
+                         "draw_calls":  328,
+                         "shadow_draw_calls":  393,
+                         "primitives":  1164018,
+                         "hitches":  [
+                                         0,
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    17.1151988723061,
+                                                    17.1984571838379,
+                                                    17.103051088073
+                                                ]
+                     },
+                     {
+                         "name":  "village_close",
+                         "repeats":  3,
+                         "mean_frame_ms":  18.4005276147573,
+                         "frame_spread_share":  0.0057011665423641741,
+                         "noise_band_share":  0.03,
+                         "p99_frame_ms":  19.0440006256104,
+                         "slowest_1_percent_fps":  52.435637607144,
+                         "gpu_ms":  17.7360000610352,
+                         "gpu_spread_share":  0.0028755409854134329,
+                         "gpu_bound_share":  1,
+                         "process_ms":  0.0869999974966049,
+                         "draw_ms":  17.5799999237061,
+                         "render_cpu_ms":  0.962999999523163,
+                         "draw_calls":  393,
+                         "shadow_draw_calls":  247,
+                         "primitives":  1449028,
+                         "hitches":  [
+                                         0,
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    18.4005276147573,
+                                                    18.4904259340263,
+                                                    18.3855214616272
+                                                ]
+                     }
+                 ],
+    "variants":  {
+                     "all_on":  [
+                                    {
+                                        "name":  "centre_north",
+                                        "repeats":  3,
+                                        "mean_frame_ms":  14.8100541730232,
+                                        "frame_spread_share":  0.014640762632695904,
+                                        "noise_band_share":  0.03,
+                                        "p99_frame_ms":  15.6949996948242,
+                                        "slowest_1_percent_fps":  63.4665424826106,
+                                        "gpu_ms":  14.1359996795654,
+                                        "gpu_spread_share":  0.017968287764619416,
+                                        "gpu_bound_share":  1,
+                                        "process_ms":  0.0890000015497208,
+                                        "draw_ms":  14.043999671936,
+                                        "render_cpu_ms":  1.067999958992,
+                                        "draw_calls":  384,
+                                        "shadow_draw_calls":  442,
+                                        "primitives":  1165532,
+                                        "hitches":  [
+                                                        0,
+                                                        0,
+                                                        0
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   14.8100541730232,
+                                                                   14.9130841340169,
+                                                                   14.6962536462923
+                                                               ]
+                                    },
+                                    {
+                                        "name":  "valley_floor",
+                                        "repeats":  3,
+                                        "mean_frame_ms":  17.1151988723061,
+                                        "frame_spread_share":  0.005574349236413258,
+                                        "noise_band_share":  0.03,
+                                        "p99_frame_ms":  17.9020004272461,
+                                        "slowest_1_percent_fps":  55.8035711909891,
+                                        "gpu_ms":  16.3729991912842,
+                                        "gpu_spread_share":  0.00641296936557582,
+                                        "gpu_bound_share":  1,
+                                        "process_ms":  0.0860000029206276,
+                                        "draw_ms":  16.3649997711182,
+                                        "render_cpu_ms":  1.00999999046326,
+                                        "draw_calls":  328,
+                                        "shadow_draw_calls":  393,
+                                        "primitives":  1164018,
+                                        "hitches":  [
+                                                        0,
+                                                        0,
+                                                        0
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   17.1151988723061,
+                                                                   17.1984571838379,
+                                                                   17.103051088073
+                                                               ]
+                                    },
+                                    {
+                                        "name":  "village_close",
+                                        "repeats":  3,
+                                        "mean_frame_ms":  18.4005276147573,
+                                        "frame_spread_share":  0.0057011665423641741,
+                                        "noise_band_share":  0.03,
+                                        "p99_frame_ms":  19.0440006256104,
+                                        "slowest_1_percent_fps":  52.435637607144,
+                                        "gpu_ms":  17.7360000610352,
+                                        "gpu_spread_share":  0.0028755409854134329,
+                                        "gpu_bound_share":  1,
+                                        "process_ms":  0.0869999974966049,
+                                        "draw_ms":  17.5799999237061,
+                                        "render_cpu_ms":  0.962999999523163,
+                                        "draw_calls":  393,
+                                        "shadow_draw_calls":  247,
+                                        "primitives":  1449028,
+                                        "hitches":  [
+                                                        0,
+                                                        0,
+                                                        0
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   18.4005276147573,
+                                                                   18.4904259340263,
+                                                                   18.3855214616272
+                                                               ]
+                                    }
+                                ],
+                     "shadows_off":  [
+                                         {
+                                             "name":  "centre_north",
+                                             "repeats":  3,
+                                             "mean_frame_ms":  12.806421275849,
+                                             "frame_spread_share":  0.014994313126464704,
+                                             "noise_band_share":  0.03,
+                                             "p99_frame_ms":  13.7370004653931,
+                                             "slowest_1_percent_fps":  72.7008354547473,
+                                             "gpu_ms":  12.1429996490479,
+                                             "gpu_spread_share":  0.015976303199178008,
+                                             "gpu_bound_share":  1,
+                                             "process_ms":  0.0900000035762787,
+                                             "draw_ms":  12.1370000839233,
+                                             "render_cpu_ms":  0.703999996185303,
+                                             "draw_calls":  384,
+                                             "shadow_draw_calls":  0,
+                                             "primitives":  1165532,
+                                             "hitches":  [
+                                                             0,
+                                                             0,
+                                                             0
+                                                         ],
+                                             "per_repeat_mean_ms":  [
+                                                                        12.9884978455383,
+                                                                        12.806421275849,
+                                                                        12.7964743548988
+                                                                    ]
+                                         },
+                                         {
+                                             "name":  "valley_floor",
+                                             "repeats":  3,
+                                             "mean_frame_ms":  14.6359512375622,
+                                             "frame_spread_share":  0.01753100609593429,
+                                             "noise_band_share":  0.03,
+                                             "p99_frame_ms":  15.5590000152588,
+                                             "slowest_1_percent_fps":  64.215077133957,
+                                             "gpu_ms":  13.8940000534058,
+                                             "gpu_spread_share":  0.018857066569477724,
+                                             "gpu_bound_share":  1,
+                                             "process_ms":  0.0890000015497208,
+                                             "draw_ms":  13.9079999923706,
+                                             "render_cpu_ms":  0.662000000476837,
+                                             "draw_calls":  328,
+                                             "shadow_draw_calls":  0,
+                                             "primitives":  1164018,
+                                             "hitches":  [
+                                                             0,
+                                                             0,
+                                                             0
+                                                         ],
+                                             "per_repeat_mean_ms":  [
+                                                                        14.8665000188469,
+                                                                        14.6099170684814,
+                                                                        14.6359512375622
+                                                                    ]
+                                         },
+                                         {
+                                             "name":  "village_close",
+                                             "repeats":  3,
+                                             "mean_frame_ms":  16.1511343730393,
+                                             "frame_spread_share":  0.002729917899116802,
+                                             "noise_band_share":  0.03,
+                                             "p99_frame_ms":  16.7749996185303,
+                                             "slowest_1_percent_fps":  59.4760182395785,
+                                             "gpu_ms":  15.4429998397827,
+                                             "gpu_spread_share":  0.0019426104566755223,
+                                             "gpu_bound_share":  1,
+                                             "process_ms":  0.0879999995231628,
+                                             "draw_ms":  15.3760004043579,
+                                             "render_cpu_ms":  0.726999998092651,
+                                             "draw_calls":  393,
+                                             "shadow_draw_calls":  0,
+                                             "primitives":  1449028,
+                                             "hitches":  [
+                                                             0,
+                                                             0,
+                                                             0
+                                                         ],
+                                             "per_repeat_mean_ms":  [
+                                                                        16.1463011618583,
+                                                                        16.1511343730393,
+                                                                        16.1903924326743
+                                                                    ]
+                                         }
+                                     ],
+                     "grass_off":  [
+                                       {
+                                           "name":  "centre_north",
+                                           "repeats":  3,
+                                           "mean_frame_ms":  13.4690358713603,
+                                           "frame_spread_share":  0.014176448306245086,
+                                           "noise_band_share":  0.03,
+                                           "p99_frame_ms":  14.4399995803833,
+                                           "slowest_1_percent_fps":  68.9037421734593,
+                                           "gpu_ms":  12.793999671936,
+                                           "gpu_spread_share":  0.017586398877533552,
+                                           "gpu_bound_share":  1,
+                                           "process_ms":  0.0879999995231628,
+                                           "draw_ms":  12.7440004348755,
+                                           "render_cpu_ms":  0.992999970912933,
+                                           "draw_calls":  316,
+                                           "shadow_draw_calls":  442,
+                                           "primitives":  751820,
+                                           "hitches":  [
+                                                           0,
+                                                           0,
+                                                           0
+                                                       ],
+                                           "per_repeat_mean_ms":  [
+                                                                      13.5137297398335,
+                                                                      13.4690358713603,
+                                                                      13.3227866490682
+                                                                  ]
+                                       },
+                                       {
+                                           "name":  "valley_floor",
+                                           "repeats":  3,
+                                           "mean_frame_ms":  15.0033681736657,
+                                           "frame_spread_share":  0.0016307639090831214,
+                                           "noise_band_share":  0.03,
+                                           "p99_frame_ms":  15.7679996490479,
+                                           "slowest_1_percent_fps":  63.0596552218932,
+                                           "gpu_ms":  14.2589998245239,
+                                           "gpu_spread_share":  0.0023143272863952076,
+                                           "gpu_bound_share":  1,
+                                           "process_ms":  0.0869999974966049,
+                                           "draw_ms":  14.253999710083,
+                                           "render_cpu_ms":  0.936999976634979,
+                                           "draw_calls":  277,
+                                           "shadow_draw_calls":  393,
+                                           "primitives":  853734,
+                                           "hitches":  [
+                                                           0,
+                                                           0,
+                                                           0
+                                                       ],
+                                           "per_repeat_mean_ms":  [
+                                                                      15.0108500003815,
+                                                                      15.0033681736657,
+                                                                      14.9863830490492
+                                                                  ]
+                                       },
+                                       {
+                                           "name":  "village_close",
+                                           "repeats":  3,
+                                           "mean_frame_ms":  15.2973553371914,
+                                           "frame_spread_share":  0.0047108811716359651,
+                                           "noise_band_share":  0.03,
+                                           "p99_frame_ms":  16.1429996490479,
+                                           "slowest_1_percent_fps":  61.7379216465079,
+                                           "gpu_ms":  14.6040000915527,
+                                           "gpu_spread_share":  0.00636814649440416,
+                                           "gpu_bound_share":  1,
+                                           "process_ms":  0.0890000015497208,
+                                           "draw_ms":  14.5729999542236,
+                                           "render_cpu_ms":  0.878000020980835,
+                                           "draw_calls":  313,
+                                           "shadow_draw_calls":  247,
+                                           "primitives":  962308,
+                                           "hitches":  [
+                                                           0,
+                                                           0,
+                                                           0
+                                                       ],
+                                           "per_repeat_mean_ms":  [
+                                                                      15.3546173377913,
+                                                                      15.2973553371914,
+                                                                      15.2825533145575
+                                                                  ]
+                                       }
+                                   ],
+                     "objects_off":  [
+                                         {
+                                             "name":  "centre_north",
+                                             "repeats":  3,
+                                             "mean_frame_ms":  14.5446425221393,
+                                             "frame_spread_share":  0.014864891113253609,
+                                             "noise_band_share":  0.03,
+                                             "p99_frame_ms":  15.3620004653931,
+                                             "slowest_1_percent_fps":  64.7011875360505,
+                                             "gpu_ms":  13.8409996032715,
+                                             "gpu_spread_share":  0.016906239363231386,
+                                             "gpu_bound_share":  1,
+                                             "process_ms":  0.0869999974966049,
+                                             "draw_ms":  13.8179998397827,
+                                             "render_cpu_ms":  0.574999988079071,
+                                             "draw_calls":  157,
+                                             "shadow_draw_calls":  163,
+                                             "primitives":  1076160,
+                                             "hitches":  [
+                                                             0,
+                                                             0,
+                                                             0
+                                                         ],
+                                             "per_repeat_mean_ms":  [
+                                                                        14.4459759684709,
+                                                                        14.5446425221393,
+                                                                        14.6621804958437
+                                                                    ]
+                                         },
+                                         {
+                                             "name":  "valley_floor",
+                                             "repeats":  3,
+                                             "mean_frame_ms":  16.9730057042871,
+                                             "frame_spread_share":  0.0032807215938328296,
+                                             "noise_band_share":  0.03,
+                                             "p99_frame_ms":  17.492000579834,
+                                             "slowest_1_percent_fps":  56.9524722207769,
+                                             "gpu_ms":  16.2099990844727,
+                                             "gpu_spread_share":  0.0032078993654116078,
+                                             "gpu_bound_share":  1,
+                                             "process_ms":  0.0869999974966049,
+                                             "draw_ms":  16.1609992980957,
+                                             "render_cpu_ms":  0.542999982833862,
+                                             "draw_calls":  128,
+                                             "shadow_draw_calls":  141,
+                                             "primitives":  1084702,
+                                             "hitches":  [
+                                                             0,
+                                                             0,
+                                                             0
+                                                         ],
+                                             "per_repeat_mean_ms":  [
+                                                                        16.9350393809629,
+                                                                        16.9907230872892,
+                                                                        16.9730057042871
+                                                                    ]
+                                         },
+                                         {
+                                             "name":  "village_close",
+                                             "repeats":  3,
+                                             "mean_frame_ms":  19.4787613284203,
+                                             "frame_spread_share":  0.0042035729379584271,
+                                             "noise_band_share":  0.03,
+                                             "p99_frame_ms":  20.2049999237061,
+                                             "slowest_1_percent_fps":  49.4767826086874,
+                                             "gpu_ms":  18.7740001678467,
+                                             "gpu_spread_share":  0.0052200638769750443,
+                                             "gpu_bound_share":  1,
+                                             "process_ms":  0.0869999974966049,
+                                             "draw_ms":  18.6459999084473,
+                                             "render_cpu_ms":  0.603999972343445,
+                                             "draw_calls":  208,
+                                             "shadow_draw_calls":  89,
+                                             "primitives":  1368240,
+                                             "hitches":  [
+                                                             0,
+                                                             0,
+                                                             0
+                                                         ],
+                                             "per_repeat_mean_ms":  [
+                                                                        19.4595677037393,
+                                                                        19.4787613284203,
+                                                                        19.5414480977244
+                                                                    ]
+                                         }
+                                     ],
+                     "trees_off":  [
+                                       {
+                                           "name":  "centre_north",
+                                           "repeats":  3,
+                                           "mean_frame_ms":  13.1398602781337,
+                                           "frame_spread_share":  0.012309609778390582,
+                                           "noise_band_share":  0.03,
+                                           "p99_frame_ms":  14.1199998855591,
+                                           "slowest_1_percent_fps":  70.3152451804634,
+                                           "gpu_ms":  12.4250001907349,
+                                           "gpu_spread_share":  0.012555266097382089,
+                                           "gpu_bound_share":  1,
+                                           "process_ms":  0.0900000035762787,
+                                           "draw_ms":  12.4630002975464,
+                                           "render_cpu_ms":  0.962000012397766,
+                                           "draw_calls":  332,
+                                           "shadow_draw_calls":  394,
+                                           "primitives":  768692,
+                                           "hitches":  [
+                                                           0,
+                                                           0,
+                                                           0
+                                                       ],
+                                           "per_repeat_mean_ms":  [
+                                                                      13.1132314465452,
+                                                                      13.2749779991116,
+                                                                      13.1398602781337
+                                                                  ]
+                                       },
+                                       {
+                                           "name":  "valley_floor",
+                                           "repeats":  3,
+                                           "mean_frame_ms":  13.7060913146903,
+                                           "frame_spread_share":  0.0025975851608649888,
+                                           "noise_band_share":  0.03,
+                                           "p99_frame_ms":  14.4860000610352,
+                                           "slowest_1_percent_fps":  68.1771693365198,
+                                           "gpu_ms":  13,
+                                           "gpu_spread_share":  0.0030769201425383786,
+                                           "gpu_bound_share":  1,
+                                           "process_ms":  0.0890000015497208,
+                                           "draw_ms":  12.9870004653931,
+                                           "render_cpu_ms":  0.896000027656555,
+                                           "draw_calls":  281,
+                                           "shadow_draw_calls":  333,
+                                           "primitives":  599664,
+                                           "hitches":  [
+                                                           0,
+                                                           0,
+                                                           0
+                                                       ],
+                                           "per_repeat_mean_ms":  [
+                                                                      13.6891506883107,
+                                                                      13.7060913146903,
+                                                                      13.7247534277232
+                                                                  ]
+                                       },
+                                       {
+                                           "name":  "village_close",
+                                           "repeats":  3,
+                                           "mean_frame_ms":  14.2553364993272,
+                                           "frame_spread_share":  0.0044426179002641829,
+                                           "noise_band_share":  0.03,
+                                           "p99_frame_ms":  15.0530004501343,
+                                           "slowest_1_percent_fps":  66.3379246197255,
+                                           "gpu_ms":  13.53600025177,
+                                           "gpu_spread_share":  0.0038416108753839238,
+                                           "gpu_bound_share":  1,
+                                           "process_ms":  0.0890000015497208,
+                                           "draw_ms":  13.4899997711182,
+                                           "render_cpu_ms":  0.832000017166138,
+                                           "draw_calls":  318,
+                                           "shadow_draw_calls":  219,
+                                           "primitives":  781256,
+                                           "hitches":  [
+                                                           0,
+                                                           0,
+                                                           0
+                                                       ],
+                                           "per_repeat_mean_ms":  [
+                                                                      14.1968443528661,
+                                                                      14.2601753659723,
+                                                                      14.2553364993272
+                                                                  ]
+                                       }
+                                   ],
+                     "pictures_off":  [
+                                          {
+                                              "name":  "centre_north",
+                                              "repeats":  3,
+                                              "mean_frame_ms":  13.9358139570369,
+                                              "frame_spread_share":  0.0030871595655434046,
+                                              "noise_band_share":  0.03,
+                                              "p99_frame_ms":  14.621000289917,
+                                              "slowest_1_percent_fps":  67.5006746359541,
+                                              "gpu_ms":  13.2279996871948,
+                                              "gpu_spread_share":  0.0037798754095301839,
+                                              "gpu_bound_share":  1,
+                                              "process_ms":  0.0890000015497208,
+                                              "draw_ms":  13.2200002670288,
+                                              "render_cpu_ms":  1.02600002288818,
+                                              "draw_calls":  356,
+                                              "shadow_draw_calls":  442,
+                                              "primitives":  1070372,
+                                              "hitches":  [
+                                                              0,
+                                                              0,
+                                                              0
+                                                          ],
+                                              "per_repeat_mean_ms":  [
+                                                                         13.9667674530384,
+                                                                         13.9237453716773,
+                                                                         13.9358139570369
+                                                                     ]
+                                          },
+                                          {
+                                              "name":  "valley_floor",
+                                              "repeats":  3,
+                                              "mean_frame_ms":  16.6597348365994,
+                                              "frame_spread_share":  0.010064481831436187,
+                                              "noise_band_share":  0.03,
+                                              "p99_frame_ms":  17.1900005340576,
+                                              "slowest_1_percent_fps":  57.9391075106682,
+                                              "gpu_ms":  15.9540004730225,
+                                              "gpu_spread_share":  0.0095274177472368139,
+                                              "gpu_bound_share":  1,
+                                              "process_ms":  0.0869999974966049,
+                                              "draw_ms":  15.8719997406006,
+                                              "render_cpu_ms":  0.971000015735626,
+                                              "draw_calls":  304,
+                                              "shadow_draw_calls":  393,
+                                              "primitives":  1082340,
+                                              "hitches":  [
+                                                              0,
+                                                              0,
+                                                              0
+                                                          ],
+                                              "per_repeat_mean_ms":  [
+                                                                         16.6652320629984,
+                                                                         16.6597348365994,
+                                                                         16.4975604644189
+                                                                     ]
+                                          },
+                                          {
+                                              "name":  "village_close",
+                                              "repeats":  3,
+                                              "mean_frame_ms":  16.0017074422633,
+                                              "frame_spread_share":  0.0037475563755600331,
+                                              "noise_band_share":  0.03,
+                                              "p99_frame_ms":  16.5739994049072,
+                                              "slowest_1_percent_fps":  60.0312162599353,
+                                              "gpu_ms":  15.3159999847412,
+                                              "gpu_spread_share":  0.00078349986519039123,
+                                              "gpu_bound_share":  1,
+                                              "process_ms":  0.0869999974966049,
+                                              "draw_ms":  15.2229995727539,
+                                              "render_cpu_ms":  0.876999974250793,
+                                              "draw_calls":  334,
+                                              "shadow_draw_calls":  247,
+                                              "primitives":  1205492,
+                                              "hitches":  [
+                                                              0,
+                                                              0,
+                                                              0
+                                                          ],
+                                              "per_repeat_mean_ms":  [
+                                                                         16.0017074422633,
+                                                                         16.0128245100062,
+                                                                         15.9528572092611
+                                                                     ]
+                                          }
+                                      ],
+                     "terrain_off":  [
+                                         {
+                                             "name":  "centre_north",
+                                             "repeats":  3,
+                                             "mean_frame_ms":  8.42747192972162,
+                                             "frame_spread_share":  0.0036416364676202218,
+                                             "noise_band_share":  0.03,
+                                             "p99_frame_ms":  9.46300029754639,
+                                             "slowest_1_percent_fps":  105.099976310368,
+                                             "gpu_ms":  7.73999977111816,
+                                             "gpu_spread_share":  0.0015503984855552845,
+                                             "gpu_bound_share":  0.811797752808989,
+                                             "process_ms":  0.0939999967813492,
+                                             "draw_ms":  7.83300018310547,
+                                             "render_cpu_ms":  0.953000009059906,
+                                             "draw_calls":  347,
+                                             "shadow_draw_calls":  350,
+                                             "primitives":  899924,
+                                             "hitches":  [
+                                                             0,
+                                                             0,
+                                                             0
+                                                         ],
+                                             "per_repeat_mean_ms":  [
+                                                                        8.42747192972162,
+                                                                        8.4269411984612,
+                                                                        8.45763098757032
+                                                                    ]
+                                         },
+                                         {
+                                             "name":  "valley_floor",
+                                             "repeats":  3,
+                                             "mean_frame_ms":  14.2843885964127,
+                                             "frame_spread_share":  0.0031788252711776495,
+                                             "noise_band_share":  0.03,
+                                             "p99_frame_ms":  15.2250003814697,
+                                             "slowest_1_percent_fps":  65.419338239279,
+                                             "gpu_ms":  13.5190000534058,
+                                             "gpu_spread_share":  0.0012575041273054925,
+                                             "gpu_bound_share":  1,
+                                             "process_ms":  0.0890000015497208,
+                                             "draw_ms":  13.4779996871948,
+                                             "render_cpu_ms":  0.904999971389771,
+                                             "draw_calls":  298,
+                                             "shadow_draw_calls":  312,
+                                             "primitives":  953954,
+                                             "hitches":  [
+                                                             0,
+                                                             0,
+                                                             0
+                                                         ],
+                                             "per_repeat_mean_ms":  [
+                                                                        14.2843885964127,
+                                                                        14.28760663254,
+                                                                        14.2421990570864
+                                                                    ]
+                                         },
+                                         {
+                                             "name":  "village_close",
+                                             "repeats":  3,
+                                             "mean_frame_ms":  14.4874518972177,
+                                             "frame_spread_share":  0.006944204266301629,
+                                             "noise_band_share":  0.03,
+                                             "p99_frame_ms":  15.3409996032715,
+                                             "slowest_1_percent_fps":  65.0237335445085,
+                                             "gpu_ms":  13.7019996643066,
+                                             "gpu_spread_share":  0.010144569847078119,
+                                             "gpu_bound_share":  1,
+                                             "process_ms":  0.0890000015497208,
+                                             "draw_ms":  13.7449998855591,
+                                             "render_cpu_ms":  0.870999991893768,
+                                             "draw_calls":  363,
+                                             "shadow_draw_calls":  186,
+                                             "primitives":  1235556,
+                                             "hitches":  [
+                                                             0,
+                                                             0,
+                                                             0
+                                                         ],
+                                             "per_repeat_mean_ms":  [
+                                                                        14.5426038659137,
+                                                                        14.4874518972177,
+                                                                        14.4420000406412
+                                                                    ]
+                                         }
+                                     ],
+                     "all_off":  [
+                                     {
+                                         "name":  "centre_north",
+                                         "repeats":  3,
+                                         "mean_frame_ms":  3.96052770784474,
+                                         "frame_spread_share":  0.008305411300647195,
+                                         "noise_band_share":  0.03,
+                                         "p99_frame_ms":  4.68300008773804,
+                                         "slowest_1_percent_fps":  209.616140652331,
+                                         "gpu_ms":  3.29299998283386,
+                                         "gpu_spread_share":  0.010324979801755277,
+                                         "gpu_bound_share":  0.514550264550265,
+                                         "process_ms":  0.0729999989271164,
+                                         "draw_ms":  3.62800002098084,
+                                         "render_cpu_ms":  0.194000005722046,
+                                         "draw_calls":  0,
+                                         "shadow_draw_calls":  0,
+                                         "primitives":  0,
+                                         "hitches":  [
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    3.93553079846333,
+                                                                    3.96052770784474,
+                                                                    3.96842461004459
+                                                                ]
+                                     },
+                                     {
+                                         "name":  "valley_floor",
+                                         "repeats":  3,
+                                         "mean_frame_ms":  3.98384880798249,
+                                         "frame_spread_share":  0.0087822190135468971,
+                                         "noise_band_share":  0.03,
+                                         "p99_frame_ms":  4.72700023651123,
+                                         "slowest_1_percent_fps":  208.970041565159,
+                                         "gpu_ms":  3.30800008773804,
+                                         "gpu_spread_share":  0.0084642917735942534,
+                                         "gpu_bound_share":  0.50199203187251,
+                                         "process_ms":  0.0740000009536743,
+                                         "draw_ms":  3.65000009536743,
+                                         "render_cpu_ms":  0.194999992847443,
+                                         "draw_calls":  0,
+                                         "shadow_draw_calls":  0,
+                                         "primitives":  0,
+                                         "hitches":  [
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    3.95337153706155,
+                                                                    3.98384880798249,
+                                                                    3.98835856981011
+                                                                ]
+                                     },
+                                     {
+                                         "name":  "village_close",
+                                         "repeats":  3,
+                                         "mean_frame_ms":  3.99738615552849,
+                                         "frame_spread_share":  0.0010157162597125074,
+                                         "noise_band_share":  0.03,
+                                         "p99_frame_ms":  4.80299997329712,
+                                         "slowest_1_percent_fps":  204.645451714895,
+                                         "gpu_ms":  3.32399988174438,
+                                         "gpu_spread_share":  0.00030089229089113744,
+                                         "gpu_bound_share":  0.502666666666667,
+                                         "process_ms":  0.0759999975562096,
+                                         "draw_ms":  3.66199994087219,
+                                         "render_cpu_ms":  0.23199999332428,
+                                         "draw_calls":  23,
+                                         "shadow_draw_calls":  0,
+                                         "primitives":  276,
+                                         "hitches":  [
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    3.99738615552849,
+                                                                    3.99716511801302,
+                                                                    4.00122532812754
+                                                                ]
+                                     }
+                                 ]
+                 },
+    "costs":  [
+                  {
+                      "variant":  "shadows_off",
+                      "off":  [
+                                  "shadows"
+                              ],
+                      "removes":  "the sun\u0027s shadows (all shadow drawing)",
+                      "verified":  true,
+                      "mean_frame_saving_ms":  2.2440912578786993,
+                      "mean_gpu_saving_ms":  2.2549997965494661,
+                      "views":  [
+                                    {
+                                        "view":  "centre_north",
+                                        "frame_saving_ms":  2.0036328971741995,
+                                        "gpu_saving_ms":  1.9930000305175,
+                                        "share_of_frame":  0.13528869467769103,
+                                        "outside_noise":  true,
+                                        "fewer_draw_calls":  442,
+                                        "fewer_primitives":  0
+                                    },
+                                    {
+                                        "view":  "valley_floor",
+                                        "frame_saving_ms":  2.4792476347438992,
+                                        "gpu_saving_ms":  2.4789991378784,
+                                        "share_of_frame":  0.14485649002627368,
+                                        "outside_noise":  true,
+                                        "fewer_draw_calls":  393,
+                                        "fewer_primitives":  0
+                                    },
+                                    {
+                                        "view":  "village_close",
+                                        "frame_saving_ms":  2.249393241718,
+                                        "gpu_saving_ms":  2.2930002212524982,
+                                        "share_of_frame":  0.12224612732919554,
+                                        "outside_noise":  true,
+                                        "fewer_draw_calls":  247,
+                                        "fewer_primitives":  0
+                                    }
+                                ]
+                  },
+                  {
+                      "variant":  "grass_off",
+                      "off":  [
+                                  "grass"
+                              ],
+                      "removes":  "drawing the grass",
+                      "verified":  true,
+                      "mean_frame_saving_ms":  2.1853404259564004,
+                      "mean_gpu_saving_ms":  2.1959997812907335,
+                      "views":  [
+                                    {
+                                        "view":  "centre_north",
+                                        "frame_saving_ms":  1.3410183016629009,
+                                        "gpu_saving_ms":  1.3420000076293999,
+                                        "share_of_frame":  0.090547832303381551,
+                                        "outside_noise":  true,
+                                        "fewer_draw_calls":  68,
+                                        "fewer_primitives":  413712
+                                    },
+                                    {
+                                        "view":  "valley_floor",
+                                        "frame_saving_ms":  2.1118306986403983,
+                                        "gpu_saving_ms":  2.1139993667603019,
+                                        "share_of_frame":  0.12338920011367946,
+                                        "outside_noise":  true,
+                                        "fewer_draw_calls":  51,
+                                        "fewer_primitives":  310284
+                                    },
+                                    {
+                                        "view":  "village_close",
+                                        "frame_saving_ms":  3.1031722775659016,
+                                        "gpu_saving_ms":  3.1319999694824983,
+                                        "share_of_frame":  0.16864583138785347,
+                                        "outside_noise":  true,
+                                        "fewer_draw_calls":  80,
+                                        "fewer_primitives":  486720
+                                    }
+                                ]
+                  },
+                  {
+                      "variant":  "objects_off",
+                      "off":  [
+                                  "objects"
+                              ],
+                      "removes":  "drawing the houses and rocks at every distance",
+                      "verified":  true,
+                      "mean_frame_saving_ms":  -0.22354296492003378,
+                      "mean_gpu_saving_ms":  -0.19333330790203362,
+                      "views":  [
+                                    {
+                                        "view":  "centre_north",
+                                        "frame_saving_ms":  0.26541165088389995,
+                                        "gpu_saving_ms":  0.29500007629389913,
+                                        "share_of_frame":  0.017921045242856194,
+                                        "outside_noise":  false,
+                                        "fewer_draw_calls":  506,
+                                        "fewer_primitives":  89372
+                                    },
+                                    {
+                                        "view":  "valley_floor",
+                                        "frame_saving_ms":  0.14219316801899851,
+                                        "gpu_saving_ms":  0.16300010681150212,
+                                        "share_of_frame":  0.00830800559665594,
+                                        "outside_noise":  false,
+                                        "fewer_draw_calls":  452,
+                                        "fewer_primitives":  79316
+                                    },
+                                    {
+                                        "view":  "village_close",
+                                        "frame_saving_ms":  -1.0782337136629998,
+                                        "gpu_saving_ms":  -1.0380001068115021,
+                                        "share_of_frame":  -0.058597978070925087,
+                                        "outside_noise":  true,
+                                        "fewer_draw_calls":  343,
+                                        "fewer_primitives":  80788
+                                    }
+                                ]
+                  },
+                  {
+                      "variant":  "trees_off",
+                      "off":  [
+                                  "trees"
+                              ],
+                      "removes":  "drawing all trees, near and far",
+                      "verified":  true,
+                      "mean_frame_saving_ms":  3.0748308559784672,
+                      "mean_gpu_saving_ms":  3.0946661631266328,
+                      "views":  [
+                                    {
+                                        "view":  "centre_north",
+                                        "frame_saving_ms":  1.6701938948895005,
+                                        "gpu_saving_ms":  1.7109994888304989,
+                                        "share_of_frame":  0.112774327181854,
+                                        "outside_noise":  true,
+                                        "fewer_draw_calls":  100,
+                                        "fewer_primitives":  396840
+                                    },
+                                    {
+                                        "view":  "valley_floor",
+                                        "frame_saving_ms":  3.4091075576157994,
+                                        "gpu_saving_ms":  3.372999191284201,
+                                        "share_of_frame":  0.19918597400185845,
+                                        "outside_noise":  true,
+                                        "fewer_draw_calls":  107,
+                                        "fewer_primitives":  564354
+                                    },
+                                    {
+                                        "view":  "village_close",
+                                        "frame_saving_ms":  4.1451911154301015,
+                                        "gpu_saving_ms":  4.1999998092651989,
+                                        "share_of_frame":  0.22527566612305402,
+                                        "outside_noise":  true,
+                                        "fewer_draw_calls":  103,
+                                        "fewer_primitives":  667772
+                                    }
+                                ]
+                  },
+                  {
+                      "variant":  "pictures_off",
+                      "off":  [
+                                  "pictures"
+                              ],
+                      "removes":  "drawing the far tree pictures",
+                      "verified":  true,
+                      "mean_frame_saving_ms":  1.2428414747289995,
+                      "mean_gpu_saving_ms":  1.2489995956420998,
+                      "views":  [
+                                    {
+                                        "view":  "centre_north",
+                                        "frame_saving_ms":  0.87424021598629942,
+                                        "gpu_saving_ms":  0.90799999237060014,
+                                        "share_of_frame":  0.059030183534287461,
+                                        "outside_noise":  true,
+                                        "fewer_draw_calls":  28,
+                                        "fewer_primitives":  95160
+                                    },
+                                    {
+                                        "view":  "valley_floor",
+                                        "frame_saving_ms":  0.45546403570669725,
+                                        "gpu_saving_ms":  0.418998718261701,
+                                        "share_of_frame":  0.026611670662131669,
+                                        "outside_noise":  false,
+                                        "fewer_draw_calls":  24,
+                                        "fewer_primitives":  81678
+                                    },
+                                    {
+                                        "view":  "village_close",
+                                        "frame_saving_ms":  2.3988201724940019,
+                                        "gpu_saving_ms":  2.4200000762939986,
+                                        "share_of_frame":  0.13036692331420638,
+                                        "outside_noise":  true,
+                                        "fewer_draw_calls":  59,
+                                        "fewer_primitives":  243536
+                                    }
+                                ]
+                  },
+                  {
+                      "variant":  "terrain_off",
+                      "off":  [
+                                  "terrain"
+                              ],
+                      "removes":  "drawing the ground (Terrain3D)",
+                      "verified":  true,
+                      "mean_frame_saving_ms":  4.37548941224486,
+                      "mean_gpu_saving_ms":  4.4279998143514137,
+                      "views":  [
+                                    {
+                                        "view":  "centre_north",
+                                        "frame_saving_ms":  6.3825822433015809,
+                                        "gpu_saving_ms":  6.39599990844724,
+                                        "share_of_frame":  0.43096278843649188,
+                                        "outside_noise":  true,
+                                        "fewer_draw_calls":  129,
+                                        "fewer_primitives":  265608
+                                    },
+                                    {
+                                        "view":  "valley_floor",
+                                        "frame_saving_ms":  2.8308102758933984,
+                                        "gpu_saving_ms":  2.8539991378784,
+                                        "share_of_frame":  0.16539745152911423,
+                                        "outside_noise":  true,
+                                        "fewer_draw_calls":  111,
+                                        "fewer_primitives":  210064
+                                    },
+                                    {
+                                        "view":  "village_close",
+                                        "frame_saving_ms":  3.913075717539602,
+                                        "gpu_saving_ms":  4.0340003967285991,
+                                        "share_of_frame":  0.21266106056661652,
+                                        "outside_noise":  true,
+                                        "fewer_draw_calls":  91,
+                                        "fewer_primitives":  213472
+                                    }
+                                ]
+                  },
+                  {
+                      "variant":  "all_off",
+                      "off":  [
+                                  "shadows",
+                                  "grass",
+                                  "objects",
+                                  "trees",
+                                  "pictures",
+                                  "terrain"
+                              ],
+                      "removes":  "drawing the grass; drawing the houses and rocks at every distance; drawing the far tree pictures; the sun\u0027s shadows (all shadow drawing); drawing the ground (Terrain3D); drawing all trees, near and far",
+                      "verified":  true,
+                      "mean_frame_saving_ms":  12.794672662910294,
+                      "mean_gpu_saving_ms":  12.773332993189506,
+                      "views":  [
+                                    {
+                                        "view":  "centre_north",
+                                        "frame_saving_ms":  10.84952646517846,
+                                        "gpu_saving_ms":  10.842999696731539,
+                                        "share_of_frame":  0.73257844559009666,
+                                        "outside_noise":  true,
+                                        "fewer_draw_calls":  826,
+                                        "fewer_primitives":  1165532
+                                    },
+                                    {
+                                        "view":  "valley_floor",
+                                        "frame_saving_ms":  13.131350064323609,
+                                        "gpu_saving_ms":  13.06499910354616,
+                                        "share_of_frame":  0.76723327390435947,
+                                        "outside_noise":  true,
+                                        "fewer_draw_calls":  721,
+                                        "fewer_primitives":  1164018
+                                    },
+                                    {
+                                        "view":  "village_close",
+                                        "frame_saving_ms":  14.403141459228811,
+                                        "gpu_saving_ms":  14.412000179290819,
+                                        "share_of_frame":  0.78275698179857789,
+                                        "outside_noise":  true,
+                                        "fewer_draw_calls":  617,
+                                        "fewer_primitives":  1448752
+                                    }
+                                ]
+                  }
+              ],
+    "interaction":  [
+                        {
+                            "view":  "centre_north",
+                            "sum_of_parts_ms":  12.537079203898381,
+                            "all_off_saving_ms":  10.84952646517846,
+                            "floor_frame_ms":  3.96052770784474
+                        },
+                        {
+                            "view":  "valley_floor",
+                            "sum_of_parts_ms":  11.428653370619191,
+                            "all_off_saving_ms":  13.131350064323609,
+                            "floor_frame_ms":  3.98384880798249
+                        },
+                        {
+                            "view":  "village_close",
+                            "sum_of_parts_ms":  14.731418811084607,
+                            "all_off_saving_ms":  14.403141459228811,
+                            "floor_frame_ms":  3.99738615552849
+                        }
+                    ]
+}

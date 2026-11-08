@@ -1,0 +1,8 @@
+{
+  "description": "The boat test with no cargo: drifting, sailing, turning, walking on deck, saving and loading. With -Ablate it also runs with the water surface not drawn (the waves and floating keep going), to show what drawing the water costs.",
+  "test": "boat",
+  "extra": [],
+  "switches": [
+    "water"
+  ]
+}

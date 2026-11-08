@@ -1,0 +1,8 @@
+{
+  "description": "The 3 quick views with the game time running 600 times faster than real time (an hour every 6 s): the sun, sky and light keep changing.",
+  "test": "terrain",
+  "only": "centre_north,valley_floor,village_close",
+  "extra": [
+    "--time-speed=600"
+  ]
+}

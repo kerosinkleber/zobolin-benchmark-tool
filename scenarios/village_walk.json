@@ -1,0 +1,9 @@
+{
+  "description": "The walk to the house's door, inside (its light and lamps take over) and out again. With -Ablate, the house lamps are switched off once to show what they cost.",
+  "test": "terrain",
+  "only": "house",
+  "extra": [],
+  "switches": [
+    "lamps"
+  ]
+}

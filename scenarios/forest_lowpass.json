@@ -1,0 +1,6 @@
+{
+  "description": "Low (30 m) and fast (60 m/s, the same distance every frame) for 2 km over the densest row of forest: near trees, their trunk collision and grass keep coming. Shows the forest's stutters.",
+  "test": "terrain",
+  "only": "forest_lowpass",
+  "extra": []
+}

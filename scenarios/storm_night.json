@@ -1,0 +1,10 @@
+{
+  "description": "The 3 quick views at 23:00 in a storm, a loud lightning strike every 5 s.",
+  "test": "terrain",
+  "only": "centre_north,valley_floor,village_close",
+  "extra": [
+    "--weather=storm",
+    "--lightning-every=5",
+    "--time=23:00"
+  ]
+}

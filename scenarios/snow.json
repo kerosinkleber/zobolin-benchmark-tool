@@ -1,0 +1,9 @@
+{
+  "description": "The 3 quick views at noon in snow.",
+  "test": "terrain",
+  "only": "centre_north,valley_floor,village_close",
+  "extra": [
+    "--weather=snow",
+    "--time=12:00"
+  ]
+}

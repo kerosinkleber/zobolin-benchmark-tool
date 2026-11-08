@@ -1,0 +1,34 @@
+{
+  "description": "A storm with fully wet surfaces (7c): the centre, the valley floor, the village close up, the lake shore and the market stall, 3 s each. With -Ablate: what rain, the wet look, the lake and the usual parts cost in a storm.",
+  "test": "terrain",
+  "only": "centre_north,valley_floor,village_close,lake_shore,stall",
+  "extra": ["--weather=storm", "--wetness=1"],
+  "switches": [
+    "precipitation",
+    "wet",
+    "lake",
+    "shadows",
+    "grass",
+    "objects",
+    "trees",
+    "terrain",
+    "sky",
+    "fog"
+  ],
+  "detail_switches": [
+    "pictures",
+    "terrain_shadows",
+    "tree_shadows",
+    "object_shadows"
+  ],
+  "cpu_switches": [
+    "world_updates",
+    "daynight",
+    "overlay",
+    "physics_engine",
+    "recentre",
+    "terrain_collision",
+    "trunk_collision",
+    "imgui"
+  ]
+}

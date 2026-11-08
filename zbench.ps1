@@ -13,8 +13,16 @@
 #       [-Ablate [-Kind all|gpu|cpu]] [-Repeats 3] [-Preset high|low] [-Renderer forward_plus|mobile]
 #       [-Gpu auto|intel|nvidia|<number>] [-GpuProfile] [-CoolDown 20]
 #       [-GameOptions <options for the game>] [-Game <game repo folder; default: "Open World Game - Zobolin" next to this folder>]
-#       [-SaveBaseline] [-Baseline <summary.json to compare with>]
+#       [-SaveBaseline] [-Baseline <summary.json to compare with>] [-ColdCache]
 #   powershell -ExecutionPolicy Bypass -File zbench.ps1 -Reanalyse <results folder>
+#
+# Start-up (-Scenario load, and any run with -ColdCache): how long the game
+# takes from its start to the first measured frame, and where that time
+# goes (landscape, forest and tree pictures, the benchmark's waits, the
+# rest), in summary.json's "load" block and a "Start-up" table.
+# -ColdCache deletes Godot's caches for the game before every run (the
+# compiled shaders, the graphics card's pipelines, the tree pictures; only
+# those, and it says what it deleted), so each run starts cold.
 #
 # -Reanalyse works out summary.json again from a finished session's runs,
 # without running the game (for example after a change to the statistics).
@@ -48,7 +56,8 @@ param(
 	[string] $Game = "",
 	[string] $Reanalyse = "",
 	[switch] $SaveBaseline,
-	[string] $Baseline = ""
+	[string] $Baseline = "",
+	[switch] $ColdCache
 )
 
 # Several game options may come as one string ("--npcs=8 --grass=off"),
@@ -79,6 +88,191 @@ function Save-Json($Value, [string] $Path) {
 
 function Get-MedianOf($Items, [scriptblock] $Pick) {
 	return Get-Median ([double[]]@($Items | ForEach-Object $Pick))
+}
+
+# --- Start-up: the game's caches (-ColdCache) ---
+# Where Godot 4.7 keeps this project's caches, as found on the development
+# PC (2026-11-08): the game's runs write the compiled shaders to
+# user://shader_cache and the graphics card's pipelines to
+# user://vulkan/pipelines.<renderer>.<card>.cache (both updated by every
+# run; the ".editor.cache" one is the editor's and is kept); the editor
+# keeps its own compiled shaders in game\.godot\shader_cache (deleted too,
+# so no copy of them is left); the tree pictures are in the folder that
+# TreeImpostorBaker.CACHE_DIR names (user://cache/tree_pictures). user://
+# is %APPDATA%\Godot\app_userdata\<config/name from project.godot>.
+# Each entry: the folder, the name it must have, what may be in it, and the
+# folder it must be inside. A "files_only" entry deletes only the matching
+# files in the folder, not the folder.
+function Get-GameCaches([string] $GameRoot) {
+	$projectFile = Join-Path $GameRoot "game\project.godot"
+	if (-not (Test-Path $projectFile)) { throw "There is no game\project.godot in $GameRoot." }
+	$projectText = Get-Content -Raw $projectFile
+	if ($projectText -match '(?m)^config/use_custom_user_dir\s*=\s*true') {
+		throw "The project keeps its user data in a folder of its own (use_custom_user_dir): the tool doesn't know where its caches are, so it deletes nothing."
+	}
+	if ($projectText -notmatch '(?m)^config/name\s*=\s*"([^"]+)"') { throw "No config/name in $projectFile." }
+	$projectName = $Matches[1]
+	if ($projectName -match '[\\/:*?"<>|]' -or $projectName.Trim(' ', '.').Length -eq 0) {
+		throw "The project's name '$projectName' can't be a folder name: the tool deletes nothing."
+	}
+	$appData = [Environment]::GetFolderPath("ApplicationData")
+	if (-not $appData) { throw "Windows doesn't say where the user's application data is: the tool deletes nothing." }
+	$userDir = [IO.Path]::GetFullPath((Join-Path $appData "Godot\app_userdata\$projectName"))
+	$bakerFile = Join-Path $GameRoot "game\world\tree_impostor_baker.gd"
+	if (-not (Test-Path $bakerFile)) { throw "The tree picture baker is missing ($bakerFile): the tool doesn't know where the tree pictures are." }
+	if ((Get-Content -Raw $bakerFile) -notmatch 'const CACHE_DIR: String = "user://([^"]+)"') {
+		throw "The tree picture baker's CACHE_DIR isn't a user:// folder any more: check where the tree pictures are kept."
+	}
+	$picturesRelative = $Matches[1].TrimEnd('/')
+	if ($picturesRelative -ne "cache/tree_pictures") {
+		throw "The tree pictures moved to user://$picturesRelative; check it is a cache folder and update zbench.ps1 (Get-GameCaches)."
+	}
+	$projectCache = [IO.Path]::GetFullPath((Join-Path $GameRoot "game\.godot"))
+	return @(
+		[ordered]@{ what = "compiled shaders (the game's)"; path = Join-Path $userDir "shader_cache"; leaf = "shader_cache"; inside = $userDir; files = '\.cache$' },
+		[ordered]@{ what = "compiled shaders (the editor's)"; path = Join-Path $projectCache "shader_cache"; leaf = "shader_cache"; inside = $projectCache; files = '\.cache$' },
+		[ordered]@{ what = "tree pictures"; path = Join-Path $userDir "cache\tree_pictures"; leaf = "tree_pictures"; inside = (Join-Path $userDir "cache"); files = '\.png$' },
+		[ordered]@{ what = "graphics card pipelines (the game's)"; path = Join-Path $userDir "vulkan"; leaf = "vulkan"; inside = $userDir; files = '^pipelines\..+\.cache$'; keep = '\.editor\.cache$'; files_only = $true }
+	)
+}
+
+# Why a cache entry must not be deleted, or $null if it may. It must be the
+# folder named, inside the folder named, no link to somewhere else, and hold
+# only the cache's own files.
+function Get-CacheProblem($Cache) {
+	$full = [IO.Path]::GetFullPath($Cache.path)
+	$inside = [IO.Path]::GetFullPath($Cache.inside).TrimEnd('\')
+	if ((Split-Path $full -Leaf) -ne $Cache.leaf) { return "$full is not a folder called $($Cache.leaf)" }
+	if (-not $full.StartsWith($inside + "\", [StringComparison]::OrdinalIgnoreCase)) { return "$full is not inside $inside" }
+	if ($Cache.inside -notmatch '\\Godot\\app_userdata\\[^\\]+(\\cache)?$' -and $Cache.inside -notmatch '\\game\\\.godot$') {
+		return "$inside is neither Godot's user data folder nor the project's .godot folder"
+	}
+	if (-not (Test-Path -LiteralPath $full)) { return $null }
+	$folder = Get-Item -LiteralPath $full -Force
+	if (-not $folder.PSIsContainer) { return "$full is a file, not a folder" }
+	if ($folder.Attributes -band [IO.FileAttributes]::ReparsePoint) { return "$full is a link to another folder" }
+	$items = if ($Cache.files_only) { @(Get-ChildItem -LiteralPath $full -Force -File) } else { @(Get-ChildItem -LiteralPath $full -Force -Recurse) }
+	foreach ($item in $items) {
+		if ($item.Attributes -band [IO.FileAttributes]::ReparsePoint) { return "$($item.FullName) is a link" }
+		if ($item.PSIsContainer) { continue }
+		if ($Cache.files_only) { continue }
+		if ($item.Name -notmatch $Cache.files) { return "$($item.FullName) is not a cache file (expected only files matching $($Cache.files))" }
+	}
+	return $null
+}
+
+# Deletes the game's caches (see Get-GameCaches), after checking every one
+# of them first; stops (throws) without deleting anything if one doesn't
+# look like a cache. Returns what it deleted.
+function Clear-GameCaches([string] $GameRoot) {
+	$caches = Get-GameCaches $GameRoot
+	foreach ($cache in $caches) {
+		$problem = Get-CacheProblem $cache
+		if ($problem) { throw "Not deleting the caches: $problem." }
+	}
+	$running = @(Get-Process -ErrorAction SilentlyContinue | Where-Object { $_.ProcessName -like "Godot*" })
+	if ($running.Count -gt 0) {
+		Write-Host "WARNING: Godot is running ($($running.Count) programs): it may write its caches back meanwhile, so this run may start less cold." -ForegroundColor Yellow
+	}
+	$deleted = @()
+	foreach ($cache in $caches) {
+		$full = [IO.Path]::GetFullPath($cache.path)
+		$entry = [ordered]@{ what = $cache.what; path = $full; files = 0; mb = 0.0 }
+		if (Test-Path -LiteralPath $full) {
+			if ($cache.files_only) {
+				$files = @(Get-ChildItem -LiteralPath $full -Force -File | Where-Object { $_.Name -match $cache.files -and -not ($cache.keep -and $_.Name -match $cache.keep) })
+			} else {
+				$files = @(Get-ChildItem -LiteralPath $full -Force -Recurse -File)
+			}
+			$entry.files = $files.Count
+			$entry.mb = [math]::Round((($files | Measure-Object Length -Sum).Sum) / 1MB, 1)
+			if ($cache.files_only) {
+				foreach ($file in $files) { Remove-Item -LiteralPath $file.FullName -Force -ErrorAction Stop }
+				$entry.names = @($files | ForEach-Object { $_.Name })
+			} else {
+				# Not Remove-Item -Recurse: in Windows PowerShell it can leave
+				# files behind without an error. A file another program still
+				# has open goes only when that program lets go: try a few times.
+				$lastError = "it is still there"
+				for ($try = 1; $try -le 5 -and (Test-Path -LiteralPath $full); $try++) {
+					try { [IO.Directory]::Delete($full, $true) } catch { if ($try -eq 5) { $lastError = $_.Exception.Message } else { Start-Sleep -Milliseconds 400 } }
+				}
+				if (Test-Path -LiteralPath $full) { throw "Could not delete $full ($lastError; a program may hold a file in it)." }
+			}
+		}
+		$what = if ($entry.files -gt 0) { "deleted $($entry.files) files, $($entry.mb) MB" } else { "was empty or not there" }
+		Write-Host ("Cold cache: {0}: {1} ({2})" -f $cache.what, $full, $what)
+		$deleted += $entry
+	}
+	return , $deleted
+}
+
+# --- Start-up: where a run's time went before its first measured frame ---
+# The run starts when zbench calls the game's launcher (started_at in
+# session.json; for older sessions: when Godot's output was written, minus
+# the run's seconds). The first view's measuring ends when its screenshot
+# is written, so its start is the screenshot's time minus the view's
+# measured seconds (this includes writing the picture, about 0.1-0.3 s).
+function Get-StartupOfRun([string] $SessionDir, $Entry, [bool] $WasCold, [double] $WaitsS) {
+	$dir = Join-Path $SessionDir $Entry.folder
+	$runFile = Join-Path $dir "run.json"
+	if (-not (Test-Path $runFile)) { return $null }
+	$run = Get-Content -Raw $runFile | ConvertFrom-Json
+	$first = @($run.segments)[0]
+	$info = [ordered]@{ folder = $Entry.folder; cache = if ($WasCold) { "cold" } else { "warm" }; first_view = $first.name }
+	$resultsFile = Join-Path $dir "results.json"
+	$results = if (Test-Path $resultsFile) { Get-Content -Raw $resultsFile | ConvertFrom-Json } else { $null }
+	$logFile = Join-Path $dir "godot_log.txt"
+	$landscapeMs = $null
+	if ($results -and $null -ne $results.landscape_build_ms) { $landscapeMs = [double]$results.landscape_build_ms }
+	elseif ((Test-Path $logFile) -and ((Get-Content -Raw $logFile) -match 'Terrain test ready: landscape built in ([\d.]+) s')) {
+		$landscapeMs = [double]::Parse($Matches[1], [cultureinfo]::InvariantCulture) * 1000.0
+	}
+	$info.landscape_build_ms = $landscapeMs
+	$info.forest_setup_ms = if ($results -and $null -ne $results.forest_setup_ms) { [double]$results.forest_setup_ms } else { $null }
+	$info.tree_picture_rows_from_cache = if ($results) { $results.tree_picture_rows_from_cache } else { $null }
+	$info.tree_picture_rows_photographed = if ($results) { $results.tree_picture_rows_photographed } else { $null }
+	$info.shader_compiles_first_view = $first.shader_compiles
+	$info.first_view_max_frame_ms = $first.frame_ms.max_ms
+	$info.first_view_p50_frame_ms = $first.frame_ms.p50_ms
+	$info.first_view_hitches = $first.frame_ms.hitches
+	# The first measured frames: the very first one, and how many were over
+	# 1.5 times the view's middle frame (not yet steady).
+	$framesFile = Join-Path $dir "frames.csv"
+	if (Test-Path $framesFile) {
+		$rows = @(Import-Csv $framesFile | Where-Object { $_.segment -eq $first.name })
+		if ($rows.Count -gt 0) {
+			$info.first_frame_ms = [double]::Parse($rows[0].frame_ms, [cultureinfo]::InvariantCulture)
+			$limit = 1.5 * [double]$first.frame_ms.p50_ms
+			$info.unsteady_frames = @($rows | Where-Object { [double]::Parse($_.frame_ms, [cultureinfo]::InvariantCulture) -gt $limit }).Count
+		}
+	}
+	# When the run started.
+	$startedAt = $null
+	if ($Entry.started_at) {
+		$startedAt = if ($Entry.started_at -is [datetime]) { $Entry.started_at } else { [datetime]::Parse([string]$Entry.started_at, [cultureinfo]::InvariantCulture, [Globalization.DateTimeStyles]::RoundtripKind) }
+		$info.start_from = "started_at"
+	} elseif (Test-Path $logFile) {
+		$startedAt = (Get-Item $logFile).LastWriteTime.AddSeconds(-[double]$Entry.seconds)
+		$info.start_from = "log time minus run seconds"
+	}
+	$info.run_seconds = [double]$Entry.seconds
+	$shot = Join-Path $dir "$($first.name).png"
+	if ($startedAt -and (Test-Path $shot)) {
+		# LastWriteTime, not CreationTime: a copied session keeps the former
+		# but gets a new creation time, which would spoil the start-up time.
+		$shotAt = (Get-Item $shot).LastWriteTime
+		$untilShot = ($shotAt.ToUniversalTime() - $startedAt.ToUniversalTime()).TotalSeconds
+		$toFirst = $untilShot - [double]$first.seconds
+		$info.to_first_frame_s = [math]::Round($toFirst, 2)
+		$info.after_first_view_s = [math]::Round([double]$Entry.seconds - $untilShot, 2)
+		$info.benchmark_waits_s = $WaitsS
+		if ($null -ne $landscapeMs -and $null -ne $info.forest_setup_ms) {
+			# Engine start, loading the scene, houses and rocks, grass, the sky...
+			$info.other_s = [math]::Round($toFirst - $landscapeMs / 1000.0 - $info.forest_setup_ms / 1000.0 - $WaitsS, 2)
+		}
+	}
+	return $info
 }
 
 # One variant's repeats (run.json files) combined, view by view.
@@ -193,6 +387,7 @@ if ($Reanalyse) {
 	$Renderer = $sessionInfo.renderer
 	if ($sessionInfo.gpu) { $Gpu = $sessionInfo.gpu }
 	$GpuProfile = [bool]$sessionInfo.gpu_profile
+	$ColdCache = [bool]$sessionInfo.cold_cache
 	$machine = $sessionInfo.machine
 	$warnings = @($sessionInfo.warnings)
 	$plan = $sessionInfo.scenario_plan
@@ -254,6 +449,7 @@ $commit = $machine.game_commit
 $short = if ($commit.Length -ge 7) { $commit.Substring(0, 7) } else { $commit }
 $stamp = Get-Date -Format "yyyy-MM-dd_HHmmss"
 $label = if ($Ablate) { "$($Scenario)_ablate" } else { $Scenario }
+if ($ColdCache) { $label += "_cold" }
 # More than one variant: each run goes into <variant>\r<round>.
 $multi = $variants.Count -gt 1
 $session = Join-Path $PSScriptRoot "results\$($stamp)_$($machine.pc)_$($short)_$label"
@@ -275,6 +471,19 @@ foreach ($w in $warnings) { Write-Host "WARNING: $w" -ForegroundColor Yellow }
 $total = $Repeats * $variants.Count
 $minutes = [math]::Ceiling($total * 0.5 + ($Repeats - 1) * $CoolDown / 60.0)
 if ($multi) { Write-Host "Variants: $(($variants | ForEach-Object { $_.name }) -join ', ')" }
+if ($ColdCache) {
+	# Check now that every cache folder looks like one, before any run.
+	try {
+		foreach ($cacheEntry in (Get-GameCaches $Game)) {
+			$problem = Get-CacheProblem $cacheEntry
+			if ($problem) { throw "Not deleting the caches: $problem." }
+		}
+	} catch {
+		Write-Host "STOPPED: $($_.Exception.Message)" -ForegroundColor Red
+		exit 1
+	}
+	Write-Host "Cold start: Godot's caches for the game (compiled shaders, pipelines, tree pictures) are deleted before every run."
+}
 Write-Host "$total runs, about $minutes minutes in all. Don't use the PC meanwhile."
 
 $sessionInfo = [ordered]@{
@@ -288,6 +497,7 @@ $sessionInfo = [ordered]@{
 	renderer = $Renderer
 	gpu = $Gpu
 	gpu_profile = [bool]$GpuProfile
+	cold_cache = [bool]$ColdCache
 	cool_down_s = $CoolDown
 	game_options = $GameOptions
 	started = (Get-Date -Format "s")
@@ -315,13 +525,26 @@ for ($r = 1; $r -le $Repeats -and -not $failed; $r++) {
 		}
 		if ($plan.only) { $options.Only = $plan.only }
 		if ($GpuProfile) { $options.GpuProfile = $true }
+		$clearedCaches = $null
+		if ($ColdCache) {
+			try {
+				$clearedCaches = Clear-GameCaches $Game
+			} catch {
+				$sessionInfo.runs += [ordered]@{ variant = $variant.name; repeat = $r; folder = $folder; ok = $false; problem = $_.Exception.Message }
+				$failed = $_.Exception.Message
+				Save-Json $sessionInfo (Join-Path $session "session.json")
+				break
+			}
+		}
 		$started = Get-Date
 		& $launcher @options
 		$code = $LASTEXITCODE
 		$runInfo = [ordered]@{
 			variant = $variant.name; repeat = $r; folder = $folder
 			seconds = [math]::Round(((Get-Date) - $started).TotalSeconds, 1); ok = $false
+			started_at = $started.ToString("o")
 		}
+		if ($ColdCache) { $runInfo.caches_deleted = $clearedCaches }
 		$runFile = Join-Path $out "run.json"
 		if ($code -ne 0 -or -not (Test-Path $runFile)) {
 			$runInfo.problem = "The game run did not finish (see $folder\godot_log.txt)."
@@ -559,8 +782,42 @@ if ($scaling.Count -gt 0) {
 	$summary.scaling = $scaling
 }
 
+# --- Start-up: from the game's start to the first measured frame ---
+# For the "load" scenario (its plan says "startup": true) and any session
+# with -ColdCache: per run and the middle value over the runs.
+$startup = $null
+if ($plan.startup -or $ColdCache) {
+	# The benchmark's own waits before the first view is measured: 0.5 s at
+	# its start, then SETTLE_S at the view (terrain_benchmark.gd).
+	$settleS = 1.5
+	$benchmarkScript = Join-Path $Game "game\prototypes\terrain\terrain_benchmark.gd"
+	if ((Test-Path $benchmarkScript) -and ((Get-Content -Raw $benchmarkScript) -match 'const SETTLE_S: float = ([\d.]+)')) {
+		$settleS = [double]::Parse($Matches[1], [cultureinfo]::InvariantCulture)
+	}
+	$startupRuns = @()
+	foreach ($entry in @($sessionInfo.runs | Where-Object { $_.ok })) {
+		$one = Get-StartupOfRun $session $entry ([bool]$ColdCache) (0.5 + $settleS)
+		if ($one) { $startupRuns += $one }
+	}
+	$combinedStartup = [ordered]@{ cache = if ($ColdCache) { "cold" } else { "warm" }; runs = $startupRuns.Count }
+	foreach ($field in @("to_first_frame_s", "landscape_build_ms", "forest_setup_ms", "benchmark_waits_s", "other_s", "after_first_view_s", "run_seconds",
+			"tree_picture_rows_from_cache", "tree_picture_rows_photographed", "shader_compiles_first_view", "first_frame_ms",
+			"unsteady_frames", "first_view_max_frame_ms", "first_view_hitches")) {
+		$values = @($startupRuns | Where-Object { $null -ne $_[$field] } | ForEach-Object { [double]$_[$field] })
+		$combinedStartup[$field] = if ($values.Count -gt 0) { Get-Median ([double[]]$values) } else { $null }
+	}
+	$startup = [ordered]@{
+		cache = $combinedStartup.cache
+		how = "to_first_frame_s: from zbench starting the game's launcher to the first measured frame of the first view (its screenshot's time minus its measured seconds). other_s: what is left after the landscape, the forest (with the tree pictures) and the benchmark's waits: Godot starting, loading the scene, houses and rocks, grass, shaders."
+		runs = $startupRuns
+		combined = $combinedStartup
+	}
+	$summary.load = $startup
+}
+
 # --- Compare with the baseline ---
 $kindLabel = if ($Ablate) { "$($Scenario)_ablate" } else { $Scenario }
+if ($ColdCache) { $kindLabel += "_cold" }
 $profileLabel = if ($GpuProfile) { "_gpuprofile" } else { "" }
 $baselineFile = Join-Path $PSScriptRoot "baselines\$($machine.pc)\$($kindLabel)_$($Preset)_$($Renderer)_$($Gpu)$profileLabel.json"
 $compareWith = if ($Baseline) { $Baseline } else { $baselineFile }
@@ -651,6 +908,24 @@ foreach ($s in $segments) {
 	}
 }
 
+if ($startup) {
+	Write-Host ""
+	Write-Host "Start-up ($($startup.cache): $(if ($startup.cache -eq 'cold') { 'caches deleted before each run' } else { 'caches as they were' }); seconds from the game's start):" -ForegroundColor Cyan
+	Write-Host ("  {0,-8} {1,-5} {2,9} {3,10} {4,7} {5,6} {6,6} {7,15} {8,8} {9,10} {10,8}" -f "run", "cache", "to view", "landscape", "forest", "waits", "other", "pictures (c/n)", "shaders", "1st frame", "unsteady")
+	Write-Host ("  {0,-8} {1,-5} {2,9} {3,10} {4,7} {5,6} {6,6} {7,15} {8,8} {9,10} {10,8}" -f "", "", "s", "s", "s", "s", "s", "cached/new", "compiled", "ms", "frames")
+	$rowsToPrint = @($startup.runs | ForEach-Object { $_ })
+	if ($startup.runs.Count -gt 1) { $rowsToPrint += [ordered]@{ folder = "median"; cache = $startup.cache } }
+	foreach ($row in $rowsToPrint) {
+		$src = if ($row.folder -eq "median") { $startup.combined } else { $row }
+		$num = { param($v, $scale, $fmt) if ($null -eq $v) { "-" } else { ("{0:$fmt}" -f ([double]$v * $scale)) } }
+		Write-Host ("  {0,-8} {1,-5} {2,9} {3,10} {4,7} {5,6} {6,6} {7,15} {8,8} {9,10} {10,8}" -f $row.folder, $row.cache,
+			(& $num $src.to_first_frame_s 1 "N2"), (& $num $src.landscape_build_ms 0.001 "N2"), (& $num $src.forest_setup_ms 0.001 "N2"),
+			(& $num $src.benchmark_waits_s 1 "N1"), (& $num $src.other_s 1 "N2"),
+			("{0}/{1}" -f (& $num $src.tree_picture_rows_from_cache 1 "N0"), (& $num $src.tree_picture_rows_photographed 1 "N0")),
+			(& $num $src.shader_compiles_first_view 1 "N0"), (& $num $src.first_frame_ms 1 "N1"), (& $num $src.unsteady_frames 1 "N0"))
+	}
+	Write-Host "  (other = Godot starting, loading the scene, houses and rocks, grass, shaders; 1st frame includes writing the first screenshot, about 0.1-0.3 s)"
+}
 if ($Ablate) {
 	$ranked = @($costs | Where-Object { $_.variant -ne "all_off" -and -not $_.detail } | Sort-Object { $_.mean_frame_saving_ms } -Descending)
 	$ranked += @($costs | Where-Object { $_.detail -and -not $_.cpu } | Sort-Object { $_.mean_frame_saving_ms } -Descending)

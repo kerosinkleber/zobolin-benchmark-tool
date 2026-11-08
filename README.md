@@ -41,6 +41,7 @@ optional and not built.
 | `-Scenario items` | The items test with 300, 1000 and 3000 items, and how their cost grows |
 | `-Scenario boat_cargo` | The boat with 0, 13 and 26 crates of cargo, and how their cost grows |
 | `-Scenario vista` | All 11 terrain views instead of the quick 3 (`vista_quick`) |
+| `-Scenario storm` | A storm with fully wet surfaces (7c), at the centre, valley floor, village, lake shore and market stall; with `-Ablate` also what rain (`precipitation`), the wet look (`wet`) and the lake (`lake`) cost |
 | `-Ablate` | Also once with each part off (shadows, grass, houses and rocks, trees, ground, sky, fog, and the pieces: far tree pictures, the ground's, near trees' and houses' shadows) and once with the parts all off, then a table of what each part costs; then the processor switches (physics, updates, day and night, panel, re-centring, collision, ImGui) and a table of processor time saved. Three rounds of 21 runs: about 35 minutes |
 | `-Ablate -Kind gpu` / `-Kind cpu` | Only the graphics card's switches (about 21 minutes) or only the processor's (about 15 minutes) |
 | `-Repeats 5` | Five runs instead of three |

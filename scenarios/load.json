@@ -1,0 +1,7 @@
+{
+  "description": "Start-up: the terrain test from its start to the first steady frame of one view (centre). Shows how long it takes and where the time goes (landscape, forest and tree pictures, the rest); with -ColdCache Godot's caches are deleted before each run.",
+  "test": "terrain",
+  "only": "centre_north",
+  "extra": [],
+  "startup": true
+}

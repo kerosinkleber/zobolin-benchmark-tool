@@ -1,0 +1,28 @@
+{
+  "description": "The NPC test near village A with 8, 24 and 64 NPCs: their day, the 07:00 rush, the walk round the wall, and an 8-hour clock jump. Shows how the NPCs' cost grows with their number. One run takes about 7 minutes, so run it with -Repeats 2.",
+  "test": "npcs",
+  "extra": [],
+  "variants": [
+    {
+      "name": "npcs_8",
+      "x": 8,
+      "extra": [
+        "--npcs=8"
+      ]
+    },
+    {
+      "name": "npcs_24",
+      "x": 24,
+      "extra": [
+        "--npcs=24"
+      ]
+    },
+    {
+      "name": "npcs_64",
+      "x": 64,
+      "extra": [
+        "--npcs=64"
+      ]
+    }
+  ]
+}

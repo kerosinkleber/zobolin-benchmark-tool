@@ -1,0 +1,10 @@
+{
+  "description": "The physical items test with 300, 1000 and 3000 items: adding them, settling, at rest, all thrown at once, and some floating on waves. Shows how the physics cost grows with the number of items.",
+  "test": "items",
+  "extra": [],
+  "variants": [
+    {"name": "items_300", "x": 300, "extra": ["--items=300"]},
+    {"name": "items_1000", "x": 1000, "extra": ["--items=1000"]},
+    {"name": "items_3000", "x": 3000, "extra": ["--items=3000"]}
+  ]
+}

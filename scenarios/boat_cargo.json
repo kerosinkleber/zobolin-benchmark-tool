@@ -1,0 +1,10 @@
+{
+  "description": "The boat test with 0, 13 and 26 crates of cargo on deck (one layer; stacked cargo isn't stowed again after loading yet): drifting, sailing, turning, walking on deck, saving and loading. Shows how the cargo's cost grows.",
+  "test": "boat",
+  "extra": [],
+  "variants": [
+    {"name": "cargo_0", "x": 0, "extra": ["--cargo=0"]},
+    {"name": "cargo_13", "x": 13, "extra": ["--cargo=13"]},
+    {"name": "cargo_26", "x": 26, "extra": ["--cargo=26"]}
+  ]
+}

@@ -19,8 +19,10 @@ their scenarios (boat, house). The noise floor is now 1.5 % (decision 5,
 2026-11-08), and `zbench.ps1 -Reanalyse <folder>` works out a finished
 session again. **Step 5c is done** (2026-11-08): processor and physics
 switches, see `findings/05c-cpu-switches.md` (the processor does 0.5 ms
-per frame, 0.31 ms of it Jolt's step; open question: re-centring makes the
-graphics card about 0.8 ms slower). Next: step 6.
+per frame, 0.31 ms of it Jolt's step). Its "re-centring makes the graphics
+card slower" turned out to be the grass vanishing without re-centring; the
+processor switches are now also checked by comparing screenshots
+(`lib/Pictures.psm1`). Next: step 6.
 
 ---
 

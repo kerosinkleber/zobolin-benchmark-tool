@@ -1064,7 +1064,7 @@
                       "removes":  "updating trees, grass and far objects (while a view is measured)",
                       "check_method":  "counter",
                       "verified":  true,
-                      "check":  "yes (counter: 0 update calls while measuring)",
+                      "check":  "yes (counter: 0 update calls while measuring; picture unchanged)",
                       "mean_frame_saving_ms":  0.034274183759600042,
                       "mean_gpu_saving_ms":  0.011666297912599433,
                       "mean_cpu_saving_ms":  0.045604582172741513,
@@ -1078,7 +1078,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  true,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     },
                                     {
                                         "view":  "valley_floor",
@@ -1089,7 +1090,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  true,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     },
                                     {
                                         "view":  "village_close",
@@ -1100,7 +1102,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  true,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     }
                                 ]
                   },
@@ -1114,7 +1117,7 @@
                       "removes":  "day, night, weather, rain and lightning updates (while a view is measured)",
                       "check_method":  "counter",
                       "verified":  true,
-                      "check":  "yes (counter: day and night ran in 0 of 3 views)",
+                      "check":  "yes (counter: day and night ran in 0 of 3 views; picture unchanged)",
                       "mean_frame_saving_ms":  0.023547308376865434,
                       "mean_gpu_saving_ms":  0.0079997380574662689,
                       "mean_cpu_saving_ms":  0.050632319804871852,
@@ -1128,7 +1131,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  true,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     },
                                     {
                                         "view":  "valley_floor",
@@ -1139,7 +1143,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  true,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     },
                                     {
                                         "view":  "village_close",
@@ -1150,7 +1155,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  true,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     }
                                 ]
                   },
@@ -1164,7 +1170,7 @@
                       "removes":  "the information panel (while a view is measured)",
                       "check_method":  "counter",
                       "verified":  true,
-                      "check":  "yes (counter: panel text changed in 0 of 3 views)",
+                      "check":  "yes (counter: panel text changed in 0 of 3 views; picture unchanged)",
                       "mean_frame_saving_ms":  0.064956250112464531,
                       "mean_gpu_saving_ms":  0.050666173299165486,
                       "mean_cpu_saving_ms":  0.022472430939045811,
@@ -1178,7 +1184,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  true,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     },
                                     {
                                         "view":  "valley_floor",
@@ -1189,7 +1196,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  true,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     },
                                     {
                                         "view":  "village_close",
@@ -1200,7 +1208,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  true,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     }
                                 ]
                   },
@@ -1214,7 +1223,7 @@
                       "removes":  "Jolt\u0027s physics step (while a view is measured)",
                       "check_method":  "counter",
                       "verified":  true,
-                      "check":  "yes (counter: probe body moved 0.00 m while measuring)",
+                      "check":  "yes (counter: probe body moved 0.00 m while measuring; picture unchanged)",
                       "mean_frame_saving_ms":  0.021313929478399867,
                       "mean_gpu_saving_ms":  -0.0026667912800674523,
                       "mean_cpu_saving_ms":  0.31123055817994216,
@@ -1228,7 +1237,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  true,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     },
                                     {
                                         "view":  "valley_floor",
@@ -1239,7 +1249,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  true,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     },
                                     {
                                         "view":  "village_close",
@@ -1250,7 +1261,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  true,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     }
                                 ]
                   },
@@ -1263,8 +1275,8 @@
                       "cpu":  true,
                       "removes":  "re-centring the world (the whole run)",
                       "check_method":  "counter",
-                      "verified":  true,
-                      "check":  "yes (counter: 0 re-centres during the views)",
+                      "verified":  false,
+                      "check":  "NO: the picture changed in valley_floor, village_close, so the saving is not only processor work",
                       "mean_frame_saving_ms":  0.82789885112629824,
                       "mean_gpu_saving_ms":  0.79166603088379917,
                       "mean_cpu_saving_ms":  0.033619677826782011,
@@ -1278,7 +1290,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  false,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     },
                                     {
                                         "view":  "valley_floor",
@@ -1289,7 +1302,8 @@
                                         "outside_noise":  true,
                                         "cpu_outside_noise":  true,
                                         "fewer_draw_calls":  1,
-                                        "fewer_primitives":  800
+                                        "fewer_primitives":  800,
+                                        "picture_difference":  0.0084514466561035183
                                     },
                                     {
                                         "view":  "village_close",
@@ -1300,7 +1314,8 @@
                                         "outside_noise":  true,
                                         "cpu_outside_noise":  true,
                                         "fewer_draw_calls":  -6,
-                                        "fewer_primitives":  -1584
+                                        "fewer_primitives":  -1584,
+                                        "picture_difference":  0.0078536591404238468
                                     }
                                 ]
                   },
@@ -1314,7 +1329,7 @@
                       "removes":  "the ground\u0027s collision (Terrain3D, the whole run)",
                       "check_method":  "counter",
                       "verified":  true,
-                      "check":  "yes (counter: collision mode 0, ground hit in 0 of 3 views)",
+                      "check":  "yes (counter: collision mode 0, ground hit in 0 of 3 views; picture unchanged)",
                       "mean_frame_saving_ms":  -0.017746783678368534,
                       "mean_gpu_saving_ms":  -0.029666900634767995,
                       "mean_cpu_saving_ms":  0.0055739241401036961,
@@ -1328,7 +1343,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  false,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     },
                                     {
                                         "view":  "valley_floor",
@@ -1339,7 +1355,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  false,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     },
                                     {
                                         "view":  "village_close",
@@ -1350,7 +1367,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  false,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     }
                                 ]
                   },
@@ -1364,7 +1382,7 @@
                       "removes":  "the tree trunks\u0027 collision (the whole run)",
                       "check_method":  "counter",
                       "verified":  true,
-                      "check":  "yes (counter: 0 trunk bodies, up to 1595 near trees)",
+                      "check":  "yes (counter: 0 trunk bodies, up to 1595 near trees; picture unchanged)",
                       "mean_frame_saving_ms":  -0.029569687434967424,
                       "mean_gpu_saving_ms":  -0.025333404541033982,
                       "mean_cpu_saving_ms":  0.009648998199213,
@@ -1378,7 +1396,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  false,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     },
                                     {
                                         "view":  "valley_floor",
@@ -1389,7 +1408,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  true,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     },
                                     {
                                         "view":  "village_close",
@@ -1400,7 +1420,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  false,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     }
                                 ]
                   },
@@ -1414,7 +1435,7 @@
                       "removes":  "the ImGui interface layer (removed for the whole run)",
                       "check_method":  "counter",
                       "verified":  true,
-                      "check":  "yes (counter: ImGuiRoot gone)",
+                      "check":  "yes (counter: ImGuiRoot gone; picture unchanged)",
                       "mean_frame_saving_ms":  0.048971645802899623,
                       "mean_gpu_saving_ms":  0.038666407267265633,
                       "mean_cpu_saving_ms":  0.0050579912900499862,
@@ -1428,7 +1449,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  false,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     },
                                     {
                                         "view":  "valley_floor",
@@ -1439,7 +1461,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  false,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     },
                                     {
                                         "view":  "village_close",
@@ -1450,7 +1473,8 @@
                                         "outside_noise":  false,
                                         "cpu_outside_noise":  false,
                                         "fewer_draw_calls":  0,
-                                        "fewer_primitives":  0
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0
                                     }
                                 ]
                   }
@@ -1458,6 +1482,6 @@
     "interaction":  [
 
                     ],
-    "analysed":  "2026-11-08T17:19:37",
+    "analysed":  "2026-11-08T17:29:12",
     "min_noise_share":  0.015
 }

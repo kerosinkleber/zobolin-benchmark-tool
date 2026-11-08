@@ -43,6 +43,12 @@ param(
 # variable here may share a name with an option above ($gpu would be $Gpu).
 Import-Module (Join-Path $PSScriptRoot "lib\Machine.psm1") -Force
 Import-Module (Join-Path $PSScriptRoot "lib\Stats.psm1") -Force
+Import-Module (Join-Path $PSScriptRoot "lib\Pictures.psm1") -Force
+# A processor switch must leave the picture as it is: screenshots may
+# differ by at most this much (0 to 1) from everything on. Repeats and
+# working switches differ by 0.0000; re-centring off (grass gone far from
+# the centre) by 0.008.
+$PictureLimit = 0.002
 
 function Save-Json($Value, [string] $Path) {
 	$Value | ConvertTo-Json -Depth 12 | Out-File -Encoding utf8 $Path
@@ -344,12 +350,25 @@ if ($Ablate) {
 			}
 		}
 		$faster = @($views | Where-Object { $_.outside_noise -and $_.frame_saving_ms -gt 0 }).Count -gt 0
+		# Processor switches must not change the picture: compare each view's
+		# screenshot with everything on (first round of each).
+		$changedViews = @()
+		if ($variant.cpu) {
+			foreach ($v in $views) {
+				$difference = Compare-Pictures (Join-Path $session "all_on\r1\$($v.view).png") (Join-Path $session "$($variant.name)\r1\$($v.view).png")
+				$v.picture_difference = $difference
+				if ($null -ne $difference -and $difference -gt $PictureLimit) { $changedViews += $v.view }
+			}
+		}
 		if (-not $held) {
 			$verified = $false
 			$check = "NO: something switched it back on during the run"
+		} elseif ($changedViews.Count -gt 0) {
+			$verified = $false
+			$check = "NO: the picture changed in $($changedViews -join ', '), so the saving is not only processor work"
 		} elseif ($method -eq "counter") {
 			$verified = $stoppedAll
-			$check = if ($stoppedAll) { "yes (counter: $($evidence -join '; '))" } else { "NO: the work went on ($($evidence -join '; '))" }
+			$check = if ($stoppedAll) { "yes (counter: $($evidence -join '; '); picture unchanged)" } else { "NO: the work went on ($($evidence -join '; '))" }
 		} elseif ($method -eq "setting") {
 			$verified = $faster
 			$check = if ($faster) { "yes (setting held, frame faster)" } else { "setting held, but no measurable saving" }

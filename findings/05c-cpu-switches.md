@@ -67,15 +67,35 @@ probe ball falling 76–156 m, 343–1071 trunk bodies).
   is held. Their real cost is the work right after a jump, which these
   views don't measure. The flight and the stutter blame (step 7) will.
 
-## Open question: re-centring makes the graphics card slower
+## Corrected: re-centring does NOT make the graphics card slower
 
-With re-centring off, the frame is **0.83 ms faster on average** (up to
-1.1 ms on the two views away from the centre), repeatably. The processor
-saves only 0.03 ms, so this is the graphics card. Draw calls and triangles
-are the same; only where the world sits in Godot's coordinates differs.
-So something draws more slowly after the world has been re-centred. A
-`-GpuProfile` run would show which drawing pass. This is worth a closer
-look, outside the benchmark tool.
+With re-centring off, the frame was 0.83 ms faster on average (up to
+1.1 ms on the two views away from the centre), with the same draw calls
+and triangles. This first looked like "something draws more slowly after
+re-centring". It was not (looked into the same day):
+
+- Per drawing pass (`-GpuProfile`), the extra time was in the depth pass
+  (+0.3 ms) and the opaque pass (+0.4 to 1.0 ms).
+- With the grass off, re-centring made no difference at all; with the
+  ground off (more grass visible), the difference doubled. So: grass.
+- The screenshots show why: **with re-centring off, the grass is gone**
+  on views far from the centre. The grass shader looks up ground heights
+  in Terrain3D's region map; without re-centring, those views lie 1.8 km
+  from Godot's origin and the lookup finds no ground, so every clump is
+  shrunk to nothing. The clumps are still sent to the graphics card, so
+  draw calls and triangles stay the same.
+
+So the "saving" was the grass not being drawn. In the game, re-centring
+always runs and keeps the camera within about 1 km of the origin, so this
+never shows. The re-centring switch still measures the processor saving
+(0.034 ms), but its frame time can't be used.
+
+**What changed in the tool because of this:** the processor switches are
+now also checked by their **pictures**: each view's screenshot is compared
+with everything on (shrunk to 160 × 90, the information panel left out).
+Working switches and repeats differ by 0.0000; re-centring off by 0.008;
+the limit is 0.002. Re-centring off is now reported as "NO: the picture
+changed in valley_floor, village_close".
 
 ## Also found
 

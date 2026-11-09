@@ -39,6 +39,7 @@ https://github.com/kerosinkleber/zobolin-benchmark-tool
 | `-Scenario flight` | The flight across the whole world: stutters and what causes them (re-centring, new trees and tiles) |
 | `-Scenario npc_crowd -Repeats 2` | The NPC test with 8, 24 and 64 NPCs, and how their cost grows (about 45 minutes) |
 | `-Scenario npc_quick` | The NPC test with 64 NPCs only: the quick check whether a change made NPCs slower (about a third of npc_crowd's time); `-Ablate -Kind cpu -Repeats 2` measures the NPC switches |
+| `-Scenario house_npc` | The garden of the walk-in house in the terrain world, the test NPC walking in and out; `-Ablate -Kind cpu -Only house_npc` measures it |
 | `-Scenario night` | The 3 quick views at 21:30 on a clear night, the houses' windows lit; `-Ablate` measures `lit_windows` |
 | `-Scenario items` | The items test with 300, 1000 and 3000 items, and how their cost grows |
 | `-Scenario boat_cargo` | The boat with 0, 13 and 26 crates of cargo, and how their cost grows |

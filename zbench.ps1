@@ -767,7 +767,10 @@ if ($Ablate) {
 		# Processor switches must not change the picture: compare each view's
 		# screenshot with everything on (first round of each).
 		$changedViews = @()
-		if ($variant.cpu) {
+		# A processor switch that takes away something visible (an NPC) may
+		# change the picture: the scenario lists it in "visible_switches".
+		$mayChangePicture = @($plan.visible_switches | Where-Object { $variant.off -contains $_ }).Count -gt 0
+		if ($variant.cpu -and -not $mayChangePicture) {
 			foreach ($v in $views) {
 				$difference = Compare-Pictures (Join-Path $session "all_on\r1\$($v.view).png") (Join-Path $session "$($variant.name)\r1\$($v.view).png")
 				$v.picture_difference = $difference
@@ -788,7 +791,8 @@ if ($Ablate) {
 			$check = if ($slower) { "yes (frame slower with it off: what the preset saves)" } else { "no measurable change (it only acts on the low preset)" }
 		} elseif ($method -eq "counter") {
 			$verified = $stoppedAll
-			$check = if ($stoppedAll) { "yes (counter: $($evidence -join '; '); picture unchanged)" } else { "NO: the work went on ($($evidence -join '; '))" }
+			$pictureNote = if ($mayChangePicture) { "a visible part, picture not compared" } else { "picture unchanged" }
+			$check = if ($stoppedAll) { "yes (counter: $($evidence -join '; '); $pictureNote)" } else { "NO: the work went on ($($evidence -join '; '))" }
 		} elseif ($method -eq "setting") {
 			$verified = $faster
 			$check = if ($faster) { "yes (setting held, frame faster)" } else { "setting held, but no measurable saving" }

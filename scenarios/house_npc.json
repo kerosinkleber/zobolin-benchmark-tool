@@ -1,0 +1,11 @@
+{
+  "description": "The garden in front of the walk-in house in the terrain world, with the test NPC walking in and out through the door (item 2 in the big world). With -Ablate -Kind cpu -Only house_npc: what the NPC costs.",
+  "test": "terrain",
+  "only": "house_garden",
+  "cpu_switches": [
+    "house_npc"
+  ],
+  "visible_switches": [
+    "house_npc"
+  ]
+}

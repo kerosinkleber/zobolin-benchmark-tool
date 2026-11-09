@@ -26,6 +26,7 @@
     "recentre",
     "terrain_collision",
     "trunk_collision",
+    "object_collision",
     "imgui"
   ]
 }

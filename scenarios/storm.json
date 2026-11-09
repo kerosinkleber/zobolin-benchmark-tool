@@ -8,6 +8,7 @@
   ],
   "switches": [
     "precipitation",
+    "sway",
     "wet",
     "lake",
     "shadows",

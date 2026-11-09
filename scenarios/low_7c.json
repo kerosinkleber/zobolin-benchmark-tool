@@ -7,6 +7,7 @@
   "description": "The 3 quick views with the parts 7c touched switched off one by one (lake, grass, trees, houses and rocks, ground), for the low preset's cost of 7c. Run with -Preset low -Ablate -Kind gpu.",
   "switches": [
     "lake",
+    "sway",
     "grass",
     "trees",
     "objects",

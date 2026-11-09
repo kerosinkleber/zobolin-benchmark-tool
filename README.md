@@ -71,6 +71,11 @@ folder isn't committed.
   marked `*` ("inside the noise").
 - **A change against a baseline** counts only if it is over 5 % and
   outside the noise, each number with its own noise.
+- **A disturbed run** gets a WARNING. That happens when the frames waited
+  more than 3 ms for something that is neither the game's graphics work
+  nor its scripts, which usually means another program was using the
+  graphics card. Close other programs and run again; `-SaveBaseline`
+  won't save such a session.
 
 ### The live cost table (in the game)
 

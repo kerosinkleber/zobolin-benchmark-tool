@@ -1,0 +1,754 @@
+﻿{
+    "scenario":  "village_walk",
+    "ablate":  true,
+    "repeats":  3,
+    "machine":  {
+                    "pc":  "MAHASIM",
+                    "processor":  "AMD Ryzen 7 1800X Eight-Core Processor",
+                    "cores":  8,
+                    "threads":  16,
+                    "ram_gb":  31.9,
+                    "graphics_cards":  [
+                                           {
+                                               "name":  "Virtual Display Driver",
+                                               "driver":  "11.30.4.434"
+                                           },
+                                           {
+                                               "name":  "NVIDIA GeForce GTX 970",
+                                               "driver":  "32.0.15.6094"
+                                           }
+                                       ],
+                    "windows":  "Microsoft Windows 11 Pro 10.0.26300",
+                    "power_plan":  {
+                                       "guid":  "381b4222-f694-41f0-9685-ff5bb260df2e",
+                                       "name":  "Ausbalanciert",
+                                       "full_speed":  false
+                                   },
+                    "has_battery":  false,
+                    "on_battery":  false,
+                    "game_commit":  "d7de3f26c27736045d2d1daf009e586a99ce0eeb",
+                    "game_uncommitted_changes":  false
+                },
+    "preset":  "high",
+    "renderer":  "forward_plus",
+    "godot":  "4.7.2-stable (official)",
+    "debug_build":  true,
+    "graphics_card_used":  "NVIDIA GeForce GTX 970",
+    "render_3d":  [
+                      5120.0,
+                      2880.0
+                  ],
+    "warnings":  [
+                     "The power plan is \u0027Ausbalanciert\u0027, not High performance: the numbers may vary more."
+                 ],
+    "segments":  [
+                     {
+                         "name":  "house_door",
+                         "repeats":  3,
+                         "mean_frame_ms":  16.9799405922324,
+                         "frame_spread_share":  0.0066409376020422264,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  17.4979991912842,
+                         "slowest_1_percent_fps":  56.7375886524823,
+                         "gpu_ms":  16.2259998321533,
+                         "gpu_spread_share":  0.0062245675581210479,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.015,
+                         "gpu_bound_share":  1,
+                         "process_ms":  0.254999995231628,
+                         "process_mean_ms":  0.279737288416442,
+                         "physics_mean_ms":  0.598949153544539,
+                         "cpu_ms":  0.878686441960981,
+                         "cpu_spread_share":  0.013608530674923078,
+                         "cpu_noise_band_share":  0.015,
+                         "draw_ms":  16.0450000762939,
+                         "render_cpu_ms":  0.996999979019165,
+                         "draw_calls":  412,
+                         "shadow_draw_calls":  274,
+                         "primitives":  1342264,
+                         "hitches":  [
+                                         0,
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    16.9653389171018,
+                                                    17.0781016430612,
+                                                    16.9799405922324
+                                                ],
+                         "per_repeat_outside_wait_ms":  [
+                                                            -1.1428135284933534,
+                                                            -1.1450170154793835,
+                                                            -1.1529490719153879
+                                                        ],
+                         "zones":  {
+                                       "daynight":  {
+                                                        "mean_ms":  0.0183644063407713,
+                                                        "max_ms":  0.0260000005364418
+                                                    }
+                                   },
+                         "unattributed_process_ms":  0.174330508928367,
+                         "unattributed_physics_ms":  0.598949153544539
+                     },
+                     {
+                         "name":  "walking_in",
+                         "repeats":  3,
+                         "mean_frame_ms":  20.4253061709761,
+                         "frame_spread_share":  0.0029549800775405814,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  22.3999996185303,
+                         "slowest_1_percent_fps":  43.085806571118,
+                         "gpu_ms":  20.2940006256104,
+                         "gpu_spread_share":  0.0039420479570223535,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.022098252127822127,
+                         "gpu_bound_share":  1,
+                         "process_ms":  0.266999989748001,
+                         "process_mean_ms":  0.293797296950141,
+                         "physics_mean_ms":  0.752782310352844,
+                         "cpu_ms":  1.0451428560780829,
+                         "cpu_spread_share":  0.016277680813680969,
+                         "cpu_noise_band_share":  0.016277680813680969,
+                         "draw_ms":  19.9200000762939,
+                         "render_cpu_ms":  0.961000025272369,
+                         "draw_calls":  354,
+                         "shadow_draw_calls":  254,
+                         "primitives":  1076140,
+                         "hitches":  [
+                                         0,
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    20.4527550781665,
+                                                    20.3923987053536,
+                                                    20.4253061709761
+                                                ],
+                         "per_repeat_outside_wait_ms":  [
+                                                            -1.4554284925566554,
+                                                            -1.4274526515321164,
+                                                            -1.4432925151115827
+                                                        ],
+                         "zones":  {
+                                       "daynight":  {
+                                                        "mean_ms":  0.0221554052487418,
+                                                        "max_ms":  0.0549999997019768
+                                                    }
+                                   },
+                         "unattributed_process_ms":  0.187898647996622,
+                         "unattributed_physics_ms":  0.752782310352844
+                     },
+                     {
+                         "name":  "walking_out",
+                         "repeats":  3,
+                         "mean_frame_ms":  14.9969485225596,
+                         "frame_spread_share":  0.0017096983303523116,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  21.8169994354248,
+                         "slowest_1_percent_fps":  45.6753096199997,
+                         "gpu_ms":  13.3640003204346,
+                         "gpu_spread_share":  0.0067345218819160188,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.020763584668511106,
+                         "gpu_bound_share":  0.995708154506438,
+                         "process_ms":  0.282000005245209,
+                         "process_mean_ms":  0.291333333230936,
+                         "physics_mean_ms":  0.570192306087567,
+                         "cpu_ms":  0.861525639318503,
+                         "cpu_spread_share":  0.08502234089754597,
+                         "cpu_noise_band_share":  0.08502234089754597,
+                         "draw_ms":  13.2130002975464,
+                         "render_cpu_ms":  1.0460000038147,
+                         "draw_calls":  348,
+                         "shadow_draw_calls":  391,
+                         "primitives":  945856,
+                         "hitches":  [
+                                         0,
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    14.9969485225596,
+                                                    15.0108205314375,
+                                                    14.9851802735881
+                                                ],
+                         "per_repeat_outside_wait_ms":  [
+                                                            -1.3399141187192076,
+                                                            -1.2285256302382046,
+                                                            -1.1796395067492946
+                                                        ],
+                         "zones":  {
+                                       "daynight":  {
+                                                        "mean_ms":  0.0212008545183155,
+                                                        "max_ms":  0.0670000016689301
+                                                    }
+                                   },
+                         "unattributed_process_ms":  0.183192307738444,
+                         "unattributed_physics_ms":  0.570192306087567
+                     }
+                 ],
+    "variants":  {
+                     "all_on":  [
+                                    {
+                                        "name":  "house_door",
+                                        "repeats":  3,
+                                        "mean_frame_ms":  16.9799405922324,
+                                        "frame_spread_share":  0.0066409376020422264,
+                                        "noise_band_share":  0.015,
+                                        "p99_frame_ms":  17.4979991912842,
+                                        "slowest_1_percent_fps":  56.7375886524823,
+                                        "gpu_ms":  16.2259998321533,
+                                        "gpu_spread_share":  0.0062245675581210479,
+                                        "gpu_noise_band_share":  0.015,
+                                        "p99_noise_band_share":  0.015,
+                                        "gpu_bound_share":  1,
+                                        "process_ms":  0.254999995231628,
+                                        "process_mean_ms":  0.279737288416442,
+                                        "physics_mean_ms":  0.598949153544539,
+                                        "cpu_ms":  0.878686441960981,
+                                        "cpu_spread_share":  0.013608530674923078,
+                                        "cpu_noise_band_share":  0.015,
+                                        "draw_ms":  16.0450000762939,
+                                        "render_cpu_ms":  0.996999979019165,
+                                        "draw_calls":  412,
+                                        "shadow_draw_calls":  274,
+                                        "primitives":  1342264,
+                                        "hitches":  [
+                                                        0,
+                                                        0,
+                                                        0
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   16.9653389171018,
+                                                                   17.0781016430612,
+                                                                   16.9799405922324
+                                                               ],
+                                        "per_repeat_outside_wait_ms":  [
+                                                                           -1.1428135284933534,
+                                                                           -1.1450170154793835,
+                                                                           -1.1529490719153879
+                                                                       ],
+                                        "zones":  {
+                                                      "daynight":  {
+                                                                       "mean_ms":  0.0183644063407713,
+                                                                       "max_ms":  0.0260000005364418
+                                                                   }
+                                                  },
+                                        "unattributed_process_ms":  0.174330508928367,
+                                        "unattributed_physics_ms":  0.598949153544539
+                                    },
+                                    {
+                                        "name":  "walking_in",
+                                        "repeats":  3,
+                                        "mean_frame_ms":  20.4253061709761,
+                                        "frame_spread_share":  0.0029549800775405814,
+                                        "noise_band_share":  0.015,
+                                        "p99_frame_ms":  22.3999996185303,
+                                        "slowest_1_percent_fps":  43.085806571118,
+                                        "gpu_ms":  20.2940006256104,
+                                        "gpu_spread_share":  0.0039420479570223535,
+                                        "gpu_noise_band_share":  0.015,
+                                        "p99_noise_band_share":  0.022098252127822127,
+                                        "gpu_bound_share":  1,
+                                        "process_ms":  0.266999989748001,
+                                        "process_mean_ms":  0.293797296950141,
+                                        "physics_mean_ms":  0.752782310352844,
+                                        "cpu_ms":  1.0451428560780829,
+                                        "cpu_spread_share":  0.016277680813680969,
+                                        "cpu_noise_band_share":  0.016277680813680969,
+                                        "draw_ms":  19.9200000762939,
+                                        "render_cpu_ms":  0.961000025272369,
+                                        "draw_calls":  354,
+                                        "shadow_draw_calls":  254,
+                                        "primitives":  1076140,
+                                        "hitches":  [
+                                                        0,
+                                                        0,
+                                                        0
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   20.4527550781665,
+                                                                   20.3923987053536,
+                                                                   20.4253061709761
+                                                               ],
+                                        "per_repeat_outside_wait_ms":  [
+                                                                           -1.4554284925566554,
+                                                                           -1.4274526515321164,
+                                                                           -1.4432925151115827
+                                                                       ],
+                                        "zones":  {
+                                                      "daynight":  {
+                                                                       "mean_ms":  0.0221554052487418,
+                                                                       "max_ms":  0.0549999997019768
+                                                                   }
+                                                  },
+                                        "unattributed_process_ms":  0.187898647996622,
+                                        "unattributed_physics_ms":  0.752782310352844
+                                    },
+                                    {
+                                        "name":  "walking_out",
+                                        "repeats":  3,
+                                        "mean_frame_ms":  14.9969485225596,
+                                        "frame_spread_share":  0.0017096983303523116,
+                                        "noise_band_share":  0.015,
+                                        "p99_frame_ms":  21.8169994354248,
+                                        "slowest_1_percent_fps":  45.6753096199997,
+                                        "gpu_ms":  13.3640003204346,
+                                        "gpu_spread_share":  0.0067345218819160188,
+                                        "gpu_noise_band_share":  0.015,
+                                        "p99_noise_band_share":  0.020763584668511106,
+                                        "gpu_bound_share":  0.995708154506438,
+                                        "process_ms":  0.282000005245209,
+                                        "process_mean_ms":  0.291333333230936,
+                                        "physics_mean_ms":  0.570192306087567,
+                                        "cpu_ms":  0.861525639318503,
+                                        "cpu_spread_share":  0.08502234089754597,
+                                        "cpu_noise_band_share":  0.08502234089754597,
+                                        "draw_ms":  13.2130002975464,
+                                        "render_cpu_ms":  1.0460000038147,
+                                        "draw_calls":  348,
+                                        "shadow_draw_calls":  391,
+                                        "primitives":  945856,
+                                        "hitches":  [
+                                                        0,
+                                                        0,
+                                                        0
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   14.9969485225596,
+                                                                   15.0108205314375,
+                                                                   14.9851802735881
+                                                               ],
+                                        "per_repeat_outside_wait_ms":  [
+                                                                           -1.3399141187192076,
+                                                                           -1.2285256302382046,
+                                                                           -1.1796395067492946
+                                                                       ],
+                                        "zones":  {
+                                                      "daynight":  {
+                                                                       "mean_ms":  0.0212008545183155,
+                                                                       "max_ms":  0.0670000016689301
+                                                                   }
+                                                  },
+                                        "unattributed_process_ms":  0.183192307738444,
+                                        "unattributed_physics_ms":  0.570192306087567
+                                    }
+                                ],
+                     "lamps_off":  [
+                                       {
+                                           "name":  "house_door",
+                                           "repeats":  3,
+                                           "mean_frame_ms":  17.0668644500991,
+                                           "frame_spread_share":  0.0036127463758665315,
+                                           "noise_band_share":  0.015,
+                                           "p99_frame_ms":  17.6219997406006,
+                                           "slowest_1_percent_fps":  56.5706849245007,
+                                           "gpu_ms":  16.3080005645752,
+                                           "gpu_spread_share":  0.0022074624018531427,
+                                           "gpu_noise_band_share":  0.015,
+                                           "p99_noise_band_share":  0.015,
+                                           "gpu_bound_share":  1,
+                                           "process_ms":  0.24600000679493,
+                                           "process_mean_ms":  0.274000000367817,
+                                           "physics_mean_ms":  0.59559829112811,
+                                           "cpu_ms":  0.869598291495927,
+                                           "cpu_spread_share":  0.023681302300317921,
+                                           "cpu_noise_band_share":  0.023681302300317921,
+                                           "draw_ms":  16.1350002288818,
+                                           "render_cpu_ms":  0.999000012874603,
+                                           "draw_calls":  412,
+                                           "shadow_draw_calls":  274,
+                                           "primitives":  1342264,
+                                           "hitches":  [
+                                                           0,
+                                                           0,
+                                                           0
+                                                       ],
+                                           "per_repeat_mean_ms":  [
+                                                                      17.0380254600008,
+                                                                      17.0996837126903,
+                                                                      17.0668644500991
+                                                                  ],
+                                           "per_repeat_outside_wait_ms":  [
+                                                                              -1.101754172626241,
+                                                                              -1.1129829380501282,
+                                                                              -1.1045763668114956
+                                                                          ],
+                                           "zones":  {
+                                                         "daynight":  {
+                                                                          "mean_ms":  0.0182136747922398,
+                                                                          "max_ms":  0.0230000000447035
+                                                                      }
+                                                     },
+                                           "unattributed_process_ms":  0.17162393213401,
+                                           "unattributed_physics_ms":  0.59559829112811
+                                       },
+                                       {
+                                           "name":  "walking_in",
+                                           "repeats":  3,
+                                           "mean_frame_ms":  16.0550106680967,
+                                           "frame_spread_share":  0.0080068145888338889,
+                                           "noise_band_share":  0.015,
+                                           "p99_frame_ms":  17.0540008544922,
+                                           "slowest_1_percent_fps":  55.934670479586,
+                                           "gpu_ms":  15.2869997024536,
+                                           "gpu_spread_share":  0.013998868716531263,
+                                           "gpu_noise_band_share":  0.015,
+                                           "p99_noise_band_share":  0.01612522603209933,
+                                           "gpu_bound_share":  1,
+                                           "process_ms":  0.26800000667572,
+                                           "process_mean_ms":  0.2885561500163,
+                                           "physics_mean_ms":  0.632122994903575,
+                                           "cpu_ms":  0.91740106994455506,
+                                           "cpu_spread_share":  0.00504510749017626,
+                                           "cpu_noise_band_share":  0.015,
+                                           "draw_ms":  15.0539999008179,
+                                           "render_cpu_ms":  0.944000005722046,
+                                           "draw_calls":  354,
+                                           "shadow_draw_calls":  254,
+                                           "primitives":  1076140,
+                                           "hitches":  [
+                                                           0,
+                                                           0,
+                                                           0
+                                                       ],
+                                           "per_repeat_mean_ms":  [
+                                                                      16.0550106680967,
+                                                                      15.940878338284,
+                                                                      16.0694278319252
+                                                                  ],
+                                           "per_repeat_outside_wait_ms":  [
+                                                                              -1.2264973196116546,
+                                                                              -1.2340317722508429,
+                                                                              -1.233914457620116
+                                                                          ],
+                                           "zones":  {
+                                                         "daynight":  {
+                                                                          "mean_ms":  0.0222645502084147,
+                                                                          "max_ms":  0.0590000003576279
+                                                                      }
+                                                     },
+                                           "unattributed_process_ms":  0.182380951724198,
+                                           "unattributed_physics_ms":  0.632122994903575
+                                       },
+                                       {
+                                           "name":  "walking_out",
+                                           "repeats":  3,
+                                           "mean_frame_ms":  14.0346280078888,
+                                           "frame_spread_share":  0.0056763764217490718,
+                                           "noise_band_share":  0.015,
+                                           "p99_frame_ms":  16.6149997711182,
+                                           "slowest_1_percent_fps":  59.9244954648893,
+                                           "gpu_ms":  13.2690000534058,
+                                           "gpu_spread_share":  0.0021101724181932522,
+                                           "gpu_noise_band_share":  0.015,
+                                           "p99_noise_band_share":  0.015,
+                                           "gpu_bound_share":  0.996,
+                                           "process_ms":  0.275000005960464,
+                                           "process_mean_ms":  0.284971773924847,
+                                           "physics_mean_ms":  0.532611998915672,
+                                           "cpu_ms":  0.822583998680114,
+                                           "cpu_spread_share":  0.014145432721349337,
+                                           "cpu_noise_band_share":  0.015,
+                                           "draw_ms":  13.0609998703003,
+                                           "render_cpu_ms":  1.03400003910065,
+                                           "draw_calls":  348,
+                                           "shadow_draw_calls":  391,
+                                           "primitives":  945856,
+                                           "hitches":  [
+                                                           0,
+                                                           0,
+                                                           0
+                                                       ],
+                                           "per_repeat_mean_ms":  [
+                                                                      14.0165680065155,
+                                                                      14.0962338380275,
+                                                                      14.0346280078888
+                                                                  ],
+                                           "per_repeat_outside_wait_ms":  [
+                                                                              -1.0925160140990886,
+                                                                              -1.1170403224926764,
+                                                                              -1.097836010933015
+                                                                          ],
+                                           "zones":  {
+                                                         "daynight":  {
+                                                                          "mean_ms":  0.021080645094175,
+                                                                          "max_ms":  0.061999998986721
+                                                                      }
+                                                     },
+                                           "unattributed_process_ms":  0.180999999728054,
+                                           "unattributed_physics_ms":  0.532611998915672
+                                       }
+                                   ],
+                     "all_off":  [
+                                     {
+                                         "name":  "house_door",
+                                         "repeats":  3,
+                                         "mean_frame_ms":  16.9877543045303,
+                                         "frame_spread_share":  0.011337970198699948,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  17.617000579834,
+                                         "slowest_1_percent_fps":  56.358667329413,
+                                         "gpu_ms":  16.2350006103516,
+                                         "gpu_spread_share":  0.0096704393046030956,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  1,
+                                         "process_ms":  0.248999997973442,
+                                         "process_mean_ms":  0.273906779112452,
+                                         "physics_mean_ms":  0.606991449991862,
+                                         "cpu_ms":  0.88156409867298913,
+                                         "cpu_spread_share":  0.0058127789969086765,
+                                         "cpu_noise_band_share":  0.015,
+                                         "draw_ms":  16.068000793457,
+                                         "render_cpu_ms":  0.991999983787537,
+                                         "draw_calls":  412,
+                                         "shadow_draw_calls":  274,
+                                         "primitives":  1342264,
+                                         "hitches":  [
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    17.1135982611241,
+                                                                    16.9209916090765,
+                                                                    16.9877543045303
+                                                                ],
+                                         "per_repeat_outside_wait_ms":  [
+                                                                            -1.1113675752510874,
+                                                                            -1.1190000395564073,
+                                                                            -1.1255762785420143
+                                                                        ],
+                                         "zones":  {
+                                                       "daynight":  {
+                                                                        "mean_ms":  0.0181864404072196,
+                                                                        "max_ms":  0.0240000002086163
+                                                                    }
+                                                   },
+                                         "unattributed_process_ms":  0.171739495328056,
+                                         "unattributed_physics_ms":  0.606991449991862
+                                     },
+                                     {
+                                         "name":  "walking_in",
+                                         "repeats":  3,
+                                         "mean_frame_ms":  16.0684973670837,
+                                         "frame_spread_share":  0.010230501336033572,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  16.9839992523193,
+                                         "slowest_1_percent_fps":  56.2920441834482,
+                                         "gpu_ms":  15.3819999694824,
+                                         "gpu_spread_share":  0.010791858441050696,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.994652406417112,
+                                         "process_ms":  0.268999993801117,
+                                         "process_mean_ms":  0.287459891907034,
+                                         "physics_mean_ms":  0.634208554730696,
+                                         "cpu_ms":  0.919470585763136,
+                                         "cpu_spread_share":  0.017163590605354481,
+                                         "cpu_noise_band_share":  0.017163590605354481,
+                                         "draw_ms":  15.1180000305176,
+                                         "render_cpu_ms":  0.940999984741211,
+                                         "draw_calls":  354,
+                                         "shadow_draw_calls":  254,
+                                         "primitives":  1076140,
+                                         "hitches":  [
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    16.0684973670837,
+                                                                    16.2318486858059,
+                                                                    16.0674599020239
+                                                                ],
+                                         "per_repeat_outside_wait_ms":  [
+                                                                            -1.2292031999577664,
+                                                                            -1.2520648394887681,
+                                                                            -1.2307593581829366
+                                                                        ],
+                                         "zones":  {
+                                                       "daynight":  {
+                                                                        "mean_ms":  0.0220320853728423,
+                                                                        "max_ms":  0.0590000003576279
+                                                                    }
+                                                   },
+                                         "unattributed_process_ms":  0.181673795577477,
+                                         "unattributed_physics_ms":  0.634208554730696
+                                     },
+                                     {
+                                         "name":  "walking_out",
+                                         "repeats":  3,
+                                         "mean_frame_ms":  14.0221959934235,
+                                         "frame_spread_share":  0.0018670407803156428,
+                                         "noise_band_share":  0.015,
+                                         "p99_frame_ms":  16.7159996032715,
+                                         "slowest_1_percent_fps":  59.5935723096973,
+                                         "gpu_ms":  13.2559995651245,
+                                         "gpu_spread_share":  0.0021122419167367377,
+                                         "gpu_noise_band_share":  0.015,
+                                         "p99_noise_band_share":  0.015,
+                                         "gpu_bound_share":  0.996,
+                                         "process_ms":  0.266999989748001,
+                                         "process_mean_ms":  0.284987999558449,
+                                         "physics_mean_ms":  0.538767999529839,
+                                         "cpu_ms":  0.822887999296189,
+                                         "cpu_spread_share":  0.019108311928971711,
+                                         "cpu_noise_band_share":  0.019108311928971711,
+                                         "draw_ms":  13.0019998550415,
+                                         "render_cpu_ms":  1.03199994564056,
+                                         "draw_calls":  349,
+                                         "shadow_draw_calls":  390,
+                                         "primitives":  946640,
+                                         "hitches":  [
+                                                         0,
+                                                         0,
+                                                         0
+                                                     ],
+                                         "per_repeat_mean_ms":  [
+                                                                    14.0221959934235,
+                                                                    14.0413560142517,
+                                                                    14.0151760025024
+                                                                ],
+                                         "per_repeat_outside_wait_ms":  [
+                                                                            -1.099632014274573,
+                                                                            -1.1085079925059902,
+                                                                            -1.135236032128331
+                                                                        ],
+                                         "zones":  {
+                                                       "daynight":  {
+                                                                        "mean_ms":  0.0212959999293089,
+                                                                        "max_ms":  0.0560000017285347
+                                                                    }
+                                                   },
+                                         "unattributed_process_ms":  0.179855999350548,
+                                         "unattributed_physics_ms":  0.538767999529839
+                                     }
+                                 ]
+                 },
+    "costs":  [
+                  {
+                      "variant":  "lamps_off",
+                      "off":  [
+                                  "lamps"
+                              ],
+                      "detail":  false,
+                      "cpu":  false,
+                      "removes":  "the house\u0027s lamps",
+                      "check_method":  "setting",
+                      "verified":  true,
+                      "check":  "yes (setting held, frame faster)",
+                      "mean_frame_saving_ms":  1.7485640532278335,
+                      "mean_gpu_saving_ms":  1.6733334859212334,
+                      "mean_cpu_saving_ms":  0.05859052574565693,
+                      "views":  [
+                                    {
+                                        "view":  "house_door",
+                                        "frame_saving_ms":  -0.086923857866700871,
+                                        "gpu_saving_ms":  -0.082000732421899869,
+                                        "cpu_saving_ms":  0.0090881504650539569,
+                                        "share_of_frame":  -0.0051192085976122228,
+                                        "outside_noise":  false,
+                                        "cpu_outside_noise":  false,
+                                        "fewer_draw_calls":  0,
+                                        "fewer_primitives":  0
+                                    },
+                                    {
+                                        "view":  "walking_in",
+                                        "frame_saving_ms":  4.3702955028794008,
+                                        "gpu_saving_ms":  5.0070009231568005,
+                                        "cpu_saving_ms":  0.12774178613352782,
+                                        "share_of_frame":  0.21396474874337465,
+                                        "outside_noise":  true,
+                                        "cpu_outside_noise":  true,
+                                        "fewer_draw_calls":  0,
+                                        "fewer_primitives":  0
+                                    },
+                                    {
+                                        "view":  "walking_out",
+                                        "frame_saving_ms":  0.96232051467080026,
+                                        "gpu_saving_ms":  0.095000267028799712,
+                                        "cpu_saving_ms":  0.038941640638389008,
+                                        "share_of_frame":  0.06416775474178639,
+                                        "outside_noise":  true,
+                                        "cpu_outside_noise":  false,
+                                        "fewer_draw_calls":  0,
+                                        "fewer_primitives":  0
+                                    }
+                                ]
+                  },
+                  {
+                      "variant":  "all_off",
+                      "off":  [
+                                  "lamps"
+                              ],
+                      "detail":  false,
+                      "cpu":  false,
+                      "removes":  "the house\u0027s lamps",
+                      "check_method":  "setting",
+                      "verified":  true,
+                      "check":  "yes (setting held, frame faster)",
+                      "mean_frame_saving_ms":  1.7745825402435333,
+                      "mean_gpu_saving_ms":  1.6703335444132665,
+                      "mean_cpu_saving_ms":  0.053810751208417572,
+                      "views":  [
+                                    {
+                                        "view":  "house_door",
+                                        "frame_saving_ms":  -0.0078137122978994,
+                                        "gpu_saving_ms":  -0.0090007781983025836,
+                                        "cpu_saving_ms":  -0.0028776567120081253,
+                                        "share_of_frame":  -0.0004601731234250514,
+                                        "outside_noise":  false,
+                                        "cpu_outside_noise":  false,
+                                        "fewer_draw_calls":  0,
+                                        "fewer_primitives":  0
+                                    },
+                                    {
+                                        "view":  "walking_in",
+                                        "frame_saving_ms":  4.3568088038923989,
+                                        "gpu_saving_ms":  4.9120006561280007,
+                                        "cpu_saving_ms":  0.12567227031494688,
+                                        "share_of_frame":  0.21330445514120744,
+                                        "outside_noise":  true,
+                                        "cpu_outside_noise":  true,
+                                        "fewer_draw_calls":  0,
+                                        "fewer_primitives":  0
+                                    },
+                                    {
+                                        "view":  "walking_out",
+                                        "frame_saving_ms":  0.97475252913610078,
+                                        "gpu_saving_ms":  0.10800075531010123,
+                                        "cpu_saving_ms":  0.038637640022313957,
+                                        "share_of_frame":  0.064996724344942622,
+                                        "outside_noise":  true,
+                                        "cpu_outside_noise":  false,
+                                        "fewer_draw_calls":  0,
+                                        "fewer_primitives":  -784
+                                    }
+                                ]
+                  }
+              ],
+    "interaction":  [
+                        {
+                            "view":  "house_door",
+                            "sum_of_parts_ms":  -0.086923857866700871,
+                            "all_off_saving_ms":  -0.0078137122978994,
+                            "floor_frame_ms":  16.9877543045303
+                        },
+                        {
+                            "view":  "walking_in",
+                            "sum_of_parts_ms":  4.3702955028794008,
+                            "all_off_saving_ms":  4.3568088038923989,
+                            "floor_frame_ms":  16.0684973670837
+                        },
+                        {
+                            "view":  "walking_out",
+                            "sum_of_parts_ms":  0.96232051467080026,
+                            "all_off_saving_ms":  0.97475252913610078,
+                            "floor_frame_ms":  14.0221959934235
+                        }
+                    ],
+    "analysed":  "2026-11-08T22:23:14",
+    "min_noise_share":  0.015
+}

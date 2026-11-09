@@ -32,8 +32,9 @@ measured again (`findings/10-review.md`).
 **Steps 11b and 12 are done too** (2026-11-08): the tool is on GitHub
 (https://github.com/kerosinkleber/zobolin-benchmark-tool) and was run on the
 i9's built-in graphics (Intel UHD 770; `baselines/DESKTOP-PK8LI3N`, the game's
-`measurements/i9-low-tier.md`); the i7 7700K + GTX 1050 run is under way in
-its own session. The live cost table is in the terrain test (F4). The last
+`measurements/i9-low-tier.md`); the laptop (ENCELADUS: i7-7700HQ, GTX 1050 laptop card) was
+measured at low and high (`baselines/ENCELADUS`, the game's
+`measurements/i7-gtx1050.md`); `compare_pcs.ps1` shows all three PCs. The live cost table is in the terrain test (F4). The last
 scenarios of section 5 are built and measured (`findings/11-scenarios.md`).
 Every step of this plan is built.
 
@@ -270,7 +271,7 @@ Every step also passes the three standard checks from the game's CLAUDE.md
 | 9c ✅ 2026-11-08 | Micro benchmarks without a window (`tools\benchmark.ps1 -Test micro`) | Done: they run headless and finish (`MICRO DONE`); route finding is the future hotspot; `findings/09c-micro.md` |
 | 10 ✅ 2026-11-08 | `-GpuProfile`: per-pass GPU time every frame (built in step 3) | Done: the passes add up to within 3 % of the GPU total on every view (`findings/10-gpu-passes-gtx970-summary.json`) |
 | 11a ✅ 2026-11-08 | Baselines (`-SaveBaseline`), comparison, `compare_pcs.ps1` | Done: the same commit shows "no change" on every view; grass to 300 m shows "slower" on every view (+7 to +10 %), processor "no change" |
-| 11b ✅ 2026-11-08 | Use it on the i9 and the laptop: public GitHub repository; run by a session on the i9 (UHD 770, both renderers) and one on an i7 7700K + GTX 1050 | Done on the i9: graphics-card bound (94-100 % of frames with Forward+), 0 of 3 views at 60 with Forward+, 1 with Mobile; baselines committed. i7: in its own session |
+| 11b ✅ 2026-11-08 | Use it on the i9 and the laptop: public GitHub repository; run by a session on the i9 (UHD 770, both renderers) and one on the laptop (i7-7700HQ, GTX 1050 laptop card) | i9: graphics-card bound (94-100 % of frames with Forward+), 0 of 3 quick views at 60 with Forward+, 1 with Mobile. Laptop: low 119-153 fps, high 32-38 fps, both graphics-card bound; low-flight stutters up to 409 ms (tree blocks). Baselines of both committed |
 | 12 ✅ 2026-11-08 | Live in-game cost table (ImGui, F4 or `-- --bench-panel`); Tracy not built (the stopwatches and switches were enough so far) | Visible, its own cost shown as `bench_panel` (about 0.15 ms) |
 
 Steps 1–7 already answer the main question for terrain, flight and forest.

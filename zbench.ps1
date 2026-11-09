@@ -276,6 +276,43 @@ function Get-StartupOfRun([string] $SessionDir, $Entry, [bool] $WasCold, [double
 }
 
 # One variant's repeats (run.json files) combined, view by view.
+## How long a segment's drawing waited, per frame on average, for something
+## that is neither the game's own graphics-card work nor its own scripts and
+## physics: draw time - graphics-card time - scripts - physics. Normally it
+## is below zero to about 1.5 ms (over about 1280 saved segments from
+## undisturbed runs the most was 1.4 ms; adding many items makes it far
+## below zero, as their creation is counted in the scripts as well). When
+## another program uses the graphics card, the game's frames wait for it
+## and this grows (a forest run with something else running: 20.3 ms, the
+## same run alone: -1.5 ms).
+function Get-OutsideWait($Segment) {
+	$m = $Segment.mean
+	if ($null -eq $m -or $null -eq $m.draw_ms -or $null -eq $m.gpu_ms) { return $null }
+	return [double]$m.draw_ms - [double]$m.gpu_ms - [double]$m.process_ms - [double]$m.physics_ms
+}
+
+## Above this many ms per frame, a run probably shared the PC with another
+## program (see Get-OutsideWait).
+$OutsideWaitLimitMs = 3.0
+
+## Warnings for runs whose frames waited for something outside the game.
+function Get-OutsideWaitWarnings($ByVariant) {
+	$found = @()
+	foreach ($variantName in $ByVariant.Keys) {
+		foreach ($s in @($ByVariant[$variantName])) {
+			$waits = @($s.per_repeat_outside_wait_ms)
+			for ($i = 0; $i -lt $waits.Count; $i++) {
+				if ($null -ne $waits[$i] -and $waits[$i] -gt $OutsideWaitLimitMs) {
+					# Named like the run's folder: r2, or lamps_off\r2.
+					$where = if ($ByVariant.Count -gt 1) { "$variantName\" } else { "" }
+					$found += ("Run {1}r{0} ({2}): each frame waited {3:N1} ms for something outside the game (most likely another program using the graphics card): its numbers are too slow. Close other programs and run again." -f ($i + 1), $where, $s.name, $waits[$i])
+				}
+			}
+		}
+	}
+	return $found
+}
+
 function Join-Repeats($RunList) {
 	$combined = @()
 	foreach ($first in $RunList[0].segments) {
@@ -312,6 +349,9 @@ function Join-Repeats($RunList) {
 			primitives = Get-MedianOf $per { $_.p50.primitives }
 			hitches = @($per | ForEach-Object { $_.frame_ms.hitches })
 			per_repeat_mean_ms = @($per | ForEach-Object { $_.frame_ms.mean_ms })
+			# Per run: how long drawing waited beyond the game's own graphics-card
+			# time and its own processor work (see Get-OutsideWaitWarnings).
+			per_repeat_outside_wait_ms = @($per | ForEach-Object { Get-OutsideWait $_ })
 		}
 		$passes = [ordered]@{}
 		foreach ($property in $first.p50.PSObject.Properties) {
@@ -592,6 +632,8 @@ foreach ($variant in $variants) {
 	if ($null -eq $firstRun) { $firstRun = $runList[0] }
 	$byVariant[$variant.name] = Join-Repeats $runList
 }
+$outsideWarnings = @(Get-OutsideWaitWarnings $byVariant)
+$warnings = @($warnings) + $outsideWarnings
 # The main numbers: everything on, or in a sweep the first (smallest) variant.
 # (@() keeps a single view a list: PowerShell would unroll it.)
 $segments = @(if ($byVariant.Contains("all_on")) { $byVariant["all_on"] } else { $byVariant[$variants[0].name] })
@@ -883,6 +925,7 @@ $worst = 0.0
 foreach ($s in $segments) { $worst = [math]::Max($worst, $s.frame_spread_share) }
 $band = [math]::Max($MinNoiseShare, $worst)
 Write-Host ("Repeats differ by up to {0:N1}%: on this PC a part's saving counts if it is over {1:N1}% (the noise); a change against a baseline must be over 5% and outside the noise." -f ($worst * 100), ($band * 100))
+foreach ($w in $outsideWarnings) { Write-Host "WARNING: $w" -ForegroundColor Yellow }
 foreach ($s in $segments) {
 	if (-not $s.zones) { continue }
 	Write-Host ""
@@ -1008,7 +1051,11 @@ if ($comparison) {
 		Write-Host ("  {0,-22} {1}" -f $row.view, ($parts -join "; ")) -ForegroundColor $colour
 	}
 }
-if ($SaveBaseline) {
+if ($SaveBaseline -and $outsideWarnings.Count -gt 0) {
+	# A disturbed baseline would make every later clean run look "faster".
+	Write-Host ""
+	Write-Host "NOT saved as this PC's baseline: a run waited for something outside the game (see the warning above). Close other programs and run again with -SaveBaseline." -ForegroundColor Red
+} elseif ($SaveBaseline) {
 	New-Item -ItemType Directory -Force (Split-Path $baselineFile) | Out-Null
 	Copy-Item $summaryFile $baselineFile -Force
 	Write-Host ""

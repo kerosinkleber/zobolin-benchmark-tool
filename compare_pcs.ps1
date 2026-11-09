@@ -30,8 +30,11 @@ $columns = @()
 foreach ($file in $files) {
 	$summary = Get-Content -Raw $file.FullName | ConvertFrom-Json
 	$card = $summary.graphics_card_used
+	# "high", or "low mobile": the renderer only when it is not Forward+, so
+	# one PC's two renderers get different headings.
+	$setting = if ($summary.renderer -and $summary.renderer -ne "forward_plus") { "$($summary.preset) $($summary.renderer)" } else { $summary.preset }
 	$columns += [ordered]@{
-		label = "$($summary.machine.pc) $($summary.preset)"
+		label = "$($summary.machine.pc) $setting"
 		detail = "$card, $($summary.renderer), $([int]$summary.render_3d[0]) x $([int]$summary.render_3d[1])"
 		commit = $summary.machine.game_commit
 		segments = $summary.segments

@@ -1,0 +1,178 @@
+﻿{
+    "scenario":  "load",
+    "ablate":  false,
+    "repeats":  3,
+    "machine":  {
+                    "pc":  "MAHASIM",
+                    "processor":  "AMD Ryzen 7 1800X Eight-Core Processor",
+                    "cores":  8,
+                    "threads":  16,
+                    "ram_gb":  31.9,
+                    "graphics_cards":  [
+                                           {
+                                               "name":  "Virtual Display Driver",
+                                               "driver":  "11.30.4.434"
+                                           },
+                                           {
+                                               "name":  "NVIDIA GeForce GTX 970",
+                                               "driver":  "32.0.15.6094"
+                                           }
+                                       ],
+                    "windows":  "Microsoft Windows 11 Pro 10.0.26300",
+                    "power_plan":  {
+                                       "guid":  "381b4222-f694-41f0-9685-ff5bb260df2e",
+                                       "name":  "Ausbalanciert",
+                                       "full_speed":  false
+                                   },
+                    "has_battery":  false,
+                    "on_battery":  false,
+                    "game_commit":  "89a022036bdc77f0acae8e497b9e0be0f39b8b33",
+                    "game_uncommitted_changes":  true
+                },
+    "preset":  "high",
+    "renderer":  "forward_plus",
+    "godot":  "4.7.2-stable (official)",
+    "debug_build":  true,
+    "graphics_card_used":  "NVIDIA GeForce GTX 970",
+    "render_3d":  [
+                      5120.0,
+                      2880.0
+                  ],
+    "warnings":  [
+                     "The power plan is \u0027Ausbalanciert\u0027, not High performance: the numbers may vary more."
+                 ],
+    "segments":  [
+                     {
+                         "name":  "centre_north",
+                         "repeats":  3,
+                         "mean_frame_ms":  15.037110004425,
+                         "frame_spread_share":  0.012028272260033715,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  15.9359998703003,
+                         "slowest_1_percent_fps":  62.243246666859,
+                         "gpu_ms":  14.3540000915527,
+                         "gpu_spread_share":  0.010589412447862028,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.015,
+                         "gpu_bound_share":  1,
+                         "process_ms":  0.273999989032745,
+                         "process_mean_ms":  0.293487310031344,
+                         "physics_mean_ms":  0.471855000555515,
+                         "cpu_ms":  0.768147208439517,
+                         "cpu_spread_share":  0.0085674263787514568,
+                         "cpu_noise_band_share":  0.015,
+                         "draw_ms":  14.2309999465942,
+                         "render_cpu_ms":  1.08500003814697,
+                         "draw_calls":  384,
+                         "shadow_draw_calls":  442,
+                         "primitives":  1165532,
+                         "hitches":  [
+                                         0,
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    15.2079898524405,
+                                                    15.037110004425,
+                                                    15.0271193993032
+                                                ],
+                         "zones":  {
+                                       "daynight":  {
+                                                        "mean_ms":  0.0196142127727948,
+                                                        "max_ms":  0.0390000008046627
+                                                    }
+                                   },
+                         "unattributed_process_ms":  0.185751269339834,
+                         "unattributed_physics_ms":  0.471855000555515
+                     }
+                 ],
+    "load":  {
+                 "cache":  "cold",
+                 "how":  "to_first_frame_s: from zbench starting the game\u0027s launcher to the first measured frame of the first view (its screenshot\u0027s time minus its measured seconds). other_s: what is left after the landscape, the forest (with the tree pictures) and the benchmark\u0027s waits: Godot starting, loading the scene, houses and rocks, grass, shaders.",
+                 "runs":  [
+                              {
+                                  "folder":  "r1",
+                                  "cache":  "cold",
+                                  "first_view":  "centre_north",
+                                  "landscape_build_ms":  3176,
+                                  "forest_setup_ms":  3596,
+                                  "tree_picture_rows_from_cache":  0,
+                                  "tree_picture_rows_photographed":  8,
+                                  "shader_compiles_first_view":  0,
+                                  "first_view_max_frame_ms":  16.113000869751,
+                                  "first_view_p50_frame_ms":  15.201000213623,
+                                  "first_view_hitches":  0,
+                                  "first_frame_ms":  15.494,
+                                  "unsteady_frames":  0,
+                                  "start_from":  "started_at",
+                                  "run_seconds":  17.5,
+                                  "to_first_frame_s":  14.04,
+                                  "after_first_view_s":  0.47,
+                                  "benchmark_waits_s":  2,
+                                  "other_s":  5.27
+                              },
+                              {
+                                  "folder":  "r2",
+                                  "cache":  "cold",
+                                  "first_view":  "centre_north",
+                                  "landscape_build_ms":  3215,
+                                  "forest_setup_ms":  3546,
+                                  "tree_picture_rows_from_cache":  0,
+                                  "tree_picture_rows_photographed":  8,
+                                  "shader_compiles_first_view":  0,
+                                  "first_view_max_frame_ms":  16.2280006408691,
+                                  "first_view_p50_frame_ms":  15.0740003585815,
+                                  "first_view_hitches":  0,
+                                  "first_frame_ms":  14.923,
+                                  "unsteady_frames":  0,
+                                  "start_from":  "started_at",
+                                  "run_seconds":  17.4,
+                                  "to_first_frame_s":  13.98,
+                                  "after_first_view_s":  0.41,
+                                  "benchmark_waits_s":  2,
+                                  "other_s":  5.22
+                              },
+                              {
+                                  "folder":  "r3",
+                                  "cache":  "cold",
+                                  "first_view":  "centre_north",
+                                  "landscape_build_ms":  3208,
+                                  "forest_setup_ms":  3596,
+                                  "tree_picture_rows_from_cache":  0,
+                                  "tree_picture_rows_photographed":  8,
+                                  "shader_compiles_first_view":  0,
+                                  "first_view_max_frame_ms":  16.1800003051758,
+                                  "first_view_p50_frame_ms":  15.0380001068115,
+                                  "first_view_hitches":  0,
+                                  "first_frame_ms":  14.943,
+                                  "unsteady_frames":  0,
+                                  "start_from":  "started_at",
+                                  "run_seconds":  17.5,
+                                  "to_first_frame_s":  14.04,
+                                  "after_first_view_s":  0.44,
+                                  "benchmark_waits_s":  2,
+                                  "other_s":  5.23
+                              }
+                          ],
+                 "combined":  {
+                                  "cache":  "cold",
+                                  "runs":  3,
+                                  "to_first_frame_s":  14.04,
+                                  "landscape_build_ms":  3208,
+                                  "forest_setup_ms":  3596,
+                                  "benchmark_waits_s":  2,
+                                  "other_s":  5.23,
+                                  "after_first_view_s":  0.44,
+                                  "run_seconds":  17.5,
+                                  "tree_picture_rows_from_cache":  0,
+                                  "tree_picture_rows_photographed":  8,
+                                  "shader_compiles_first_view":  0,
+                                  "first_frame_ms":  14.943,
+                                  "unsteady_frames":  0,
+                                  "first_view_max_frame_ms":  16.1800003051758,
+                                  "first_view_hitches":  0
+                              }
+             },
+    "analysed":  "2026-11-08T22:06:44",
+    "min_noise_share":  0.015
+}

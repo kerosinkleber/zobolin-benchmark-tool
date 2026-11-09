@@ -37,6 +37,11 @@ $PartNames = @{
 	trunk_collision = "Tree trunk collision"
 	imgui = "ImGui layer (debug menus)"
 	water = "Water"
+	water_mesh = "Water's fine pieces"
+	water_shadows = "Shadows on the water"
+	water_low_far = "Low preset: coarser far water (off = fine again)"
+	water_low_shadows = "Low preset: no shadows on water (off = shadows again)"
+	npc_snow_indoors = "NPCs at full speed indoors in snow"
 	lamps = "House lamps"
 	all = "Everything off together"
 }

@@ -38,6 +38,8 @@ https://github.com/kerosinkleber/zobolin-benchmark-tool
 |---|---|
 | `-Scenario flight` | The flight across the whole world: stutters and what causes them (re-centring, new trees and tiles) |
 | `-Scenario npc_crowd -Repeats 2` | The NPC test with 8, 24 and 64 NPCs, and how their cost grows (about 45 minutes) |
+| `-Scenario npc_quick` | The NPC test with 64 NPCs only: the quick check whether a change made NPCs slower (about a third of npc_crowd's time); `-Ablate -Kind cpu -Repeats 2` measures the NPC switches |
+| `-Scenario night` | The 3 quick views at 21:30 on a clear night, the houses' windows lit; `-Ablate` measures `lit_windows` |
 | `-Scenario items` | The items test with 300, 1000 and 3000 items, and how their cost grows |
 | `-Scenario boat_cargo` | The boat with 0, 13 and 26 crates of cargo, and how their cost grows |
 | `-Scenario vista` | All 11 terrain views instead of the quick 3 (`vista_quick`) |
@@ -56,6 +58,7 @@ https://github.com/kerosinkleber/zobolin-benchmark-tool
 | `-Gpu intel` | The built-in graphics (the low tier on the i9) |
 | `-GpuProfile` | Also the graphics card's time per drawing pass |
 | `-CoolDown 60` | A longer break between runs (laptops) |
+| `-Only <switch>` | With `-Ablate`: measure only these switches (comma-separated), no "all off" run; the new part's own switch (CLAUDE.md testing rule 4) |
 | `-SaveBaseline` | Keep this session as this PC's baseline (see below) |
 | `-Baseline <summary.json>` | Compare with this session instead of the saved baseline |
 | `-GameOptions "--grass-end=300"` | Options for the game itself (several in one string, separated by spaces) |

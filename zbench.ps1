@@ -45,6 +45,7 @@
 param(
 	[string] $Scenario = "vista_quick",
 	[switch] $Ablate,
+	[string[]] $Only = @(),
 	[ValidateSet("all", "gpu", "cpu")] [string] $Kind = "all",
 	[ValidateRange(1, 20)] [int] $Repeats = 3,
 	[ValidateSet("high", "low")] [string] $Preset = "high",
@@ -450,8 +451,11 @@ if (-not (Test-Path $launcher)) {
 }
 $variants = @([ordered]@{ name = "all_on"; off = @() })
 if ($Ablate) {
-	$parts = @($plan.switches)
-	if ($parts.Count -eq 0) {
+	$parts = @($plan.switches | Where-Object { $_ })
+	# A scenario may list only processor switches (the NPC test has no
+	# drawing switches); then there is no "all off" run.
+	$anyParts = $parts.Count + @($plan.detail_switches | Where-Object { $_ }).Count + @($plan.cpu_switches | Where-Object { $_ }).Count
+	if ($anyParts -eq 0) {
 		Write-Host "Scenario '$Scenario' lists no parts to switch off ('switches')." -ForegroundColor Red
 		exit 1
 	}
@@ -472,7 +476,18 @@ if ($Ablate) {
 			if ($part) { $variants += [ordered]@{ name = "$($part)_off"; off = @($part); detail = $true; cpu = $true } }
 		}
 	}
-	if ($Kind -ne "cpu") { $variants += [ordered]@{ name = "all_off"; off = $parts; detail = $false } }
+	if ($Kind -ne "cpu" -and $parts.Count -gt 0) { $variants += [ordered]@{ name = "all_off"; off = $parts; detail = $false } }
+	# -Only <switch>[,<switch>]: measure only these parts (CLAUDE.md, testing
+	# rule 4: -Ablate only with the new part's own switch); no "all off".
+	$Only = @($Only | ForEach-Object { $_ -split '[,\s]+' } | Where-Object { $_ })
+	if ($Only.Count -gt 0) {
+		$unknown = @($Only | Where-Object { $o = $_; -not ($variants | Where-Object { $_.name -eq "$($o)_off" }) })
+		if ($unknown.Count -gt 0) {
+			Write-Host "-Only: scenario '$Scenario' has no switch $($unknown -join ', ') (for this -Kind)." -ForegroundColor Red
+			exit 1
+		}
+		$variants = @($variants | Where-Object { $_.name -eq "all_on" -or ($Only -contains ($_.name -replace '_off$', '') -and $_.name -ne "all_off") })
+	}
 } elseif ($plan.variants) {
 	# A sweep: the same scene with more and more of something (for example
 	# 8, 16, 32, 64 NPCs). Each variant has its own game options and a
@@ -722,6 +737,7 @@ if ($Ablate) {
 		$held = $true
 		$stoppedAll = $true
 		$evidence = @()
+		$alreadyOff = $false
 		for ($r = 1; $r -le $Repeats; $r++) {
 			$offRun = Get-Content -Raw (Join-Path $session "$($variant.name)\r$r\run.json") | ConvertFrom-Json
 			foreach ($property in @($offRun.off.PSObject.Properties)) {
@@ -732,6 +748,12 @@ if ($Ablate) {
 				}
 				if ($r -eq 1) { $removes += $property.Value.removes }
 				if ($property.Value.check -eq "setting" -and $variant.off.Count -eq 1) { $method = "setting" }
+				# "adds": switching it off puts work back (it undoes a saving of the
+				# low preset), so the frame should get slower, not faster.
+				if ($property.Value.check -eq "adds" -and $variant.off.Count -eq 1) { $method = "adds" }
+				# The part was already off in this preset (for example no shadows on
+				# the water on low): no saving is expected.
+				if ($property.Value.already_off -and $variant.off.Count -eq 1) { $alreadyOff = $true }
 				if ($property.Value.check -eq "counter" -and $variant.off.Count -eq 1) {
 					$method = "counter"
 					if (-not $property.Value.work_stopped) { $stoppedAll = $false }
@@ -741,6 +763,7 @@ if ($Ablate) {
 			}
 		}
 		$faster = @($views | Where-Object { $_.outside_noise -and $_.frame_saving_ms -gt 0 }).Count -gt 0
+		$slower = @($views | Where-Object { $_.outside_noise -and $_.frame_saving_ms -lt 0 }).Count -gt 0
 		# Processor switches must not change the picture: compare each view's
 		# screenshot with everything on (first round of each).
 		$changedViews = @()
@@ -757,6 +780,12 @@ if ($Ablate) {
 		} elseif ($changedViews.Count -gt 0) {
 			$verified = $false
 			$check = "NO: the picture changed in $($changedViews -join ', '), so the saving is not only processor work"
+		} elseif ($alreadyOff) {
+			$verified = $true
+			$check = "already off in this preset (nothing to save)"
+		} elseif ($method -eq "adds") {
+			$verified = $slower
+			$check = if ($slower) { "yes (frame slower with it off: what the preset saves)" } else { "no measurable change (it only acts on the low preset)" }
 		} elseif ($method -eq "counter") {
 			$verified = $stoppedAll
 			$check = if ($stoppedAll) { "yes (counter: $($evidence -join '; '); picture unchanged)" } else { "NO: the work went on ($($evidence -join '; '))" }
@@ -945,7 +974,10 @@ foreach ($s in $segments) {
 	Write-Host "Stutters in $($s.name) by main cause (middle count of the runs, slowest, where in the first run):" -ForegroundColor Cyan
 	foreach ($causeName in $s.hitch_causes.Keys) {
 		$entry = $s.hitch_causes[$causeName]
-		$where = ($entry.at_x | ForEach-Object { [string]::Format([cultureinfo]::InvariantCulture, "{0:F0}", $_) }) -join ", "
+		# One entry per stutter: show each place once, and at most eight.
+		$places = @($entry.at_x | ForEach-Object { [string]::Format([cultureinfo]::InvariantCulture, "{0:F0}", $_) } | Select-Object -Unique)
+		$where = ($places | Select-Object -First 8) -join ", "
+		if ($places.Count -gt 8) { $where += " and $($places.Count - 8) more places" }
 		$count = if ($entry.count -gt 0) { "{0,4} stutters" -f $entry.count } else { "  in some runs only" }
 		Write-Host ("  {0,-18} {1}, slowest {2,7:N1} ms, at world x {3}" -f $causeName, $count, $entry.worst_ms, $where)
 	}

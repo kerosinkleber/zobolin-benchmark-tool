@@ -1,0 +1,12 @@
+{
+  "description": "The 3 quick views at 21:30 on a clear night: most houses' windows are lit (07 'Lit windows at night'; stand-in residents go to bed between 21:00 and 23:30). With -Ablate -Kind gpu (switch lit_windows): what the lit windows cost.",
+  "test": "terrain",
+  "only": "centre_north,valley_floor,village_close",
+  "extra": [
+    "--weather=clear",
+    "--time=21:30"
+  ],
+  "switches": [
+    "lit_windows"
+  ]
+}

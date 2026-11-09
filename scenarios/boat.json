@@ -1,10 +1,14 @@
 {
-  "description": "The boat test with no cargo: drifting, sailing, turning, walking on deck, saving and loading. With -Ablate it also runs with the water surface not drawn (the waves and floating keep going), with only the water's coarse pieces (water_mesh: triangles against pixels), and with no shadows on the water (water_shadows), to show what drawing the water costs.",
+  "description": "The boat test with no cargo: drifting, sailing, turning, walking on deck, saving and loading. With -Ablate it also runs with the water surface not drawn (the waves and floating keep going), with only the water's coarse pieces (water_mesh: triangles against pixels), and with no shadows on the water (water_shadows), to show what drawing the water costs. With -Preset low, water_low_far and water_low_shadows put back what the low preset saves on the water (07 'The water's cost'): the frame gets slower by that saving.",
   "test": "boat",
   "extra": [],
   "switches": [
     "water",
     "water_mesh",
     "water_shadows"
+  ],
+  "detail_switches": [
+    "water_low_far",
+    "water_low_shadows"
   ]
 }

@@ -1,0 +1,14 @@
+{
+  "test": "terrain",
+  "only": "centre_north,valley_floor,village_close",
+  "extra": [],
+  "detail_switches": [],
+  "cpu_switches": [],
+  "description": "As low_7c but without the lake switch, for game versions before 7c (no lake).",
+  "switches": [
+    "grass",
+    "trees",
+    "objects",
+    "terrain"
+  ]
+}

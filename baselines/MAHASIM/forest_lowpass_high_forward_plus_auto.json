@@ -1,0 +1,156 @@
+﻿{
+    "scenario":  "forest_lowpass",
+    "ablate":  false,
+    "repeats":  3,
+    "machine":  {
+                    "pc":  "MAHASIM",
+                    "processor":  "AMD Ryzen 7 1800X Eight-Core Processor",
+                    "cores":  8,
+                    "threads":  16,
+                    "ram_gb":  31.9,
+                    "graphics_cards":  [
+                                           {
+                                               "name":  "Virtual Display Driver",
+                                               "driver":  "11.30.4.434"
+                                           },
+                                           {
+                                               "name":  "NVIDIA GeForce GTX 970",
+                                               "driver":  "32.0.15.6094"
+                                           }
+                                       ],
+                    "windows":  "Microsoft Windows 11 Pro 10.0.26300",
+                    "power_plan":  {
+                                       "guid":  "381b4222-f694-41f0-9685-ff5bb260df2e",
+                                       "name":  "Ausbalanciert",
+                                       "full_speed":  false
+                                   },
+                    "has_battery":  false,
+                    "on_battery":  false,
+                    "game_commit":  "dd3f350e32d5bca7e6efea2b2a11d2479c97a48a",
+                    "game_uncommitted_changes":  true
+                },
+    "preset":  "high",
+    "renderer":  "forward_plus",
+    "godot":  "4.7.2-stable (official)",
+    "debug_build":  true,
+    "graphics_card_used":  "NVIDIA GeForce GTX 970",
+    "render_3d":  [
+                      5120.0,
+                      2880.0
+                  ],
+    "warnings":  [
+                     "The power plan is \u0027Ausbalanciert\u0027, not High performance: the numbers may vary more."
+                 ],
+    "segments":  [
+                     {
+                         "name":  "forest_lowpass",
+                         "repeats":  3,
+                         "mean_frame_ms":  18.2548100094795,
+                         "frame_spread_share":  0.0069632325012635912,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  21.2409992218018,
+                         "slowest_1_percent_fps":  44.0285213598431,
+                         "gpu_ms":  17.4109992980957,
+                         "gpu_spread_share":  0.004881918781192273,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.015,
+                         "gpu_bound_share":  0.996,
+                         "process_ms":  0.337999999523163,
+                         "process_mean_ms":  0.458550000704825,
+                         "physics_mean_ms":  0.857779999941587,
+                         "cpu_ms":  1.316330000646412,
+                         "cpu_spread_share":  0.0042557712160248007,
+                         "cpu_noise_band_share":  0.015,
+                         "draw_ms":  16.6940002441406,
+                         "render_cpu_ms":  0.843999981880188,
+                         "draw_calls":  300,
+                         "shadow_draw_calls":  224,
+                         "primitives":  1349396,
+                         "hitches":  [
+                                         0,
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    18.3642399988174,
+                                                    18.2548100094795,
+                                                    18.237127512455
+                                                ],
+                         "per_repeat_outside_wait_ms":  [
+                                                            -2.1346980064957881,
+                                                            -2.1299850130156117,
+                                                            -2.1260844965577519
+                                                        ],
+                         "zones":  {
+                                       "boat":  {
+                                                    "mean_ms":  0.173734999999404,
+                                                    "max_ms":  0.504999995231628
+                                                },
+                                       "boat.buoyancy":  {
+                                                             "mean_ms":  0.124084500085562,
+                                                             "max_ms":  0.409000009298325
+                                                         },
+                                       "boat.holding":  {
+                                                            "mean_ms":  0.00545299999858253,
+                                                            "max_ms":  0.0689999982714653
+                                                        },
+                                       "boat.stowing":  {
+                                                            "mean_ms":  0.00704500012821518,
+                                                            "max_ms":  0.0670000016689301
+                                                        },
+                                       "daynight":  {
+                                                        "mean_ms":  0.0267135004056618,
+                                                        "max_ms":  0.0799999982118607
+                                                    },
+                                       "forest":  {
+                                                      "mean_ms":  0.0455540004130453,
+                                                      "max_ms":  11.048999786377
+                                                  },
+                                       "forest.blocks":  {
+                                                             "mean_ms":  0.00746100010350347,
+                                                             "max_ms":  2.36800003051758
+                                                         },
+                                       "forest.collision":  {
+                                                                "mean_ms":  0.0332050000373274,
+                                                                "max_ms":  11.0450000762939
+                                                            },
+                                       "grass":  {
+                                                     "mean_ms":  0.00692749994248152,
+                                                     "max_ms":  0.337000012397766
+                                                 },
+                                       "objects":  {
+                                                       "mean_ms":  0.0337060000598431,
+                                                       "max_ms":  2.33899998664856
+                                                   },
+                                       "recentre":  {
+                                                        "mean_ms":  0.0112515001296997,
+                                                        "max_ms":  11.3199996948242
+                                                    },
+                                       "recentre.regions":  {
+                                                                "mean_ms":  0.0105454998016357,
+                                                                "max_ms":  10.621000289917
+                                                            },
+                                       "recentre.shift":  {
+                                                              "mean_ms":  0.000596000015735626,
+                                                              "max_ms":  0.601000010967255
+                                                          },
+                                       "recentre.signals":  {
+                                                                "mean_ms":  8.75000022351742E-05,
+                                                                "max_ms":  0.0900000035762787
+                                                            },
+                                       "wind":  {
+                                                    "mean_ms":  0.00797900016466156,
+                                                    "max_ms":  0.034000001847744
+                                                },
+                                       "wind_items":  {
+                                                          "mean_ms":  0.00291750004526693,
+                                                          "max_ms":  0.00800000037997961
+                                                      }
+                                   },
+                         "unattributed_process_ms":  0.246777998958249,
+                         "unattributed_physics_ms":  0.667876999613713
+                     }
+                 ],
+    "analysed":  "2026-11-09T07:31:08",
+    "min_noise_share":  0.015
+}

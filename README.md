@@ -46,8 +46,9 @@ https://github.com/kerosinkleber/zobolin-benchmark-tool
 | `-Scenario storm_noon` / `storm_night` / `snow` | The 3 quick views in a storm (a loud lightning strike every 5 s) at noon or at 23:00, or in snow |
 | `-Scenario time_fast` | The 3 quick views with the game time running 600 times faster (an hour every 6 s) |
 | `-Scenario load` (add `-ColdCache`) | The start-up: how long until the first view, and where the time goes; `-ColdCache` first clears Godot's compiled shaders, graphics pipelines and tree pictures (only those) |
-| `-Scenario boat -Ablate` | The boat scene with and without drawing the water |
+| `-Scenario boat -Ablate` | The boat scene with and without drawing the water, with only its coarse pieces (`water_mesh`) and with no shadows on it (`water_shadows`) |
 | `-Scenario storm` | A storm with fully wet surfaces (7c), at the centre, valley floor, village, lake shore and market stall; with `-Ablate` also what rain (`precipitation`), the wet look (`wet`) and the lake (`lake`) cost |
+| `-Scenario low_7c -Preset low -Ablate -Kind gpu` | What 7c's parts cost on the low preset (lake, grass, trees, houses and rocks, ground); `low_parts` is the same without the lake, for game versions before 7c |
 | `-Ablate` | Also once with each part off (shadows, grass, houses and rocks, trees, ground, sky, fog, and the pieces: far tree pictures, the ground's, near trees' and houses' shadows) and once with the parts all off, then a table of what each part costs; then the processor switches (physics, updates, day and night, panel, re-centring, collision, ImGui) and a table of processor time saved. Three rounds of 21 runs: about 35 minutes |
 | `-Ablate -Kind gpu` / `-Kind cpu` | Only the graphics card's switches (about 21 minutes) or only the processor's (about 15 minutes) |
 | `-Repeats 5` | Five runs instead of three |

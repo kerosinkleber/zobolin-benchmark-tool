@@ -26,8 +26,8 @@
                                    },
                     "has_battery":  false,
                     "on_battery":  false,
-                    "game_commit":  "dd3f350e32d5bca7e6efea2b2a11d2479c97a48a",
-                    "game_uncommitted_changes":  true
+                    "game_commit":  "f2acd31547e89ffb087fa142789d1363e531e978",
+                    "game_uncommitted_changes":  false
                 },
     "preset":  "high",
     "renderer":  "forward_plus",
@@ -45,112 +45,128 @@
                      {
                          "name":  "forest_lowpass",
                          "repeats":  3,
-                         "mean_frame_ms":  18.2548100094795,
-                         "frame_spread_share":  0.0069632325012635912,
+                         "mean_frame_ms":  18.6469820160866,
+                         "frame_spread_share":  0.0074289771191656659,
                          "noise_band_share":  0.015,
-                         "p99_frame_ms":  21.2409992218018,
-                         "slowest_1_percent_fps":  44.0285213598431,
-                         "gpu_ms":  17.4109992980957,
-                         "gpu_spread_share":  0.004881918781192273,
+                         "p99_frame_ms":  21.6499996185303,
+                         "slowest_1_percent_fps":  44.4408894309733,
+                         "gpu_ms":  17.7700004577637,
+                         "gpu_spread_share":  0.0037141239752959566,
                          "gpu_noise_band_share":  0.015,
                          "p99_noise_band_share":  0.015,
-                         "gpu_bound_share":  0.996,
-                         "process_ms":  0.337999999523163,
-                         "process_mean_ms":  0.458550000704825,
-                         "physics_mean_ms":  0.857779999941587,
-                         "cpu_ms":  1.316330000646412,
-                         "cpu_spread_share":  0.0042557712160248007,
+                         "gpu_bound_share":  0.997,
+                         "process_ms":  0.400999993085861,
+                         "process_mean_ms":  0.543929499998689,
+                         "physics_mean_ms":  0.916309999614954,
+                         "cpu_ms":  1.458498999163508,
+                         "cpu_spread_share":  0.0042811141091451356,
                          "cpu_noise_band_share":  0.015,
-                         "draw_ms":  16.6940002441406,
-                         "render_cpu_ms":  0.843999981880188,
-                         "draw_calls":  300,
+                         "draw_ms":  16.9340000152588,
+                         "render_cpu_ms":  0.870999991893768,
+                         "draw_calls":  316,
                          "shadow_draw_calls":  224,
-                         "primitives":  1349396,
+                         "primitives":  1364348,
                          "hitches":  [
                                          0,
                                          0,
                                          0
                                      ],
                          "per_repeat_mean_ms":  [
-                                                    18.3642399988174,
-                                                    18.2548100094795,
-                                                    18.237127512455
+                                                    18.6469820160866,
+                                                    18.7710184993744,
+                                                    18.6324904966354
                                                 ],
                          "per_repeat_outside_wait_ms":  [
-                                                            -2.1346980064957881,
-                                                            -2.1299850130156117,
-                                                            -2.1260844965577519
+                                                            -2.40529849000272,
+                                                            -2.4214619924277128,
+                                                            -2.4044019587487089
                                                         ],
                          "zones":  {
                                        "boat":  {
-                                                    "mean_ms":  0.173734999999404,
-                                                    "max_ms":  0.504999995231628
+                                                    "mean_ms":  0.176342499930412,
+                                                    "max_ms":  0.36599999666214
                                                 },
                                        "boat.buoyancy":  {
-                                                             "mean_ms":  0.124084500085562,
-                                                             "max_ms":  0.409000009298325
+                                                             "mean_ms":  0.131639500208199,
+                                                             "max_ms":  0.293000012636185
                                                          },
                                        "boat.holding":  {
-                                                            "mean_ms":  0.00545299999858253,
-                                                            "max_ms":  0.0689999982714653
+                                                            "mean_ms":  0.00412400010728743,
+                                                            "max_ms":  0.017000000923872
                                                         },
                                        "boat.stowing":  {
-                                                            "mean_ms":  0.00704500012821518,
-                                                            "max_ms":  0.0670000016689301
+                                                            "mean_ms":  0.00596200000192039,
+                                                            "max_ms":  0.0579999983310699
                                                         },
                                        "daynight":  {
-                                                        "mean_ms":  0.0267135004056618,
-                                                        "max_ms":  0.0799999982118607
+                                                        "mean_ms":  0.0257430003453046,
+                                                        "max_ms":  0.0640000030398369
                                                     },
                                        "forest":  {
-                                                      "mean_ms":  0.0455540004130453,
-                                                      "max_ms":  11.048999786377
+                                                      "mean_ms":  0.0635725003590342,
+                                                      "max_ms":  2.38100004196167
                                                   },
                                        "forest.blocks":  {
-                                                             "mean_ms":  0.00746100010350347,
-                                                             "max_ms":  2.36800003051758
+                                                             "mean_ms":  0.00588049999624491,
+                                                             "max_ms":  1.8400000333786
                                                          },
                                        "forest.collision":  {
-                                                                "mean_ms":  0.0332050000373274,
-                                                                "max_ms":  11.0450000762939
+                                                                "mean_ms":  0.0422790000569075,
+                                                                "max_ms":  2.24499988555908
                                                             },
+                                       "forest.update":  {
+                                                             "mean_ms":  0.0140879999473691,
+                                                             "max_ms":  0.41499999165535
+                                                         },
                                        "grass":  {
-                                                     "mean_ms":  0.00692749994248152,
-                                                     "max_ms":  0.337000012397766
+                                                     "mean_ms":  0.00658699997514486,
+                                                     "max_ms":  0.270999997854233
                                                  },
+                                       "house_npc":  {
+                                                         "mean_ms":  0.0539640002739616,
+                                                         "max_ms":  0.194000005722046
+                                                     },
                                        "objects":  {
-                                                       "mean_ms":  0.0337060000598431,
-                                                       "max_ms":  2.33899998664856
+                                                       "mean_ms":  0.0772920003328472,
+                                                       "max_ms":  2.19400000572205
                                                    },
+                                       "objects.collision":  {
+                                                                 "mean_ms":  0.00420500000007451,
+                                                                 "max_ms":  0.493999987840652
+                                                             },
+                                       "objects.update":  {
+                                                              "mean_ms":  0.0481849999576807,
+                                                              "max_ms":  1.32000005245209
+                                                          },
                                        "recentre":  {
-                                                        "mean_ms":  0.0112515001296997,
-                                                        "max_ms":  11.3199996948242
+                                                        "mean_ms":  0.00708999991416931,
+                                                        "max_ms":  7.27299976348877
                                                     },
                                        "recentre.regions":  {
-                                                                "mean_ms":  0.0105454998016357,
-                                                                "max_ms":  10.621000289917
+                                                                "mean_ms":  0.00630749988555908,
+                                                                "max_ms":  6.44299983978271
                                                             },
                                        "recentre.shift":  {
-                                                              "mean_ms":  0.000596000015735626,
-                                                              "max_ms":  0.601000010967255
+                                                              "mean_ms":  0.000702500015497208,
+                                                              "max_ms":  0.711000025272369
                                                           },
                                        "recentre.signals":  {
-                                                                "mean_ms":  8.75000022351742E-05,
-                                                                "max_ms":  0.0900000035762787
+                                                                "mean_ms":  7.80000016093254E-05,
+                                                                "max_ms":  0.0790000036358833
                                                             },
                                        "wind":  {
-                                                    "mean_ms":  0.00797900016466156,
-                                                    "max_ms":  0.034000001847744
+                                                    "mean_ms":  0.0077080001803115,
+                                                    "max_ms":  0.0480000004172325
                                                 },
                                        "wind_items":  {
-                                                          "mean_ms":  0.00291750004526693,
-                                                          "max_ms":  0.00800000037997961
+                                                          "mean_ms":  0.00298050005012192,
+                                                          "max_ms":  0.0130000002682209
                                                       }
                                    },
-                         "unattributed_process_ms":  0.246777998958249,
-                         "unattributed_physics_ms":  0.667876999613713
+                         "unattributed_process_ms":  0.266296498638811,
+                         "unattributed_physics_ms":  0.676622999456711
                      }
                  ],
-    "analysed":  "2026-11-09T07:31:08",
+    "analysed":  "2026-11-10T23:19:59",
     "min_noise_share":  0.015
 }

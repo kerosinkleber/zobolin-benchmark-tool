@@ -1,0 +1,12 @@
+{
+  "description": "The building test (prototype item 2): the test NPC walks in and out of the house, pushes a crate and two baskets aside, goes round a chest and is kept out by a barricade of chests (06 \"Objects in the way\"). With -Ablate -Kind cpu -Only npc_push,item_holes: what pushing and building the walkable area again round heavy things cost.",
+  "test": "building",
+  "cpu_switches": [
+    "npc_push",
+    "item_holes"
+  ],
+  "visible_switches": [
+    "npc_push",
+    "item_holes"
+  ]
+}

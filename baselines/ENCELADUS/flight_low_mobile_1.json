@@ -1,0 +1,254 @@
+﻿{
+    "scenario":  "flight",
+    "ablate":  false,
+    "repeats":  3,
+    "machine":  {
+                    "pc":  "ENCELADUS",
+                    "processor":  "Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz",
+                    "cores":  4,
+                    "threads":  8,
+                    "ram_gb":  15.9,
+                    "graphics_cards":  [
+                                           {
+                                               "name":  "Intel(R) HD Graphics 630",
+                                               "driver":  "31.0.101.2145"
+                                           },
+                                           {
+                                               "name":  "NVIDIA GeForce GTX 1050",
+                                               "driver":  "32.0.15.8278"
+                                           }
+                                       ],
+                    "windows":  "Microsoft Windows 10 Home 10.0.19045",
+                    "power_plan":  {
+                                       "guid":  "8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c",
+                                       "name":  "Höchstleistung",
+                                       "full_speed":  true
+                                   },
+                    "has_battery":  true,
+                    "on_battery":  false,
+                    "game_commit":  "b4f8b92dde073e3c2cc3ca07390ea50d7de9c368",
+                    "game_uncommitted_changes":  false
+                },
+    "preset":  "low",
+    "renderer":  "mobile",
+    "godot":  "4.7.2-stable (official)",
+    "debug_build":  true,
+    "graphics_card_used":  "Intel(R) HD Graphics 630",
+    "render_3d":  [
+                      1280.0,
+                      720.0
+                  ],
+    "warnings":  [
+
+                 ],
+    "segments":  [
+                     {
+                         "name":  "flight",
+                         "repeats":  3,
+                         "mean_frame_ms":  27.1542081792014,
+                         "frame_spread_share":  0.0037462812354814956,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  53.7190017700195,
+                         "slowest_1_percent_fps":  6.88252736543558,
+                         "gpu_ms":  20.1529998779297,
+                         "gpu_spread_share":  0.0028780114586671257,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.027439062061278597,
+                         "gpu_bound_share":  0.755102040816326,
+                         "process_ms":  0.801999986171722,
+                         "process_mean_ms":  1.43795510114456,
+                         "physics_mean_ms":  2.12300490257691,
+                         "cpu_ms":  3.56096000372147,
+                         "cpu_spread_share":  0.089522065191416575,
+                         "cpu_noise_band_share":  0.089522065191416575,
+                         "draw_ms":  20.1560001373291,
+                         "render_cpu_ms":  1.16600000858307,
+                         "draw_calls":  488,
+                         "shadow_draw_calls":  92,
+                         "primitives":  1127068,
+                         "hitches":  [
+                                         40,
+                                         38,
+                                         40
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    27.1542081792014,
+                                                    27.0636318545439,
+                                                    27.16535915511
+                                                ],
+                         "per_repeat_outside_wait_ms":  [
+                                                            -4.7229869417754884,
+                                                            -5.3683322432332705,
+                                                            -4.79214035965967
+                                                        ],
+                         "zones":  {
+                                       "boat":  {
+                                                    "mean_ms":  0.430723265190514,
+                                                    "max_ms":  1.78900003433228
+                                                },
+                                       "boat.buoyancy":  {
+                                                             "mean_ms":  0.289523265398279,
+                                                             "max_ms":  1.50600004196167
+                                                         },
+                                       "boat.holding":  {
+                                                            "mean_ms":  0.0158179592128311,
+                                                            "max_ms":  0.143999993801117
+                                                        },
+                                       "boat.stowing":  {
+                                                            "mean_ms":  0.0201453061987247,
+                                                            "max_ms":  0.160999998450279
+                                                        },
+                                       "daynight":  {
+                                                        "mean_ms":  0.0307469390728036,
+                                                        "max_ms":  0.158999994397163
+                                                    },
+                                       "forest":  {
+                                                      "mean_ms":  0.277062040223759,
+                                                      "max_ms":  25.4699993133545
+                                                  },
+                                       "forest.blocks":  {
+                                                             "mean_ms":  0.0683461221049027,
+                                                             "max_ms":  7.9229998588562
+                                                         },
+                                       "forest.collision":  {
+                                                                "mean_ms":  0.172086530732257,
+                                                                "max_ms":  20.3659992218018
+                                                            },
+                                       "grass":  {
+                                                     "mean_ms":  0.0774244896976315,
+                                                     "max_ms":  0.764999985694885
+                                                 },
+                                       "house_npc":  {
+                                                         "mean_ms":  0.124486530847391,
+                                                         "max_ms":  0.698000013828278
+                                                     },
+                                       "objects":  {
+                                                       "mean_ms":  0.569451426912327,
+                                                       "max_ms":  10.28600025177
+                                                   },
+                                       "objects.collision":  {
+                                                                 "mean_ms":  0.0317885715027853,
+                                                                 "max_ms":  0.586000025272369
+                                                             },
+                                       "recentre":  {
+                                                        "mean_ms":  0.0799257153880839,
+                                                        "max_ms":  16.7840003967285
+                                                    },
+                                       "recentre.regions":  {
+                                                                "mean_ms":  0.0696359175078723,
+                                                                "max_ms":  14.5920000076294
+                                                            },
+                                       "recentre.shift":  {
+                                                              "mean_ms":  0.00901469376622414,
+                                                              "max_ms":  2.15199995040894
+                                                          },
+                                       "recentre.signals":  {
+                                                                "mean_ms":  0.000647346930844443,
+                                                                "max_ms":  0.185000002384186
+                                                            },
+                                       "wind":  {
+                                                    "mean_ms":  0.0109110204252053,
+                                                    "max_ms":  0.126000002026558
+                                                },
+                                       "wind_items":  {
+                                                          "mean_ms":  0.00593877558045241,
+                                                          "max_ms":  0.0399999991059303
+                                                      }
+                                   },
+                         "unattributed_process_ms":  0.353763266219472,
+                         "unattributed_physics_ms":  1.4840506152687,
+                         "hitch_causes":  {
+                                              "grass_tiles":  {
+                                                                  "count":  11,
+                                                                  "worst_ms":  65.6529998779297,
+                                                                  "at_x":  [
+                                                                               -3487.0,
+                                                                               -3360.0,
+                                                                               -667.0,
+                                                                               -313.0,
+                                                                               -287.0,
+                                                                               1253.0,
+                                                                               1380.0,
+                                                                               1440.0,
+                                                                               1700.0,
+                                                                               2020.0,
+                                                                               2067.0,
+                                                                               2593.0
+                                                                           ]
+                                                              },
+                                              "object_bodies":  {
+                                                                    "count":  3,
+                                                                    "worst_ms":  39.2369995117188,
+                                                                    "at_x":  [
+                                                                                 -3420.0,
+                                                                                 -640.0,
+                                                                                 -627.0,
+                                                                                 -373.0
+                                                                             ]
+                                                                },
+                                              "object_tiles":  {
+                                                                   "count":  7,
+                                                                   "worst_ms":  455.429992675781,
+                                                                   "at_x":  [
+                                                                                -3547.0,
+                                                                                -3473.0,
+                                                                                -273.0,
+                                                                                -247.0,
+                                                                                1313.0,
+                                                                                1507.0,
+                                                                                1573.0
+                                                                            ]
+                                                               },
+                                              "physics_catch_up":  {
+                                                                       "count":  7,
+                                                                       "worst_ms":  42.0219993591309,
+                                                                       "at_x":  [
+                                                                                    -593.0,
+                                                                                    -527.0,
+                                                                                    -467.0,
+                                                                                    -420.0,
+                                                                                    -400.0,
+                                                                                    1393.0,
+                                                                                    1520.0
+                                                                                ]
+                                                                   },
+                                              "recentre":  {
+                                                               "count":  4,
+                                                               "worst_ms":  47.8839988708496,
+                                                               "at_x":  [
+                                                                            -3067.0,
+                                                                            -2047.0,
+                                                                            -1020.0,
+                                                                            1027.0
+                                                                        ]
+                                                           },
+                                              "screenshot":  {
+                                                                 "count":  3,
+                                                                 "worst_ms":  419.200012207031,
+                                                                 "at_x":  [
+                                                                              -1993.0,
+                                                                              7.0,
+                                                                              4007.0
+                                                                          ]
+                                                             },
+                                              "tree_blocks":  {
+                                                                  "count":  2,
+                                                                  "worst_ms":  452.747009277344,
+                                                                  "at_x":  [
+                                                                               1487.0,
+                                                                               1740.0
+                                                                           ]
+                                                              },
+                                              "trunk_bodies":  {
+                                                                   "count":  2,
+                                                                   "worst_ms":  34.9000015258789,
+                                                                   "at_x":  [
+                                                                                -653.0
+                                                                            ]
+                                                               }
+                                          }
+                     }
+                 ],
+    "analysed":  "2026-11-10T19:22:30",
+    "min_noise_share":  0.015
+}

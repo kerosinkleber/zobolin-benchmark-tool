@@ -1,0 +1,40 @@
+{
+  "description": "The slice's group fight (stage E step 14): town guards against bandits on the town's east road, the player watching from the south at noon. The groups notice each other and fight (melee, bows, blocks, dodges, healing, cover, fleeing, falling back and flanking as groups), and a fight that ends is set up again and starts again. Measures stage E steps 10 to 14 together with 2, 10 and 20 fighters (--npcs=, half each side): the NPC brains and their groups (combat_ai: the thinking, behaviour and group passes, physics time; pieces combat_ai.think, combat_ai.behave, combat_ai.groups), the melee sweeps (melee_sweeps; with them off no blow lands, so hits, knockdowns, ragdolls and deaths go too: an upper bound), the ragdolls (ragdolls: Jolt's work on the fallen, in the physics time) and the arrows (projectiles). The scenario's own check (CHECK lines) says the fight really ran: choices, behaviour passes, swings or shots, joined fighters and the town ground's sight rays aren't zero, or with a switch off that its work stopped. The switches change the picture, so they are listed as visible_switches and their screenshots aren't compared; run with -Repeats 2. Without -Ablate the tool runs the 2/10/20 sweep; -Ablate -Kind cpu measures the switches at the default 10 fighters. Run it on this PC and on the laptop (its Intel graphics at low). Records its own baseline the first time it runs.",
+  "test": "combat_crowd",
+  "extra": [],
+  "cpu_switches": [
+    "combat_ai",
+    "melee_sweeps",
+    "ragdolls",
+    "projectiles"
+  ],
+  "visible_switches": [
+    "combat_ai",
+    "melee_sweeps",
+    "ragdolls",
+    "projectiles"
+  ],
+  "variants": [
+    {
+      "name": "npcs_2",
+      "x": 2,
+      "extra": [
+        "--npcs=2"
+      ]
+    },
+    {
+      "name": "npcs_10",
+      "x": 10,
+      "extra": [
+        "--npcs=10"
+      ]
+    },
+    {
+      "name": "npcs_20",
+      "x": 20,
+      "extra": [
+        "--npcs=20"
+      ]
+    }
+  ]
+}

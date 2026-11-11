@@ -1,15 +1,18 @@
 {
-  "description": "The combat benchmark in the test yard (stage E step 10): 16 box-body fighters in 8 pairs spar for 20 s (quick and power attacks, blocks and parries, staggers, knockdowns that fall as ragdolls and get up), the player standing still. With -Ablate -Kind cpu it measures the melee sweeps (melee_sweeps: the swing rays every physics step; with them off no blow lands, so the hits, staggers, knockdowns and ragdolls go too and its saving is an upper bound: the sweeps' own cost is the melee_sweeps stopwatch in the all_on run, the ragdolls' cost is the ragdolls_off saving) and the ragdolls (ragdolls: the physics engine's work on the fallen bodies, seen in the physics time; run.json's combat counts say how many ragdolls the run measured). Both change the picture (no blows land, or knockdowns tip back instead of falling), so the screenshots aren't compared; run with -Repeats 2.",
+  "description": "The combat benchmark in the test yard (stage E steps 10 and 11): 16 box-body fighters in 8 pairs spar for 20 s (quick and power attacks, blocks and parries, staggers, knockdowns that fall as ragdolls and get up), and 4 shooters (2 bows, 2 guns) shoot at the shooting range's boards at 10, 30 and 60 m (arrows stick in the boards and the end wall), the player standing still. With -Ablate -Kind cpu it measures the melee sweeps (melee_sweeps: the swing rays every physics step; with them off no blow lands, so the hits, staggers, knockdowns and ragdolls go too and its saving is an upper bound: the sweeps' own cost is the melee_sweeps stopwatch in the all_on run, the ragdolls' cost is the ragdolls_off saving), the ragdolls (ragdolls: the physics engine's work on the fallen bodies, seen in the physics time; run.json's combat counts say how many ragdolls the run measured) and the projectiles (projectiles: every shot's flight and ray each physics step, the projectiles stopwatch; with it off the shooters still aim and shoot but nothing flies, so nothing lands or sticks either). All three change the picture (no blows land, knockdowns tip back instead of falling, no shots fly), so the screenshots aren't compared; run with -Repeats 2.",
   "test": "combat",
   "extra": [
-    "--fighters=16"
+    "--fighters=16",
+    "--shooters=4"
   ],
   "cpu_switches": [
     "melee_sweeps",
-    "ragdolls"
+    "ragdolls",
+    "projectiles"
   ],
   "visible_switches": [
     "melee_sweeps",
-    "ragdolls"
+    "ragdolls",
+    "projectiles"
   ]
 }

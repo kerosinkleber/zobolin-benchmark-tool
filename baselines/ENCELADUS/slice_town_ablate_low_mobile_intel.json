@@ -1,0 +1,1271 @@
+﻿{
+    "scenario":  "slice_town",
+    "ablate":  true,
+    "repeats":  2,
+    "machine":  {
+                    "pc":  "ENCELADUS",
+                    "processor":  "Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz",
+                    "cores":  4,
+                    "threads":  8,
+                    "ram_gb":  15.9,
+                    "graphics_cards":  [
+                                           {
+                                               "name":  "Intel(R) HD Graphics 630",
+                                               "driver":  "31.0.101.2145"
+                                           },
+                                           {
+                                               "name":  "NVIDIA GeForce GTX 1050",
+                                               "driver":  "32.0.15.8278"
+                                           }
+                                       ],
+                    "windows":  "Microsoft Windows 10 Home 10.0.19045",
+                    "power_plan":  {
+                                       "guid":  "8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c",
+                                       "name":  "Höchstleistung",
+                                       "full_speed":  true
+                                   },
+                    "has_battery":  true,
+                    "on_battery":  false,
+                    "game_commit":  "8b77e947f41c6653f1bec29ece0a9def684a52b3",
+                    "game_uncommitted_changes":  false
+                },
+    "preset":  "low",
+    "renderer":  "mobile",
+    "godot":  "4.7.2-stable (official)",
+    "debug_build":  true,
+    "graphics_card_used":  "Intel(R) HD Graphics 630",
+    "render_3d":  [
+                      1280.0,
+                      720.0
+                  ],
+    "warnings":  [
+
+                 ],
+    "segments":  [
+                     {
+                         "name":  "town_noon",
+                         "repeats":  2,
+                         "mean_frame_ms":  26.127977206575,
+                         "frame_spread_share":  0.0015491262248809676,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  29.8804998397827,
+                         "slowest_1_percent_fps":  33.169029635697854,
+                         "gpu_ms":  23.698999404907198,
+                         "gpu_spread_share":  0.00025319713698801846,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.015,
+                         "gpu_bound_share":  0.846905537459283,
+                         "process_ms":  1.113499999046325,
+                         "process_mean_ms":  1.1909462556194401,
+                         "physics_mean_ms":  2.223185670686465,
+                         "cpu_ms":  3.4141319263059051,
+                         "cpu_spread_share":  0.0024300238349389378,
+                         "cpu_noise_band_share":  0.015,
+                         "draw_ms":  23.0054998397827,
+                         "render_cpu_ms":  0.89900001883506753,
+                         "draw_calls":  365,
+                         "shadow_draw_calls":  167,
+                         "primitives":  995046,
+                         "hitches":  [
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    26.1077394392281,
+                                                    26.1482149739219
+                                                ],
+                         "per_repeat_outside_wait_ms":  [
+                                                            -4.1351009949022313,
+                                                            -4.0950716607733764
+                                                        ],
+                         "zones":  {
+                                       "boat":  {
+                                                    "mean_ms":  0.58507166159754842,
+                                                    "max_ms":  1.23449999094009
+                                                },
+                                       "boat.buoyancy":  {
+                                                             "mean_ms":  0.392716612703249,
+                                                             "max_ms":  0.771499991416931
+                                                         },
+                                       "boat.holding":  {
+                                                            "mean_ms":  0.020552117359317851,
+                                                            "max_ms":  0.177500005811453
+                                                        },
+                                       "boat.stowing":  {
+                                                            "mean_ms":  0.025641693873179251,
+                                                            "max_ms":  0.15949999541044202
+                                                        },
+                                       "daynight":  {
+                                                        "mean_ms":  0.1006742673850215,
+                                                        "max_ms":  0.27300000190734852
+                                                    },
+                                       "forest":  {
+                                                      "mean_ms":  0.011659609049206699,
+                                                      "max_ms":  0.039999999105930356
+                                                  },
+                                       "npc":  {
+                                                   "mean_ms":  0.54564983759330254,
+                                                   "max_ms":  1.0939999818801849
+                                               },
+                                       "npc.background":  {
+                                                              "mean_ms":  0.0055781759151806651,
+                                                              "max_ms":  0.02450000029057265
+                                                          },
+                                       "npc.lit_windows":  {
+                                                               "mean_ms":  0.0037410424287349052,
+                                                               "max_ms":  0.013000000268220901
+                                                           },
+                                       "river_current":  {
+                                                             "mean_ms":  0.12009934867437999,
+                                                             "max_ms":  0.348499998450279
+                                                         },
+                                       "wind":  {
+                                                    "mean_ms":  0.034583062045761545,
+                                                    "max_ms":  0.11350000277161595
+                                                },
+                                       "window_edge":  {
+                                                           "mean_ms":  0.022964169459375003,
+                                                           "max_ms":  0.073499999940395355
+                                                       }
+                                   },
+                         "unattributed_process_ms":  0.37980781818197051,
+                         "unattributed_physics_ms":  1.495050490955165
+                     },
+                     {
+                         "name":  "town_night",
+                         "repeats":  2,
+                         "mean_frame_ms":  21.818160758681149,
+                         "frame_spread_share":  0.00043960084479094483,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  25.5325002670288,
+                         "slowest_1_percent_fps":  38.533314161533852,
+                         "gpu_ms":  19.358500480651848,
+                         "gpu_spread_share":  0.00098143447373351812,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.015,
+                         "gpu_bound_share":  0.66212534059945494,
+                         "process_ms":  0.99399998784065247,
+                         "process_mean_ms":  1.0712002727738499,
+                         "physics_mean_ms":  1.31501498615384,
+                         "cpu_ms":  2.38621525892769,
+                         "cpu_spread_share":  0.0067851104100875911,
+                         "cpu_noise_band_share":  0.015,
+                         "draw_ms":  19.76350021362305,
+                         "render_cpu_ms":  0.63350000977516152,
+                         "draw_calls":  358,
+                         "shadow_draw_calls":  0,
+                         "primitives":  984418,
+                         "hitches":  [
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    21.8229563996318,
+                                                    21.8133651177305
+                                                ],
+                         "per_repeat_outside_wait_ms":  [
+                                                            -2.0588065592080218,
+                                                            -1.9970953753598597
+                                                        ],
+                         "zones":  {
+                                       "boat":  {
+                                                    "mean_ms":  0.26286239767756747,
+                                                    "max_ms":  0.684499979019165
+                                                },
+                                       "boat.buoyancy":  {
+                                                             "mean_ms":  0.196576294593249,
+                                                             "max_ms":  0.524499997496605
+                                                         },
+                                       "boat.holding":  {
+                                                            "mean_ms":  0.0070871934358142253,
+                                                            "max_ms":  0.041000000201165648
+                                                        },
+                                       "boat.stowing":  {
+                                                            "mean_ms":  0.0082452316446184164,
+                                                            "max_ms":  0.0264999996870756
+                                                        },
+                                       "daynight":  {
+                                                        "mean_ms":  0.10056130827610125,
+                                                        "max_ms":  0.28499999642372148
+                                                    },
+                                       "forest":  {
+                                                      "mean_ms":  0.011614441328583,
+                                                      "max_ms":  0.0314999995753169
+                                                  },
+                                       "npc":  {
+                                                   "mean_ms":  0.450544959436645,
+                                                   "max_ms":  0.86000001430511452
+                                               },
+                                       "npc.background":  {
+                                                              "mean_ms":  0.0052138964692511353,
+                                                              "max_ms":  0.023000000044703497
+                                                          },
+                                       "npc.lit_windows":  {
+                                                               "mean_ms":  0.003565395171614495,
+                                                               "max_ms":  0.01150000002235174
+                                                           },
+                                       "river_current":  {
+                                                             "mean_ms":  0.0895204361507857,
+                                                             "max_ms":  0.33449999988079049
+                                                         },
+                                       "wind":  {
+                                                    "mean_ms":  0.033941416927595551,
+                                                    "max_ms":  0.0859999991953373
+                                                },
+                                       "window_edge":  {
+                                                           "mean_ms":  0.016634877332123349,
+                                                           "max_ms":  0.0920000001788138
+                                                       }
+                                   },
+                         "unattributed_process_ms":  0.364420980220148,
+                         "unattributed_physics_ms":  0.9459972749933685
+                     }
+                 ],
+    "variants":  {
+                     "all_on":  [
+                                    {
+                                        "name":  "town_noon",
+                                        "repeats":  2,
+                                        "mean_frame_ms":  26.127977206575,
+                                        "frame_spread_share":  0.0015491262248809676,
+                                        "noise_band_share":  0.015,
+                                        "p99_frame_ms":  29.8804998397827,
+                                        "slowest_1_percent_fps":  33.169029635697854,
+                                        "gpu_ms":  23.698999404907198,
+                                        "gpu_spread_share":  0.00025319713698801846,
+                                        "gpu_noise_band_share":  0.015,
+                                        "p99_noise_band_share":  0.015,
+                                        "gpu_bound_share":  0.846905537459283,
+                                        "process_ms":  1.113499999046325,
+                                        "process_mean_ms":  1.1909462556194401,
+                                        "physics_mean_ms":  2.223185670686465,
+                                        "cpu_ms":  3.4141319263059051,
+                                        "cpu_spread_share":  0.0024300238349389378,
+                                        "cpu_noise_band_share":  0.015,
+                                        "draw_ms":  23.0054998397827,
+                                        "render_cpu_ms":  0.89900001883506753,
+                                        "draw_calls":  365,
+                                        "shadow_draw_calls":  167,
+                                        "primitives":  995046,
+                                        "hitches":  [
+                                                        0,
+                                                        0
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   26.1077394392281,
+                                                                   26.1482149739219
+                                                               ],
+                                        "per_repeat_outside_wait_ms":  [
+                                                                           -4.1351009949022313,
+                                                                           -4.0950716607733764
+                                                                       ],
+                                        "zones":  {
+                                                      "boat":  {
+                                                                   "mean_ms":  0.58507166159754842,
+                                                                   "max_ms":  1.23449999094009
+                                                               },
+                                                      "boat.buoyancy":  {
+                                                                            "mean_ms":  0.392716612703249,
+                                                                            "max_ms":  0.771499991416931
+                                                                        },
+                                                      "boat.holding":  {
+                                                                           "mean_ms":  0.020552117359317851,
+                                                                           "max_ms":  0.177500005811453
+                                                                       },
+                                                      "boat.stowing":  {
+                                                                           "mean_ms":  0.025641693873179251,
+                                                                           "max_ms":  0.15949999541044202
+                                                                       },
+                                                      "daynight":  {
+                                                                       "mean_ms":  0.1006742673850215,
+                                                                       "max_ms":  0.27300000190734852
+                                                                   },
+                                                      "forest":  {
+                                                                     "mean_ms":  0.011659609049206699,
+                                                                     "max_ms":  0.039999999105930356
+                                                                 },
+                                                      "npc":  {
+                                                                  "mean_ms":  0.54564983759330254,
+                                                                  "max_ms":  1.0939999818801849
+                                                              },
+                                                      "npc.background":  {
+                                                                             "mean_ms":  0.0055781759151806651,
+                                                                             "max_ms":  0.02450000029057265
+                                                                         },
+                                                      "npc.lit_windows":  {
+                                                                              "mean_ms":  0.0037410424287349052,
+                                                                              "max_ms":  0.013000000268220901
+                                                                          },
+                                                      "river_current":  {
+                                                                            "mean_ms":  0.12009934867437999,
+                                                                            "max_ms":  0.348499998450279
+                                                                        },
+                                                      "wind":  {
+                                                                   "mean_ms":  0.034583062045761545,
+                                                                   "max_ms":  0.11350000277161595
+                                                               },
+                                                      "window_edge":  {
+                                                                          "mean_ms":  0.022964169459375003,
+                                                                          "max_ms":  0.073499999940395355
+                                                                      }
+                                                  },
+                                        "unattributed_process_ms":  0.37980781818197051,
+                                        "unattributed_physics_ms":  1.495050490955165
+                                    },
+                                    {
+                                        "name":  "town_night",
+                                        "repeats":  2,
+                                        "mean_frame_ms":  21.818160758681149,
+                                        "frame_spread_share":  0.00043960084479094483,
+                                        "noise_band_share":  0.015,
+                                        "p99_frame_ms":  25.5325002670288,
+                                        "slowest_1_percent_fps":  38.533314161533852,
+                                        "gpu_ms":  19.358500480651848,
+                                        "gpu_spread_share":  0.00098143447373351812,
+                                        "gpu_noise_band_share":  0.015,
+                                        "p99_noise_band_share":  0.015,
+                                        "gpu_bound_share":  0.66212534059945494,
+                                        "process_ms":  0.99399998784065247,
+                                        "process_mean_ms":  1.0712002727738499,
+                                        "physics_mean_ms":  1.31501498615384,
+                                        "cpu_ms":  2.38621525892769,
+                                        "cpu_spread_share":  0.0067851104100875911,
+                                        "cpu_noise_band_share":  0.015,
+                                        "draw_ms":  19.76350021362305,
+                                        "render_cpu_ms":  0.63350000977516152,
+                                        "draw_calls":  358,
+                                        "shadow_draw_calls":  0,
+                                        "primitives":  984418,
+                                        "hitches":  [
+                                                        0,
+                                                        0
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   21.8229563996318,
+                                                                   21.8133651177305
+                                                               ],
+                                        "per_repeat_outside_wait_ms":  [
+                                                                           -2.0588065592080218,
+                                                                           -1.9970953753598597
+                                                                       ],
+                                        "zones":  {
+                                                      "boat":  {
+                                                                   "mean_ms":  0.26286239767756747,
+                                                                   "max_ms":  0.684499979019165
+                                                               },
+                                                      "boat.buoyancy":  {
+                                                                            "mean_ms":  0.196576294593249,
+                                                                            "max_ms":  0.524499997496605
+                                                                        },
+                                                      "boat.holding":  {
+                                                                           "mean_ms":  0.0070871934358142253,
+                                                                           "max_ms":  0.041000000201165648
+                                                                       },
+                                                      "boat.stowing":  {
+                                                                           "mean_ms":  0.0082452316446184164,
+                                                                           "max_ms":  0.0264999996870756
+                                                                       },
+                                                      "daynight":  {
+                                                                       "mean_ms":  0.10056130827610125,
+                                                                       "max_ms":  0.28499999642372148
+                                                                   },
+                                                      "forest":  {
+                                                                     "mean_ms":  0.011614441328583,
+                                                                     "max_ms":  0.0314999995753169
+                                                                 },
+                                                      "npc":  {
+                                                                  "mean_ms":  0.450544959436645,
+                                                                  "max_ms":  0.86000001430511452
+                                                              },
+                                                      "npc.background":  {
+                                                                             "mean_ms":  0.0052138964692511353,
+                                                                             "max_ms":  0.023000000044703497
+                                                                         },
+                                                      "npc.lit_windows":  {
+                                                                              "mean_ms":  0.003565395171614495,
+                                                                              "max_ms":  0.01150000002235174
+                                                                          },
+                                                      "river_current":  {
+                                                                            "mean_ms":  0.0895204361507857,
+                                                                            "max_ms":  0.33449999988079049
+                                                                        },
+                                                      "wind":  {
+                                                                   "mean_ms":  0.033941416927595551,
+                                                                   "max_ms":  0.0859999991953373
+                                                               },
+                                                      "window_edge":  {
+                                                                          "mean_ms":  0.016634877332123349,
+                                                                          "max_ms":  0.0920000001788138
+                                                                      }
+                                                  },
+                                        "unattributed_process_ms":  0.364420980220148,
+                                        "unattributed_physics_ms":  0.9459972749933685
+                                    }
+                                ],
+                     "townsfolk_off":  [
+                                           {
+                                               "name":  "town_noon",
+                                               "repeats":  2,
+                                               "mean_frame_ms":  25.975116608167248,
+                                               "frame_spread_share":  0.0021521807260229796,
+                                               "noise_band_share":  0.015,
+                                               "p99_frame_ms":  29.629000663757349,
+                                               "slowest_1_percent_fps":  33.4557482374369,
+                                               "gpu_ms":  23.5430002212524,
+                                               "gpu_spread_share":  0.0055217754553324528,
+                                               "gpu_noise_band_share":  0.015,
+                                               "p99_noise_band_share":  0.015,
+                                               "gpu_bound_share":  0.89140188290673694,
+                                               "process_ms":  0.537500023841858,
+                                               "process_mean_ms":  0.605311861679848,
+                                               "physics_mean_ms":  1.855922950795025,
+                                               "cpu_ms":  2.4612348124748733,
+                                               "cpu_spread_share":  0.003964536828299706,
+                                               "cpu_noise_band_share":  0.015,
+                                               "draw_ms":  23.737999916076649,
+                                               "render_cpu_ms":  0.85099998116493247,
+                                               "draw_calls":  352,
+                                               "shadow_draw_calls":  159,
+                                               "primitives":  967058,
+                                               "hitches":  [
+                                                               0,
+                                                               0
+                                                           ],
+                                               "per_repeat_mean_ms":  [
+                                                                          26.0030681808274,
+                                                                          25.9471650355071
+                                                                      ],
+                                               "per_repeat_outside_wait_ms":  [
+                                                                                  -2.2076980746411476,
+                                                                                  -2.169718403550001
+                                                                              ],
+                                               "zones":  {
+                                                             "boat":  {
+                                                                          "mean_ms":  0.584649051631859,
+                                                                          "max_ms":  1.0900000333786
+                                                                      },
+                                                             "boat.buoyancy":  {
+                                                                                   "mean_ms":  0.38995943639778297,
+                                                                                   "max_ms":  0.835999995470047
+                                                                               },
+                                                             "boat.holding":  {
+                                                                                  "mean_ms":  0.0203490313225178,
+                                                                                  "max_ms":  0.0945000033825636
+                                                                              },
+                                                             "boat.stowing":  {
+                                                                                  "mean_ms":  0.026138822405406451,
+                                                                                  "max_ms":  0.17849999666213995
+                                                                              },
+                                                             "daynight":  {
+                                                                              "mean_ms":  0.10222066380690251,
+                                                                              "max_ms":  0.27550000697374349
+                                                                          },
+                                                             "forest":  {
+                                                                            "mean_ms":  0.0124480676420611,
+                                                                            "max_ms":  0.10100000165402885
+                                                                        },
+                                                             "river_current":  {
+                                                                                   "mean_ms":  0.11985917093305651,
+                                                                                   "max_ms":  0.31399999558925651
+                                                                               },
+                                                             "wind":  {
+                                                                          "mean_ms":  0.034876155810034448,
+                                                                          "max_ms":  0.0875000022351742
+                                                                      },
+                                                             "window_edge":  {
+                                                                                 "mean_ms":  0.023385670276761153,
+                                                                                 "max_ms":  0.08150000125169754
+                                                                             }
+                                                         },
+                                               "unattributed_process_ms":  0.352582886445006,
+                                               "unattributed_physics_ms":  1.128029057953355
+                                           },
+                                           {
+                                               "name":  "town_night",
+                                               "repeats":  2,
+                                               "mean_frame_ms":  21.421550895569197,
+                                               "frame_spread_share":  0.0014491459982862622,
+                                               "noise_band_share":  0.015,
+                                               "p99_frame_ms":  24.836999893188448,
+                                               "slowest_1_percent_fps":  39.77986159680075,
+                                               "gpu_ms":  18.94200038909915,
+                                               "gpu_spread_share":  0.001372561961769426,
+                                               "gpu_noise_band_share":  0.015,
+                                               "p99_noise_band_share":  0.015,
+                                               "gpu_bound_share":  0.6652951212169,
+                                               "process_ms":  0.51549997925758406,
+                                               "process_mean_ms":  0.58411879783111154,
+                                               "physics_mean_ms":  1.08389338171513,
+                                               "cpu_ms":  1.6680121795462415,
+                                               "cpu_spread_share":  0.03608815324400947,
+                                               "cpu_noise_band_share":  0.03608815324400947,
+                                               "draw_ms":  20.14450073242185,
+                                               "render_cpu_ms":  0.616499990224838,
+                                               "draw_calls":  352,
+                                               "shadow_draw_calls":  0,
+                                               "primitives":  967058,
+                                               "hitches":  [
+                                                               0,
+                                                               0
+                                                           ],
+                                               "per_repeat_mean_ms":  [
+                                                                          21.4370723729479,
+                                                                          21.4060294181905
+                                                                      ],
+                                               "per_repeat_outside_wait_ms":  [
+                                                                                  -0.60276136665171143,
+                                                                                  -0.5296257285669701
+                                                                              ],
+                                               "zones":  {
+                                                             "boat":  {
+                                                                          "mean_ms":  0.249184753713322,
+                                                                          "max_ms":  0.63699999451637246
+                                                                      },
+                                                             "boat.buoyancy":  {
+                                                                                   "mean_ms":  0.18585524634887102,
+                                                                                   "max_ms":  0.49700000882148754
+                                                                               },
+                                                             "boat.holding":  {
+                                                                                  "mean_ms":  0.0066478903291521604,
+                                                                                  "max_ms":  0.02999999932944775
+                                                                              },
+                                                             "boat.stowing":  {
+                                                                                  "mean_ms":  0.0078367944773734353,
+                                                                                  "max_ms":  0.0224999999627471
+                                                                              },
+                                                             "daynight":  {
+                                                                              "mean_ms":  0.0992095883295804,
+                                                                              "max_ms":  0.306999996304512
+                                                                          },
+                                                             "forest":  {
+                                                                            "mean_ms":  0.01145257765811945,
+                                                                            "max_ms":  0.038000000640749904
+                                                                        },
+                                                             "river_current":  {
+                                                                                   "mean_ms":  0.0853171174823257,
+                                                                                   "max_ms":  0.24599999934434902
+                                                                               },
+                                                             "wind":  {
+                                                                          "mean_ms":  0.033579529296866653,
+                                                                          "max_ms":  0.092000000178813948
+                                                                      },
+                                                             "window_edge":  {
+                                                                                 "mean_ms":  0.0161865994242218,
+                                                                                 "max_ms":  0.088499998673796709
+                                                                             }
+                                                         },
+                                               "unattributed_process_ms":  0.34111324214509248,
+                                               "unattributed_physics_ms":  0.73320491109526209
+                                           }
+                                       ],
+                     "npc_snow_indoors_off":  [
+                                                  {
+                                                      "name":  "town_noon",
+                                                      "repeats":  2,
+                                                      "mean_frame_ms":  26.112640070216251,
+                                                      "frame_spread_share":  0.00066100309559225748,
+                                                      "noise_band_share":  0.015,
+                                                      "p99_frame_ms":  29.725999832153349,
+                                                      "slowest_1_percent_fps":  33.362432923106553,
+                                                      "gpu_ms":  23.713999748230002,
+                                                      "gpu_spread_share":  8.43724693027328E-05,
+                                                      "gpu_noise_band_share":  0.015,
+                                                      "p99_noise_band_share":  0.015,
+                                                      "gpu_bound_share":  0.855048859934853,
+                                                      "process_ms":  1.0184999704361,
+                                                      "process_mean_ms":  1.1048078191396851,
+                                                      "physics_mean_ms":  2.2174462518785196,
+                                                      "cpu_ms":  3.3222540710182047,
+                                                      "cpu_spread_share":  0.011687054074419409,
+                                                      "cpu_noise_band_share":  0.015,
+                                                      "draw_ms":  23.0024995803833,
+                                                      "render_cpu_ms":  0.900999993085861,
+                                                      "draw_calls":  365,
+                                                      "shadow_draw_calls":  167,
+                                                      "primitives":  995046,
+                                                      "hitches":  [
+                                                                      0,
+                                                                      0
+                                                                  ],
+                                                      "per_repeat_mean_ms":  [
+                                                                                 26.104009802256,
+                                                                                 26.1212703381765
+                                                                             ],
+                                                      "per_repeat_outside_wait_ms":  [
+                                                                                         -3.9281138983534332,
+                                                                                         -3.9772638321310825
+                                                                                     ],
+                                                      "zones":  {
+                                                                    "boat":  {
+                                                                                 "mean_ms":  0.56877524480951758,
+                                                                                 "max_ms":  1.0605000257492061
+                                                                             },
+                                                                    "boat.buoyancy":  {
+                                                                                          "mean_ms":  0.36966775240018646,
+                                                                                          "max_ms":  0.843000024557114
+                                                                                      },
+                                                                    "boat.holding":  {
+                                                                                         "mean_ms":  0.0229120522188417,
+                                                                                         "max_ms":  0.1099999994039535
+                                                                                     },
+                                                                    "boat.stowing":  {
+                                                                                         "mean_ms":  0.02710749193759035,
+                                                                                         "max_ms":  0.1485000029206274
+                                                                                     },
+                                                                    "daynight":  {
+                                                                                     "mean_ms":  0.10012377872577699,
+                                                                                     "max_ms":  0.217500001192093
+                                                                                 },
+                                                                    "forest":  {
+                                                                                   "mean_ms":  0.011975569994847099,
+                                                                                   "max_ms":  0.10000000335276145
+                                                                               },
+                                                                    "npc":  {
+                                                                                "mean_ms":  0.45651465775718147,
+                                                                                "max_ms":  0.99450001120567155
+                                                                            },
+                                                                    "npc.background":  {
+                                                                                           "mean_ms":  0.0057003257245565545,
+                                                                                           "max_ms":  0.0319999996572733
+                                                                                       },
+                                                                    "npc.lit_windows":  {
+                                                                                            "mean_ms":  0.00371986977848549,
+                                                                                            "max_ms":  0.060000002384185805
+                                                                                        },
+                                                                    "river_current":  {
+                                                                                          "mean_ms":  0.1175114007527165,
+                                                                                          "max_ms":  0.34850001335144054
+                                                                                      },
+                                                                    "wind":  {
+                                                                                 "mean_ms":  0.035306189060575248,
+                                                                                 "max_ms":  0.126500003039837
+                                                                             },
+                                                                    "window_edge":  {
+                                                                                        "mean_ms":  0.023491856825601648,
+                                                                                        "max_ms":  0.071000002324581146
+                                                                                    }
+                                                                },
+                                                      "unattributed_process_ms":  0.38204560402616949,
+                                                      "unattributed_physics_ms":  1.50766774949069
+                                                  },
+                                                  {
+                                                      "name":  "town_night",
+                                                      "repeats":  2,
+                                                      "mean_frame_ms":  21.8031076254572,
+                                                      "frame_spread_share":  0.00049301436264288312,
+                                                      "noise_band_share":  0.015,
+                                                      "p99_frame_ms":  25.361000061035149,
+                                                      "slowest_1_percent_fps":  38.741380909338247,
+                                                      "gpu_ms":  19.36649990081785,
+                                                      "gpu_spread_share":  0.00087781470329507114,
+                                                      "gpu_noise_band_share":  0.015,
+                                                      "p99_noise_band_share":  0.015,
+                                                      "gpu_bound_share":  0.68119891008174394,
+                                                      "process_ms":  0.968999981880188,
+                                                      "process_mean_ms":  1.0499795652540249,
+                                                      "physics_mean_ms":  1.319119892182075,
+                                                      "cpu_ms":  2.3690994574361,
+                                                      "cpu_spread_share":  0.025163910520125714,
+                                                      "cpu_noise_band_share":  0.025163910520125714,
+                                                      "draw_ms":  19.7859992980957,
+                                                      "render_cpu_ms":  0.63150000572204545,
+                                                      "draw_calls":  358,
+                                                      "shadow_draw_calls":  0,
+                                                      "primitives":  984418,
+                                                      "hitches":  [
+                                                                      0,
+                                                                      0
+                                                                  ],
+                                                      "per_repeat_mean_ms":  [
+                                                                                 21.7977330028524,
+                                                                                 21.808482248062
+                                                                             ],
+                                                      "per_repeat_outside_wait_ms":  [
+                                                                                         -1.9640463817996969,
+                                                                                         -2.0653405522454991
+                                                                                     ],
+                                                      "zones":  {
+                                                                    "boat":  {
+                                                                                 "mean_ms":  0.25784877419715352,
+                                                                                 "max_ms":  0.71299999952316306
+                                                                             },
+                                                                    "boat.buoyancy":  {
+                                                                                          "mean_ms":  0.19118664878590552,
+                                                                                          "max_ms":  0.53999999165534951
+                                                                                      },
+                                                                    "boat.holding":  {
+                                                                                         "mean_ms":  0.0075354223166229552,
+                                                                                         "max_ms":  0.042999999597668648
+                                                                                     },
+                                                                    "boat.stowing":  {
+                                                                                         "mean_ms":  0.00810081745835392,
+                                                                                         "max_ms":  0.027999999932944747
+                                                                                     },
+                                                                    "daynight":  {
+                                                                                     "mean_ms":  0.0991621254372335,
+                                                                                     "max_ms":  0.241999998688698
+                                                                                 },
+                                                                    "forest":  {
+                                                                                   "mean_ms":  0.01178474107259825,
+                                                                                   "max_ms":  0.0350000001490116
+                                                                               },
+                                                                    "npc":  {
+                                                                                "mean_ms":  0.43680245143028951,
+                                                                                "max_ms":  1.7564999759197255
+                                                                            },
+                                                                    "npc.background":  {
+                                                                                           "mean_ms":  0.0052738419634972642,
+                                                                                           "max_ms":  0.0165000008419156
+                                                                                       },
+                                                                    "npc.lit_windows":  {
+                                                                                            "mean_ms":  0.0033542234926390649,
+                                                                                            "max_ms":  0.019000000320375
+                                                                                        },
+                                                                    "river_current":  {
+                                                                                          "mean_ms":  0.0879673025131794,
+                                                                                          "max_ms":  0.26749999821186049
+                                                                                      },
+                                                                    "wind":  {
+                                                                                 "mean_ms":  0.0342547684598318,
+                                                                                 "max_ms":  0.11149999499321009
+                                                                             },
+                                                                    "window_edge":  {
+                                                                                        "mean_ms":  0.01668937325513125,
+                                                                                        "max_ms":  0.0605000015348196
+                                                                                    }
+                                                                },
+                                                      "unattributed_process_ms":  0.35734196370772053,
+                                                      "unattributed_physics_ms":  0.956614442216613
+                                                  }
+                                              ],
+                     "npc_close_doors_off":  [
+                                                 {
+                                                     "name":  "town_noon",
+                                                     "repeats":  2,
+                                                     "mean_frame_ms":  26.0910602625496,
+                                                     "frame_spread_share":  0.0007549354022255726,
+                                                     "noise_band_share":  0.015,
+                                                     "p99_frame_ms":  29.97849941253665,
+                                                     "slowest_1_percent_fps":  32.9945031212757,
+                                                     "gpu_ms":  23.6919994354248,
+                                                     "gpu_spread_share":  0.0014351003519678777,
+                                                     "gpu_noise_band_share":  0.015,
+                                                     "p99_noise_band_share":  0.015,
+                                                     "gpu_bound_share":  0.81107491856677494,
+                                                     "process_ms":  1.126999974250795,
+                                                     "process_mean_ms":  1.210773614311065,
+                                                     "physics_mean_ms":  2.2322035849288548,
+                                                     "cpu_ms":  3.44297719923992,
+                                                     "cpu_spread_share":  0.019142963912218154,
+                                                     "cpu_noise_band_share":  0.019142963912218154,
+                                                     "draw_ms":  22.85849952697755,
+                                                     "render_cpu_ms":  0.90200001001358054,
+                                                     "draw_calls":  365,
+                                                     "shadow_draw_calls":  167,
+                                                     "primitives":  995046,
+                                                     "hitches":  [
+                                                                     0,
+                                                                     0
+                                                                 ],
+                                                     "per_repeat_mean_ms":  [
+                                                                                26.0812117300127,
+                                                                                26.1009087950865
+                                                                            ],
+                                                     "per_repeat_outside_wait_ms":  [
+                                                                                        -4.1200130393528,
+                                                                                        -4.2519771658636385
+                                                                                    ],
+                                                     "zones":  {
+                                                                   "boat":  {
+                                                                                "mean_ms":  0.600679152854491,
+                                                                                "max_ms":  1.10899996757507
+                                                                            },
+                                                                   "boat.buoyancy":  {
+                                                                                         "mean_ms":  0.400998371577418,
+                                                                                         "max_ms":  0.88249999284744252
+                                                                                     },
+                                                                   "boat.holding":  {
+                                                                                        "mean_ms":  0.021034202063668551,
+                                                                                        "max_ms":  0.10599999874830246
+                                                                                    },
+                                                                   "boat.stowing":  {
+                                                                                        "mean_ms":  0.0267231271766029,
+                                                                                        "max_ms":  0.22300000488758098
+                                                                                    },
+                                                                   "daynight":  {
+                                                                                    "mean_ms":  0.1007149840192415,
+                                                                                    "max_ms":  0.2695000022649765
+                                                                                },
+                                                                   "forest":  {
+                                                                                  "mean_ms":  0.01174755694029145,
+                                                                                  "max_ms":  0.051000000908970847
+                                                                              },
+                                                                   "npc":  {
+                                                                               "mean_ms":  0.54865472363338452,
+                                                                               "max_ms":  1.014499992132188
+                                                                           },
+                                                                   "npc.background":  {
+                                                                                          "mean_ms":  0.0056042345521322354,
+                                                                                          "max_ms":  0.061000000685453346
+                                                                                      },
+                                                                   "npc.lit_windows":  {
+                                                                                           "mean_ms":  0.00342671015619904,
+                                                                                           "max_ms":  0.010999999940395355
+                                                                                       },
+                                                                   "river_current":  {
+                                                                                         "mean_ms":  0.1224918566547115,
+                                                                                         "max_ms":  0.34349998831748951
+                                                                                     },
+                                                                   "wind":  {
+                                                                                "mean_ms":  0.0354218243132876,
+                                                                                "max_ms":  0.1580000035464765
+                                                                            },
+                                                                   "window_edge":  {
+                                                                                       "mean_ms":  0.0241351793186454,
+                                                                                       "max_ms":  0.10099999979138366
+                                                                                   }
+                                                               },
+                                                     "unattributed_process_ms":  0.395578173515523,
+                                                     "unattributed_physics_ms":  1.484897396101005
+                                                 },
+                                                 {
+                                                     "name":  "town_night",
+                                                     "repeats":  2,
+                                                     "mean_frame_ms":  21.853596712003252,
+                                                     "frame_spread_share":  0.0009540841930997144,
+                                                     "noise_band_share":  0.015,
+                                                     "p99_frame_ms":  25.50500011444095,
+                                                     "slowest_1_percent_fps":  38.849732884334351,
+                                                     "gpu_ms":  19.373000144958503,
+                                                     "gpu_spread_share":  0.0020646780508701344,
+                                                     "gpu_noise_band_share":  0.015,
+                                                     "p99_noise_band_share":  0.015996825597553867,
+                                                     "gpu_bound_share":  0.659400544959128,
+                                                     "process_ms":  0.99500000476837247,
+                                                     "process_mean_ms":  1.0786593995724449,
+                                                     "physics_mean_ms":  1.311174386447395,
+                                                     "cpu_ms":  2.38983378601984,
+                                                     "cpu_spread_share":  0.010893098436865067,
+                                                     "cpu_noise_band_share":  0.015,
+                                                     "draw_ms":  19.7435007095337,
+                                                     "render_cpu_ms":  0.635000020265579,
+                                                     "draw_calls":  358,
+                                                     "shadow_draw_calls":  0,
+                                                     "primitives":  984418,
+                                                     "hitches":  [
+                                                                     0,
+                                                                     0
+                                                                 ],
+                                                     "per_repeat_mean_ms":  [
+                                                                                21.8431716264106,
+                                                                                21.8640217975959
+                                                                            ],
+                                                     "per_repeat_outside_wait_ms":  [
+                                                                                        -2.0107519975799111,
+                                                                                        -2.0353160857829673
+                                                                                    ],
+                                                     "zones":  {
+                                                                   "boat":  {
+                                                                                "mean_ms":  0.256049046399483,
+                                                                                "max_ms":  0.61900001764297508
+                                                                            },
+                                                                   "boat.buoyancy":  {
+                                                                                         "mean_ms":  0.18991961874250501,
+                                                                                         "max_ms":  0.4705000072717665
+                                                                                     },
+                                                                   "boat.holding":  {
+                                                                                        "mean_ms":  0.0074727520199457049,
+                                                                                        "max_ms":  0.059499999508261646
+                                                                                    },
+                                                                   "boat.stowing":  {
+                                                                                        "mean_ms":  0.0081757493418633809,
+                                                                                        "max_ms":  0.0640000021085143
+                                                                                    },
+                                                                   "daynight":  {
+                                                                                    "mean_ms":  0.10071525881092275,
+                                                                                    "max_ms":  0.23950000107288349
+                                                                                },
+                                                                   "forest":  {
+                                                                                  "mean_ms":  0.011713896366724451,
+                                                                                  "max_ms":  0.0779999997466804
+                                                                              },
+                                                                   "npc":  {
+                                                                               "mean_ms":  0.45601226194515548,
+                                                                               "max_ms":  0.904000014066696
+                                                                           },
+                                                                   "npc.background":  {
+                                                                                          "mean_ms":  0.0054700272551126156,
+                                                                                          "max_ms":  0.087999999523163
+                                                                                      },
+                                                                   "npc.lit_windows":  {
+                                                                                           "mean_ms":  0.003273842026154725,
+                                                                                           "max_ms":  0.0090000000782310963
+                                                                                       },
+                                                                   "river_current":  {
+                                                                                         "mean_ms":  0.087329700416618847,
+                                                                                         "max_ms":  0.22300000488758098
+                                                                                     },
+                                                                   "wind":  {
+                                                                                "mean_ms":  0.0351648502006152,
+                                                                                "max_ms":  0.186999998986721
+                                                                            },
+                                                                   "window_edge":  {
+                                                                                       "mean_ms":  0.0167629427164895,
+                                                                                       "max_ms":  0.0854999981820583
+                                                                                   }
+                                                               },
+                                                     "unattributed_process_ms":  0.36236375892453648,
+                                                     "unattributed_physics_ms":  0.95103269691480041
+                                                 }
+                                             ],
+                     "lit_windows_off":  [
+                                             {
+                                                 "name":  "town_noon",
+                                                 "repeats":  2,
+                                                 "mean_frame_ms":  25.8957567043765,
+                                                 "frame_spread_share":  0.019014015760319,
+                                                 "noise_band_share":  0.019014015760319,
+                                                 "p99_frame_ms":  29.588999748229952,
+                                                 "slowest_1_percent_fps":  33.466272671461553,
+                                                 "gpu_ms":  23.4890003204346,
+                                                 "gpu_spread_share":  0.020945999111166048,
+                                                 "gpu_noise_band_share":  0.020945999111166048,
+                                                 "p99_noise_band_share":  0.019804672259661493,
+                                                 "gpu_bound_share":  0.84370544587942653,
+                                                 "process_ms":  1.14850002527237,
+                                                 "process_mean_ms":  1.27321304205645,
+                                                 "physics_mean_ms":  2.2935244320379051,
+                                                 "cpu_ms":  3.5667374740943552,
+                                                 "cpu_spread_share":  0.0725001339114282,
+                                                 "cpu_noise_band_share":  0.0725001339114282,
+                                                 "draw_ms":  22.602000236511252,
+                                                 "render_cpu_ms":  0.90300002694129944,
+                                                 "draw_calls":  365,
+                                                 "shadow_draw_calls":  167,
+                                                 "primitives":  995046,
+                                                 "hitches":  [
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                 "per_repeat_mean_ms":  [
+                                                                            25.6495655413253,
+                                                                            26.1419478674277
+                                                                        ],
+                                                 "per_repeat_outside_wait_ms":  [
+                                                                                    -4.7932268007875294,
+                                                                                    -4.1972084715233828
+                                                                                ],
+                                                 "zones":  {
+                                                               "boat":  {
+                                                                            "mean_ms":  0.59148559716742155,
+                                                                            "max_ms":  1.1309999823570249
+                                                                        },
+                                                               "boat.buoyancy":  {
+                                                                                     "mean_ms":  0.38846993869937096,
+                                                                                     "max_ms":  0.764499992132187
+                                                                                 },
+                                                               "boat.holding":  {
+                                                                                    "mean_ms":  0.022939505372725249,
+                                                                                    "max_ms":  0.11100000143051164
+                                                                                },
+                                                               "boat.stowing":  {
+                                                                                    "mean_ms":  0.0273354737459834,
+                                                                                    "max_ms":  0.422999992966652
+                                                                                },
+                                                               "daynight":  {
+                                                                                "mean_ms":  0.1052399446469385,
+                                                                                "max_ms":  0.31949999928474448
+                                                                            },
+                                                               "forest":  {
+                                                                              "mean_ms":  0.0126002226606537,
+                                                                              "max_ms":  0.059500001370906851
+                                                                          },
+                                                               "npc":  {
+                                                                           "mean_ms":  0.5820648969869735,
+                                                                           "max_ms":  1.45299994945526
+                                                                       },
+                                                               "npc.background":  {
+                                                                                      "mean_ms":  0.00575845813974329,
+                                                                                      "max_ms":  0.0245000002905726
+                                                                                  },
+                                                               "npc.lit_windows":  {
+                                                                                       "mean_ms":  0.0031150784689791548,
+                                                                                       "max_ms":  0.013499999884516
+                                                                                   },
+                                                               "river_current":  {
+                                                                                     "mean_ms":  0.12590323767054551,
+                                                                                     "max_ms":  0.293999999761581
+                                                                                 },
+                                                               "wind":  {
+                                                                            "mean_ms":  0.0367430302656174,
+                                                                            "max_ms":  0.15249999985098833
+                                                                        },
+                                                               "window_edge":  {
+                                                                                   "mean_ms":  0.02431377039401,
+                                                                                   "max_ms":  0.089999999850988444
+                                                                               }
+                                                           },
+                                                 "unattributed_process_ms":  0.41365597036360552,
+                                                 "unattributed_physics_ms":  1.5518218268059298
+                                             },
+                                             {
+                                                 "name":  "town_night",
+                                                 "repeats":  2,
+                                                 "mean_frame_ms":  21.628289748319251,
+                                                 "frame_spread_share":  0.021106087659223085,
+                                                 "noise_band_share":  0.021106087659223085,
+                                                 "p99_frame_ms":  25.266499519348152,
+                                                 "slowest_1_percent_fps":  39.4264767873245,
+                                                 "gpu_ms":  19.173000335693349,
+                                                 "gpu_spread_share":  0.02023681643394018,
+                                                 "gpu_noise_band_share":  0.02023681643394018,
+                                                 "p99_noise_band_share":  0.0234698285582933,
+                                                 "gpu_bound_share":  0.666726165323697,
+                                                 "process_ms":  1.0049999654293076,
+                                                 "process_mean_ms":  1.10947309004721,
+                                                 "physics_mean_ms":  1.3466373998983099,
+                                                 "cpu_ms":  2.45611048994552,
+                                                 "cpu_spread_share":  0.0692296609477822,
+                                                 "cpu_noise_band_share":  0.0692296609477822,
+                                                 "draw_ms":  19.4320001602173,
+                                                 "render_cpu_ms":  0.63850000500678994,
+                                                 "draw_calls":  358,
+                                                 "shadow_draw_calls":  0,
+                                                 "primitives":  984418,
+                                                 "hitches":  [
+                                                                 0,
+                                                                 0
+                                                             ],
+                                                 "per_repeat_mean_ms":  [
+                                                                            21.4000454586457,
+                                                                            21.8565340379928
+                                                                        ],
+                                                 "per_repeat_outside_wait_ms":  [
+                                                                                    -2.3766871453288303,
+                                                                                    -1.9576975786068125
+                                                                                ],
+                                                 "zones":  {
+                                                               "boat":  {
+                                                                            "mean_ms":  0.2733378164436755,
+                                                                            "max_ms":  0.703999996185303
+                                                                        },
+                                                               "boat.buoyancy":  {
+                                                                                     "mean_ms":  0.20432209461088452,
+                                                                                     "max_ms":  0.52199998497962952
+                                                                                 },
+                                                               "boat.holding":  {
+                                                                                    "mean_ms":  0.0074553796313455954,
+                                                                                    "max_ms":  0.0400000009685755
+                                                                                },
+                                                               "boat.stowing":  {
+                                                                                    "mean_ms":  0.0082632669935644755,
+                                                                                    "max_ms":  0.0394999999552965
+                                                                                },
+                                                               "daynight":  {
+                                                                                "mean_ms":  0.10454064981291919,
+                                                                                "max_ms":  0.34299999475479148
+                                                                            },
+                                                               "forest":  {
+                                                                              "mean_ms":  0.012143120929883601,
+                                                                              "max_ms":  0.0370000004768372
+                                                                          },
+                                                               "npc":  {
+                                                                           "mean_ms":  0.47194055435948151,
+                                                                           "max_ms":  0.99450001120567455
+                                                                       },
+                                                               "npc.background":  {
+                                                                                      "mean_ms":  0.0053851833895406445,
+                                                                                      "max_ms":  0.021999999880790749
+                                                                                  },
+                                                               "npc.lit_windows":  {
+                                                                                       "mean_ms":  0.00297977901051273,
+                                                                                       "max_ms":  0.022999999579042207
+                                                                                   },
+                                                               "river_current":  {
+                                                                                     "mean_ms":  0.0915846801037853,
+                                                                                     "max_ms":  0.2650000005960465
+                                                                                 },
+                                                               "wind":  {
+                                                                            "mean_ms":  0.0351623366877881,
+                                                                            "max_ms":  0.141999997198582
+                                                                        },
+                                                               "window_edge":  {
+                                                                                   "mean_ms":  0.016939996228462852,
+                                                                                   "max_ms":  0.0595000013709068
+                                                                               }
+                                                           },
+                                                 "unattributed_process_ms":  0.37166185754036052,
+                                                 "unattributed_physics_ms":  0.96477490712238345
+                                             }
+                                         ]
+                 },
+    "costs":  [
+                  {
+                      "variant":  "townsfolk_off",
+                      "off":  [
+                                  "townsfolk"
+                              ],
+                      "detail":  true,
+                      "cpu":  true,
+                      "removes":  "the townsfolk (no NPCs in the town, the NPC pass doesn\u0027t run)",
+                      "check_method":  "counter",
+                      "verified":  true,
+                      "check":  "yes (counter: no townsfolk made; a visible part, picture not compared)",
+                      "mean_frame_saving_ms":  0.27473523075985185,
+                      "mean_gpu_saving_ms":  0.28624963760374911,
+                      "mean_cpu_saving_ms":  0.83555009660624013,
+                      "views":  [
+                                    {
+                                        "view":  "town_noon",
+                                        "frame_saving_ms":  0.15286059840775224,
+                                        "gpu_saving_ms":  0.15599918365479937,
+                                        "cpu_saving_ms":  0.95289711383103182,
+                                        "share_of_frame":  0.0058504566656344707,
+                                        "outside_noise":  false,
+                                        "cpu_outside_noise":  true,
+                                        "fewer_draw_calls":  21,
+                                        "fewer_primitives":  27988
+                                    },
+                                    {
+                                        "view":  "town_night",
+                                        "frame_saving_ms":  0.39660986311195146,
+                                        "gpu_saving_ms":  0.41650009155269885,
+                                        "cpu_saving_ms":  0.71820307938144845,
+                                        "share_of_frame":  0.018177969605166915,
+                                        "outside_noise":  true,
+                                        "cpu_outside_noise":  true,
+                                        "fewer_draw_calls":  6,
+                                        "fewer_primitives":  17360
+                                    }
+                                ]
+                  },
+                  {
+                      "variant":  "npc_snow_indoors_off",
+                      "off":  [
+                                  "npc_snow_indoors"
+                              ],
+                      "detail":  true,
+                      "cpu":  true,
+                      "removes":  "full speed in snow on the stretches of NPCs\u0027 roads indoors or under a roof (the whole road slowed instead)",
+                      "check_method":  "counter",
+                      "verified":  true,
+                      "check":  "yes (counter: 0 sheltered road stretches marked; picture unchanged)",
+                      "mean_frame_saving_ms":  0.015195134791348153,
+                      "mean_gpu_saving_ms":  -0.011499881744402529,
+                      "mean_cpu_saving_ms":  0.0544968283896452,
+                      "views":  [
+                                    {
+                                        "view":  "town_noon",
+                                        "frame_saving_ms":  0.015337136358748893,
+                                        "gpu_saving_ms":  -0.015000343322803644,
+                                        "cpu_saving_ms":  0.091877855287700427,
+                                        "share_of_frame":  0.00058700052581526921,
+                                        "outside_noise":  false,
+                                        "cpu_outside_noise":  true,
+                                        "fewer_draw_calls":  0,
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0.001033517363174226
+                                    },
+                                    {
+                                        "view":  "town_night",
+                                        "frame_saving_ms":  0.015053133223947412,
+                                        "gpu_saving_ms":  -0.0079994201660014141,
+                                        "cpu_saving_ms":  0.017115801491589977,
+                                        "share_of_frame":  0.0006899359387091314,
+                                        "outside_noise":  false,
+                                        "cpu_outside_noise":  false,
+                                        "fewer_draw_calls":  0,
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0.00011739123258731103
+                                    }
+                                ]
+                  },
+                  {
+                      "variant":  "npc_close_doors_off",
+                      "off":  [
+                                  "npc_close_doors"
+                              ],
+                      "detail":  true,
+                      "cpu":  true,
+                      "removes":  "bodies closing the doors they opened behind them (they leave them open instead)",
+                      "check_method":  "counter",
+                      "verified":  true,
+                      "check":  "yes (counter: doors closed by NPCs 0 times; 0 of 7 bodies made closed doors; picture unchanged)",
+                      "mean_frame_saving_ms":  0.0007404953516481072,
+                      "mean_gpu_saving_ms":  -0.0037498474121289149,
+                      "mean_cpu_saving_ms":  -0.016231900013082612,
+                      "views":  [
+                                    {
+                                        "view":  "town_noon",
+                                        "frame_saving_ms":  0.0369169440253998,
+                                        "gpu_saving_ms":  0.006999969482397006,
+                                        "cpu_saving_ms":  -0.028845272934014954,
+                                        "share_of_frame":  0.0014129277491910014,
+                                        "outside_noise":  false,
+                                        "cpu_outside_noise":  false,
+                                        "fewer_draw_calls":  0,
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0.00084391711229946521
+                                    },
+                                    {
+                                        "view":  "town_night",
+                                        "frame_saving_ms":  -0.035435953322103586,
+                                        "gpu_saving_ms":  -0.014499664306654836,
+                                        "cpu_saving_ms":  -0.00361852709215027,
+                                        "share_of_frame":  -0.0016241494282694796,
+                                        "outside_noise":  false,
+                                        "cpu_outside_noise":  false,
+                                        "fewer_draw_calls":  0,
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  9.4181190994916482E-05
+                                    }
+                                ]
+                  },
+                  {
+                      "variant":  "lit_windows_off",
+                      "off":  [
+                                  "lit_windows"
+                              ],
+                      "detail":  true,
+                      "cpu":  true,
+                      "removes":  "the NPC houses\u0027 windows switched with their residents (they stay as they are)",
+                      "check_method":  "counter",
+                      "verified":  true,
+                      "check":  "yes (counter: 0 window refreshes, 0 houses looked at; picture unchanged)",
+                      "mean_frame_saving_ms":  0.21104575628019973,
+                      "mean_gpu_saving_ms":  0.19774961471554953,
+                      "mean_cpu_saving_ms":  -0.11125038940314003,
+                      "views":  [
+                                    {
+                                        "view":  "town_noon",
+                                        "frame_saving_ms":  0.23222050219850132,
+                                        "gpu_saving_ms":  0.20999908447259941,
+                                        "cpu_saving_ms":  -0.15260554778845004,
+                                        "share_of_frame":  0.008887810195274664,
+                                        "outside_noise":  false,
+                                        "cpu_outside_noise":  false,
+                                        "fewer_draw_calls":  0,
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0.0011418308906054003
+                                    },
+                                    {
+                                        "view":  "town_night",
+                                        "frame_saving_ms":  0.18987101036189813,
+                                        "gpu_saving_ms":  0.18550014495849965,
+                                        "cpu_saving_ms":  -0.069895231017830017,
+                                        "share_of_frame":  0.008702429708074777,
+                                        "outside_noise":  false,
+                                        "cpu_outside_noise":  false,
+                                        "fewer_draw_calls":  0,
+                                        "fewer_primitives":  0,
+                                        "picture_difference":  0.00011254291278801083
+                                    }
+                                ]
+                  }
+              ],
+    "interaction":  [
+
+                    ],
+    "analysed":  "2026-11-11T21:00:49",
+    "min_noise_share":  0.015
+}

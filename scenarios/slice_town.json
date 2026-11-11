@@ -1,0 +1,14 @@
+{
+  "description": "Zobolin stage E step 5: the slice's ten townsfolk on their schedules, seen from the town square at noon (at work, some at the stalls) and at 22:00 (the day workers walking home to bed, the late ones still out, lit windows), the clock running at its normal speed and the weather held. Their stopwatch is npc (all townsfolk's updates each frame, with npc.level_change, npc.background, npc.lit_windows, npc.route and npc.snow_indoors); the bodies' physics shows in the physics time. With -Ablate -Kind cpu it measures the townsfolk as a whole (townsfolk: no NPCs at all, which changes the picture, so its screenshots aren't compared) and the NPC switches one by one (npc_snow_indoors, npc_close_doors, lit_windows); run with -Repeats 2.",
+  "test": "slice_town",
+  "extra": [],
+  "cpu_switches": [
+    "townsfolk",
+    "npc_snow_indoors",
+    "npc_close_doors",
+    "lit_windows"
+  ],
+  "visible_switches": [
+    "townsfolk"
+  ]
+}

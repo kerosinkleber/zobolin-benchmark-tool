@@ -1,0 +1,682 @@
+﻿{
+    "scenario":  "combat_quick",
+    "ablate":  true,
+    "repeats":  2,
+    "machine":  {
+                    "pc":  "ENCELADUS",
+                    "processor":  "Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz",
+                    "cores":  4,
+                    "threads":  8,
+                    "ram_gb":  15.9,
+                    "graphics_cards":  [
+                                           {
+                                               "name":  "Intel(R) HD Graphics 630",
+                                               "driver":  "31.0.101.2145"
+                                           },
+                                           {
+                                               "name":  "NVIDIA GeForce GTX 1050",
+                                               "driver":  "32.0.15.8278"
+                                           }
+                                       ],
+                    "windows":  "Microsoft Windows 10 Home 10.0.19045",
+                    "power_plan":  {
+                                       "guid":  "8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c",
+                                       "name":  "Höchstleistung",
+                                       "full_speed":  true
+                                   },
+                    "has_battery":  true,
+                    "on_battery":  false,
+                    "game_commit":  "60a072c4d3247aa3d60df23817d40d5e619336b3",
+                    "game_uncommitted_changes":  false
+                },
+    "preset":  "low",
+    "renderer":  "mobile",
+    "godot":  "4.7.2-stable (official)",
+    "debug_build":  true,
+    "graphics_card_used":  "Intel(R) HD Graphics 630",
+    "render_3d":  [
+                      1280.0,
+                      720.0
+                  ],
+    "warnings":  [
+
+                 ],
+    "segments":  [
+                     {
+                         "name":  "sparring",
+                         "repeats":  2,
+                         "mean_frame_ms":  6.9738287388297548,
+                         "frame_spread_share":  0.0027230547579572971,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  15.2149996757507,
+                         "slowest_1_percent_fps":  34.583595241409753,
+                         "gpu_ms":  3.612999916076665,
+                         "gpu_spread_share":  0.0016606814561416685,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.015,
+                         "gpu_bound_share":  0.170475236276425,
+                         "process_ms":  1.2800000309944151,
+                         "process_mean_ms":  1.2997134835349149,
+                         "physics_mean_ms":  1.20112075288763,
+                         "cpu_ms":  2.5008342364225449,
+                         "cpu_spread_share":  0.0075193550751569364,
+                         "cpu_noise_band_share":  0.015,
+                         "draw_ms":  4.1989998817443848,
+                         "render_cpu_ms":  0.80850002169609048,
+                         "draw_calls":  177.5,
+                         "shadow_draw_calls":  46,
+                         "primitives":  11776,
+                         "hitches":  [
+                                         93,
+                                         91
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    6.96433368006553,
+                                                    6.98332379759398
+                                                ],
+                         "per_repeat_outside_wait_ms":  [
+                                                            -2.37985579554772,
+                                                            -2.38451500335775
+                                                        ],
+                         "zones":  {
+                                       "effects":  {
+                                                       "mean_ms":  0.00549144262389539,
+                                                       "max_ms":  0.0910000000149012
+                                                   },
+                                       "hud":  {
+                                                   "mean_ms":  0.381072443487708,
+                                                   "max_ms":  1.20250004529953
+                                               },
+                                       "melee_sweeps":  {
+                                                            "mean_ms":  0.754480274063636,
+                                                            "max_ms":  67.29949951171875
+                                                        },
+                                       "player.grabber":  {
+                                                              "mean_ms":  0.017200348603008151,
+                                                              "max_ms":  0.42649999260902405
+                                                          }
+                                   },
+                         "unattributed_process_ms":  0.80405261299604947,
+                         "unattributed_physics_ms":  0.42944013022098448,
+                         "hitch_causes":  {
+                                              "ragdolls_got_up":  {
+                                                                      "count":  1.5,
+                                                                      "worst_ms":  33.7779998779297,
+                                                                      "at_x":  [
+                                                                                   -10.0,
+                                                                                   -10.0,
+                                                                                   -10.0
+                                                                               ]
+                                                                  },
+                                              "ragdolls_made":  {
+                                                                    "count":  21,
+                                                                    "worst_ms":  33.2410011291504,
+                                                                    "at_x":  [
+                                                                                 -10.0,
+                                                                                 -10.0,
+                                                                                 -10.0,
+                                                                                 -10.0,
+                                                                                 -10.0,
+                                                                                 -10.0,
+                                                                                 -10.0,
+                                                                                 -10.0,
+                                                                                 -10.0,
+                                                                                 -10.0,
+                                                                                 -10.0,
+                                                                                 -10.0,
+                                                                                 -10.0,
+                                                                                 -10.0,
+                                                                                 -10.0,
+                                                                                 -10.0,
+                                                                                 -10.0,
+                                                                                 -10.0,
+                                                                                 -10.0,
+                                                                                 -10.0
+                                                                             ]
+                                                                },
+                                              "unknown":  {
+                                                              "count":  69.5,
+                                                              "worst_ms":  77.245002746582,
+                                                              "at_x":  [
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0,
+                                                                           -10.0
+                                                                       ]
+                                                          }
+                                          }
+                     }
+                 ],
+    "variants":  {
+                     "all_on":  [
+                                    {
+                                        "name":  "sparring",
+                                        "repeats":  2,
+                                        "mean_frame_ms":  6.9738287388297548,
+                                        "frame_spread_share":  0.0027230547579572971,
+                                        "noise_band_share":  0.015,
+                                        "p99_frame_ms":  15.2149996757507,
+                                        "slowest_1_percent_fps":  34.583595241409753,
+                                        "gpu_ms":  3.612999916076665,
+                                        "gpu_spread_share":  0.0016606814561416685,
+                                        "gpu_noise_band_share":  0.015,
+                                        "p99_noise_band_share":  0.015,
+                                        "gpu_bound_share":  0.170475236276425,
+                                        "process_ms":  1.2800000309944151,
+                                        "process_mean_ms":  1.2997134835349149,
+                                        "physics_mean_ms":  1.20112075288763,
+                                        "cpu_ms":  2.5008342364225449,
+                                        "cpu_spread_share":  0.0075193550751569364,
+                                        "cpu_noise_band_share":  0.015,
+                                        "draw_ms":  4.1989998817443848,
+                                        "render_cpu_ms":  0.80850002169609048,
+                                        "draw_calls":  177.5,
+                                        "shadow_draw_calls":  46,
+                                        "primitives":  11776,
+                                        "hitches":  [
+                                                        93,
+                                                        91
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   6.96433368006553,
+                                                                   6.98332379759398
+                                                               ],
+                                        "per_repeat_outside_wait_ms":  [
+                                                                           -2.37985579554772,
+                                                                           -2.38451500335775
+                                                                       ],
+                                        "zones":  {
+                                                      "effects":  {
+                                                                      "mean_ms":  0.00549144262389539,
+                                                                      "max_ms":  0.0910000000149012
+                                                                  },
+                                                      "hud":  {
+                                                                  "mean_ms":  0.381072443487708,
+                                                                  "max_ms":  1.20250004529953
+                                                              },
+                                                      "melee_sweeps":  {
+                                                                           "mean_ms":  0.754480274063636,
+                                                                           "max_ms":  67.29949951171875
+                                                                       },
+                                                      "player.grabber":  {
+                                                                             "mean_ms":  0.017200348603008151,
+                                                                             "max_ms":  0.42649999260902405
+                                                                         }
+                                                  },
+                                        "unattributed_process_ms":  0.80405261299604947,
+                                        "unattributed_physics_ms":  0.42944013022098448,
+                                        "hitch_causes":  {
+                                                             "ragdolls_got_up":  {
+                                                                                     "count":  1.5,
+                                                                                     "worst_ms":  33.7779998779297,
+                                                                                     "at_x":  [
+                                                                                                  -10.0,
+                                                                                                  -10.0,
+                                                                                                  -10.0
+                                                                                              ]
+                                                                                 },
+                                                             "ragdolls_made":  {
+                                                                                   "count":  21,
+                                                                                   "worst_ms":  33.2410011291504,
+                                                                                   "at_x":  [
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0
+                                                                                            ]
+                                                                               },
+                                                             "unknown":  {
+                                                                             "count":  69.5,
+                                                                             "worst_ms":  77.245002746582,
+                                                                             "at_x":  [
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0,
+                                                                                          -10.0
+                                                                                      ]
+                                                                         }
+                                                         }
+                                    }
+                                ],
+                     "melee_sweeps_off":  [
+                                              {
+                                                  "name":  "sparring",
+                                                  "repeats":  2,
+                                                  "mean_frame_ms":  6.6010301083584046,
+                                                  "frame_spread_share":  0.0037040977855031568,
+                                                  "noise_band_share":  0.015,
+                                                  "p99_frame_ms":  10.040499687194824,
+                                                  "slowest_1_percent_fps":  93.253223551781048,
+                                                  "gpu_ms":  3.5270000696182251,
+                                                  "gpu_spread_share":  0.0011340936837642283,
+                                                  "gpu_noise_band_share":  0.015,
+                                                  "p99_noise_band_share":  0.029381015435932904,
+                                                  "gpu_bound_share":  0.16589232243382451,
+                                                  "process_ms":  1.3075000047683751,
+                                                  "process_mean_ms":  1.3451362950720598,
+                                                  "physics_mean_ms":  0.84753392554847251,
+                                                  "cpu_ms":  2.1926702206205322,
+                                                  "cpu_spread_share":  0.000729527912972876,
+                                                  "cpu_noise_band_share":  0.015,
+                                                  "draw_ms":  4.243499994277955,
+                                                  "render_cpu_ms":  0.641499996185303,
+                                                  "draw_calls":  132,
+                                                  "shadow_draw_calls":  46,
+                                                  "primitives":  4744,
+                                                  "hitches":  [
+                                                                  2,
+                                                                  1
+                                                              ],
+                                                  "per_repeat_mean_ms":  [
+                                                                             6.5888046778552,
+                                                                             6.61325553886161
+                                                                         ],
+                                                  "per_repeat_outside_wait_ms":  [
+                                                                                     -1.8888069829254357,
+                                                                                     -1.8947365257365691
+                                                                                 ],
+                                                  "zones":  {
+                                                                "effects":  {
+                                                                                "mean_ms":  0.005537898609322,
+                                                                                "max_ms":  0.11300000175833719
+                                                                            },
+                                                                "hud":  {
+                                                                            "mean_ms":  0.40029639412203549,
+                                                                            "max_ms":  1.1685000061988851
+                                                                        },
+                                                                "melee_sweeps":  {
+                                                                                     "mean_ms":  0.53316142282474255,
+                                                                                     "max_ms":  3.0600000619888297
+                                                                                 },
+                                                                "player.grabber":  {
+                                                                                       "mean_ms":  0.0141352509135005,
+                                                                                       "max_ms":  0.18050000071525552
+                                                                                   }
+                                                            },
+                                                  "unattributed_process_ms":  0.82469543898507847,
+                                                  "unattributed_physics_ms":  0.300237251810229,
+                                                  "hitch_causes":  {
+                                                                       "unknown":  {
+                                                                                       "count":  1.5,
+                                                                                       "worst_ms":  18.4489994049072,
+                                                                                       "at_x":  [
+                                                                                                    -10.0,
+                                                                                                    -10.0
+                                                                                                ]
+                                                                                   }
+                                                                   }
+                                              }
+                                          ],
+                     "ragdolls_off":  [
+                                          {
+                                              "name":  "sparring",
+                                              "repeats":  2,
+                                              "mean_frame_ms":  6.9612057212438305,
+                                              "frame_spread_share":  0.0068933531491560951,
+                                              "noise_band_share":  0.015,
+                                              "p99_frame_ms":  15.255500316619901,
+                                              "slowest_1_percent_fps":  33.8829798109976,
+                                              "gpu_ms":  3.601499915122985,
+                                              "gpu_spread_share":  0.002498976302822674,
+                                              "gpu_noise_band_share":  0.015,
+                                              "p99_noise_band_share":  0.026285602868844325,
+                                              "gpu_bound_share":  0.151081495633466,
+                                              "process_ms":  1.26800000667572,
+                                              "process_mean_ms":  1.2817850341560248,
+                                              "physics_mean_ms":  1.150873480738225,
+                                              "cpu_ms":  2.43265851489425,
+                                              "cpu_spread_share":  0.021902639081020362,
+                                              "cpu_noise_band_share":  0.021902639081020362,
+                                              "draw_ms":  4.256500005722045,
+                                              "render_cpu_ms":  0.773499995470047,
+                                              "draw_calls":  174.5,
+                                              "shadow_draw_calls":  46,
+                                              "primitives":  10058,
+                                              "hitches":  [
+                                                              87,
+                                                              86
+                                                          ],
+                                              "per_repeat_mean_ms":  [
+                                                                         6.98519874593406,
+                                                                         6.9372126965536
+                                                                     ],
+                                              "per_repeat_outside_wait_ms":  [
+                                                                                 -2.2464809631327,
+                                                                                 -2.1976374044424904
+                                                                             ],
+                                              "zones":  {
+                                                            "effects":  {
+                                                                            "mean_ms":  0.00545785704624768,
+                                                                            "max_ms":  0.150499999523163
+                                                                        },
+                                                            "hud":  {
+                                                                        "mean_ms":  0.37457585090400047,
+                                                                        "max_ms":  1.0894999504089351
+                                                                    },
+                                                            "melee_sweeps":  {
+                                                                                 "mean_ms":  0.78230285763193852,
+                                                                                 "max_ms":  63.6254997253418
+                                                                             },
+                                                            "player.grabber":  {
+                                                                                   "mean_ms":  0.013496143094710551,
+                                                                                   "max_ms":  0.36150000989437103
+                                                                               }
+                                                        },
+                                              "unattributed_process_ms":  0.79335168025710345,
+                                              "unattributed_physics_ms":  0.35507448001157604,
+                                              "hitch_causes":  {
+                                                                   "shader_compiles":  {
+                                                                                           "count":  0.5,
+                                                                                           "worst_ms":  14.6969995498657,
+                                                                                           "at_x":  [
+                                                                                                        -10.0
+                                                                                                    ]
+                                                                                       },
+                                                                   "unknown":  {
+                                                                                   "count":  86,
+                                                                                   "worst_ms":  78.3970031738281,
+                                                                                   "at_x":  [
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0,
+                                                                                                -10.0
+                                                                                            ]
+                                                                               }
+                                                               }
+                                          }
+                                      ]
+                 },
+    "costs":  [
+                  {
+                      "variant":  "melee_sweeps_off",
+                      "off":  [
+                                  "melee_sweeps"
+                              ],
+                      "detail":  true,
+                      "cpu":  true,
+                      "removes":  "the melee sweeps (swings still move and cost stamina, but cast no rays and hit nothing; so everything a blow causes, hits, staggers, knockdowns and ragdolls, goes too: its saving is an upper bound)",
+                      "check_method":  "counter",
+                      "verified":  true,
+                      "check":  "yes (counter: 0 rays cast, 0 blows landed, 207 swings; a visible part, picture not compared)",
+                      "mean_frame_saving_ms":  0.3727986304713502,
+                      "mean_gpu_saving_ms":  0.085999846458439944,
+                      "mean_cpu_saving_ms":  0.30816401580201269,
+                      "views":  [
+                                    {
+                                        "view":  "sparring",
+                                        "frame_saving_ms":  0.3727986304713502,
+                                        "gpu_saving_ms":  0.085999846458439944,
+                                        "cpu_saving_ms":  0.30816401580201269,
+                                        "share_of_frame":  0.053456808939920678,
+                                        "outside_noise":  true,
+                                        "cpu_outside_noise":  true,
+                                        "fewer_draw_calls":  45.5,
+                                        "fewer_primitives":  7032
+                                    }
+                                ]
+                  },
+                  {
+                      "variant":  "ragdolls_off",
+                      "off":  [
+                                  "ragdolls"
+                              ],
+                      "detail":  true,
+                      "cpu":  true,
+                      "removes":  "the ragdolls (knockdowns tip the body back instead: no physics bodies, joints or get-up blends)",
+                      "check_method":  "counter",
+                      "verified":  true,
+                      "check":  "yes (counter: 0 ragdolls made (0 parts), 26 knockdowns; a visible part, picture not compared)",
+                      "mean_frame_saving_ms":  0.012623017585924323,
+                      "mean_gpu_saving_ms":  0.01150000095368009,
+                      "mean_cpu_saving_ms":  0.068175721528294986,
+                      "views":  [
+                                    {
+                                        "view":  "sparring",
+                                        "frame_saving_ms":  0.012623017585924323,
+                                        "gpu_saving_ms":  0.01150000095368009,
+                                        "cpu_saving_ms":  0.068175721528294986,
+                                        "share_of_frame":  0.0018100555747290307,
+                                        "outside_noise":  false,
+                                        "cpu_outside_noise":  true,
+                                        "fewer_draw_calls":  3,
+                                        "fewer_primitives":  1718
+                                    }
+                                ]
+                  }
+              ],
+    "interaction":  [
+
+                    ],
+    "analysed":  "2026-11-11T18:26:50",
+    "min_noise_share":  0.015
+}

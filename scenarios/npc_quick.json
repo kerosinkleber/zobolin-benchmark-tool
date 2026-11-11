@@ -1,11 +1,12 @@
 {
-  "description": "The NPC test with 64 NPCs only: the quick check whether a change made NPCs slower (one count instead of npc_crowd's 8 / 24 / 64 sweep, a third of the time). With -Ablate -Kind cpu it measures the NPC switches one by one (npc_snow_indoors, npc_close_doors); run with -Repeats 2.",
+  "description": "The NPC test with 64 NPCs only: the quick check whether a change made NPCs slower (one count instead of npc_crowd's 8 / 24 / 64 sweep, a third of the time). With -Ablate -Kind cpu it measures the NPC switches one by one (npc_snow_indoors, npc_close_doors, effects); run with -Repeats 2.",
   "test": "npcs",
   "extra": [
     "--npcs=64"
   ],
   "cpu_switches": [
     "npc_snow_indoors",
-    "npc_close_doors"
+    "npc_close_doors",
+    "effects"
   ]
 }

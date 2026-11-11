@@ -39,6 +39,7 @@ https://github.com/kerosinkleber/zobolin-benchmark-tool
 | `-Scenario flight` | The flight across the whole world: stutters and what causes them (re-centring, new trees and tiles) |
 | `-Scenario npc_crowd -Repeats 2` | The NPC test with 8, 24 and 64 NPCs, and how their cost grows (about 45 minutes) |
 | `-Scenario npc_quick` | The NPC test with 64 NPCs only: the quick check whether a change made NPCs slower (about a third of npc_crowd's time); `-Ablate -Kind cpu -Repeats 2` measures the NPC switches |
+| `-Scenario combat_quick` | The combat benchmark in the test yard: 16 fighters in 8 pairs sparring (swing rays every physics step, ragdolls falling and getting up); `-Ablate -Kind cpu -Repeats 2` measures `melee_sweeps` and `ragdolls` (`melee_sweeps_off` also drops every hit, knockdown and ragdoll, so its saving is an upper bound; the sweeps' own cost is the `melee_sweeps` stopwatch in `all_on`, the ragdolls' the `ragdolls_off` saving). `-GameOptions "--fighters=<n>"` runs it with n fighters instead of 16 |
 | `-Scenario house_npc` | The garden of the walk-in house in the terrain world, the test NPC walking in and out; `-Ablate -Kind cpu -Only house_npc` measures it |
 | `-Scenario building` | The building test: the NPC pushes light things aside, goes round a chest and is kept out by a barricade (06 "Objects in the way"); `-Ablate -Kind cpu -Only npc_push,item_holes` measures pushing and the hole rebuilds |
 | `-Scenario night` | The 3 quick views at 21:30 on a clear night, the houses' windows lit; `-Ablate` measures `lit_windows` |

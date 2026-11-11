@@ -1,9 +1,16 @@
 {
-  "description": "Zobolin stage E steps 4 and 4b: the slice region's 8 views (town square, town street, inside a house, lake shore, river bank, over the region, the town at night, far_horizon looking west over the far land) in the 131 km world record with its 8 x 8 km built window and the far land beyond it. With -Ablate -Kind gpu: the far land (drawing only). With -Ablate -Kind cpu: the river current (floating things and the boat pushed every physics step) and the window edge (haze and holding the player inside).",
+  "description": "Zobolin stage E steps 4 and 4b: the slice region's 8 views (town square, town street, inside a house, lake shore, river bank, over the region, the town at night, far_horizon looking west over the far land) in the 131 km world record with its 8 x 8 km built window and the far land beyond it. With -Ablate -Kind gpu: the far land, the houses' lamps, the grass, the lake's and rivers' water surfaces and the sun shadows on the water (drawing only), and occlusion culling (a detail switch: off adds work, so its run shows what the houses' occluders save inside a house). With -Ablate -Kind cpu: the river current (floating things and the boat pushed every physics step) and the window edge (haze and holding the player inside).",
   "test": "slice",
   "extra": [],
   "switches": [
-    "far_land"
+    "far_land",
+    "lamps",
+    "grass",
+    "water",
+    "water_shadows"
+  ],
+  "detail_switches": [
+    "occlusion"
   ],
   "cpu_switches": [
     "river_current",

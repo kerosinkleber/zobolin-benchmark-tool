@@ -1,16 +1,18 @@
 {
-  "description": "The combat benchmark in the test yard (stage E steps 10 and 11): 16 box-body fighters in 8 pairs spar for 20 s (quick and power attacks, blocks and parries, staggers, knockdowns that fall as ragdolls and get up), and 4 shooters (2 bows, 2 guns) shoot at the shooting range's boards at 10, 30 and 60 m (arrows stick in the boards and the end wall), the player standing still. With -Ablate -Kind cpu it measures the melee sweeps (melee_sweeps: the swing rays every physics step; with them off no blow lands, so the hits, staggers, knockdowns and ragdolls go too and its saving is an upper bound: the sweeps' own cost is the melee_sweeps stopwatch in the all_on run, the ragdolls' cost is the ragdolls_off saving), the ragdolls (ragdolls: the physics engine's work on the fallen bodies, seen in the physics time; run.json's combat counts say how many ragdolls the run measured) and the projectiles (projectiles: every shot's flight and ray each physics step, the projectiles stopwatch; with it off the shooters still aim and shoot but nothing flies, so nothing lands or sticks either). Stage E step 12 adds 2 casters throwing fire bolts at the range's end wall (--casters=2) and the switch scorch_marks (the bolts' scorch marks fading, the scorch_marks stopwatch; with it off the bolts still fly and land but leave no mark). All four change the picture (no blows land, knockdowns tip back instead of falling, no shots fly), so the screenshots aren't compared; run with -Repeats 2.",
+  "description": "The combat benchmark in the test yard (stage E steps 10 and 11): 16 box-body fighters in 8 pairs spar for 20 s (quick and power attacks, blocks and parries, staggers, knockdowns that fall as ragdolls and get up), and 4 shooters (2 bows, 2 guns) shoot at the shooting range's boards at 10, 30 and 60 m (arrows stick in the boards and the end wall), the player standing still. With -Ablate -Kind cpu it measures the melee sweeps (melee_sweeps: the swing rays every physics step; with them off no blow lands, so the hits, staggers, knockdowns and ragdolls go too and its saving is an upper bound: the sweeps' own cost is the melee_sweeps stopwatch in the all_on run, the ragdolls' cost is the ragdolls_off saving), the ragdolls (ragdolls: the physics engine's work on the fallen bodies, seen in the physics time; run.json's combat counts say how many ragdolls the run measured) and the projectiles (projectiles: every shot's flight and ray each physics step, the projectiles stopwatch; with it off the shooters still aim and shoot but nothing flies, so nothing lands or sticks either). Stage E step 12 adds 2 casters throwing fire bolts at the range's end wall (--casters=2) and the switch scorch_marks (the bolts' scorch marks fading, the scorch_marks stopwatch; with it off the bolts still fly and land but leave no mark). Stage E step 13 adds the arena's 2 against 2 with NPC brains (--brains: two sword fighters against a sword fighter and an archer, choosing once a second, restarted whenever a fight ends) and the switch combat_ai (the brains' thinking and behaviour passes, the combat_ai stopwatch in the physics time; with it off the arena's four fighters stand still). The arena is behind the watching player, out of the picture, so combat_ai is not a visible switch. The other four change the picture (no blows land, knockdowns tip back instead of falling, no shots fly), so the screenshots aren't compared; run with -Repeats 2. The baseline must be recorded again for step 13 (the arena's fighters and their ragdolls are new work in every run).",
   "test": "combat",
   "extra": [
     "--fighters=16",
     "--shooters=4",
-    "--casters=2"
+    "--casters=2",
+    "--brains"
   ],
   "cpu_switches": [
     "melee_sweeps",
     "ragdolls",
     "projectiles",
-    "scorch_marks"
+    "scorch_marks",
+    "combat_ai"
   ],
   "visible_switches": [
     "melee_sweeps",

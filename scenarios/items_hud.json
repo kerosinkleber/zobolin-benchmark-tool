@@ -1,0 +1,11 @@
+{
+  "description": "The physical items test with 300 items only (no sweep), for measuring what the health, stamina and mana bars cost (stage E step 2, game/ui/status_hud.gd). With -Ablate -Kind cpu -Only hud: the bars' processor time; the picture changes (the bars disappear), so hud is a visible switch.",
+  "test": "items",
+  "extra": ["--items=300"],
+  "cpu_switches": [
+    "hud"
+  ],
+  "visible_switches": [
+    "hud"
+  ]
+}

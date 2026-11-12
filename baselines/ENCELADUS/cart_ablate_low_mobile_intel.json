@@ -1,0 +1,1019 @@
+﻿{
+    "scenario":  "cart",
+    "ablate":  true,
+    "repeats":  2,
+    "machine":  {
+                    "pc":  "ENCELADUS",
+                    "processor":  "Intel(R) Core(TM) i7-7700HQ CPU @ 2.80GHz",
+                    "cores":  4,
+                    "threads":  8,
+                    "ram_gb":  15.9,
+                    "graphics_cards":  [
+                                           {
+                                               "name":  "Intel(R) HD Graphics 630",
+                                               "driver":  "31.0.101.2145"
+                                           },
+                                           {
+                                               "name":  "NVIDIA GeForce GTX 1050",
+                                               "driver":  "32.0.15.8278"
+                                           }
+                                       ],
+                    "windows":  "Microsoft Windows 10 Home 10.0.19045",
+                    "power_plan":  {
+                                       "guid":  "8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c",
+                                       "name":  "Höchstleistung",
+                                       "full_speed":  true
+                                   },
+                    "has_battery":  true,
+                    "on_battery":  false,
+                    "game_commit":  "501e3d23256493256edf77f47ec1de76960f74da",
+                    "game_uncommitted_changes":  false
+                },
+    "preset":  "low",
+    "renderer":  "mobile",
+    "godot":  "4.7.2-stable (official)",
+    "debug_build":  true,
+    "graphics_card_used":  "Intel(R) HD Graphics 630",
+    "render_3d":  [
+                      1280.0,
+                      720.0
+                  ],
+    "warnings":  [
+
+                 ],
+    "segments":  [
+                     {
+                         "name":  "cart_drive",
+                         "repeats":  2,
+                         "mean_frame_ms":  26.2981899472259,
+                         "frame_spread_share":  0.0011754181877624108,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  33.6889991760254,
+                         "slowest_1_percent_fps":  28.354521650381848,
+                         "gpu_ms":  23.729999542236349,
+                         "gpu_spread_share":  0.0015170374542833617,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.015,
+                         "gpu_bound_share":  0.57225476941565245,
+                         "process_ms":  1.5695000290870649,
+                         "process_mean_ms":  1.7143199620059151,
+                         "physics_mean_ms":  4.88560414522246,
+                         "cpu_ms":  6.5999241072283752,
+                         "cpu_spread_share":  0.011688046924946332,
+                         "cpu_noise_band_share":  0.015,
+                         "draw_ms":  19.8799991607666,
+                         "render_cpu_ms":  1.2030000090599051,
+                         "draw_calls":  252,
+                         "shadow_draw_calls":  182,
+                         "primitives":  941784,
+                         "hitches":  [
+                                         11,
+                                         13
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    26.2827342618413,
+                                                    26.3136456326105
+                                                ],
+                         "per_repeat_outside_wait_ms":  [
+                                                            -10.61229410179029,
+                                                            -10.718505829039961
+                                                        ],
+                         "zones":  {
+                                       "boat":  {
+                                                    "mean_ms":  0.65456045982295841,
+                                                    "max_ms":  1.256500005722045
+                                                },
+                                       "boat.buoyancy":  {
+                                                             "mean_ms":  0.48604348258810248,
+                                                             "max_ms":  1.037000000476838
+                                                         },
+                                       "boat.holding":  {
+                                                            "mean_ms":  0.017468528932563752,
+                                                            "max_ms":  0.10150000080466276
+                                                        },
+                                       "boat.stowing":  {
+                                                            "mean_ms":  0.0212061094075868,
+                                                            "max_ms":  0.12149999663233735
+                                                        },
+                                       "cart":  {
+                                                    "mean_ms":  0.28193863267573349,
+                                                    "max_ms":  0.932500004768373
+                                                },
+                                       "combat_ai":  {
+                                                         "mean_ms":  0.53435321798477253,
+                                                         "max_ms":  7.0095000267028844
+                                                     },
+                                       "combat_ai.behave":  {
+                                                                "mean_ms":  0.4072098060039645,
+                                                                "max_ms":  4.2950000762939453
+                                                            },
+                                       "combat_ai.groups":  {
+                                                                "mean_ms":  0.0287202336385984,
+                                                                "max_ms":  3.0735000371933
+                                                            },
+                                       "combat_ai.think":  {
+                                                               "mean_ms":  0.11297046111206549,
+                                                               "max_ms":  5.8694999217987052
+                                                           },
+                                       "daynight":  {
+                                                        "mean_ms":  0.1090207292103475,
+                                                        "max_ms":  0.38750000298023252
+                                                    },
+                                       "daynight.lit_windows":  {
+                                                                    "mean_ms":  6.8310448616285293E-06,
+                                                                    "max_ms":  0.00650000013411045
+                                                                },
+                                       "detection":  {
+                                                         "mean_ms":  0.17612398011654951,
+                                                         "max_ms":  1.30849999189377
+                                                     },
+                                       "effects":  {
+                                                       "mean_ms":  0.00871464873657481,
+                                                       "max_ms":  0.15149999409914
+                                                   },
+                                       "forest":  {
+                                                      "mean_ms":  0.01415461158209365,
+                                                      "max_ms":  0.616999998688698
+                                                  },
+                                       "forest.collision":  {
+                                                                "mean_ms":  0.00058803481321548592,
+                                                                "max_ms":  0.14649999514222151
+                                                            },
+                                       "forest.update":  {
+                                                             "mean_ms":  0.00210259432760875,
+                                                             "max_ms":  0.5869999825954435
+                                                         },
+                                       "grass":  {
+                                                     "mean_ms":  0.00132115630089119,
+                                                     "max_ms":  0.505500003695488
+                                                 },
+                                       "melee_sweeps":  {
+                                                            "mean_ms":  0.0581445257927055,
+                                                            "max_ms":  3.4259999990463248
+                                                        },
+                                       "npc":  {
+                                                   "mean_ms":  0.704413794854273,
+                                                   "max_ms":  1.6274999976158151
+                                               },
+                                       "npc.background":  {
+                                                              "mean_ms":  0.00637997098874609,
+                                                              "max_ms":  0.0350000001490116
+                                                          },
+                                       "npc.lit_windows":  {
+                                                               "mean_ms":  0.0036100462076804852,
+                                                               "max_ms":  0.0345000009983778
+                                                           },
+                                       "overhead_text":  {
+                                                             "mean_ms":  0.014079354208522649,
+                                                             "max_ms":  0.1314999982714655
+                                                         },
+                                       "projectiles":  {
+                                                           "mean_ms":  1.1989576697783648,
+                                                           "max_ms":  3.9249999523162851
+                                                       },
+                                       "quest_markers":  {
+                                                             "mean_ms":  0.07631875975372715,
+                                                             "max_ms":  0.329999998211861
+                                                         },
+                                       "river_current":  {
+                                                             "mean_ms":  0.15756622201488249,
+                                                             "max_ms":  0.42849999666214
+                                                         },
+                                       "stealth_markers":  {
+                                                               "mean_ms":  0.14463351382914652,
+                                                               "max_ms":  0.55400002002716042
+                                                           },
+                                       "wind":  {
+                                                    "mean_ms":  0.03596301239234765,
+                                                    "max_ms":  0.20099999755620951
+                                                },
+                                       "window_edge":  {
+                                                           "mean_ms":  0.0242081125862646,
+                                                           "max_ms":  0.10950000211596495
+                                                       }
+                                   },
+                         "unattributed_process_ms":  0.467075393215795,
+                         "unattributed_physics_ms":  1.7997513244502201,
+                         "hitch_causes":  {
+                                              "physics_catch_up":  {
+                                                                       "count":  12,
+                                                                       "worst_ms":  41.6619987487793,
+                                                                       "at_x":  [
+                                                                                    64.0,
+                                                                                    63.0,
+                                                                                    60.0,
+                                                                                    50.0,
+                                                                                    46.0,
+                                                                                    44.0,
+                                                                                    42.0,
+                                                                                    39.0,
+                                                                                    37.0,
+                                                                                    32.0,
+                                                                                    -12.0
+                                                                                ]
+                                                                   }
+                                          }
+                     },
+                     {
+                         "name":  "cart_turns",
+                         "repeats":  2,
+                         "mean_frame_ms":  24.1918142681928,
+                         "frame_spread_share":  0.0033154523758086368,
+                         "noise_band_share":  0.015,
+                         "p99_frame_ms":  30.0745000839233,
+                         "slowest_1_percent_fps":  32.88192519667,
+                         "gpu_ms":  21.6975002288818,
+                         "gpu_spread_share":  0.000414742286193124,
+                         "gpu_noise_band_share":  0.015,
+                         "p99_noise_band_share":  0.015,
+                         "gpu_bound_share":  0.535012689985122,
+                         "process_ms":  1.54299998283386,
+                         "process_mean_ms":  1.699212669933265,
+                         "physics_mean_ms":  4.26057320057941,
+                         "cpu_ms":  5.9597858705126754,
+                         "cpu_spread_share":  0.016057936665539514,
+                         "cpu_noise_band_share":  0.016057936665539514,
+                         "draw_ms":  18.2810001373291,
+                         "render_cpu_ms":  1.52350002527237,
+                         "draw_calls":  462,
+                         "shadow_draw_calls":  300,
+                         "primitives":  836952,
+                         "hitches":  [
+                                         0,
+                                         0
+                                     ],
+                         "per_repeat_mean_ms":  [
+                                                    24.1517108641475,
+                                                    24.2319176722381
+                                                ],
+                         "per_repeat_outside_wait_ms":  [
+                                                            -9.29132527586924,
+                                                            -9.4120484348071116
+                                                        ],
+                         "zones":  {
+                                       "boat":  {
+                                                    "mean_ms":  0.6208494043417776,
+                                                    "max_ms":  1.20200002193451
+                                                },
+                                       "boat.buoyancy":  {
+                                                             "mean_ms":  0.459757206430578,
+                                                             "max_ms":  0.96700000762939453
+                                                         },
+                                       "boat.holding":  {
+                                                            "mean_ms":  0.01677156576944425,
+                                                            "max_ms":  0.13099999725818656
+                                                        },
+                                       "boat.stowing":  {
+                                                            "mean_ms":  0.0209966656574382,
+                                                            "max_ms":  0.17199999466538429
+                                                        },
+                                       "cart":  {
+                                                    "mean_ms":  0.234722670172771,
+                                                    "max_ms":  0.734000027179718
+                                                },
+                                       "combat_ai":  {
+                                                         "mean_ms":  0.063232203669785852,
+                                                         "max_ms":  0.4134999960660935
+                                                     },
+                                       "combat_ai.behave":  {
+                                                                "mean_ms":  0.00425496372656063,
+                                                                "max_ms":  0.01249999972060324
+                                                            },
+                                       "combat_ai.groups":  {
+                                                                "mean_ms":  0.005679048389851055,
+                                                                "max_ms":  0.319499999284744
+                                                            },
+                                       "combat_ai.think":  {
+                                                               "mean_ms":  0.0466596081301113,
+                                                               "max_ms":  0.37399999797344197
+                                                           },
+                                       "daynight":  {
+                                                        "mean_ms":  0.107064666557456,
+                                                        "max_ms":  0.44199998676776897
+                                                    },
+                                       "daynight.lit_windows":  {
+                                                                    "mean_ms":  1.811896568431735E-05,
+                                                                    "max_ms":  0.0075000002980232256
+                                                                },
+                                       "detection":  {
+                                                         "mean_ms":  0.1176562125727075,
+                                                         "max_ms":  0.57449999451637246
+                                                     },
+                                       "effects":  {
+                                                       "mean_ms":  0.0087524813059957057,
+                                                       "max_ms":  0.0899999998509886
+                                                   },
+                                       "forest":  {
+                                                      "mean_ms":  0.011813468819568851,
+                                                      "max_ms":  0.036999999545514549
+                                                  },
+                                       "melee_sweeps":  {
+                                                            "mean_ms":  0.0223147730920926,
+                                                            "max_ms":  0.0934999994933603
+                                                        },
+                                       "npc":  {
+                                                   "mean_ms":  0.713782511072362,
+                                                   "max_ms":  1.7440000176429751
+                                               },
+                                       "npc.background":  {
+                                                              "mean_ms":  0.00661823563398759,
+                                                              "max_ms":  0.084499998949468261
+                                                          },
+                                       "npc.lit_windows":  {
+                                                               "mean_ms":  0.00359805426110833,
+                                                               "max_ms":  0.062500001862645
+                                                           },
+                                       "overhead_text":  {
+                                                             "mean_ms":  0.011832740087697951,
+                                                             "max_ms":  0.046000000089407
+                                                         },
+                                       "projectiles":  {
+                                                           "mean_ms":  1.045318783659575,
+                                                           "max_ms":  2.220499992370605
+                                                       },
+                                       "quest_markers":  {
+                                                             "mean_ms":  0.0747919896639756,
+                                                             "max_ms":  0.305000007152557
+                                                         },
+                                       "river_current":  {
+                                                             "mean_ms":  0.14908862280811,
+                                                             "max_ms":  0.40000000596046448
+                                                         },
+                                       "stealth_markers":  {
+                                                               "mean_ms":  0.13582924235364502,
+                                                               "max_ms":  0.478999987244606
+                                                           },
+                                       "wind":  {
+                                                    "mean_ms":  0.03597372758024215,
+                                                    "max_ms":  0.144999999552965
+                                                },
+                                       "window_edge":  {
+                                                           "mean_ms":  0.02241579992799065,
+                                                           "max_ms":  0.10949999839067465
+                                                       }
+                                   },
+                         "unattributed_process_ms":  0.459524043447766,
+                         "unattributed_physics_ms":  1.9849747303346
+                     }
+                 ],
+    "variants":  {
+                     "all_on":  [
+                                    {
+                                        "name":  "cart_drive",
+                                        "repeats":  2,
+                                        "mean_frame_ms":  26.2981899472259,
+                                        "frame_spread_share":  0.0011754181877624108,
+                                        "noise_band_share":  0.015,
+                                        "p99_frame_ms":  33.6889991760254,
+                                        "slowest_1_percent_fps":  28.354521650381848,
+                                        "gpu_ms":  23.729999542236349,
+                                        "gpu_spread_share":  0.0015170374542833617,
+                                        "gpu_noise_band_share":  0.015,
+                                        "p99_noise_band_share":  0.015,
+                                        "gpu_bound_share":  0.57225476941565245,
+                                        "process_ms":  1.5695000290870649,
+                                        "process_mean_ms":  1.7143199620059151,
+                                        "physics_mean_ms":  4.88560414522246,
+                                        "cpu_ms":  6.5999241072283752,
+                                        "cpu_spread_share":  0.011688046924946332,
+                                        "cpu_noise_band_share":  0.015,
+                                        "draw_ms":  19.8799991607666,
+                                        "render_cpu_ms":  1.2030000090599051,
+                                        "draw_calls":  252,
+                                        "shadow_draw_calls":  182,
+                                        "primitives":  941784,
+                                        "hitches":  [
+                                                        11,
+                                                        13
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   26.2827342618413,
+                                                                   26.3136456326105
+                                                               ],
+                                        "per_repeat_outside_wait_ms":  [
+                                                                           -10.61229410179029,
+                                                                           -10.718505829039961
+                                                                       ],
+                                        "zones":  {
+                                                      "boat":  {
+                                                                   "mean_ms":  0.65456045982295841,
+                                                                   "max_ms":  1.256500005722045
+                                                               },
+                                                      "boat.buoyancy":  {
+                                                                            "mean_ms":  0.48604348258810248,
+                                                                            "max_ms":  1.037000000476838
+                                                                        },
+                                                      "boat.holding":  {
+                                                                           "mean_ms":  0.017468528932563752,
+                                                                           "max_ms":  0.10150000080466276
+                                                                       },
+                                                      "boat.stowing":  {
+                                                                           "mean_ms":  0.0212061094075868,
+                                                                           "max_ms":  0.12149999663233735
+                                                                       },
+                                                      "cart":  {
+                                                                   "mean_ms":  0.28193863267573349,
+                                                                   "max_ms":  0.932500004768373
+                                                               },
+                                                      "combat_ai":  {
+                                                                        "mean_ms":  0.53435321798477253,
+                                                                        "max_ms":  7.0095000267028844
+                                                                    },
+                                                      "combat_ai.behave":  {
+                                                                               "mean_ms":  0.4072098060039645,
+                                                                               "max_ms":  4.2950000762939453
+                                                                           },
+                                                      "combat_ai.groups":  {
+                                                                               "mean_ms":  0.0287202336385984,
+                                                                               "max_ms":  3.0735000371933
+                                                                           },
+                                                      "combat_ai.think":  {
+                                                                              "mean_ms":  0.11297046111206549,
+                                                                              "max_ms":  5.8694999217987052
+                                                                          },
+                                                      "daynight":  {
+                                                                       "mean_ms":  0.1090207292103475,
+                                                                       "max_ms":  0.38750000298023252
+                                                                   },
+                                                      "daynight.lit_windows":  {
+                                                                                   "mean_ms":  6.8310448616285293E-06,
+                                                                                   "max_ms":  0.00650000013411045
+                                                                               },
+                                                      "detection":  {
+                                                                        "mean_ms":  0.17612398011654951,
+                                                                        "max_ms":  1.30849999189377
+                                                                    },
+                                                      "effects":  {
+                                                                      "mean_ms":  0.00871464873657481,
+                                                                      "max_ms":  0.15149999409914
+                                                                  },
+                                                      "forest":  {
+                                                                     "mean_ms":  0.01415461158209365,
+                                                                     "max_ms":  0.616999998688698
+                                                                 },
+                                                      "forest.collision":  {
+                                                                               "mean_ms":  0.00058803481321548592,
+                                                                               "max_ms":  0.14649999514222151
+                                                                           },
+                                                      "forest.update":  {
+                                                                            "mean_ms":  0.00210259432760875,
+                                                                            "max_ms":  0.5869999825954435
+                                                                        },
+                                                      "grass":  {
+                                                                    "mean_ms":  0.00132115630089119,
+                                                                    "max_ms":  0.505500003695488
+                                                                },
+                                                      "melee_sweeps":  {
+                                                                           "mean_ms":  0.0581445257927055,
+                                                                           "max_ms":  3.4259999990463248
+                                                                       },
+                                                      "npc":  {
+                                                                  "mean_ms":  0.704413794854273,
+                                                                  "max_ms":  1.6274999976158151
+                                                              },
+                                                      "npc.background":  {
+                                                                             "mean_ms":  0.00637997098874609,
+                                                                             "max_ms":  0.0350000001490116
+                                                                         },
+                                                      "npc.lit_windows":  {
+                                                                              "mean_ms":  0.0036100462076804852,
+                                                                              "max_ms":  0.0345000009983778
+                                                                          },
+                                                      "overhead_text":  {
+                                                                            "mean_ms":  0.014079354208522649,
+                                                                            "max_ms":  0.1314999982714655
+                                                                        },
+                                                      "projectiles":  {
+                                                                          "mean_ms":  1.1989576697783648,
+                                                                          "max_ms":  3.9249999523162851
+                                                                      },
+                                                      "quest_markers":  {
+                                                                            "mean_ms":  0.07631875975372715,
+                                                                            "max_ms":  0.329999998211861
+                                                                        },
+                                                      "river_current":  {
+                                                                            "mean_ms":  0.15756622201488249,
+                                                                            "max_ms":  0.42849999666214
+                                                                        },
+                                                      "stealth_markers":  {
+                                                                              "mean_ms":  0.14463351382914652,
+                                                                              "max_ms":  0.55400002002716042
+                                                                          },
+                                                      "wind":  {
+                                                                   "mean_ms":  0.03596301239234765,
+                                                                   "max_ms":  0.20099999755620951
+                                                               },
+                                                      "window_edge":  {
+                                                                          "mean_ms":  0.0242081125862646,
+                                                                          "max_ms":  0.10950000211596495
+                                                                      }
+                                                  },
+                                        "unattributed_process_ms":  0.467075393215795,
+                                        "unattributed_physics_ms":  1.7997513244502201,
+                                        "hitch_causes":  {
+                                                             "physics_catch_up":  {
+                                                                                      "count":  12,
+                                                                                      "worst_ms":  41.6619987487793,
+                                                                                      "at_x":  [
+                                                                                                   64.0,
+                                                                                                   63.0,
+                                                                                                   60.0,
+                                                                                                   50.0,
+                                                                                                   46.0,
+                                                                                                   44.0,
+                                                                                                   42.0,
+                                                                                                   39.0,
+                                                                                                   37.0,
+                                                                                                   32.0,
+                                                                                                   -12.0
+                                                                                               ]
+                                                                                  }
+                                                         }
+                                    },
+                                    {
+                                        "name":  "cart_turns",
+                                        "repeats":  2,
+                                        "mean_frame_ms":  24.1918142681928,
+                                        "frame_spread_share":  0.0033154523758086368,
+                                        "noise_band_share":  0.015,
+                                        "p99_frame_ms":  30.0745000839233,
+                                        "slowest_1_percent_fps":  32.88192519667,
+                                        "gpu_ms":  21.6975002288818,
+                                        "gpu_spread_share":  0.000414742286193124,
+                                        "gpu_noise_band_share":  0.015,
+                                        "p99_noise_band_share":  0.015,
+                                        "gpu_bound_share":  0.535012689985122,
+                                        "process_ms":  1.54299998283386,
+                                        "process_mean_ms":  1.699212669933265,
+                                        "physics_mean_ms":  4.26057320057941,
+                                        "cpu_ms":  5.9597858705126754,
+                                        "cpu_spread_share":  0.016057936665539514,
+                                        "cpu_noise_band_share":  0.016057936665539514,
+                                        "draw_ms":  18.2810001373291,
+                                        "render_cpu_ms":  1.52350002527237,
+                                        "draw_calls":  462,
+                                        "shadow_draw_calls":  300,
+                                        "primitives":  836952,
+                                        "hitches":  [
+                                                        0,
+                                                        0
+                                                    ],
+                                        "per_repeat_mean_ms":  [
+                                                                   24.1517108641475,
+                                                                   24.2319176722381
+                                                               ],
+                                        "per_repeat_outside_wait_ms":  [
+                                                                           -9.29132527586924,
+                                                                           -9.4120484348071116
+                                                                       ],
+                                        "zones":  {
+                                                      "boat":  {
+                                                                   "mean_ms":  0.6208494043417776,
+                                                                   "max_ms":  1.20200002193451
+                                                               },
+                                                      "boat.buoyancy":  {
+                                                                            "mean_ms":  0.459757206430578,
+                                                                            "max_ms":  0.96700000762939453
+                                                                        },
+                                                      "boat.holding":  {
+                                                                           "mean_ms":  0.01677156576944425,
+                                                                           "max_ms":  0.13099999725818656
+                                                                       },
+                                                      "boat.stowing":  {
+                                                                           "mean_ms":  0.0209966656574382,
+                                                                           "max_ms":  0.17199999466538429
+                                                                       },
+                                                      "cart":  {
+                                                                   "mean_ms":  0.234722670172771,
+                                                                   "max_ms":  0.734000027179718
+                                                               },
+                                                      "combat_ai":  {
+                                                                        "mean_ms":  0.063232203669785852,
+                                                                        "max_ms":  0.4134999960660935
+                                                                    },
+                                                      "combat_ai.behave":  {
+                                                                               "mean_ms":  0.00425496372656063,
+                                                                               "max_ms":  0.01249999972060324
+                                                                           },
+                                                      "combat_ai.groups":  {
+                                                                               "mean_ms":  0.005679048389851055,
+                                                                               "max_ms":  0.319499999284744
+                                                                           },
+                                                      "combat_ai.think":  {
+                                                                              "mean_ms":  0.0466596081301113,
+                                                                              "max_ms":  0.37399999797344197
+                                                                          },
+                                                      "daynight":  {
+                                                                       "mean_ms":  0.107064666557456,
+                                                                       "max_ms":  0.44199998676776897
+                                                                   },
+                                                      "daynight.lit_windows":  {
+                                                                                   "mean_ms":  1.811896568431735E-05,
+                                                                                   "max_ms":  0.0075000002980232256
+                                                                               },
+                                                      "detection":  {
+                                                                        "mean_ms":  0.1176562125727075,
+                                                                        "max_ms":  0.57449999451637246
+                                                                    },
+                                                      "effects":  {
+                                                                      "mean_ms":  0.0087524813059957057,
+                                                                      "max_ms":  0.0899999998509886
+                                                                  },
+                                                      "forest":  {
+                                                                     "mean_ms":  0.011813468819568851,
+                                                                     "max_ms":  0.036999999545514549
+                                                                 },
+                                                      "melee_sweeps":  {
+                                                                           "mean_ms":  0.0223147730920926,
+                                                                           "max_ms":  0.0934999994933603
+                                                                       },
+                                                      "npc":  {
+                                                                  "mean_ms":  0.713782511072362,
+                                                                  "max_ms":  1.7440000176429751
+                                                              },
+                                                      "npc.background":  {
+                                                                             "mean_ms":  0.00661823563398759,
+                                                                             "max_ms":  0.084499998949468261
+                                                                         },
+                                                      "npc.lit_windows":  {
+                                                                              "mean_ms":  0.00359805426110833,
+                                                                              "max_ms":  0.062500001862645
+                                                                          },
+                                                      "overhead_text":  {
+                                                                            "mean_ms":  0.011832740087697951,
+                                                                            "max_ms":  0.046000000089407
+                                                                        },
+                                                      "projectiles":  {
+                                                                          "mean_ms":  1.045318783659575,
+                                                                          "max_ms":  2.220499992370605
+                                                                      },
+                                                      "quest_markers":  {
+                                                                            "mean_ms":  0.0747919896639756,
+                                                                            "max_ms":  0.305000007152557
+                                                                        },
+                                                      "river_current":  {
+                                                                            "mean_ms":  0.14908862280811,
+                                                                            "max_ms":  0.40000000596046448
+                                                                        },
+                                                      "stealth_markers":  {
+                                                                              "mean_ms":  0.13582924235364502,
+                                                                              "max_ms":  0.478999987244606
+                                                                          },
+                                                      "wind":  {
+                                                                   "mean_ms":  0.03597372758024215,
+                                                                   "max_ms":  0.144999999552965
+                                                               },
+                                                      "window_edge":  {
+                                                                          "mean_ms":  0.02241579992799065,
+                                                                          "max_ms":  0.10949999839067465
+                                                                      }
+                                                  },
+                                        "unattributed_process_ms":  0.459524043447766,
+                                        "unattributed_physics_ms":  1.9849747303346
+                                    }
+                                ],
+                     "cart_off":  [
+                                      {
+                                          "name":  "cart_drive",
+                                          "repeats":  2,
+                                          "mean_frame_ms":  25.047936709471848,
+                                          "frame_spread_share":  0.001725762947051557,
+                                          "noise_band_share":  0.015,
+                                          "p99_frame_ms":  31.186000823974602,
+                                          "slowest_1_percent_fps":  31.442946501232949,
+                                          "gpu_ms":  22.258999824523951,
+                                          "gpu_spread_share":  0.0017071794380282682,
+                                          "gpu_noise_band_share":  0.015,
+                                          "p99_noise_band_share":  0.015,
+                                          "gpu_bound_share":  0.613419030252698,
+                                          "process_ms":  1.546000003814695,
+                                          "process_mean_ms":  1.685950635614645,
+                                          "physics_mean_ms":  3.68399617673209,
+                                          "cpu_ms":  5.3699468123467353,
+                                          "cpu_spread_share":  0.0019420480604597627,
+                                          "cpu_noise_band_share":  0.015,
+                                          "draw_ms":  19.67399978637695,
+                                          "render_cpu_ms":  1.077499985694885,
+                                          "draw_calls":  201,
+                                          "shadow_draw_calls":  233.5,
+                                          "primitives":  807942,
+                                          "hitches":  [
+                                                          0,
+                                                          1
+                                                      ],
+                                          "per_repeat_mean_ms":  [
+                                                                     25.0263233089352,
+                                                                     25.0695501100085
+                                                                 ],
+                                          "per_repeat_outside_wait_ms":  [
+                                                                             -8.14292187757558,
+                                                                             -8.11702007377789
+                                                                         ],
+                                          "zones":  {
+                                                        "boat":  {
+                                                                     "mean_ms":  0.63370712898105808,
+                                                                     "max_ms":  1.2429999709129351
+                                                                 },
+                                                        "boat.buoyancy":  {
+                                                                              "mean_ms":  0.463078752129235,
+                                                                              "max_ms":  0.99050003290176447
+                                                                          },
+                                                        "boat.holding":  {
+                                                                             "mean_ms":  0.0183868980526714,
+                                                                             "max_ms":  0.090500000864267544
+                                                                         },
+                                                        "boat.stowing":  {
+                                                                             "mean_ms":  0.022003237266905049,
+                                                                             "max_ms":  0.12449999898672101
+                                                                         },
+                                                        "combat_ai":  {
+                                                                          "mean_ms":  0.21284797545085848,
+                                                                          "max_ms":  6.2934999465942347
+                                                                      },
+                                                        "combat_ai.behave":  {
+                                                                                 "mean_ms":  0.13016380475328798,
+                                                                                 "max_ms":  3.27900004386902
+                                                                             },
+                                                        "combat_ai.groups":  {
+                                                                                 "mean_ms":  0.017535374399508349,
+                                                                                 "max_ms":  4.8924999237060547
+                                                                             },
+                                                        "combat_ai.think":  {
+                                                                                "mean_ms":  0.0696926422740094,
+                                                                                "max_ms":  5.6215000152587855
+                                                                            },
+                                                        "daynight":  {
+                                                                         "mean_ms":  0.103944587704812,
+                                                                         "max_ms":  0.4080000072717665
+                                                                     },
+                                                        "daynight.lit_windows":  {
+                                                                                     "mean_ms":  6.51001716541217E-06,
+                                                                                     "max_ms":  0.00650000013411045
+                                                                                 },
+                                                        "detection":  {
+                                                                          "mean_ms":  0.135979977935256,
+                                                                          "max_ms":  1.103999972343445
+                                                                      },
+                                                        "effects":  {
+                                                                        "mean_ms":  0.0083889913707385,
+                                                                        "max_ms":  0.09200000017881374
+                                                                    },
+                                                        "forest":  {
+                                                                       "mean_ms":  0.013640550317426951,
+                                                                       "max_ms":  0.3224999904632565
+                                                                   },
+                                                        "forest.collision":  {
+                                                                                 "mean_ms":  0.000473206172254922,
+                                                                                 "max_ms":  0.088999997824430438
+                                                                             },
+                                                        "forest.update":  {
+                                                                              "mean_ms":  0.00163194154009409,
+                                                                              "max_ms":  0.309000000357628
+                                                                          },
+                                                        "grass":  {
+                                                                      "mean_ms":  0.00075106468448943309,
+                                                                      "max_ms":  0.443499997258186
+                                                                  },
+                                                        "melee_sweeps":  {
+                                                                             "mean_ms":  0.023332460904569349,
+                                                                             "max_ms":  0.108500000089407
+                                                                         },
+                                                        "npc":  {
+                                                                    "mean_ms":  0.70076152707201356,
+                                                                    "max_ms":  1.6699999570846549
+                                                                },
+                                                        "npc.background":  {
+                                                                               "mean_ms":  0.0061347158577584257,
+                                                                               "max_ms":  0.0999999977648256
+                                                                           },
+                                                        "npc.lit_windows":  {
+                                                                                "mean_ms":  0.0036179276072239651,
+                                                                                "max_ms":  0.0224999999627471
+                                                                            },
+                                                        "overhead_text":  {
+                                                                              "mean_ms":  0.012754996416984049,
+                                                                              "max_ms":  0.14699999988079049
+                                                                          },
+                                                        "projectiles":  {
+                                                                            "mean_ms":  1.11873614865649,
+                                                                            "max_ms":  2.47800004482269
+                                                                        },
+                                                        "quest_markers":  {
+                                                                              "mean_ms":  0.073956359487371892,
+                                                                              "max_ms":  0.31049999594688404
+                                                                          },
+                                                        "river_current":  {
+                                                                              "mean_ms":  0.146781712804475,
+                                                                              "max_ms":  0.454999998211861
+                                                                          },
+                                                        "stealth_markers":  {
+                                                                                "mean_ms":  0.13526997914564648,
+                                                                                "max_ms":  0.55349999666213956
+                                                                            },
+                                                        "wind":  {
+                                                                     "mean_ms":  0.034419875401605952,
+                                                                     "max_ms":  0.1995000019669535
+                                                                 },
+                                                        "window_edge":  {
+                                                                            "mean_ms":  0.023808733281419851,
+                                                                            "max_ms":  0.1230000033974645
+                                                                        }
+                                                    },
+                                          "unattributed_process_ms":  0.47787163815924549,
+                                          "unattributed_physics_ms":  1.38880203871796,
+                                          "hitch_causes":  {
+                                                               "physics_catch_up":  {
+                                                                                        "count":  0.5,
+                                                                                        "worst_ms":  34.7840003967285,
+                                                                                        "at_x":  [
+
+                                                                                                 ]
+                                                                                    }
+                                                           }
+                                      },
+                                      {
+                                          "name":  "cart_turns",
+                                          "repeats":  2,
+                                          "mean_frame_ms":  26.3664114430818,
+                                          "frame_spread_share":  5.3226844245788833E-05,
+                                          "noise_band_share":  0.015,
+                                          "p99_frame_ms":  31.190000534057603,
+                                          "slowest_1_percent_fps":  31.6099365063535,
+                                          "gpu_ms":  23.857000350952148,
+                                          "gpu_spread_share":  8.37867853331739E-05,
+                                          "gpu_noise_band_share":  0.015,
+                                          "p99_noise_band_share":  0.016736112542249146,
+                                          "gpu_bound_share":  0.637671851131787,
+                                          "process_ms":  1.5054999589920051,
+                                          "process_mean_ms":  1.64371019962628,
+                                          "physics_mean_ms":  3.5885759252588754,
+                                          "cpu_ms":  5.2322861248851549,
+                                          "cpu_spread_share":  0.010385647790372314,
+                                          "cpu_noise_band_share":  0.015,
+                                          "draw_ms":  21.29949951171875,
+                                          "render_cpu_ms":  1.0565000176429751,
+                                          "draw_calls":  175,
+                                          "shadow_draw_calls":  231.5,
+                                          "primitives":  716384,
+                                          "hitches":  [
+                                                          0,
+                                                          0
+                                                      ],
+                                          "per_repeat_mean_ms":  [
+                                                                     26.3657097426442,
+                                                                     26.3671131435194
+                                                                 ],
+                                          "per_repeat_outside_wait_ms":  [
+                                                                             -7.9047942218176095,
+                                                                             -7.7749447138686012
+                                                                         ],
+                                          "zones":  {
+                                                        "boat":  {
+                                                                     "mean_ms":  0.666533589543077,
+                                                                     "max_ms":  1.217000007629395
+                                                                 },
+                                                        "boat.buoyancy":  {
+                                                                              "mean_ms":  0.49768889730072197,
+                                                                              "max_ms":  0.94699999690055847
+                                                                          },
+                                                        "boat.holding":  {
+                                                                             "mean_ms":  0.01780480850535995,
+                                                                             "max_ms":  0.0679999999701977
+                                                                         },
+                                                        "boat.stowing":  {
+                                                                             "mean_ms":  0.021311199927779252,
+                                                                             "max_ms":  0.09400000050663955
+                                                                         },
+                                                        "combat_ai":  {
+                                                                          "mean_ms":  0.066544389664372011,
+                                                                          "max_ms":  0.30349999666214
+                                                                      },
+                                                        "combat_ai.behave":  {
+                                                                                 "mean_ms":  0.00449817042903921,
+                                                                                 "max_ms":  0.013999999500811107
+                                                                             },
+                                                        "combat_ai.groups":  {
+                                                                                 "mean_ms":  0.0052299333187672452,
+                                                                                 "max_ms":  0.23199999332427951
+                                                                             },
+                                                        "combat_ai.think":  {
+                                                                                "mean_ms":  0.048654305135825852,
+                                                                                "max_ms":  0.28149999678134896
+                                                                            },
+                                                        "daynight":  {
+                                                                         "mean_ms":  0.10593589111503501,
+                                                                         "max_ms":  0.37699998915195448
+                                                                     },
+                                                        "daynight.lit_windows":  {
+                                                                                     "mean_ms":  1.9764616811142848E-05,
+                                                                                     "max_ms":  0.0075000002980232256
+                                                                                 },
+                                                        "detection":  {
+                                                                          "mean_ms":  0.1089357520692895,
+                                                                          "max_ms":  0.508000001311302
+                                                                      },
+                                                        "effects":  {
+                                                                        "mean_ms":  0.00839135903899566,
+                                                                        "max_ms":  0.039500001817941652
+                                                                    },
+                                                        "forest":  {
+                                                                       "mean_ms":  0.012395549198385449,
+                                                                       "max_ms":  0.21100000292062798
+                                                                   },
+                                                        "melee_sweeps":  {
+                                                                             "mean_ms":  0.02471104728159115,
+                                                                             "max_ms":  0.0965000018477441
+                                                                         },
+                                                        "npc":  {
+                                                                    "mean_ms":  0.70049778864040091,
+                                                                    "max_ms":  1.613000035285945
+                                                                },
+                                                        "npc.background":  {
+                                                                               "mean_ms":  0.0059998090297573858,
+                                                                               "max_ms":  0.033999999985098853
+                                                                           },
+                                                        "npc.lit_windows":  {
+                                                                                "mean_ms":  0.0035362241930751749,
+                                                                                "max_ms":  0.013000000268220901
+                                                                            },
+                                                        "overhead_text":  {
+                                                                              "mean_ms":  0.0114702956625084,
+                                                                              "max_ms":  0.1160000003874303
+                                                                          },
+                                                        "projectiles":  {
+                                                                            "mean_ms":  1.1553365689955148,
+                                                                            "max_ms":  2.3409999608993548
+                                                                        },
+                                                        "quest_markers":  {
+                                                                              "mean_ms":  0.0727510835024298,
+                                                                              "max_ms":  0.224500000476837
+                                                                          },
+                                                        "river_current":  {
+                                                                              "mean_ms":  0.1553634601024505,
+                                                                              "max_ms":  0.37649999558925651
+                                                                          },
+                                                        "stealth_markers":  {
+                                                                                "mean_ms":  0.13270755814963398,
+                                                                                "max_ms":  0.456499993801117
+                                                                            },
+                                                        "wind":  {
+                                                                     "mean_ms":  0.0359990523928261,
+                                                                     "max_ms":  0.113000001758337
+                                                                 },
+                                                        "window_edge":  {
+                                                                            "mean_ms":  0.02401816432857105,
+                                                                            "max_ms":  0.12049999833107
+                                                                        }
+                                                    },
+                                          "unattributed_process_ms":  0.44065184879055996,
+                                          "unattributed_physics_ms":  1.3871329532740049
+                                      }
+                                  ]
+                 },
+    "costs":  [
+                  {
+                      "variant":  "cart_off",
+                      "off":  [
+                                  "cart"
+                              ],
+                      "detail":  true,
+                      "cpu":  true,
+                      "removes":  "the cart, its animal and its pass (stage E step 24)",
+                      "check_method":  "counter",
+                      "verified":  true,
+                      "check":  "yes (counter: no cart made; a visible part, picture not compared)",
+                      "mean_frame_saving_ms":  -0.46217196856747478,
+                      "mean_gpu_saving_ms":  -0.34425020217897462,
+                      "mean_cpu_saving_ms":  0.97873852025458019,
+                      "views":  [
+                                    {
+                                        "view":  "cart_drive",
+                                        "frame_saving_ms":  1.2502532377540518,
+                                        "gpu_saving_ms":  1.4709997177123988,
+                                        "cpu_saving_ms":  1.2299772948816399,
+                                        "share_of_frame":  0.047541417879443694,
+                                        "outside_noise":  true,
+                                        "cpu_outside_noise":  true,
+                                        "fewer_draw_calls":  -0.5,
+                                        "fewer_primitives":  133842
+                                    },
+                                    {
+                                        "view":  "cart_turns",
+                                        "frame_saving_ms":  -2.1745971748890014,
+                                        "gpu_saving_ms":  -2.159500122070348,
+                                        "cpu_saving_ms":  0.72749974562752051,
+                                        "share_of_frame":  -0.089889792918431258,
+                                        "outside_noise":  true,
+                                        "cpu_outside_noise":  true,
+                                        "fewer_draw_calls":  355.5,
+                                        "fewer_primitives":  120568
+                                    }
+                                ]
+                  }
+              ],
+    "interaction":  [
+
+                    ],
+    "analysed":  "2026-11-12T13:32:30",
+    "min_noise_share":  0.015
+}

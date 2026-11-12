@@ -1,0 +1,14 @@
+{
+  "description": "Being noticed (stage E step 15): the test yard at night (a lighting override), the night patrol's two guards walking their loop round a lamp post and a low wall, 18 box-body watchers in two rows either side of the loop (some facing it, some away; with the yard's own 14 watchers, 32: 05's cap on NPCs at full detail), and the player walking crouched to and fro through the loop, beside the wall and under the lamp. Measures the detection pass (detection: every watcher's checks every 0.2 s within 30 m of the player and every 0.5 s further out, within a 0.5 ms a frame budget, the nearest first: the sight range from the light at the player, the view cone, up to three rays, the meters; physics time) and the markers above the noticing NPCs (stealth_markers: the pooled slots and their Dear ImGui windows, scripts' time); the patrol's walk is its own stopwatch and switch (patrol: with it off the two guards stand at their start corners and still watch; they are in the picture, so it is a visible switch too). The detection budget is kept per drawn frame (all its physics steps together); CombatGroups' looks in a fight (Detection.sees(), once a second) count in that budget but their time is in combat_ai's stopwatch (combat_ai.groups); no fight runs in this scenario. With detection off nobody notices anything, so no marker fills either: its saving is an upper bound (the pass plus the markers' filling). The scenario's own check (CHECK lines) says the work really ran (checks, looks, rays, markers) or, with a switch off, that it stopped. The markers change the picture, so stealth_markers is a visible switch. Records its own baseline the first time it runs; run it on this PC and on the laptop (its Intel graphics at low), and npc_crowd once.",
+  "test": "stealth",
+  "extra": [],
+  "cpu_switches": [
+    "detection",
+    "stealth_markers",
+    "patrol"
+  ],
+  "visible_switches": [
+    "stealth_markers",
+    "patrol"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "description": "Zobolin stage E step 24: the cart in the slice. Two views: cart_drive (seated on the cart with two small barrels stowed on its bed, driving from the stable west along the town road, out of the town and up the slope beyond) and cart_turns (overloaded with the test stones, 800 kg, turning sharply in a circle on the road), at 10:00 with the weather held. Its stopwatch is cart (physics time): the cart's whole pass every physics step (holding and stowing the cargo, walking the draught animal, the hitch's pull, the driver on the seat); the wheels' rigid bodies and hinge joints are the physics engine's own work, in the physics time. Event counters: cart_passes, cart_stowed. With -Ablate the switch cart takes the cart and its animal away (the player is then carried along the same route at the cart's top speed); the cart is in the picture, so it is a visible switch too. Records its own baseline the first time it runs; run it on this PC and on the laptop (its Intel graphics at low).",
+  "test": "cart",
+  "extra": [],
+  "cpu_switches": [
+    "cart"
+  ],
+  "visible_switches": [
+    "cart"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "description": "Zobolin stage E step 23: the slice_vista views with the compass strip drawn at the top of the view (game/ui/quest_compass.gd), with fixed markers at the slice's named places (the measuring runs have no quests; --with-compass, SliceMarkers). Its stopwatch is quest_markers (one pass per frame: the markers' directions and the Dear ImGui strip). With -Ablate -Kind cpu -Only quest_markers: the compass's processor time; the picture changes (the strip disappears), so quest_markers is a visible switch.",
+  "test": "slice",
+  "extra": ["--with-compass"],
+  "cpu_switches": [
+    "quest_markers"
+  ],
+  "visible_switches": [
+    "quest_markers"
+  ]
+}
